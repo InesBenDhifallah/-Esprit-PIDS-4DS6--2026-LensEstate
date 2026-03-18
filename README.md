@@ -8,13 +8,11 @@ TuniEstate is an AI-powered platform designed to address the lack of transparenc
 
 ## Features
 
-- 🤖 **Automated Data Ingestion** — AI agents autonomously collect, clean, deduplicate, and normalize real estate data from multiple sources (online platforms, social media, informal listings)
-- 💰 **AI-Powered Price Estimation** — ML models benchmark property prices based on characteristics, location, and market dynamics to detect overpriced or undervalued listings
-- 📈 **Market Trend Forecasting** — Time-series and predictive models track price evolution, detect seasonality, and anticipate market shifts
-- 💬 **Conversational AI Assistant** — A GenAI chatbot that answers user queries, generates analytical reports, and provides personalized recommendations in natural language
-- 🗺️ **Regional Market Analysis** — Comparative insights across Tunisian governorates, cities, and neighborhoods to highlight spatial disparities
-- 🌍 **Multi-currency Support** — Standardized price normalization across different currency formats
-
+- 🤖 **AI Data Collection Agents** — AI agents autonomously collect, clean, deduplicate, and normalize real estate data from multiple sources (online platforms, social media, informal listings)
+- 💰 **Multi-Modal Valuation Models** — ML models combining property features, location, and market data to ensure fair and objective pricing
+- 📈 **Regional Trend Prediction** — Time-series models to anticipate price shifts and market evolution across Tunisian regions
+- 💬 **Conversational GenAI Assistant** — Natural language chatbot that simplifies market access and delivers personalized insights on demand
+- 🏗️ **2D Property Reconstruction** — Visual reconstruction of property layouts to improve how properties are presented and understood
 ---
 
 ## Tech Stack
@@ -23,14 +21,14 @@ TuniEstate is an AI-powered platform designed to address the lack of transparenc
 
 | Technology | Purpose |
 |---|---|
-| `<!-- e.g. React / Next.js -->` | UI Framework |
+| ` React / Next.js ` | UI Framework |
 
 
 ### Backend
 
 | Technology | Purpose |
 |---|---|
-| `<!-- e.g. Python -->` | AI/ML Processing |
+| `Python ` | AI/ML Processing |
 
 
 ---
@@ -69,7 +67,7 @@ tuniEstate/
 
 ## Academic Context
 
-> 🎓 This project was developed as part of a Data Science academic program at **Esprit School of Engineering**, during the academic year `<!-- e.g. 2025–2026 -->`.
+> 🎓 This project was developed as part of a Data Science academic program at **Esprit School of Engineering**, during the academic year ` 2025–2026`.
 
 **Supervisor:** `Mme Wiem Trabelsi & Mr Bilel Farah`
 
@@ -88,7 +86,7 @@ This project aligns with the following **UN Sustainable Development Goals**:
 
 ### Prerequisites
 
-- `<!-- e.g. Python >= 3.10 -->`
+- `Python >= 3.10 `
 
 ### Installation
 
@@ -135,4 +133,4 @@ GENAI_API_KEY=your_genai_key
 
 ---
 
-> Built with ❤️ by the TuniEstate team — making the Tunisian real estate market transparent, fair, and accessible for all.
+> Built with ❤️ by the LensEstate team — making the Tunisian real estate market transparent, fair, and accessible for all.
