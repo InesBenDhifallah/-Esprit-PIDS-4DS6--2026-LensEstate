@@ -1,0 +1,47 @@
+{
+  "successes": [],
+  "failures": [
+    {
+      "scraper": "mubawab",
+      "reason": "retries_exhausted",
+      "ts": "2026-03-26T13:13:21.184344Z"
+    },
+    {
+      "scraper": "tayara",
+      "reason": "retries_exhausted",
+      "ts": "2026-03-26T13:13:51.294688Z"
+    },
+    {
+      "scraper": "tunisie_annonce",
+      "reason": "retries_exhausted",
+      "ts": "2026-03-26T13:14:21.407170Z"
+    },
+    {
+      "scraper": "mubawab",
+      "reason": "retries_exhausted",
+      "ts": "2026-03-26T13:41:48.813651Z"
+    },
+    {
+      "scraper": "tayara",
+      "reason": "retries_exhausted",
+      "ts": "2026-03-26T13:42:18.943217Z"
+    },
+    {
+      "scraper": "tunisie_annonce",
+      "reason": "retries_exhausted",
+      "ts": "2026-03-26T13:42:49.074013Z"
+    },
+    {
+      "scraper": "mubawab",
+      "reason": "retries_exhausted",
+      "ts": "2026-03-26T13:49:40.871560Z"
+    },
+    {
+      "scraper": "tayara",
+      "reason": "retries_exhausted",
+      "ts": "2026-03-26T13:50:10.977936Z"
+    }
+  ],
+  "decisions": [],
+  "quality": []
+}

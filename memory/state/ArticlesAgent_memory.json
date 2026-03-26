@@ -1,0 +1,32 @@
+{
+  "successes": [
+    {
+      "scraper": "houni",
+      "total": 0,
+      "empty_pct": 1.0,
+      "dupe_pct": 0.0,
+      "short_pct": 1.0,
+      "ts": "2026-03-26T21:54:51.679197Z"
+    }
+  ],
+  "failures": [
+    {
+      "scraper": "bnb",
+      "ts": "2026-03-26T13:14:21.453858Z"
+    },
+    {
+      "scraper": "houni",
+      "ts": "2026-03-26T13:14:21.490973Z"
+    },
+    {
+      "scraper": "bnb",
+      "ts": "2026-03-26T13:42:49.137871Z"
+    },
+    {
+      "scraper": "houni",
+      "ts": "2026-03-26T13:42:49.214832Z"
+    }
+  ],
+  "decisions": [],
+  "quality": []
+}

@@ -1,0 +1,59 @@
+{
+  "run_id": "20260326_134118",
+  "started_at": "2026-03-26T13:41:18.683091Z",
+  "completed_at": "2026-03-26T13:42:49.256481Z",
+  "pipeline_status": "degraded",
+  "final_row_count": 0,
+  "model_ready_path": "",
+  "cleaning_report": {},
+  "decisions": [
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_listings",
+      "ts": "2026-03-26T13:14:21.413359Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_standardization",
+      "ts": "2026-03-26T13:14:21.497506Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_cleaning",
+      "ts": "2026-03-26T13:14:21.502498Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_listings",
+      "ts": "2026-03-26T13:42:49.078079Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_standardization",
+      "ts": "2026-03-26T13:42:49.222408Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_cleaning",
+      "ts": "2026-03-26T13:42:49.248714Z"
+    }
+  ]
+}

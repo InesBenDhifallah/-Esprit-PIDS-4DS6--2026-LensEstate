@@ -1,0 +1,280 @@
+14:12:51 | OrchestratorAgent        | INFO    | ============================================================
+14:12:51 | OrchestratorAgent        | INFO    |   LENS ESTATE PIPELINE — ORCHESTRATOR
+14:12:51 | OrchestratorAgent        | INFO    |   Run ID: 20260326_131251
+14:12:51 | OrchestratorAgent        | INFO    | ============================================================
+14:12:51 | OrchestratorAgent        | INFO    | 
+[STAGE 1] Listings Collection
+14:12:51 | ListingsAgent            | INFO    | =======================================================
+14:12:51 | ListingsAgent            | INFO    | ListingsAgent — starting
+14:12:51 | ListingsAgent            | INFO    | [mubawab] Decision: True — No sufficient existing output
+14:12:51 | ListingsAgent            | INFO    | [mubawab] Running (attempt 1/3)
+14:12:51 | ListingsAgent            | INFO    | Retrying in 10s...
+14:13:01 | ListingsAgent            | INFO    | [mubawab] Running (attempt 2/3)
+14:13:01 | ListingsAgent            | INFO    | Retrying in 20s...
+14:13:21 | ListingsAgent            | INFO    | [mubawab] Running (attempt 3/3)
+14:13:21 | ListingsAgent            | ERROR   | [mubawab] ❌ failed after all retries
+14:13:21 | ListingsAgent            | INFO    | [tayara] Decision: True — No sufficient existing output
+14:13:21 | ListingsAgent            | INFO    | [tayara] Running (attempt 1/3)
+14:13:21 | ListingsAgent            | INFO    | Retrying in 10s...
+14:13:31 | ListingsAgent            | INFO    | [tayara] Running (attempt 2/3)
+14:13:31 | ListingsAgent            | INFO    | Retrying in 20s...
+14:13:51 | ListingsAgent            | INFO    | [tayara] Running (attempt 3/3)
+14:13:51 | ListingsAgent            | ERROR   | [tayara] ❌ failed after all retries
+14:13:51 | ListingsAgent            | INFO    | [tunisie_annonce] Decision: True — No sufficient existing output
+14:13:51 | ListingsAgent            | INFO    | [tunisie_annonce] Running (attempt 1/3)
+14:13:51 | ListingsAgent            | INFO    | Retrying in 10s...
+14:14:01 | ListingsAgent            | INFO    | [tunisie_annonce] Running (attempt 2/3)
+14:14:01 | ListingsAgent            | INFO    | Retrying in 20s...
+14:14:21 | ListingsAgent            | INFO    | [tunisie_annonce] Running (attempt 3/3)
+14:14:21 | ListingsAgent            | ERROR   | [tunisie_annonce] ❌ failed after all retries
+14:14:21 | ListingsAgent            | INFO    | ListingsAgent done — 0 sources, 0 rows
+14:14:21 | OrchestratorAgent        | INFO    | DECISION | after_listings | {'action': 'continue', 'reason': 'LLM unavailable — deterministic fallback'}
+14:14:21 | OrchestratorAgent        | INFO    | 
+[STAGE 2] Articles Collection
+14:14:21 | ArticlesAgent            | INFO    | =======================================================
+14:14:21 | ArticlesAgent            | INFO    | ArticlesAgent — starting
+14:14:21 | ArticlesAgent            | ERROR   | [bnb] ❌ failed
+14:14:21 | ArticlesAgent            | ERROR   | [houni] ❌ failed
+14:14:21 | OrchestratorAgent        | INFO    | 
+[STAGE 3] Standardization
+14:14:21 | StandardizationAgent     | INFO    | =======================================================
+14:14:21 | StandardizationAgent     | INFO    | StandardizationAgent — starting
+14:14:21 | StandardizationAgent     | ERROR   | No listings data to merge
+14:14:21 | OrchestratorAgent        | INFO    | DECISION | after_standardization | {'action': 'continue', 'reason': 'LLM unavailable — deterministic fallback'}
+14:14:21 | OrchestratorAgent        | INFO    | 
+[STAGE 4] Cleaning
+14:14:21 | CleaningAgent            | INFO    | =======================================================
+14:14:21 | CleaningAgent            | INFO    | CleaningAgent — starting
+14:14:21 | CleaningAgent            | ERROR   | Merged listings not found: 
+14:14:21 | OrchestratorAgent        | INFO    | DECISION | after_cleaning | {'action': 'continue', 'reason': 'LLM unavailable — deterministic fallback'}
+14:14:21 | OrchestratorAgent        | INFO    | 
+[STAGE 5] Final Validation
+14:14:21 | OrchestratorAgent        | WARNING | ⚠️  Pipeline DEGRADED — only 0 rows (min 500)
+14:14:21 | OrchestratorAgent        | INFO    | Run report saved → logs/run_20260326_131251.json
+14:41:18 | OrchestratorAgent        | INFO    | ============================================================
+14:41:18 | OrchestratorAgent        | INFO    |   LENS ESTATE PIPELINE — ORCHESTRATOR
+14:41:18 | OrchestratorAgent        | INFO    |   Run ID: 20260326_134118
+14:41:18 | OrchestratorAgent        | INFO    | ============================================================
+14:41:18 | OrchestratorAgent        | INFO    | 
+[STAGE 1] Listings Collection
+14:41:18 | ListingsAgent            | INFO    | =======================================================
+14:41:18 | ListingsAgent            | INFO    | ListingsAgent — starting
+14:41:18 | ListingsAgent            | INFO    | [mubawab] Decision: True — No sufficient existing output
+14:41:18 | ListingsAgent            | INFO    | [mubawab] Running (attempt 1/3)
+14:41:18 | ListingsAgent            | INFO    | Retrying in 10s...
+14:41:28 | ListingsAgent            | INFO    | [mubawab] Running (attempt 2/3)
+14:41:28 | ListingsAgent            | INFO    | Retrying in 20s...
+14:41:48 | ListingsAgent            | INFO    | [mubawab] Running (attempt 3/3)
+14:41:48 | ListingsAgent            | ERROR   | [mubawab] ❌ failed after all retries
+14:41:48 | ListingsAgent            | INFO    | [tayara] Decision: True — No sufficient existing output
+14:41:48 | ListingsAgent            | INFO    | [tayara] Running (attempt 1/3)
+14:41:48 | ListingsAgent            | INFO    | Retrying in 10s...
+14:41:58 | ListingsAgent            | INFO    | [tayara] Running (attempt 2/3)
+14:41:58 | ListingsAgent            | INFO    | Retrying in 20s...
+14:42:18 | ListingsAgent            | INFO    | [tayara] Running (attempt 3/3)
+14:42:18 | ListingsAgent            | ERROR   | [tayara] ❌ failed after all retries
+14:42:18 | ListingsAgent            | INFO    | [tunisie_annonce] Decision: True — No sufficient existing output
+14:42:18 | ListingsAgent            | INFO    | [tunisie_annonce] Running (attempt 1/3)
+14:42:18 | ListingsAgent            | INFO    | Retrying in 10s...
+14:42:28 | ListingsAgent            | INFO    | [tunisie_annonce] Running (attempt 2/3)
+14:42:29 | ListingsAgent            | INFO    | Retrying in 20s...
+14:42:49 | ListingsAgent            | INFO    | [tunisie_annonce] Running (attempt 3/3)
+14:42:49 | ListingsAgent            | ERROR   | [tunisie_annonce] ❌ failed after all retries
+14:42:49 | ListingsAgent            | INFO    | ListingsAgent done — 0 sources, 0 rows
+14:42:49 | OrchestratorAgent        | INFO    | DECISION | after_listings | {'action': 'continue', 'reason': 'LLM unavailable — deterministic fallback'}
+14:42:49 | OrchestratorAgent        | INFO    | 
+[STAGE 2] Articles Collection
+14:42:49 | ArticlesAgent            | INFO    | =======================================================
+14:42:49 | ArticlesAgent            | INFO    | ArticlesAgent — starting
+14:42:49 | ArticlesAgent            | ERROR   | [bnb] ❌ failed
+14:42:49 | ArticlesAgent            | ERROR   | [houni] ❌ failed
+14:42:49 | OrchestratorAgent        | INFO    | 
+[STAGE 3] Standardization
+14:42:49 | StandardizationAgent     | INFO    | =======================================================
+14:42:49 | StandardizationAgent     | INFO    | StandardizationAgent — starting
+14:42:49 | StandardizationAgent     | ERROR   | No listings data to merge
+14:42:49 | OrchestratorAgent        | INFO    | DECISION | after_standardization | {'action': 'continue', 'reason': 'LLM unavailable — deterministic fallback'}
+14:42:49 | OrchestratorAgent        | INFO    | 
+[STAGE 4] Cleaning
+14:42:49 | CleaningAgent            | INFO    | =======================================================
+14:42:49 | CleaningAgent            | INFO    | CleaningAgent — starting
+14:42:49 | CleaningAgent            | ERROR   | Merged listings not found: 
+14:42:49 | OrchestratorAgent        | INFO    | DECISION | after_cleaning | {'action': 'continue', 'reason': 'LLM unavailable — deterministic fallback'}
+14:42:49 | OrchestratorAgent        | INFO    | 
+[STAGE 5] Final Validation
+14:42:49 | OrchestratorAgent        | WARNING | ⚠️  Pipeline DEGRADED — only 0 rows (min 500)
+14:42:49 | OrchestratorAgent        | INFO    | Run report saved → logs/run_20260326_134118.json
+14:49:10 | OrchestratorAgent        | INFO    | ============================================================
+14:49:10 | OrchestratorAgent        | INFO    |   LENS ESTATE PIPELINE — ORCHESTRATOR
+14:49:10 | OrchestratorAgent        | INFO    |   Run ID: 20260326_134910
+14:49:10 | OrchestratorAgent        | INFO    | ============================================================
+14:49:10 | OrchestratorAgent        | INFO    | 
+[STAGE 1] Listings Collection
+14:49:10 | ListingsAgent            | INFO    | =======================================================
+14:49:10 | ListingsAgent            | INFO    | ListingsAgent — starting
+14:49:10 | ListingsAgent            | INFO    | [mubawab] Decision: True — No sufficient existing output
+14:49:10 | ListingsAgent            | INFO    | [mubawab] Running (attempt 1/3)
+14:49:10 | ListingsAgent            | INFO    | Retrying in 10s...
+14:49:20 | ListingsAgent            | INFO    | [mubawab] Running (attempt 2/3)
+14:49:20 | ListingsAgent            | INFO    | Retrying in 20s...
+14:49:40 | ListingsAgent            | INFO    | [mubawab] Running (attempt 3/3)
+14:49:40 | ListingsAgent            | ERROR   | [mubawab] ❌ failed after all retries
+14:49:40 | ListingsAgent            | INFO    | [tayara] Decision: True — No sufficient existing output
+14:49:40 | ListingsAgent            | INFO    | [tayara] Running (attempt 1/3)
+14:49:40 | ListingsAgent            | INFO    | Retrying in 10s...
+14:49:50 | ListingsAgent            | INFO    | [tayara] Running (attempt 2/3)
+14:49:50 | ListingsAgent            | INFO    | Retrying in 20s...
+14:50:10 | ListingsAgent            | INFO    | [tayara] Running (attempt 3/3)
+14:50:10 | ListingsAgent            | ERROR   | [tayara] ❌ failed after all retries
+14:50:10 | ListingsAgent            | INFO    | [tunisie_annonce] Decision: True — No sufficient existing output
+14:50:10 | ListingsAgent            | INFO    | [tunisie_annonce] Running (attempt 1/3)
+15:50:11 | ListingsAgent            | ERROR   | [tunisie_annonce] Error: Command '['C:\\Users\\mohameddkhalil\\AppData\\Local\\Programs\\Python\\Python312\\python.exe', 'scrapers/Tunisie-Annonces-scrapper/main.py', '--max-pages', '50']' timed out after 3600 seconds
+15:50:11 | ListingsAgent            | INFO    | Retrying in 10s...
+15:50:21 | ListingsAgent            | INFO    | [tunisie_annonce] Running (attempt 2/3)
+22:51:42 | OrchestratorAgent          | INFO     | ============================================================
+22:51:42 | OrchestratorAgent          | INFO     |   LENS ESTATE PIPELINE — ORCHESTRATOR
+22:51:42 | OrchestratorAgent          | INFO     |   Run ID  : 20260326_215142
+22:51:42 | OrchestratorAgent          | INFO     |   Started : 2026-03-26T21:51:42.918908Z
+22:51:42 | OrchestratorAgent          | INFO     | ============================================================
+22:51:42 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+22:51:42 | OrchestratorAgent          | INFO     |   STAGE 1 — Articles Collection
+22:51:42 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+22:51:42 | ArticlesAgent              | INFO     | ============================================================
+22:51:42 | ArticlesAgent              | INFO     | ArticlesAgent — starting (runs FIRST)
+22:51:42 | ArticlesAgent              | INFO     | ============================================================
+22:51:42 | ArticlesAgent              | INFO     | 
+──────────────────────────────────────────────────
+22:51:42 | ArticlesAgent              | INFO     | Processing scraper: BNB
+22:51:42 | ArticlesAgent              | INFO     |   cwd    : C:\bnbblog
+22:51:42 | ArticlesAgent              | INFO     |   script : bnb_tunisie_scraper.py
+22:51:42 | ArticlesAgent              | INFO     |   output : C:\bnbblog\bnb_blog_articles.csv
+22:51:42 | ArticlesAgent              | DEBUG    | Row count [C:\bnbblog\bnb_blog_articles.csv]: 2,999
+22:51:42 | ArticlesAgent              | DEBUG    |   Existing output: 2999 rows, age 0.0 days (max 7)
+22:51:42 | ArticlesAgent              | INFO     |   ⏭  SKIPPING — Output fresh (0.0d old, 2999 rows ≥ 10)
+22:51:42 | ArticlesAgent              | INFO     | 
+──────────────────────────────────────────────────
+22:51:42 | ArticlesAgent              | INFO     | Processing scraper: HOUNI
+22:51:42 | ArticlesAgent              | INFO     |   cwd    : C:\houni.scraper
+22:51:42 | ArticlesAgent              | INFO     |   script : houni_scraper.py
+22:51:42 | ArticlesAgent              | INFO     |   output : C:\houni.scraper\houni_blog_articles.csv
+22:51:42 | ArticlesAgent              | DEBUG    | Row count [C:\houni.scraper\houni_blog_articles.csv]: 1,474
+22:51:42 | ArticlesAgent              | DEBUG    |   Existing output: 1474 rows, age 31.4 days (max 7)
+22:51:42 | ArticlesAgent              | INFO     |   ▶  RUNNING — Output missing or stale
+22:51:42 | ArticlesAgent              | INFO     |   Attempt 1/2
+22:51:42 | ArticlesAgent              | INFO     |   $ C:\Users\mohameddkhalil\AppData\Local\Programs\Python\Python312\python.exe houni_scraper.py
+22:51:42 | ArticlesAgent              | INFO     |   cwd: C:\houni.scraper
+22:54:51 | ArticlesAgent              | INFO     |   ✅ exit 0
+22:54:51 | ArticlesAgent              | DEBUG    |   STDOUT: 2025
+  ✓ Title: Location d’un logement à Tunisie...
+  ✓ Content length: 106 characters
+
+============================================================
+✓ Successfully scraped 51 articles
+============================================================
+
+✓ Saved 51 articles to 'houni_blog_articles.csv'
+
+============================================================
+✓ SCRAPING COMPLETE!
+============================================================
+Results saved to: houni_blog_articles.csv
+Total articles: 51
+
+22:54:51 | ArticlesAgent              | DEBUG    | Row count [C:\houni.scraper\houni_blog_articles.csv]: 153
+22:54:51 | ArticlesAgent              | INFO     |   Output validated: 153 rows at C:\houni.scraper\houni_blog_articles.csv
+22:54:51 | ArticlesAgent              | ERROR    | Quality assessment error: read_csv() got an unexpected keyword argument 'errors'
+22:54:51 | Memory.ArticlesAgent       | DEBUG    | [MEMORY] stored in 'successes': {'scraper': 'houni', 'total': 0, 'empty_pct': 1.0, 'dupe_pct': 0.0, 'short_pct': 1.0, 'ts': '2026-03-26T21:54:51.679197Z'}
+22:54:51 | ArticlesAgent              | INFO     |   ✅ SUCCESS — 0 articles | empty: 100.0% | dupes: 0.0%
+22:54:51 | ArticlesAgent              | ERROR    | Failed to load C:\bnbblog\bnb_blog_articles.csv: read_csv() got an unexpected keyword argument 'errors'
+22:54:51 | ArticlesAgent              | ERROR    | Failed to load C:\houni.scraper\houni_blog_articles.csv: read_csv() got an unexpected keyword argument 'errors'
+22:54:51 | ArticlesAgent              | WARNING  | No article DataFrames to merge
+22:54:51 | ArticlesAgent              | DEBUG    | State updated — articles_raw_paths: ['C:\\bnbblog\\bnb_blog_articles.csv', 'C:\\houni.scraper\\houni_blog_articles.csv']
+22:54:51 | ArticlesAgent              | DEBUG    | State updated — articles_results: {'bnb': {'status': 'skipped', 'reason': 'Output fresh (0.0d old, 2999 rows ≥ 10)', 'path': 'C:\\bnbblog\\bnb_blog_articl
+22:54:51 | ArticlesAgent              | DEBUG    | State updated — merged_articles_path: 
+22:54:51 | ArticlesAgent              | INFO     | 
+ArticlesAgent done — 2 sources collected
+22:54:51 | OrchestratorAgent          | INFO     | Articles stage complete: 2 sources
+22:54:51 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+22:54:51 | OrchestratorAgent          | INFO     |   STAGE 2 — Listings Collection
+22:54:51 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+22:54:51 | ListingsAgent              | INFO     | ============================================================
+22:54:51 | ListingsAgent              | INFO     | ListingsAgent — starting
+22:54:51 | ListingsAgent              | INFO     | ============================================================
+22:54:51 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+22:54:51 | ListingsAgent              | INFO     | Processing scraper: MUBAWAB
+22:54:51 | ListingsAgent              | INFO     |   cwd    : C:\Mubawab-scrapper
+22:54:51 | ListingsAgent              | INFO     |   script : mubawab_scraper.py 
+22:54:51 | ListingsAgent              | INFO     |   ⏭  SKIPPING — Failed 3x recently — skipping
+22:54:51 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+22:54:51 | ListingsAgent              | INFO     | Processing scraper: TAYARA
+22:54:51 | ListingsAgent              | INFO     |   cwd    : C:\tayara-scraper
+22:54:51 | ListingsAgent              | INFO     |   script : main.py --max-pages 10
+22:54:51 | ListingsAgent              | INFO     |   ⏭  SKIPPING — Failed 3x recently — skipping
+22:54:51 | ListingsAgent              | DEBUG    |   Latest timestamped file: C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv
+22:54:51 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+22:54:51 | ListingsAgent              | INFO     | Processing scraper: TUNISIE_ANNONCE
+22:54:51 | ListingsAgent              | INFO     |   cwd    : C:\Tunisie-Annonces-scrapper
+22:54:51 | ListingsAgent              | INFO     |   script : main.py 
+22:54:51 | ListingsAgent              | DEBUG    | Row count [C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv]: 10,404
+22:54:51 | ListingsAgent              | INFO     |   ⏭  SKIPPING — Existing output has 10,404 rows ≥ 100
+22:54:51 | ListingsAgent              | DEBUG    | Row count [C:\Mubawab-scrapper\data\mubawab_listings.csv]: 810
+22:54:51 | ListingsAgent              | DEBUG    | Row count [C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv]: 6,646
+22:54:51 | ListingsAgent              | DEBUG    | Row count [C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv]: 10,404
+22:54:51 | ListingsAgent              | DEBUG    | State updated — listings_raw_paths: ['C:\\Mubawab-scrapper\\data\\mubawab_listings.csv', 'C:\\tayara-scraper\\data\\tayara_scrape\\processed\\tayara_listing
+22:54:51 | ListingsAgent              | DEBUG    | State updated — listings_results: {'mubawab': {'status': 'skipped', 'path': 'C:\\Mubawab-scrapper\\data\\mubawab_listings.csv'}, 'tayara': {'status': 'ski
+22:54:51 | ListingsAgent              | DEBUG    | State updated — listings_total_rows: 17860
+22:54:51 | ListingsAgent              | INFO     | 
+ListingsAgent done — 3 sources, 17,860 total rows
+22:54:51 | ListingsAgent              | INFO     |   mubawab                → skipped
+22:54:51 | ListingsAgent              | INFO     |   tayara                 → skipped
+22:54:51 | ListingsAgent              | INFO     |   tunisie_annonce        → skipped
+22:54:51 | OrchestratorAgent          | INFO     | 
+Asking LLM for decision after stage: listings_collection
+22:54:51 | OrchestratorAgent          | DEBUG    | Decision context: {
+  "stage": "listings_collection",
+  "listings_total_rows": 17860,
+  "min_target": 500,
+  "standardization": null,
+  "cleaning_status": null,
+  "final_row_count": 0,
+  "suspicious_count": 0,
+  "sources": {
+    "mubawab": "skipped",
+    "tayara": "skipped",
+    "tunisie_annonce": "skipped"
+  }
+}
+22:54:51 | OrchestratorAgent          | DEBUG    | LLM raw response: {"action": "continue", "reason": "LLM unavailable"}
+22:54:51 | Memory.OrchestratorAgent   | DEBUG    | [MEMORY] stored in 'decisions': {'decision': {'action': 'continue', 'reason': 'LLM unavailable'}, 'context': 'after_listings', 'ts': '2026-03-26T21:54:51.905542Z'}
+22:54:51 | OrchestratorAgent          | INFO     | ┌─ DECISION [after_listings]
+22:54:51 | OrchestratorAgent          | INFO     | │  action     : continue
+22:54:51 | OrchestratorAgent          | INFO     | │  reason     : LLM unavailable
+22:54:51 | OrchestratorAgent          | INFO     | └─ confidence : ?
+22:54:51 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+22:54:51 | OrchestratorAgent          | INFO     |   STAGE 3 — Standardization
+22:54:51 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+22:54:51 | StandardizationAgent       | INFO     | ============================================================
+22:54:51 | StandardizationAgent       | INFO     | StandardizationAgent — starting
+22:54:51 | StandardizationAgent       | INFO     | ============================================================
+22:54:51 | StandardizationAgent       | INFO     | Input paths (3):
+22:54:51 | StandardizationAgent       | INFO     |   → C:\Mubawab-scrapper\data\mubawab_listings.csv
+22:54:51 | StandardizationAgent       | INFO     |   → C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv
+22:54:51 | StandardizationAgent       | INFO     |   → C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv
+22:54:51 | StandardizationAgent       | INFO     | 
+Standardizing: C:\Mubawab-scrapper\data\mubawab_listings.csv
+22:54:51 | StandardizationAgent       | DEBUG    |   Raw shape: (810, 42) | columns: ['listing_id', 'listing_url', 'source', 'title', 'property_type', 'transaction_type', 'price', 'currency']...
+22:54:51 | StandardizationAgent       | INFO     |   ✅ 810 rows | source=mubawab
+22:54:51 | StandardizationAgent       | INFO     | 
+Standardizing: C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv
+22:54:52 | StandardizationAgent       | DEBUG    |   Raw shape: (500, 27) | columns: ['listing_id', 'title', 'price_numeric', 'currency', 'price_raw', 'category', 'city', 'governorate']...
+22:54:52 | StandardizationAgent       | INFO     |   ✅ 500 rows | source=tayara
+22:54:52 | StandardizationAgent       | INFO     | 
+Standardizing: C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv
+22:54:52 | StandardizationAgent       | DEBUG    |   Raw shape: (10404, 34) | columns: ['id', 'title', 'link', 'source', 'property_type', 'transaction_type', 'price', 'currency']...
+22:54:52 | StandardizationAgent       | INFO     |   ✅ 10,404 rows | source=tunisie_annonce
