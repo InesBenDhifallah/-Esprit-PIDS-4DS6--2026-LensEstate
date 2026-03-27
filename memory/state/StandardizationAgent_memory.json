@@ -1,0 +1,17 @@
+{
+  "successes": [],
+  "failures": [],
+  "decisions": [],
+  "quality": [
+    {
+      "rows": 11714,
+      "cols": 64,
+      "sources": {
+        "tunisie_annonce": 10404,
+        "mubawab": 810,
+        "tayara": 500
+      },
+      "ts": "2026-03-27T10:02:19.358537Z"
+    }
+  ]
+}

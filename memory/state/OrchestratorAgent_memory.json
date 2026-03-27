@@ -57,6 +57,30 @@
       },
       "context": "after_listings",
       "ts": "2026-03-26T21:54:51.905542Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable"
+      },
+      "context": "after_listings",
+      "ts": "2026-03-27T10:02:17.451012Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable"
+      },
+      "context": "after_standardization",
+      "ts": "2026-03-27T10:02:19.365447Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable"
+      },
+      "context": "after_cleaning",
+      "ts": "2026-03-27T10:02:21.153195Z"
     }
   ],
   "quality": []
