@@ -504,3 +504,1295 @@ Asking LLM for decision after stage: cleaning
 11:02:21 | OrchestratorAgent          | INFO     |   Output:     Data/raw_listings/merged_listings_model_ready.csv
 11:02:21 | OrchestratorAgent          | INFO     |   Report:     logs/run_20260327_100216.json
 11:02:21 | OrchestratorAgent          | INFO     | ============================================================
+17:40:49 | OrchestratorAgent          | INFO     | ============================================================
+17:40:49 | OrchestratorAgent          | INFO     |   LENS ESTATE PIPELINE — ORCHESTRATOR
+17:40:49 | OrchestratorAgent          | INFO     |   Run ID  : 20260330_164049
+17:40:49 | OrchestratorAgent          | INFO     |   Started : 2026-03-30T16:40:49.772530Z
+17:40:49 | OrchestratorAgent          | INFO     | ============================================================
+17:40:49 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+17:40:49 | OrchestratorAgent          | INFO     |   STAGE 1 — Articles Collection
+17:40:49 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+17:40:49 | ArticlesAgent              | INFO     | ============================================================
+17:40:49 | ArticlesAgent              | INFO     | ArticlesAgent — starting (runs FIRST)
+17:40:49 | ArticlesAgent              | INFO     | ============================================================
+17:40:49 | ArticlesAgent              | INFO     | 
+──────────────────────────────────────────────────
+17:40:49 | ArticlesAgent              | INFO     | Processing scraper: BNB
+17:40:49 | ArticlesAgent              | INFO     |   cwd    : C:\bnbblog
+17:40:49 | ArticlesAgent              | INFO     |   script : bnb_tunisie_scraper.py
+17:40:49 | ArticlesAgent              | INFO     |   output : C:\bnbblog\bnb_blog_articles.csv
+17:40:49 | ArticlesAgent              | DEBUG    | Row count [C:\bnbblog\bnb_blog_articles.csv]: 2,999
+17:40:49 | ArticlesAgent              | DEBUG    |   Existing output: 2999 rows, age 3.8 days (max 7)
+17:40:49 | ArticlesAgent              | INFO     |   ⏭  SKIPPING — Output fresh (3.8d old, 2999 rows ≥ 10)
+17:40:49 | ArticlesAgent              | INFO     | 
+──────────────────────────────────────────────────
+17:40:49 | ArticlesAgent              | INFO     | Processing scraper: HOUNI
+17:40:49 | ArticlesAgent              | INFO     |   cwd    : C:\houni.scraper
+17:40:49 | ArticlesAgent              | INFO     |   script : houni_scraper.py
+17:40:49 | ArticlesAgent              | INFO     |   output : C:\houni.scraper\houni_blog_articles.csv
+17:40:49 | ArticlesAgent              | DEBUG    | Row count [C:\houni.scraper\houni_blog_articles.csv]: 153
+17:40:49 | ArticlesAgent              | DEBUG    |   Existing output: 153 rows, age 3.8 days (max 7)
+17:40:49 | ArticlesAgent              | INFO     |   ⏭  SKIPPING — Output fresh (3.8d old, 153 rows ≥ 10)
+17:40:49 | ArticlesAgent              | ERROR    | Failed to load C:\bnbblog\bnb_blog_articles.csv: read_csv() got an unexpected keyword argument 'errors'
+17:40:49 | ArticlesAgent              | ERROR    | Failed to load C:\houni.scraper\houni_blog_articles.csv: read_csv() got an unexpected keyword argument 'errors'
+17:40:49 | ArticlesAgent              | WARNING  | No article DataFrames to merge
+17:40:49 | ArticlesAgent              | DEBUG    | State updated — articles_raw_paths: ['C:\\bnbblog\\bnb_blog_articles.csv', 'C:\\houni.scraper\\houni_blog_articles.csv']
+17:40:49 | ArticlesAgent              | DEBUG    | State updated — articles_results: {'bnb': {'status': 'skipped', 'reason': 'Output fresh (3.8d old, 2999 rows ≥ 10)', 'path': 'C:\\bnbblog\\bnb_blog_articl
+17:40:49 | ArticlesAgent              | DEBUG    | State updated — merged_articles_path: 
+17:40:49 | ArticlesAgent              | INFO     | 
+ArticlesAgent done — 2 sources collected
+17:40:49 | OrchestratorAgent          | INFO     | Articles stage complete: 2 sources
+17:40:49 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+17:40:49 | OrchestratorAgent          | INFO     |   STAGE 2 — Listings Collection
+17:40:49 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+17:40:49 | ListingsAgent              | INFO     | ============================================================
+17:40:49 | ListingsAgent              | INFO     | ListingsAgent — starting
+17:40:49 | ListingsAgent              | INFO     | ============================================================
+17:40:49 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+17:40:49 | ListingsAgent              | INFO     | Processing scraper: MUBAWAB
+17:40:49 | ListingsAgent              | INFO     |   cwd    : C:\Mubawab-scrapper
+17:40:49 | ListingsAgent              | INFO     |   script : mubawab_scraper.py 
+17:40:49 | ListingsAgent              | INFO     |   ⏭  SKIPPING — Failed 3x recently — skipping
+17:40:49 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+17:40:49 | ListingsAgent              | INFO     | Processing scraper: TAYARA
+17:40:49 | ListingsAgent              | INFO     |   cwd    : C:\tayara-scraper
+17:40:49 | ListingsAgent              | INFO     |   script : main.py --max-pages 10
+17:40:49 | ListingsAgent              | INFO     |   ⏭  SKIPPING — Failed 3x recently — skipping
+17:40:49 | ListingsAgent              | DEBUG    |   Latest timestamped file: C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv
+17:40:49 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+17:40:49 | ListingsAgent              | INFO     | Processing scraper: TUNISIE_ANNONCE
+17:40:49 | ListingsAgent              | INFO     |   cwd    : C:\Tunisie-Annonces-scrapper
+17:40:49 | ListingsAgent              | INFO     |   script : main.py 
+17:40:49 | ListingsAgent              | DEBUG    | Row count [C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv]: 10,404
+17:40:49 | ListingsAgent              | INFO     |   ⏭  SKIPPING — Existing output has 10,404 rows ≥ 100
+17:40:49 | ListingsAgent              | DEBUG    | Row count [C:\Mubawab-scrapper\data\mubawab_listings.csv]: 810
+17:40:49 | ListingsAgent              | DEBUG    | Row count [C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv]: 6,646
+17:40:50 | ListingsAgent              | DEBUG    | Row count [C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv]: 10,404
+17:40:50 | ListingsAgent              | DEBUG    | State updated — listings_raw_paths: ['C:\\Mubawab-scrapper\\data\\mubawab_listings.csv', 'C:\\tayara-scraper\\data\\tayara_scrape\\processed\\tayara_listing
+17:40:50 | ListingsAgent              | DEBUG    | State updated — listings_results: {'mubawab': {'status': 'skipped', 'path': 'C:\\Mubawab-scrapper\\data\\mubawab_listings.csv'}, 'tayara': {'status': 'ski
+17:40:50 | ListingsAgent              | DEBUG    | State updated — listings_total_rows: 17860
+17:40:50 | ListingsAgent              | INFO     | 
+ListingsAgent done — 3 sources, 17,860 total rows
+17:40:50 | ListingsAgent              | INFO     |   mubawab                → skipped
+17:40:50 | ListingsAgent              | INFO     |   tayara                 → skipped
+17:40:50 | ListingsAgent              | INFO     |   tunisie_annonce        → skipped
+17:40:50 | OrchestratorAgent          | INFO     | 
+Asking LLM for decision after stage: listings_collection
+17:40:50 | OrchestratorAgent          | DEBUG    | Decision context: {
+  "stage": "listings_collection",
+  "listings_total_rows": 17860,
+  "min_target": 500,
+  "standardization": null,
+  "cleaning_status": null,
+  "final_row_count": 0,
+  "suspicious_count": 0,
+  "sources": {
+    "mubawab": "skipped",
+    "tayara": "skipped",
+    "tunisie_annonce": "skipped"
+  }
+}
+17:40:54 | OrchestratorAgent          | DEBUG    | LLM raw response: {"action":"continue","reason":"no further actions required","confidence":1.0}
+17:40:54 | Memory.OrchestratorAgent   | DEBUG    | [MEMORY] stored in 'decisions': {'decision': {'action': 'continue', 'reason': 'no further actions required', 'confidence': 1.0}, 'context': 'after_listings', 'ts': '2026-03-30T16:40:54.386912Z'}
+17:40:54 | OrchestratorAgent          | INFO     | ┌─ DECISION [after_listings]
+17:40:54 | OrchestratorAgent          | INFO     | │  action     : continue
+17:40:54 | OrchestratorAgent          | INFO     | │  reason     : no further actions required
+17:40:54 | OrchestratorAgent          | INFO     | └─ confidence : 1.0
+17:40:54 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+17:40:54 | OrchestratorAgent          | INFO     |   STAGE 3 — Standardization
+17:40:54 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+17:40:54 | StandardizationAgent       | INFO     | ============================================================
+17:40:54 | StandardizationAgent       | INFO     | StandardizationAgent — starting
+17:40:54 | StandardizationAgent       | INFO     | ============================================================
+17:40:54 | StandardizationAgent       | INFO     | Input paths (3):
+17:40:54 | StandardizationAgent       | INFO     |   → C:\Mubawab-scrapper\data\mubawab_listings.csv
+17:40:54 | StandardizationAgent       | INFO     |   → C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv
+17:40:54 | StandardizationAgent       | INFO     |   → C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv
+17:40:54 | StandardizationAgent       | INFO     | 
+Standardizing: C:\Mubawab-scrapper\data\mubawab_listings.csv
+17:40:54 | StandardizationAgent       | DEBUG    |   Raw shape: (810, 42) | columns: ['listing_id', 'listing_url', 'source', 'title', 'property_type', 'transaction_type', 'price', 'currency']...
+17:40:54 | StandardizationAgent       | INFO     |   ✅ 810 rows | source=mubawab
+17:40:54 | StandardizationAgent       | INFO     | 
+Standardizing: C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv
+17:40:54 | StandardizationAgent       | DEBUG    |   Raw shape: (500, 27) | columns: ['listing_id', 'title', 'price_numeric', 'currency', 'price_raw', 'category', 'city', 'governorate']...
+17:40:54 | StandardizationAgent       | INFO     |   ✅ 500 rows | source=tayara
+17:40:54 | StandardizationAgent       | INFO     | 
+Standardizing: C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv
+17:40:54 | StandardizationAgent       | DEBUG    |   Raw shape: (10404, 34) | columns: ['id', 'title', 'link', 'source', 'property_type', 'transaction_type', 'price', 'currency']...
+17:40:54 | StandardizationAgent       | INFO     |   ✅ 10,404 rows | source=tunisie_annonce
+17:40:55 | StandardizationAgent       | INFO     | 
+──────────────────────────────────────────────────
+17:40:55 | StandardizationAgent       | INFO     | Merged listings: 11,714 rows, 64 cols → Data/raw_listings/merged_listings.csv
+17:40:55 | StandardizationAgent       | INFO     | Source distribution:
+17:40:55 | StandardizationAgent       | INFO     |   tunisie_annonce            10,404
+17:40:55 | StandardizationAgent       | INFO     |   mubawab                       810
+17:40:55 | StandardizationAgent       | INFO     |   tayara                        500
+17:40:55 | StandardizationAgent       | INFO     | ──────────────────────────────────────────────────
+17:40:55 | Memory.StandardizationAgent | DEBUG    | [MEMORY] stored in 'quality': {'rows': 11714, 'cols': 64, 'sources': {'tunisie_annonce': 10404, 'mubawab': 810, 'tayara': 500}, 'ts': '2026-03-30T16:40:55.342958Z'}
+17:40:55 | StandardizationAgent       | DEBUG    | State updated — merged_listings_path: Data/raw_listings/merged_listings.csv
+17:40:55 | StandardizationAgent       | DEBUG    | State updated — standardization_status: success
+17:40:55 | StandardizationAgent       | DEBUG    | State updated — standardization_report: {'rows': 11714, 'sources': {'tunisie_annonce': 10404, 'mubawab': 810, 'tayara': 500}}
+17:40:55 | OrchestratorAgent          | INFO     | 
+Asking LLM for decision after stage: standardization
+17:40:55 | OrchestratorAgent          | DEBUG    | Decision context: {
+  "stage": "standardization",
+  "listings_total_rows": 17860,
+  "min_target": 500,
+  "standardization": "success",
+  "cleaning_status": null,
+  "final_row_count": 0,
+  "suspicious_count": 0,
+  "std_report": {
+    "rows": 11714,
+    "sources": {
+      "tunisie_annonce": 10404,
+      "mubawab": 810,
+      "tayara": 500
+    }
+  }
+}
+17:41:00 | OrchestratorAgent          | DEBUG    | LLM raw response: {"action":"continue","reason":"standardization is complete and no further actions are needed.","confidence":1.0}
+17:41:00 | Memory.OrchestratorAgent   | DEBUG    | [MEMORY] stored in 'decisions': {'decision': {'action': 'continue', 'reason': 'standardization is complete and no further actions are needed.', 'confidence': 1.0}, 'context': 'after_standardization', 'ts': '2026-03-30T16:41:00.161718Z'}
+17:41:00 | OrchestratorAgent          | INFO     | ┌─ DECISION [after_standardization]
+17:41:00 | OrchestratorAgent          | INFO     | │  action     : continue
+17:41:00 | OrchestratorAgent          | INFO     | │  reason     : standardization is complete and no further actions are needed.
+17:41:00 | OrchestratorAgent          | INFO     | └─ confidence : 1.0
+17:41:00 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+17:41:00 | OrchestratorAgent          | INFO     |   STAGE 4 — Cleaning
+17:41:00 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+17:41:00 | CleaningAgent              | INFO     | ============================================================
+17:41:00 | CleaningAgent              | INFO     | CleaningAgent — starting
+17:41:00 | CleaningAgent              | INFO     | ============================================================
+17:41:00 | CleaningAgent              | INFO     | Loaded: 11,714 rows × 64 cols
+17:41:00 | CleaningAgent              | INFO     | 
+Cleaning pipeline:
+17:41:00 | CleaningAgent              | INFO     |   [normalize] 11,714 rows
+17:41:00 | CleaningAgent              | INFO     |   [gov_recovery] 11,714 rows
+17:41:00 | CleaningAgent              | INFO     |   [remove_rent] 11,214 rows
+17:41:00 | CleaningAgent              | INFO     |   [dedup_description] 9,373 rows
+17:41:00 | CleaningAgent              | INFO     |   [drop_null_desc] 9,372 rows
+17:41:00 | CleaningAgent              | INFO     |   [price_imputed] 136 rows
+17:41:01 | CleaningAgent              | INFO     |   [drop_null_gov] 9,017 rows
+17:41:01 | CleaningAgent              | INFO     | 
+Running LLM suspicious listing detection...
+17:42:17 | CleaningAgent              | DEBUG    | LLM raw response: ```json
+[
+    1404,
+    8099,
+    2474,
+    1656,
+    3622,
+    7153,
+    3454,
+    6140,
+    3188,
+    6541,
+    10944,
+    5139,
+    5445,
+    8032,
+    11171,
+    5721,
+    3501,
+    6707,
+    1352,
+    1984,
+    11608,
+    6018,
+    6709
+]
+```
+17:42:17 | CleaningAgent              | WARNING  | LLM flagging failed: 'list' object has no attribute 'get'
+17:42:17 | CleaningAgent              | INFO     | LLM flagged: 0 suspicious listings (tagged, not dropped)
+17:42:17 | CleaningAgent              | INFO     | 
+──────────────────────────────────────────────────
+17:42:17 | CleaningAgent              | INFO     | Cleaning summary:
+17:42:17 | CleaningAgent              | INFO     |   Initial rows : 11,714
+17:42:17 | CleaningAgent              | INFO     |   Final rows   : 9,017
+17:42:17 | CleaningAgent              | INFO     |   Removed      : 2,697
+17:42:17 | CleaningAgent              | INFO     |   Suspicious   : 0
+17:42:17 | CleaningAgent              | INFO     |   Columns      : 66
+17:42:17 | CleaningAgent              | INFO     |   Output       : Data/raw_listings/merged_listings_model_ready.csv
+17:42:17 | CleaningAgent              | INFO     | ──────────────────────────────────────────────────
+17:42:17 | Memory.CleaningAgent       | DEBUG    | [MEMORY] stored in 'quality': {'initial': 11714, 'final': 9017, 'removed': 2697, 'suspicious': 0, 'ts': '2026-03-30T16:42:17.919658Z'}
+17:42:17 | CleaningAgent              | DEBUG    | State updated — model_ready_path: Data/raw_listings/merged_listings_model_ready.csv
+17:42:17 | CleaningAgent              | DEBUG    | State updated — cleaning_status: success
+17:42:17 | CleaningAgent              | DEBUG    | State updated — cleaning_report: {'initial': 11714, 'final': 9017, 'removed': 2697, 'suspicious': 0, 'ts': '2026-03-30T16:42:17.919658Z'}
+17:42:17 | CleaningAgent              | DEBUG    | State updated — final_row_count: 9017
+17:42:17 | OrchestratorAgent          | INFO     | 
+Asking LLM for decision after stage: cleaning
+17:42:17 | OrchestratorAgent          | DEBUG    | Decision context: {
+  "stage": "cleaning",
+  "listings_total_rows": 17860,
+  "min_target": 500,
+  "standardization": "success",
+  "cleaning_status": "success",
+  "final_row_count": 9017,
+  "suspicious_count": 0
+}
+17:42:23 | OrchestratorAgent          | DEBUG    | LLM raw response: {"action":"continue","reason":"cleaning_status is success and final_row_count is 9017","confidence":1.0}
+17:42:23 | Memory.OrchestratorAgent   | DEBUG    | [MEMORY] stored in 'decisions': {'decision': {'action': 'continue', 'reason': 'cleaning_status is success and final_row_count is 9017', 'confidence': 1.0}, 'context': 'after_cleaning', 'ts': '2026-03-30T16:42:23.865994Z'}
+17:42:23 | OrchestratorAgent          | INFO     | ┌─ DECISION [after_cleaning]
+17:42:23 | OrchestratorAgent          | INFO     | │  action     : continue
+17:42:23 | OrchestratorAgent          | INFO     | │  reason     : cleaning_status is success and final_row_count is 9017
+17:42:23 | OrchestratorAgent          | INFO     | └─ confidence : 1.0
+17:42:23 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+17:42:23 | OrchestratorAgent          | INFO     |   STAGE 5 — Final Validation
+17:42:23 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+17:42:23 | OrchestratorAgent          | INFO     | ✅ PIPELINE SUCCESS — 9,017 model-ready rows
+17:42:23 | OrchestratorAgent          | INFO     | Run report saved → logs/run_20260330_164049.json
+17:42:23 | OrchestratorAgent          | INFO     | 
+============================================================
+17:42:23 | OrchestratorAgent          | INFO     |   PIPELINE COMPLETE — SUCCESS
+17:42:23 | OrchestratorAgent          | INFO     |   Final rows: 9,017
+17:42:23 | OrchestratorAgent          | INFO     |   Output:     Data/raw_listings/merged_listings_model_ready.csv
+17:42:23 | OrchestratorAgent          | INFO     |   Report:     logs/run_20260330_164049.json
+17:42:23 | OrchestratorAgent          | INFO     | ============================================================
+11:52:13 | OrchestratorAgent          | INFO     | ============================================================
+11:52:13 | OrchestratorAgent          | INFO     |   LENS ESTATE PIPELINE — ORCHESTRATOR
+11:52:13 | OrchestratorAgent          | INFO     |   Run ID  : 20260405_105213
+11:52:13 | OrchestratorAgent          | INFO     |   Started : 2026-04-05T10:52:13.152098Z
+11:52:13 | OrchestratorAgent          | INFO     | ============================================================
+11:52:13 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+11:52:13 | OrchestratorAgent          | INFO     |   STAGE 1 — Articles Collection
+11:52:13 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+11:52:13 | ArticlesAgent              | INFO     | ============================================================
+11:52:13 | ArticlesAgent              | INFO     | ArticlesAgent — starting (runs FIRST)
+11:52:13 | ArticlesAgent              | INFO     | ============================================================
+11:52:13 | ArticlesAgent              | INFO     | 
+──────────────────────────────────────────────────
+11:52:13 | ArticlesAgent              | INFO     | Processing scraper: BNB
+11:52:13 | ArticlesAgent              | INFO     |   cwd    : C:\bnbblog
+11:52:13 | ArticlesAgent              | INFO     |   script : bnb_tunisie_scraper.py
+11:52:13 | ArticlesAgent              | INFO     |   output : C:\bnbblog\bnb_blog_articles.csv
+11:52:13 | ArticlesAgent              | DEBUG    | Row count [C:\bnbblog\bnb_blog_articles.csv]: 2,999
+11:52:13 | ArticlesAgent              | DEBUG    |   Existing output: 2999 rows, age 9.6 days (max 7)
+11:52:13 | ArticlesAgent              | INFO     |   ▶  RUNNING — Output missing or stale
+11:52:13 | ArticlesAgent              | INFO     |   python : C:\Users\mohameddkhalil\AppData\Local\Programs\Python\Python312\python.exe
+11:52:13 | ArticlesAgent              | INFO     |   Attempt 1/2
+11:52:13 | ArticlesAgent              | INFO     |   $ C:\Users\mohameddkhalil\AppData\Local\Programs\Python\Python312\python.exe bnb_tunisie_scraper.py
+11:52:13 | ArticlesAgent              | INFO     |   cwd: C:\bnbblog
+11:52:32 | ArticlesAgent              | INFO     |   ✅ exit 0
+11:52:32 | ArticlesAgent              | DEBUG    |   STDOUT: e/page/7/
+  → 10 new articles found on this page.
+[Listing page 8] https://www.bnb.tn/blog-bnb-tunisie/page/8/
+  → 8 new articles found on this page.
+[Listing page 9] https://www.bnb.tn/blog-bnb-tunisie/page/9/
+  [ERROR] https://www.bnb.tn/blog-bnb-tunisie/page/9/: 404 Client Error: Not Found for url: https://www.bnb.tn/blog-bnb-tunisie/page/9/
+
+  TOTAL: 78 articles collected.
+
+  [Checkpoint] Skipping 78 already-scraped article(s).
+
+✅  All articles are already up-to-date. Nothing new to scrape.
+
+11:52:32 | ArticlesAgent              | DEBUG    | Row count [C:\bnbblog\bnb_blog_articles.csv]: 2,999
+11:52:32 | ArticlesAgent              | INFO     |   Output validated: 2999 rows at C:\bnbblog\bnb_blog_articles.csv
+11:52:32 | Memory.ArticlesAgent       | DEBUG    | [MEMORY] stored in 'successes': {'scraper': 'bnb', 'total': 78, 'empty_pct': 0.0, 'dupe_pct': 0.0, 'short_pct': 0.0, 'ts': '2026-04-05T10:52:32.284575Z'}
+11:52:32 | ArticlesAgent              | INFO     |   ✅ SUCCESS — 78 articles | empty: 0.0% | dupes: 0.0%
+11:52:32 | ArticlesAgent              | INFO     | 
+──────────────────────────────────────────────────
+11:52:32 | ArticlesAgent              | INFO     | Processing scraper: HOUNI
+11:52:32 | ArticlesAgent              | INFO     |   cwd    : C:\houni.scraper
+11:52:32 | ArticlesAgent              | INFO     |   script : houni_scraper.py
+11:52:32 | ArticlesAgent              | INFO     |   output : C:\houni.scraper\houni_blog_articles.csv
+11:52:32 | ArticlesAgent              | DEBUG    | Row count [C:\houni.scraper\houni_blog_articles.csv]: 153
+11:52:32 | ArticlesAgent              | DEBUG    |   Existing output: 153 rows, age 9.5 days (max 7)
+11:52:32 | ArticlesAgent              | INFO     |   ▶  RUNNING — Output missing or stale
+11:52:32 | ArticlesAgent              | INFO     |   python : C:\Users\mohameddkhalil\AppData\Local\Programs\Python\Python312\python.exe
+11:52:32 | ArticlesAgent              | INFO     |   Attempt 1/2
+11:52:32 | ArticlesAgent              | INFO     |   $ C:\Users\mohameddkhalil\AppData\Local\Programs\Python\Python312\python.exe houni_scraper.py
+11:52:32 | ArticlesAgent              | INFO     |   cwd: C:\houni.scraper
+11:55:32 | ArticlesAgent              | INFO     |   ✅ exit 0
+11:55:32 | ArticlesAgent              | DEBUG    |   STDOUT: -2025
+  ✓ Title: Location d’un logement à Tunisie...
+  ✓ Content length: 95 characters
+
+============================================================
+✓ Successfully scraped 51 articles
+============================================================
+
+✓ Saved 51 articles to 'houni_blog_articles.csv'
+
+============================================================
+✓ SCRAPING COMPLETE!
+============================================================
+Results saved to: houni_blog_articles.csv
+Total articles: 51
+
+11:55:32 | ArticlesAgent              | DEBUG    | Row count [C:\houni.scraper\houni_blog_articles.csv]: 153
+11:55:32 | ArticlesAgent              | INFO     |   Output validated: 153 rows at C:\houni.scraper\houni_blog_articles.csv
+11:55:32 | Memory.ArticlesAgent       | DEBUG    | [MEMORY] stored in 'successes': {'scraper': 'houni', 'total': 51, 'empty_pct': 0.0, 'dupe_pct': 0.98, 'short_pct': 1.0, 'ts': '2026-04-05T10:55:32.683469Z'}
+11:55:32 | ArticlesAgent              | INFO     |   ✅ SUCCESS — 51 articles | empty: 0.0% | dupes: 98.0%
+11:55:32 | ArticlesAgent              | INFO     |   Loaded 78 articles from bnb_blog
+11:55:32 | ArticlesAgent              | INFO     |   Loaded 51 articles from houni_blog
+11:55:32 | ArticlesAgent              | INFO     |   Articles merged: 129 total → Data/raw_articles/merged_articles.csv
+11:55:32 | ArticlesAgent              | DEBUG    | State updated — articles_raw_paths: ['C:\\bnbblog\\bnb_blog_articles.csv', 'C:\\houni.scraper\\houni_blog_articles.csv']
+11:55:32 | ArticlesAgent              | DEBUG    | State updated — articles_results: {'bnb': {'status': 'success', 'path': 'C:\\bnbblog\\bnb_blog_articles.csv', 'total': 78, 'empty_pct': 0.0, 'dupe_pct': 0
+11:55:32 | ArticlesAgent              | DEBUG    | State updated — merged_articles_path: Data/raw_articles/merged_articles.csv
+11:55:32 | ArticlesAgent              | INFO     | 
+ArticlesAgent done — 2 sources collected
+11:55:32 | ArticlesAgent              | INFO     |   merged → Data/raw_articles/merged_articles.csv
+11:55:32 | OrchestratorAgent          | INFO     | Articles stage complete: 2 sources
+11:55:32 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+11:55:32 | OrchestratorAgent          | INFO     |   STAGE 2 — Listings Collection
+11:55:32 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+11:55:32 | ListingsAgent              | INFO     | ============================================================
+11:55:32 | ListingsAgent              | INFO     | ListingsAgent — starting
+11:55:32 | ListingsAgent              | INFO     | ============================================================
+11:55:32 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+11:55:32 | ListingsAgent              | INFO     | Processing scraper: MUBAWAB
+11:55:32 | ListingsAgent              | INFO     |   cwd    : C:\Mubawab-scrapper
+11:55:32 | ListingsAgent              | INFO     |   script : mubawab_scraper.py 
+11:55:32 | ListingsAgent              | INFO     |   ⏭  SKIPPING — Failed 3x recently — skipping
+11:55:32 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+11:55:32 | ListingsAgent              | INFO     | Processing scraper: TAYARA
+11:55:32 | ListingsAgent              | INFO     |   cwd    : C:\tayara-scraper
+11:55:32 | ListingsAgent              | INFO     |   script : main.py --max-pages 10
+11:55:32 | ListingsAgent              | INFO     |   ⏭  SKIPPING — Failed 3x recently — skipping
+11:55:32 | ListingsAgent              | DEBUG    |   Latest timestamped file: C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv
+11:55:32 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+11:55:32 | ListingsAgent              | INFO     | Processing scraper: TUNISIE_ANNONCE
+11:55:32 | ListingsAgent              | INFO     |   cwd    : C:\Tunisie-Annonces-scrapper
+11:55:32 | ListingsAgent              | INFO     |   script : main.py 
+11:55:32 | ListingsAgent              | DEBUG    | Row count [C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv]: 10,404
+11:55:32 | ListingsAgent              | INFO     |   ⏭  SKIPPING — Existing output has 10,404 rows ≥ 100
+11:55:32 | ListingsAgent              | DEBUG    | Row count [C:\Mubawab-scrapper\data\mubawab_listings.csv]: 810
+11:55:32 | ListingsAgent              | DEBUG    | Row count [C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv]: 6,646
+11:55:32 | ListingsAgent              | DEBUG    | Row count [C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv]: 10,404
+11:55:32 | ListingsAgent              | DEBUG    | State updated — listings_raw_paths: ['C:\\Mubawab-scrapper\\data\\mubawab_listings.csv', 'C:\\tayara-scraper\\data\\tayara_scrape\\processed\\tayara_listing
+11:55:32 | ListingsAgent              | DEBUG    | State updated — listings_results: {'mubawab': {'status': 'skipped', 'path': 'C:\\Mubawab-scrapper\\data\\mubawab_listings.csv'}, 'tayara': {'status': 'ski
+11:55:32 | ListingsAgent              | DEBUG    | State updated — listings_total_rows: 17860
+11:55:32 | ListingsAgent              | INFO     | 
+ListingsAgent done — 3 sources, 17,860 total rows
+11:55:32 | ListingsAgent              | INFO     |   mubawab                → skipped
+11:55:32 | ListingsAgent              | INFO     |   tayara                 → skipped
+11:55:32 | ListingsAgent              | INFO     |   tunisie_annonce        → skipped
+11:55:32 | OrchestratorAgent          | INFO     | 
+Asking LLM for decision after stage: listings_collection
+11:55:32 | OrchestratorAgent          | DEBUG    | Decision context: {
+  "stage": "listings_collection",
+  "listings_total_rows": 17860,
+  "min_target": 500,
+  "standardization": null,
+  "cleaning_status": null,
+  "final_row_count": 0,
+  "suspicious_count": 0,
+  "sources": {
+    "mubawab": "skipped",
+    "tayara": "skipped",
+    "tunisie_annonce": "skipped"
+  }
+}
+11:55:35 | OrchestratorAgent          | DEBUG    | LLM raw response: {"action":"continue","reason":"no further actions required","confidence":1.0}
+11:55:35 | Memory.OrchestratorAgent   | DEBUG    | [MEMORY] stored in 'decisions': {'decision': {'action': 'continue', 'reason': 'no further actions required', 'confidence': 1.0}, 'context': 'after_listings', 'ts': '2026-04-05T10:55:35.004718Z'}
+11:55:35 | OrchestratorAgent          | INFO     | ┌─ DECISION [after_listings]
+11:55:35 | OrchestratorAgent          | INFO     | │  action     : continue
+11:55:35 | OrchestratorAgent          | INFO     | │  reason     : no further actions required
+11:55:35 | OrchestratorAgent          | INFO     | └─ confidence : 1.0
+11:55:35 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+11:55:35 | OrchestratorAgent          | INFO     |   STAGE 3 — Standardization
+11:55:35 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+11:55:35 | StandardizationAgent       | INFO     | ============================================================
+11:55:35 | StandardizationAgent       | INFO     | StandardizationAgent — starting
+11:55:35 | StandardizationAgent       | INFO     | ============================================================
+11:55:35 | StandardizationAgent       | INFO     | Input paths (3):
+11:55:35 | StandardizationAgent       | INFO     |   → C:\Mubawab-scrapper\data\mubawab_listings.csv
+11:55:35 | StandardizationAgent       | INFO     |   → C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv
+11:55:35 | StandardizationAgent       | INFO     |   → C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv
+11:55:35 | StandardizationAgent       | INFO     | 
+Standardizing: C:\Mubawab-scrapper\data\mubawab_listings.csv
+11:55:35 | StandardizationAgent       | DEBUG    |   Raw shape: (810, 42) | columns: ['listing_id', 'listing_url', 'source', 'title', 'property_type', 'transaction_type', 'price', 'currency']...
+11:55:35 | StandardizationAgent       | INFO     |   ✅ 810 rows | source=mubawab
+11:55:35 | StandardizationAgent       | INFO     | 
+Standardizing: C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv
+11:55:35 | StandardizationAgent       | DEBUG    |   Raw shape: (500, 27) | columns: ['listing_id', 'title', 'price_numeric', 'currency', 'price_raw', 'category', 'city', 'governorate']...
+11:55:35 | StandardizationAgent       | INFO     |   ✅ 500 rows | source=tayara
+11:55:35 | StandardizationAgent       | INFO     | 
+Standardizing: C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv
+11:55:35 | StandardizationAgent       | DEBUG    |   Raw shape: (10404, 34) | columns: ['id', 'title', 'link', 'source', 'property_type', 'transaction_type', 'price', 'currency']...
+11:55:35 | StandardizationAgent       | INFO     |   ✅ 10,404 rows | source=tunisie_annonce
+11:55:35 | StandardizationAgent       | INFO     | 
+──────────────────────────────────────────────────
+11:55:35 | StandardizationAgent       | INFO     | Merged listings: 11,714 rows, 64 cols → Data/raw_listings/merged_listings.csv
+11:55:35 | StandardizationAgent       | INFO     | Source distribution:
+11:55:35 | StandardizationAgent       | INFO     |   tunisie_annonce            10,404
+11:55:35 | StandardizationAgent       | INFO     |   mubawab                       810
+11:55:35 | StandardizationAgent       | INFO     |   tayara                        500
+11:55:35 | StandardizationAgent       | INFO     | ──────────────────────────────────────────────────
+11:55:35 | Memory.StandardizationAgent | DEBUG    | [MEMORY] stored in 'quality': {'rows': 11714, 'cols': 64, 'sources': {'tunisie_annonce': 10404, 'mubawab': 810, 'tayara': 500}, 'ts': '2026-04-05T10:55:35.500918Z'}
+11:55:35 | StandardizationAgent       | DEBUG    | State updated — merged_listings_path: Data/raw_listings/merged_listings.csv
+11:55:35 | StandardizationAgent       | DEBUG    | State updated — standardization_status: success
+11:55:35 | StandardizationAgent       | DEBUG    | State updated — standardization_report: {'rows': 11714, 'sources': {'tunisie_annonce': 10404, 'mubawab': 810, 'tayara': 500}}
+11:55:35 | OrchestratorAgent          | INFO     | 
+Asking LLM for decision after stage: standardization
+11:55:35 | OrchestratorAgent          | DEBUG    | Decision context: {
+  "stage": "standardization",
+  "listings_total_rows": 17860,
+  "min_target": 500,
+  "standardization": "success",
+  "cleaning_status": null,
+  "final_row_count": 0,
+  "suspicious_count": 0,
+  "std_report": {
+    "rows": 11714,
+    "sources": {
+      "tunisie_annonce": 10404,
+      "mubawab": 810,
+      "tayara": 500
+    }
+  }
+}
+11:55:38 | OrchestratorAgent          | DEBUG    | LLM raw response: {"action":"continue","reason":"standardization is complete and no further actions are needed.","confidence":1.0}
+11:55:38 | Memory.OrchestratorAgent   | DEBUG    | [MEMORY] stored in 'decisions': {'decision': {'action': 'continue', 'reason': 'standardization is complete and no further actions are needed.', 'confidence': 1.0}, 'context': 'after_standardization', 'ts': '2026-04-05T10:55:38.081927Z'}
+11:55:38 | OrchestratorAgent          | INFO     | ┌─ DECISION [after_standardization]
+11:55:38 | OrchestratorAgent          | INFO     | │  action     : continue
+11:55:38 | OrchestratorAgent          | INFO     | │  reason     : standardization is complete and no further actions are needed.
+11:55:38 | OrchestratorAgent          | INFO     | └─ confidence : 1.0
+11:55:38 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+11:55:38 | OrchestratorAgent          | INFO     |   STAGE 4 — Cleaning
+11:55:38 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+11:55:38 | CleaningAgent              | INFO     | ============================================================
+11:55:38 | CleaningAgent              | INFO     | CleaningAgent — starting
+11:55:38 | CleaningAgent              | INFO     | ============================================================
+11:55:38 | CleaningAgent              | INFO     | Loaded: 11,714 rows × 64 cols
+11:55:38 | CleaningAgent              | INFO     | 
+Cleaning pipeline:
+11:55:38 | CleaningAgent              | INFO     |   [normalize] 11,714 rows
+11:55:38 | CleaningAgent              | INFO     |   [gov_recovery] 11,714 rows
+11:55:38 | CleaningAgent              | INFO     |   [remove_rent] 11,214 rows
+11:55:38 | CleaningAgent              | INFO     |   [dedup_description] 9,373 rows
+11:55:38 | CleaningAgent              | INFO     |   [drop_null_desc] 9,372 rows
+11:55:38 | CleaningAgent              | INFO     |   [price_imputed] 136 rows
+11:55:38 | CleaningAgent              | INFO     |   [drop_null_gov] 9,017 rows
+11:55:38 | CleaningAgent              | INFO     | 
+Running LLM suspicious listing detection...
+11:56:21 | CleaningAgent              | DEBUG    | LLM raw response: ```json
+[
+    1404,
+    8099,
+    2474,
+    1656,
+    3622,
+    7153,
+    3454,
+    6140,
+    3188,
+    6541,
+    10944,
+    5139,
+    5445,
+    8032,
+    11171,
+    5721,
+    3501,
+    6707,
+    1352,
+    1984,
+    11608,
+    6018,
+    6709
+]
+```
+11:56:21 | CleaningAgent              | DEBUG    | LLM suspicious IDs: [1404, 8099, 2474, 1656, 3622, 7153, 3454, 6140, 3188, 6541, 10944, 5139, 5445, 8032, 11171, 5721, 3501, 6707, 1352, 1984, 11608, 6018, 6709]
+11:56:21 | CleaningAgent              | INFO     | LLM flagged: 23 suspicious listings (tagged, not dropped)
+11:56:21 | CleaningAgent              | INFO     |   Flagged IDs: [1404, 8099, 2474, 1656, 3622, 7153, 3454, 6140, 3188, 6541]...
+11:56:21 | CleaningAgent              | INFO     | 
+──────────────────────────────────────────────────
+11:56:21 | CleaningAgent              | INFO     | Cleaning summary:
+11:56:21 | CleaningAgent              | INFO     |   Initial rows : 11,714
+11:56:21 | CleaningAgent              | INFO     |   Final rows   : 9,017
+11:56:21 | CleaningAgent              | INFO     |   Removed      : 2,697
+11:56:21 | CleaningAgent              | INFO     |   Suspicious   : 23
+11:56:21 | CleaningAgent              | INFO     |   Columns      : 66
+11:56:21 | CleaningAgent              | INFO     |   Output       : Data/raw_listings/merged_listings_model_ready.csv
+11:56:21 | CleaningAgent              | INFO     | ──────────────────────────────────────────────────
+11:56:21 | Memory.CleaningAgent       | DEBUG    | [MEMORY] stored in 'quality': {'initial': 11714, 'final': 9017, 'removed': 2697, 'suspicious': 23, 'ts': '2026-04-05T10:56:21.556293Z'}
+11:56:21 | CleaningAgent              | DEBUG    | State updated — model_ready_path: Data/raw_listings/merged_listings_model_ready.csv
+11:56:21 | CleaningAgent              | DEBUG    | State updated — cleaning_status: success
+11:56:21 | CleaningAgent              | DEBUG    | State updated — cleaning_report: {'initial': 11714, 'final': 9017, 'removed': 2697, 'suspicious': 23, 'ts': '2026-04-05T10:56:21.556293Z'}
+11:56:21 | CleaningAgent              | DEBUG    | State updated — final_row_count: 9017
+11:56:21 | OrchestratorAgent          | INFO     | 
+Asking LLM for decision after stage: cleaning
+11:56:21 | OrchestratorAgent          | DEBUG    | Decision context: {
+  "stage": "cleaning",
+  "listings_total_rows": 17860,
+  "min_target": 500,
+  "standardization": "success",
+  "cleaning_status": "success",
+  "final_row_count": 9017,
+  "suspicious_count": 23
+}
+11:56:29 | OrchestratorAgent          | DEBUG    | LLM raw response: {"action":"continue","reason":"cleaning_status is success and final_row_count is 9017, which is above the minimum target of 500.","confidence":1.0}
+11:56:29 | Memory.OrchestratorAgent   | DEBUG    | [MEMORY] stored in 'decisions': {'decision': {'action': 'continue', 'reason': 'cleaning_status is success and final_row_count is 9017, which is above the minimum target of 500.', 'confidence': 1.0}, 'context': 'after_cleaning', 'ts': '2026-04-05T10:56:29.022889Z'}
+11:56:29 | OrchestratorAgent          | INFO     | ┌─ DECISION [after_cleaning]
+11:56:29 | OrchestratorAgent          | INFO     | │  action     : continue
+11:56:29 | OrchestratorAgent          | INFO     | │  reason     : cleaning_status is success and final_row_count is 9017, which is above the minimum target of 500.
+11:56:29 | OrchestratorAgent          | INFO     | └─ confidence : 1.0
+11:56:29 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+11:56:29 | OrchestratorAgent          | INFO     |   STAGE 5 — Final Validation
+11:56:29 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+11:56:29 | OrchestratorAgent          | INFO     | ✅ PIPELINE SUCCESS — 9,017 model-ready rows
+11:56:29 | OrchestratorAgent          | INFO     | Run report saved → logs/run_20260405_105213.json
+11:56:29 | OrchestratorAgent          | INFO     | 
+============================================================
+11:56:29 | OrchestratorAgent          | INFO     |   PIPELINE COMPLETE — SUCCESS
+11:56:29 | OrchestratorAgent          | INFO     |   Final rows: 9,017
+11:56:29 | OrchestratorAgent          | INFO     |   Output:     Data/raw_listings/merged_listings_model_ready.csv
+11:56:29 | OrchestratorAgent          | INFO     |   Report:     logs/run_20260405_105213.json
+11:56:29 | OrchestratorAgent          | INFO     | ============================================================
+12:12:00 | OrchestratorAgent          | INFO     | ============================================================
+12:12:00 | OrchestratorAgent          | INFO     |   LENS ESTATE PIPELINE — ORCHESTRATOR
+12:12:00 | OrchestratorAgent          | INFO     |   Run ID  : 20260405_111200
+12:12:00 | OrchestratorAgent          | INFO     |   Started : 2026-04-05T11:12:00.545493Z
+12:12:00 | OrchestratorAgent          | INFO     | ============================================================
+12:12:00 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+12:12:00 | OrchestratorAgent          | INFO     |   STAGE 1 — Articles Collection
+12:12:00 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+12:12:00 | ArticlesAgent              | INFO     | ============================================================
+12:12:00 | ArticlesAgent              | INFO     | ArticlesAgent — starting (runs FIRST)
+12:12:00 | ArticlesAgent              | INFO     | ============================================================
+12:12:00 | ArticlesAgent              | INFO     | 
+──────────────────────────────────────────────────
+12:12:00 | ArticlesAgent              | INFO     | Processing scraper: BNB
+12:12:00 | ArticlesAgent              | INFO     |   cwd    : C:\bnbblog
+12:12:00 | ArticlesAgent              | INFO     |   script : bnb_tunisie_scraper.py
+12:12:00 | ArticlesAgent              | INFO     |   output : C:\bnbblog\bnb_blog_articles.csv
+12:12:00 | ArticlesAgent              | DEBUG    | Row count [C:\bnbblog\bnb_blog_articles.csv]: 2,999
+12:12:00 | ArticlesAgent              | DEBUG    |   Existing output: 2999 rows, age 9.6 days (max 7)
+12:12:00 | ArticlesAgent              | INFO     |   ▶  RUNNING — Output missing or stale
+12:12:00 | ArticlesAgent              | INFO     |   python : C:\Users\mohameddkhalil\AppData\Local\Programs\Python\Python312\python.exe
+12:12:00 | ArticlesAgent              | INFO     |   Attempt 1/2
+12:12:00 | ArticlesAgent              | INFO     |   $ C:\Users\mohameddkhalil\AppData\Local\Programs\Python\Python312\python.exe bnb_tunisie_scraper.py
+12:12:00 | ArticlesAgent              | INFO     |   cwd: C:\bnbblog
+12:12:20 | ArticlesAgent              | INFO     |   ✅ exit 0
+12:12:20 | ArticlesAgent              | DEBUG    |   STDOUT: e/page/7/
+  → 10 new articles found on this page.
+[Listing page 8] https://www.bnb.tn/blog-bnb-tunisie/page/8/
+  → 8 new articles found on this page.
+[Listing page 9] https://www.bnb.tn/blog-bnb-tunisie/page/9/
+  [ERROR] https://www.bnb.tn/blog-bnb-tunisie/page/9/: 404 Client Error: Not Found for url: https://www.bnb.tn/blog-bnb-tunisie/page/9/
+
+  TOTAL: 78 articles collected.
+
+  [Checkpoint] Skipping 78 already-scraped article(s).
+
+✅  All articles are already up-to-date. Nothing new to scrape.
+
+12:12:20 | ArticlesAgent              | DEBUG    | Row count [C:\bnbblog\bnb_blog_articles.csv]: 2,999
+12:12:20 | ArticlesAgent              | INFO     |   Output validated: 2999 rows at C:\bnbblog\bnb_blog_articles.csv
+12:12:20 | Memory.ArticlesAgent       | DEBUG    | [MEMORY] stored in 'successes': {'scraper': 'bnb', 'total': 78, 'empty_pct': 0.0, 'dupe_pct': 0.0, 'short_pct': 0.0, 'ts': '2026-04-05T11:12:20.242267Z'}
+12:12:20 | ArticlesAgent              | INFO     |   ✅ SUCCESS — 78 articles | empty: 0.0% | dupes: 0.0%
+12:12:20 | ArticlesAgent              | INFO     | 
+──────────────────────────────────────────────────
+12:12:20 | ArticlesAgent              | INFO     | Processing scraper: HOUNI
+12:12:20 | ArticlesAgent              | INFO     |   cwd    : C:\houni.scraper
+12:12:20 | ArticlesAgent              | INFO     |   script : houni_scraper.py
+12:12:20 | ArticlesAgent              | INFO     |   output : C:\houni.scraper\houni_blog_articles.csv
+12:12:20 | ArticlesAgent              | DEBUG    | Row count [C:\houni.scraper\houni_blog_articles.csv]: 153
+12:12:20 | ArticlesAgent              | DEBUG    |   Existing output: 153 rows, age 0.0 days (max 7)
+12:12:20 | ArticlesAgent              | INFO     |   ⏭  SKIPPING — Output fresh (0.0d old, 153 rows ≥ 10)
+12:12:20 | ArticlesAgent              | INFO     |   Loaded 78 articles from bnb_blog
+12:12:20 | ArticlesAgent              | INFO     |   Loaded 51 articles from houni_blog
+12:12:20 | ArticlesAgent              | INFO     |   Articles merged: 129 total → Data/raw_articles/merged_articles.csv
+12:12:20 | ArticlesAgent              | DEBUG    | State updated — articles_raw_paths: ['C:\\bnbblog\\bnb_blog_articles.csv', 'C:\\houni.scraper\\houni_blog_articles.csv']
+12:12:20 | ArticlesAgent              | DEBUG    | State updated — articles_results: {'bnb': {'status': 'success', 'path': 'C:\\bnbblog\\bnb_blog_articles.csv', 'total': 78, 'empty_pct': 0.0, 'dupe_pct': 0
+12:12:20 | ArticlesAgent              | DEBUG    | State updated — merged_articles_path: Data/raw_articles/merged_articles.csv
+12:12:20 | ArticlesAgent              | INFO     | 
+ArticlesAgent done — 2 sources collected
+12:12:20 | ArticlesAgent              | INFO     |   merged → Data/raw_articles/merged_articles.csv
+12:12:20 | OrchestratorAgent          | INFO     | Articles stage complete: 2 sources
+12:12:20 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+12:12:20 | OrchestratorAgent          | INFO     |   STAGE 2 — Listings Collection
+12:12:20 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+12:12:20 | ListingsAgent              | INFO     | ============================================================
+12:12:20 | ListingsAgent              | INFO     | ListingsAgent — starting
+12:12:20 | ListingsAgent              | INFO     | ============================================================
+12:12:20 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+12:12:20 | ListingsAgent              | INFO     | Processing scraper: MUBAWAB
+12:12:20 | ListingsAgent              | INFO     |   cwd    : C:\Mubawab-scrapper
+12:12:20 | ListingsAgent              | INFO     |   script : mubawab_scraper.py 
+12:12:20 | ListingsAgent              | DEBUG    | Row count [C:\Mubawab-scrapper\data\mubawab_listings.csv]: 810
+12:12:20 | ListingsAgent              | INFO     |   ⏭  SKIPPING — Existing output has 810 rows ≥ 100
+12:12:20 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+12:12:20 | ListingsAgent              | INFO     | Processing scraper: TAYARA
+12:12:20 | ListingsAgent              | INFO     |   cwd    : C:\tayara-scraper
+12:12:20 | ListingsAgent              | INFO     |   script : main.py --max-pages 10
+12:12:20 | ListingsAgent              | DEBUG    |   Latest timestamped file: C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv
+12:12:20 | ListingsAgent              | DEBUG    | Row count [C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv]: 6,646
+12:12:20 | ListingsAgent              | INFO     |   ⏭  SKIPPING — Existing output has 6,646 rows ≥ 100
+12:12:20 | ListingsAgent              | DEBUG    |   Latest timestamped file: C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv
+12:12:20 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+12:12:20 | ListingsAgent              | INFO     | Processing scraper: TUNISIE_ANNONCE
+12:12:20 | ListingsAgent              | INFO     |   cwd    : C:\Tunisie-Annonces-scrapper
+12:12:20 | ListingsAgent              | INFO     |   script : main.py 
+12:12:20 | ListingsAgent              | DEBUG    | Row count [C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv]: 10,404
+12:12:20 | ListingsAgent              | INFO     |   ⏭  SKIPPING — Existing output has 10,404 rows ≥ 100
+12:12:20 | ListingsAgent              | DEBUG    | Row count [C:\Mubawab-scrapper\data\mubawab_listings.csv]: 810
+12:12:20 | ListingsAgent              | DEBUG    | Row count [C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv]: 6,646
+12:12:20 | ListingsAgent              | DEBUG    | Row count [C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv]: 10,404
+12:12:20 | ListingsAgent              | DEBUG    | State updated — listings_raw_paths: ['C:\\Mubawab-scrapper\\data\\mubawab_listings.csv', 'C:\\tayara-scraper\\data\\tayara_scrape\\processed\\tayara_listing
+12:12:20 | ListingsAgent              | DEBUG    | State updated — listings_results: {'mubawab': {'status': 'skipped', 'path': 'C:\\Mubawab-scrapper\\data\\mubawab_listings.csv'}, 'tayara': {'status': 'ski
+12:12:20 | ListingsAgent              | DEBUG    | State updated — listings_total_rows: 17860
+12:12:20 | ListingsAgent              | INFO     | 
+ListingsAgent done — 3 sources, 17,860 total rows
+12:12:20 | ListingsAgent              | INFO     |   mubawab                → skipped
+12:12:20 | ListingsAgent              | INFO     |   tayara                 → skipped
+12:12:20 | ListingsAgent              | INFO     |   tunisie_annonce        → skipped
+12:12:20 | OrchestratorAgent          | INFO     | 
+Asking LLM for decision after stage: listings_collection
+12:12:20 | OrchestratorAgent          | DEBUG    | Decision context: {
+  "stage": "listings_collection",
+  "listings_total_rows": 17860,
+  "min_target": 500,
+  "standardization": null,
+  "cleaning_status": null,
+  "final_row_count": 0,
+  "suspicious_count": 0,
+  "sources": {
+    "mubawab": "skipped",
+    "tayara": "skipped",
+    "tunisie_annonce": "skipped"
+  }
+}
+12:12:23 | OrchestratorAgent          | DEBUG    | LLM raw response: {"action":"continue","reason":"no further actions required","confidence":1.0}
+12:12:23 | Memory.OrchestratorAgent   | DEBUG    | [MEMORY] stored in 'decisions': {'decision': {'action': 'continue', 'reason': 'no further actions required', 'confidence': 1.0}, 'context': 'after_listings', 'ts': '2026-04-05T11:12:23.915389Z'}
+12:12:23 | OrchestratorAgent          | INFO     | ┌─ DECISION [after_listings]
+12:12:23 | OrchestratorAgent          | INFO     | │  action     : continue
+12:12:23 | OrchestratorAgent          | INFO     | │  reason     : no further actions required
+12:12:23 | OrchestratorAgent          | INFO     | └─ confidence : 1.0
+12:12:23 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+12:12:23 | OrchestratorAgent          | INFO     |   STAGE 3 — Standardization
+12:12:23 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+12:12:23 | StandardizationAgent       | INFO     | ============================================================
+12:12:23 | StandardizationAgent       | INFO     | StandardizationAgent — starting
+12:12:23 | StandardizationAgent       | INFO     | ============================================================
+12:12:23 | StandardizationAgent       | INFO     | Input paths (3):
+12:12:23 | StandardizationAgent       | INFO     |   → C:\Mubawab-scrapper\data\mubawab_listings.csv
+12:12:23 | StandardizationAgent       | INFO     |   → C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv
+12:12:23 | StandardizationAgent       | INFO     |   → C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv
+12:12:23 | StandardizationAgent       | INFO     | 
+Standardizing: C:\Mubawab-scrapper\data\mubawab_listings.csv
+12:12:23 | StandardizationAgent       | DEBUG    |   Raw shape: (810, 42) | columns: ['listing_id', 'listing_url', 'source', 'title', 'property_type', 'transaction_type', 'price', 'currency']...
+12:12:23 | StandardizationAgent       | INFO     |   ✅ 810 rows | source=mubawab
+12:12:23 | StandardizationAgent       | INFO     | 
+Standardizing: C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv
+12:12:23 | StandardizationAgent       | DEBUG    |   Raw shape: (500, 27) | columns: ['listing_id', 'title', 'price_numeric', 'currency', 'price_raw', 'category', 'city', 'governorate']...
+12:12:24 | StandardizationAgent       | INFO     |   ✅ 500 rows | source=tayara
+12:12:24 | StandardizationAgent       | INFO     | 
+Standardizing: C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv
+12:12:24 | StandardizationAgent       | DEBUG    |   Raw shape: (10404, 34) | columns: ['id', 'title', 'link', 'source', 'property_type', 'transaction_type', 'price', 'currency']...
+12:12:24 | StandardizationAgent       | INFO     |   ✅ 10,404 rows | source=tunisie_annonce
+12:12:24 | StandardizationAgent       | INFO     | 
+──────────────────────────────────────────────────
+12:12:24 | StandardizationAgent       | INFO     | Merged listings: 11,714 rows, 64 cols → Data/raw_listings/merged_listings.csv
+12:12:24 | StandardizationAgent       | INFO     | Source distribution:
+12:12:24 | StandardizationAgent       | INFO     |   tunisie_annonce            10,404
+12:12:24 | StandardizationAgent       | INFO     |   mubawab                       810
+12:12:24 | StandardizationAgent       | INFO     |   tayara                        500
+12:12:24 | StandardizationAgent       | INFO     | ──────────────────────────────────────────────────
+12:12:24 | Memory.StandardizationAgent | DEBUG    | [MEMORY] stored in 'quality': {'rows': 11714, 'cols': 64, 'sources': {'tunisie_annonce': 10404, 'mubawab': 810, 'tayara': 500}, 'ts': '2026-04-05T11:12:24.922995Z'}
+12:12:24 | StandardizationAgent       | DEBUG    | State updated — merged_listings_path: Data/raw_listings/merged_listings.csv
+12:12:24 | StandardizationAgent       | DEBUG    | State updated — standardization_status: success
+12:12:24 | StandardizationAgent       | DEBUG    | State updated — standardization_report: {'rows': 11714, 'sources': {'tunisie_annonce': 10404, 'mubawab': 810, 'tayara': 500}}
+12:12:24 | OrchestratorAgent          | INFO     | 
+Asking LLM for decision after stage: standardization
+12:12:24 | OrchestratorAgent          | DEBUG    | Decision context: {
+  "stage": "standardization",
+  "listings_total_rows": 17860,
+  "min_target": 500,
+  "standardization": "success",
+  "cleaning_status": null,
+  "final_row_count": 0,
+  "suspicious_count": 0,
+  "std_report": {
+    "rows": 11714,
+    "sources": {
+      "tunisie_annonce": 10404,
+      "mubawab": 810,
+      "tayara": 500
+    }
+  }
+}
+12:12:29 | OrchestratorAgent          | DEBUG    | LLM raw response: {"action":"continue","reason":"standardization is complete and no further actions are needed.","confidence":1.0}
+12:12:29 | Memory.OrchestratorAgent   | DEBUG    | [MEMORY] stored in 'decisions': {'decision': {'action': 'continue', 'reason': 'standardization is complete and no further actions are needed.', 'confidence': 1.0}, 'context': 'after_standardization', 'ts': '2026-04-05T11:12:29.245350Z'}
+12:12:29 | OrchestratorAgent          | INFO     | ┌─ DECISION [after_standardization]
+12:12:29 | OrchestratorAgent          | INFO     | │  action     : continue
+12:12:29 | OrchestratorAgent          | INFO     | │  reason     : standardization is complete and no further actions are needed.
+12:12:29 | OrchestratorAgent          | INFO     | └─ confidence : 1.0
+12:12:29 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+12:12:29 | OrchestratorAgent          | INFO     |   STAGE 4 — Cleaning
+12:12:29 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+12:12:29 | CleaningAgent              | INFO     | ============================================================
+12:12:29 | CleaningAgent              | INFO     | CleaningAgent — starting
+12:12:29 | CleaningAgent              | INFO     | ============================================================
+12:12:29 | CleaningAgent              | INFO     | Loaded: 11,714 rows × 64 cols
+12:12:29 | CleaningAgent              | INFO     | 
+Cleaning pipeline:
+12:12:29 | CleaningAgent              | INFO     |   [normalize] 11,714 rows
+12:12:29 | CleaningAgent              | INFO     |   [gov_recovery] 11,714 rows
+12:12:29 | CleaningAgent              | INFO     |   [remove_rent] 11,214 rows
+12:12:29 | CleaningAgent              | INFO     |   [dedup_description] 9,373 rows
+12:12:29 | CleaningAgent              | INFO     |   [drop_null_desc] 9,372 rows
+12:12:30 | CleaningAgent              | INFO     |   [price_imputed] 136 rows
+12:12:30 | CleaningAgent              | INFO     |   [drop_null_gov] 9,017 rows
+12:12:30 | CleaningAgent              | INFO     | 
+Running LLM suspicious listing detection...
+12:13:40 | CleaningAgent              | DEBUG    | LLM raw response: ```json
+[
+    1404,
+    8099,
+    2474,
+    1656,
+    3622,
+    7153,
+    3454,
+    6140,
+    3188,
+    6541,
+    10944,
+    5139,
+    5445,
+    8032,
+    11171,
+    5721,
+    3501,
+    6707,
+    1352,
+    1984,
+    11608,
+    6018,
+    6709
+]
+```
+12:13:40 | CleaningAgent              | DEBUG    | LLM suspicious IDs: [1404, 8099, 2474, 1656, 3622, 7153, 3454, 6140, 3188, 6541, 10944, 5139, 5445, 8032, 11171, 5721, 3501, 6707, 1352, 1984, 11608, 6018, 6709]
+12:13:40 | CleaningAgent              | INFO     | LLM flagged: 23 suspicious listings (tagged, not dropped)
+12:13:40 | CleaningAgent              | INFO     |   Flagged IDs: [1404, 8099, 2474, 1656, 3622, 7153, 3454, 6140, 3188, 6541]...
+12:13:40 | CleaningAgent              | INFO     | 
+──────────────────────────────────────────────────
+12:13:40 | CleaningAgent              | INFO     | Cleaning summary:
+12:13:40 | CleaningAgent              | INFO     |   Initial rows : 11,714
+12:13:40 | CleaningAgent              | INFO     |   Final rows   : 9,017
+12:13:40 | CleaningAgent              | INFO     |   Removed      : 2,697
+12:13:40 | CleaningAgent              | INFO     |   Suspicious   : 23
+12:13:40 | CleaningAgent              | INFO     |   Columns      : 66
+12:13:40 | CleaningAgent              | INFO     |   Output       : Data/raw_listings/merged_listings_model_ready.csv
+12:13:40 | CleaningAgent              | INFO     | ──────────────────────────────────────────────────
+12:13:40 | Memory.CleaningAgent       | DEBUG    | [MEMORY] stored in 'quality': {'initial': 11714, 'final': 9017, 'removed': 2697, 'suspicious': 23, 'ts': '2026-04-05T11:13:40.879978Z'}
+12:13:40 | CleaningAgent              | DEBUG    | State updated — model_ready_path: Data/raw_listings/merged_listings_model_ready.csv
+12:13:40 | CleaningAgent              | DEBUG    | State updated — cleaning_status: success
+12:13:40 | CleaningAgent              | DEBUG    | State updated — cleaning_report: {'initial': 11714, 'final': 9017, 'removed': 2697, 'suspicious': 23, 'ts': '2026-04-05T11:13:40.879978Z'}
+12:13:40 | CleaningAgent              | DEBUG    | State updated — final_row_count: 9017
+12:13:40 | OrchestratorAgent          | INFO     | 
+Asking LLM for decision after stage: cleaning
+12:13:40 | OrchestratorAgent          | DEBUG    | Decision context: {
+  "stage": "cleaning",
+  "listings_total_rows": 17860,
+  "min_target": 500,
+  "standardization": "success",
+  "cleaning_status": "success",
+  "final_row_count": 9017,
+  "suspicious_count": 23
+}
+12:13:48 | OrchestratorAgent          | DEBUG    | LLM raw response: {"action":"continue","reason":"cleaning_status is success and final_row_count is 9017, which is above the minimum target of 500.","confidence":1.0}
+12:13:48 | Memory.OrchestratorAgent   | DEBUG    | [MEMORY] stored in 'decisions': {'decision': {'action': 'continue', 'reason': 'cleaning_status is success and final_row_count is 9017, which is above the minimum target of 500.', 'confidence': 1.0}, 'context': 'after_cleaning', 'ts': '2026-04-05T11:13:48.255558Z'}
+12:13:48 | OrchestratorAgent          | INFO     | ┌─ DECISION [after_cleaning]
+12:13:48 | OrchestratorAgent          | INFO     | │  action     : continue
+12:13:48 | OrchestratorAgent          | INFO     | │  reason     : cleaning_status is success and final_row_count is 9017, which is above the minimum target of 500.
+12:13:48 | OrchestratorAgent          | INFO     | └─ confidence : 1.0
+12:13:48 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+12:13:48 | OrchestratorAgent          | INFO     |   STAGE 5 — Final Validation
+12:13:48 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+12:13:48 | OrchestratorAgent          | INFO     | ✅ PIPELINE SUCCESS — 9,017 model-ready rows
+12:13:48 | OrchestratorAgent          | INFO     | Run report saved → logs/run_20260405_111200.json
+12:13:48 | OrchestratorAgent          | INFO     | 
+============================================================
+12:13:48 | OrchestratorAgent          | INFO     |   PIPELINE COMPLETE — SUCCESS
+12:13:48 | OrchestratorAgent          | INFO     |   Final rows: 9,017
+12:13:48 | OrchestratorAgent          | INFO     |   Output:     Data/raw_listings/merged_listings_model_ready.csv
+12:13:48 | OrchestratorAgent          | INFO     |   Report:     logs/run_20260405_111200.json
+12:13:48 | OrchestratorAgent          | INFO     | ============================================================
+12:46:33 | OrchestratorAgent          | INFO     | ============================================================
+12:46:33 | OrchestratorAgent          | INFO     |   LENS ESTATE PIPELINE — ORCHESTRATOR
+12:46:33 | OrchestratorAgent          | INFO     |   Run ID  : 20260405_114633
+12:46:33 | OrchestratorAgent          | INFO     |   Started : 2026-04-05T11:46:33.241373Z
+12:46:33 | OrchestratorAgent          | INFO     | ============================================================
+12:46:33 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+12:46:33 | OrchestratorAgent          | INFO     |   STAGE 1 — Articles Collection
+12:46:33 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+12:46:33 | ArticlesAgent              | INFO     | ============================================================
+12:46:33 | ArticlesAgent              | INFO     | ArticlesAgent — starting (runs FIRST)
+12:46:33 | ArticlesAgent              | INFO     | ============================================================
+12:46:33 | ArticlesAgent              | INFO     | 
+──────────────────────────────────────────────────
+12:46:33 | ArticlesAgent              | INFO     | Processing scraper: BNB
+12:46:33 | ArticlesAgent              | INFO     |   cwd    : C:\bnbblog
+12:46:33 | ArticlesAgent              | INFO     |   script : bnb_tunisie_scraper.py
+12:46:33 | ArticlesAgent              | INFO     |   output : C:\bnbblog\bnb_blog_articles.csv
+12:46:33 | ArticlesAgent              | DEBUG    | Row count [C:\bnbblog\bnb_blog_articles.csv]: 2,999
+12:46:33 | ArticlesAgent              | INFO     |   Existing output: 2999 rows, age 230.6h (threshold 6h)
+12:46:33 | ArticlesAgent              | INFO     |   ▶  RUNNING — Output stale (230.6h ≥ 6h) — re-scraping for fresh data
+12:46:33 | ArticlesAgent              | INFO     |   python : C:\Users\mohameddkhalil\AppData\Local\Programs\Python\Python312\python.exe
+12:46:33 | ArticlesAgent              | INFO     |   Attempt 1/2
+12:46:33 | ArticlesAgent              | INFO     |   $ C:\Users\mohameddkhalil\AppData\Local\Programs\Python\Python312\python.exe bnb_tunisie_scraper.py
+12:46:33 | ArticlesAgent              | INFO     |   cwd: C:\bnbblog
+12:46:52 | ArticlesAgent              | INFO     |   ✅ exit 0
+12:46:52 | ArticlesAgent              | DEBUG    |   STDOUT: e/page/7/
+  → 10 new articles found on this page.
+[Listing page 8] https://www.bnb.tn/blog-bnb-tunisie/page/8/
+  → 8 new articles found on this page.
+[Listing page 9] https://www.bnb.tn/blog-bnb-tunisie/page/9/
+  [ERROR] https://www.bnb.tn/blog-bnb-tunisie/page/9/: 404 Client Error: Not Found for url: https://www.bnb.tn/blog-bnb-tunisie/page/9/
+
+  TOTAL: 78 articles collected.
+
+  [Checkpoint] Skipping 78 already-scraped article(s).
+
+✅  All articles are already up-to-date. Nothing new to scrape.
+
+12:46:52 | ArticlesAgent              | DEBUG    | Row count [C:\bnbblog\bnb_blog_articles.csv]: 2,999
+12:46:52 | ArticlesAgent              | INFO     |   Output validated: 2999 rows at C:\bnbblog\bnb_blog_articles.csv
+12:46:52 | Memory.ArticlesAgent       | DEBUG    | [MEMORY] stored in 'successes': {'scraper': 'bnb', 'total': 78, 'empty_pct': 0.0, 'dupe_pct': 0.0, 'short_pct': 0.0, 'ts': '2026-04-05T11:46:52.179499Z'}
+12:46:52 | ArticlesAgent              | INFO     |   ✅ SUCCESS — 78 articles | empty: 0.0% | dupes: 0.0%
+12:46:52 | ArticlesAgent              | INFO     | 
+──────────────────────────────────────────────────
+12:46:52 | ArticlesAgent              | INFO     | Processing scraper: HOUNI
+12:46:52 | ArticlesAgent              | INFO     |   cwd    : C:\houni.scraper
+12:46:52 | ArticlesAgent              | INFO     |   script : houni_scraper.py
+12:46:52 | ArticlesAgent              | INFO     |   output : C:\houni.scraper\houni_blog_articles.csv
+12:46:52 | ArticlesAgent              | DEBUG    | Row count [C:\houni.scraper\houni_blog_articles.csv]: 153
+12:46:52 | ArticlesAgent              | INFO     |   Existing output: 153 rows, age 0.9h (threshold 6h)
+12:46:52 | ArticlesAgent              | INFO     |   ⏭  SKIPPING — Output fresh (0.9h old, 153 rows) — skipping re-scrape
+12:46:52 | ArticlesAgent              | INFO     |   Loaded 78 articles from bnb_blog
+12:46:52 | ArticlesAgent              | INFO     |   Loaded 51 articles from houni_blog
+12:46:52 | ArticlesAgent              | INFO     |   Articles merged: 129 total → Data/raw_articles/merged_articles.csv
+12:46:52 | ArticlesAgent              | DEBUG    | State updated — articles_raw_paths: ['C:\\bnbblog\\bnb_blog_articles.csv', 'C:\\houni.scraper\\houni_blog_articles.csv']
+12:46:52 | ArticlesAgent              | DEBUG    | State updated — articles_results: {'bnb': {'status': 'success', 'path': 'C:\\bnbblog\\bnb_blog_articles.csv', 'total': 78, 'empty_pct': 0.0, 'dupe_pct': 0
+12:46:52 | ArticlesAgent              | DEBUG    | State updated — merged_articles_path: Data/raw_articles/merged_articles.csv
+12:46:52 | ArticlesAgent              | INFO     | 
+ArticlesAgent done — 2 sources collected
+12:46:52 | ArticlesAgent              | INFO     |   merged → Data/raw_articles/merged_articles.csv
+12:46:52 | OrchestratorAgent          | INFO     | Articles stage complete: 2 sources
+12:46:52 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+12:46:52 | OrchestratorAgent          | INFO     |   STAGE 2 — Listings Collection
+12:46:52 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+12:46:52 | ListingsAgent              | INFO     | ============================================================
+12:46:52 | ListingsAgent              | INFO     | ListingsAgent — starting
+12:46:52 | ListingsAgent              | INFO     | ============================================================
+12:46:52 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+12:46:52 | ListingsAgent              | INFO     | Processing scraper: MUBAWAB
+12:46:52 | ListingsAgent              | INFO     |   cwd    : C:\Mubawab-scrapper
+12:46:52 | ListingsAgent              | INFO     |   script : mubawab_scraper.py 
+12:49:57 | OrchestratorAgent          | INFO     | ============================================================
+12:49:57 | OrchestratorAgent          | INFO     |   LENS ESTATE PIPELINE — ORCHESTRATOR
+12:49:57 | OrchestratorAgent          | INFO     |   Run ID  : 20260405_114957
+12:49:57 | OrchestratorAgent          | INFO     |   Started : 2026-04-05T11:49:57.540602Z
+12:49:57 | OrchestratorAgent          | INFO     | ============================================================
+12:49:57 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+12:49:57 | OrchestratorAgent          | INFO     |   STAGE 1 — Articles Collection
+12:49:57 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+12:49:57 | ArticlesAgent              | INFO     | ============================================================
+12:49:57 | ArticlesAgent              | INFO     | ArticlesAgent — starting (runs FIRST)
+12:49:57 | ArticlesAgent              | INFO     | ============================================================
+12:49:57 | ArticlesAgent              | INFO     | 
+──────────────────────────────────────────────────
+12:49:57 | ArticlesAgent              | INFO     | Processing scraper: BNB
+12:49:57 | ArticlesAgent              | INFO     |   cwd    : C:\bnbblog
+12:49:57 | ArticlesAgent              | INFO     |   script : bnb_tunisie_scraper.py
+12:49:57 | ArticlesAgent              | INFO     |   output : C:\bnbblog\bnb_blog_articles.csv
+12:49:57 | ArticlesAgent              | DEBUG    | Row count [C:\bnbblog\bnb_blog_articles.csv]: 2,999
+12:49:57 | ArticlesAgent              | INFO     |   Existing output: 2999 rows, age 230.7h (threshold 6h)
+12:49:57 | ArticlesAgent              | INFO     |   ▶  RUNNING — Output stale (230.7h ≥ 6h) — re-scraping for fresh data
+12:49:57 | ArticlesAgent              | INFO     |   python : C:\Users\mohameddkhalil\AppData\Local\Programs\Python\Python312\python.exe
+12:49:57 | ArticlesAgent              | INFO     |   Attempt 1/2
+12:49:57 | ArticlesAgent              | INFO     |   $ C:\Users\mohameddkhalil\AppData\Local\Programs\Python\Python312\python.exe bnb_tunisie_scraper.py
+12:49:57 | ArticlesAgent              | INFO     |   cwd: C:\bnbblog
+12:50:16 | ArticlesAgent              | INFO     |   ✅ exit 0
+12:50:16 | ArticlesAgent              | DEBUG    |   STDOUT: e/page/7/
+  → 10 new articles found on this page.
+[Listing page 8] https://www.bnb.tn/blog-bnb-tunisie/page/8/
+  → 8 new articles found on this page.
+[Listing page 9] https://www.bnb.tn/blog-bnb-tunisie/page/9/
+  [ERROR] https://www.bnb.tn/blog-bnb-tunisie/page/9/: 404 Client Error: Not Found for url: https://www.bnb.tn/blog-bnb-tunisie/page/9/
+
+  TOTAL: 78 articles collected.
+
+  [Checkpoint] Skipping 78 already-scraped article(s).
+
+✅  All articles are already up-to-date. Nothing new to scrape.
+
+12:50:16 | ArticlesAgent              | DEBUG    | Row count [C:\bnbblog\bnb_blog_articles.csv]: 2,999
+12:50:16 | ArticlesAgent              | INFO     |   Output validated: 2999 rows at C:\bnbblog\bnb_blog_articles.csv
+12:50:16 | Memory.ArticlesAgent       | DEBUG    | [MEMORY] stored in 'successes': {'scraper': 'bnb', 'total': 78, 'empty_pct': 0.0, 'dupe_pct': 0.0, 'short_pct': 0.0, 'ts': '2026-04-05T11:50:16.235757Z'}
+12:50:16 | ArticlesAgent              | INFO     |   ✅ SUCCESS — 78 articles | empty: 0.0% | dupes: 0.0%
+12:50:16 | ArticlesAgent              | INFO     | 
+──────────────────────────────────────────────────
+12:50:16 | ArticlesAgent              | INFO     | Processing scraper: HOUNI
+12:50:16 | ArticlesAgent              | INFO     |   cwd    : C:\houni.scraper
+12:50:16 | ArticlesAgent              | INFO     |   script : houni_scraper.py
+12:50:16 | ArticlesAgent              | INFO     |   output : C:\houni.scraper\houni_blog_articles.csv
+12:50:16 | ArticlesAgent              | DEBUG    | Row count [C:\houni.scraper\houni_blog_articles.csv]: 153
+12:50:16 | ArticlesAgent              | INFO     |   Existing output: 153 rows, age 0.9h (threshold 6h)
+12:50:16 | ArticlesAgent              | INFO     |   ⏭  SKIPPING — Output fresh (0.9h old, 153 rows) — skipping re-scrape
+12:50:16 | ArticlesAgent              | INFO     |   Loaded 78 articles from bnb_blog
+12:50:16 | ArticlesAgent              | INFO     |   Loaded 51 articles from houni_blog
+12:50:16 | ArticlesAgent              | INFO     |   Articles merged: 129 total → Data/raw_articles/merged_articles.csv
+12:50:16 | ArticlesAgent              | DEBUG    | State updated — articles_raw_paths: ['C:\\bnbblog\\bnb_blog_articles.csv', 'C:\\houni.scraper\\houni_blog_articles.csv']
+12:50:16 | ArticlesAgent              | DEBUG    | State updated — articles_results: {'bnb': {'status': 'success', 'path': 'C:\\bnbblog\\bnb_blog_articles.csv', 'total': 78, 'empty_pct': 0.0, 'dupe_pct': 0
+12:50:16 | ArticlesAgent              | DEBUG    | State updated — merged_articles_path: Data/raw_articles/merged_articles.csv
+12:50:16 | ArticlesAgent              | INFO     | 
+ArticlesAgent done — 2 sources collected
+12:50:16 | ArticlesAgent              | INFO     |   merged → Data/raw_articles/merged_articles.csv
+12:50:16 | OrchestratorAgent          | INFO     | Articles stage complete: 2 sources
+12:50:16 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+12:50:16 | OrchestratorAgent          | INFO     |   STAGE 2 — Listings Collection
+12:50:16 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+12:50:16 | ListingsAgent              | INFO     | ============================================================
+12:50:16 | ListingsAgent              | INFO     | ListingsAgent — starting
+12:50:16 | ListingsAgent              | INFO     | ============================================================
+12:50:16 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+12:50:16 | ListingsAgent              | INFO     | Processing scraper: MUBAWAB
+12:50:16 | ListingsAgent              | INFO     |   cwd    : C:\Mubawab-scrapper
+12:50:16 | ListingsAgent              | INFO     |   script : mubawab_scraper.py 
+12:54:57 | OrchestratorAgent          | INFO     | ============================================================
+12:54:57 | OrchestratorAgent          | INFO     |   LENS ESTATE PIPELINE — ORCHESTRATOR
+12:54:57 | OrchestratorAgent          | INFO     |   Run ID  : 20260405_115457
+12:54:57 | OrchestratorAgent          | INFO     |   Started : 2026-04-05T11:54:57.532469Z
+12:54:57 | OrchestratorAgent          | INFO     | ============================================================
+12:54:57 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+12:54:57 | OrchestratorAgent          | INFO     |   STAGE 1 — Articles Collection
+12:54:57 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+12:54:57 | ArticlesAgent              | INFO     | ============================================================
+12:54:57 | ArticlesAgent              | INFO     | ArticlesAgent — starting (runs FIRST)
+12:54:57 | ArticlesAgent              | INFO     | ============================================================
+12:54:57 | ArticlesAgent              | INFO     | 
+──────────────────────────────────────────────────
+12:54:57 | ArticlesAgent              | INFO     | Processing scraper: BNB
+12:54:57 | ArticlesAgent              | INFO     |   cwd    : C:\bnbblog
+12:54:57 | ArticlesAgent              | INFO     |   script : bnb_tunisie_scraper.py
+12:54:57 | ArticlesAgent              | INFO     |   output : C:\bnbblog\bnb_blog_articles.csv
+12:54:57 | ArticlesAgent              | DEBUG    | Row count [C:\bnbblog\bnb_blog_articles.csv]: 2,999
+12:54:57 | ArticlesAgent              | INFO     |   Existing output: 2999 rows, age 230.8h (threshold 6h)
+12:54:57 | ArticlesAgent              | INFO     |   ▶  RUNNING — Output stale (230.8h ≥ 6h) — re-scraping for fresh data
+12:54:57 | ArticlesAgent              | INFO     |   python : C:\Users\mohameddkhalil\AppData\Local\Programs\Python\Python312\python.exe
+12:54:57 | ArticlesAgent              | INFO     |   Attempt 1/2
+12:54:57 | ArticlesAgent              | INFO     |   $ C:\Users\mohameddkhalil\AppData\Local\Programs\Python\Python312\python.exe bnb_tunisie_scraper.py
+12:54:57 | ArticlesAgent              | INFO     |   cwd: C:\bnbblog
+12:55:16 | ArticlesAgent              | INFO     |   ✅ exit 0
+12:55:16 | ArticlesAgent              | DEBUG    |   STDOUT: e/page/7/
+  → 10 new articles found on this page.
+[Listing page 8] https://www.bnb.tn/blog-bnb-tunisie/page/8/
+  → 8 new articles found on this page.
+[Listing page 9] https://www.bnb.tn/blog-bnb-tunisie/page/9/
+  [ERROR] https://www.bnb.tn/blog-bnb-tunisie/page/9/: 404 Client Error: Not Found for url: https://www.bnb.tn/blog-bnb-tunisie/page/9/
+
+  TOTAL: 78 articles collected.
+
+  [Checkpoint] Skipping 78 already-scraped article(s).
+
+✅  All articles are already up-to-date. Nothing new to scrape.
+
+12:55:16 | ArticlesAgent              | DEBUG    | Row count [C:\bnbblog\bnb_blog_articles.csv]: 2,999
+12:55:16 | ArticlesAgent              | INFO     |   Output validated: 2999 rows at C:\bnbblog\bnb_blog_articles.csv
+12:55:16 | Memory.ArticlesAgent       | DEBUG    | [MEMORY] stored in 'successes': {'scraper': 'bnb', 'total': 78, 'empty_pct': 0.0, 'dupe_pct': 0.0, 'short_pct': 0.0, 'ts': '2026-04-05T11:55:16.872556Z'}
+12:55:16 | ArticlesAgent              | INFO     |   ✅ SUCCESS — 78 articles | empty: 0.0% | dupes: 0.0%
+12:55:16 | ArticlesAgent              | INFO     | 
+──────────────────────────────────────────────────
+12:55:16 | ArticlesAgent              | INFO     | Processing scraper: HOUNI
+12:55:16 | ArticlesAgent              | INFO     |   cwd    : C:\houni.scraper
+12:55:16 | ArticlesAgent              | INFO     |   script : houni_scraper.py
+12:55:16 | ArticlesAgent              | INFO     |   output : C:\houni.scraper\houni_blog_articles.csv
+12:55:16 | ArticlesAgent              | DEBUG    | Row count [C:\houni.scraper\houni_blog_articles.csv]: 153
+12:55:16 | ArticlesAgent              | INFO     |   Existing output: 153 rows, age 1.0h (threshold 6h)
+12:55:16 | ArticlesAgent              | INFO     |   ⏭  SKIPPING — Output fresh (1.0h old, 153 rows) — skipping re-scrape
+12:55:16 | ArticlesAgent              | INFO     |   Loaded 78 articles from bnb_blog
+12:55:16 | ArticlesAgent              | INFO     |   Loaded 51 articles from houni_blog
+12:55:16 | ArticlesAgent              | INFO     |   Articles merged: 129 total → Data/raw_articles/merged_articles.csv
+12:55:16 | ArticlesAgent              | DEBUG    | State updated — articles_raw_paths: ['C:\\bnbblog\\bnb_blog_articles.csv', 'C:\\houni.scraper\\houni_blog_articles.csv']
+12:55:16 | ArticlesAgent              | DEBUG    | State updated — articles_results: {'bnb': {'status': 'success', 'path': 'C:\\bnbblog\\bnb_blog_articles.csv', 'total': 78, 'empty_pct': 0.0, 'dupe_pct': 0
+12:55:16 | ArticlesAgent              | DEBUG    | State updated — merged_articles_path: Data/raw_articles/merged_articles.csv
+12:55:16 | ArticlesAgent              | INFO     | 
+ArticlesAgent done — 2 sources collected
+12:55:16 | ArticlesAgent              | INFO     |   merged → Data/raw_articles/merged_articles.csv
+12:55:16 | OrchestratorAgent          | INFO     | Articles stage complete: 2 sources
+12:55:16 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+12:55:16 | OrchestratorAgent          | INFO     |   STAGE 2 — Listings Collection
+12:55:16 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+12:55:16 | ListingsAgent              | INFO     | ============================================================
+12:55:16 | ListingsAgent              | INFO     | ListingsAgent — starting
+12:55:16 | ListingsAgent              | INFO     | ============================================================
+12:55:16 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+12:55:16 | ListingsAgent              | INFO     | Processing scraper: MUBAWAB
+12:55:16 | ListingsAgent              | INFO     |   cwd    : C:\Mubawab-scrapper
+12:55:16 | ListingsAgent              | INFO     |   script : mubawab_scraper.py 
+12:55:16 | ListingsAgent              | DEBUG    | Row count [C:\Mubawab-scrapper\data\mubawab_listings.csv]: 810
+12:55:16 | ListingsAgent              | INFO     |   Existing output: 810 rows, age 1053.3h (threshold 6h)
+12:55:16 | ListingsAgent              | INFO     |   ▶  RUNNING — Output stale (1053.3h old ≥ 6h) — re-scraping for fresh data
+12:55:16 | ListingsAgent              | INFO     |   python : C:\Mubawab-scrapper\venv\Scripts\python.exe
+12:55:16 | ListingsAgent              | INFO     |   Attempt 1/3
+12:55:16 | ListingsAgent              | INFO     |   $ C:\Mubawab-scrapper\venv\Scripts\python.exe mubawab_scraper.py
+12:55:16 | ListingsAgent              | INFO     |   cwd: C:\Mubawab-scrapper
+14:55:16 | ListingsAgent              | ERROR    |   ❌ TIMEOUT after 7200s
+14:55:17 | ListingsAgent              | INFO     |   Retrying in 10s...
+14:55:27 | ListingsAgent              | INFO     |   Attempt 2/3
+14:55:27 | ListingsAgent              | INFO     |   $ C:\Mubawab-scrapper\venv\Scripts\python.exe mubawab_scraper.py
+14:55:27 | ListingsAgent              | INFO     |   cwd: C:\Mubawab-scrapper
+16:25:24 | ListingsAgent              | INFO     |   ✅ exit 0
+16:25:24 | ListingsAgent              | DEBUG    | Row count [C:\Mubawab-scrapper\data\mubawab_listings.csv]: 2,502
+16:25:24 | ListingsAgent              | INFO     |   Output found: 2,502 rows at C:\Mubawab-scrapper\data\mubawab_listings.csv
+16:25:24 | ListingsAgent              | DEBUG    | Row count [C:\Mubawab-scrapper\data\mubawab_listings.csv]: 2,502
+16:25:24 | Memory.ListingsAgent       | DEBUG    | [MEMORY] stored in 'successes': {'scraper': 'mubawab', 'rows': 2502, 'path': 'C:\\Mubawab-scrapper\\data\\mubawab_listings.csv', 'ts': '2026-04-05T15:25:24.928288Z'}
+16:25:24 | ListingsAgent              | INFO     |   ✅ SUCCESS — 2,502 rows → C:\Mubawab-scrapper\data\mubawab_listings.csv
+16:25:24 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+16:25:24 | ListingsAgent              | INFO     | Processing scraper: TAYARA
+16:25:24 | ListingsAgent              | INFO     |   cwd    : C:\tayara-scraper
+16:25:24 | ListingsAgent              | INFO     |   script : main.py --max-pages 13
+16:25:24 | ListingsAgent              | DEBUG    |   Latest timestamped file: C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv
+16:25:24 | ListingsAgent              | DEBUG    | Row count [C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260221_121357.csv]: 6,646
+16:25:24 | ListingsAgent              | INFO     |   Existing output: 6,646 rows, age 1036.2h (threshold 6h)
+16:25:24 | ListingsAgent              | INFO     |   ▶  RUNNING — Output stale (1036.2h old ≥ 6h) — re-scraping for fresh data
+16:25:24 | ListingsAgent              | INFO     |   python : C:\tayara-scraper\venv\Scripts\python.exe
+16:25:24 | ListingsAgent              | INFO     |   Attempt 1/3
+16:25:24 | ListingsAgent              | INFO     |   $ C:\tayara-scraper\venv\Scripts\python.exe main.py --max-pages 13
+16:25:24 | ListingsAgent              | INFO     |   cwd: C:\tayara-scraper
+17:06:57 | ListingsAgent              | INFO     |   ✅ exit 0
+17:06:57 | ListingsAgent              | DEBUG    |   STDOUT: ====================================
+INFO - ======================================================================
+INFO - TAYARA.TN SCRAPING SESSION COMPLETED
+INFO - ======================================================================
+INFO - Total listings scraped: 492
+INFO - Errors encountered: 0
+INFO - Duration: 2492.03 seconds (41.53 minutes)
+INFO - Average time per listing: 5.07s
+INFO - ======================================================================
+INFO - Scraper shutdown complete
+
+17:06:57 | ListingsAgent              | DEBUG    |   Latest timestamped file: C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260405_170657.csv
+17:06:57 | ListingsAgent              | DEBUG    | Row count [C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260405_170657.csv]: 5,517
+17:06:57 | ListingsAgent              | INFO     |   Output found: 5,517 rows at C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260405_170657.csv
+17:06:57 | ListingsAgent              | DEBUG    | Row count [C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260405_170657.csv]: 5,517
+17:06:57 | Memory.ListingsAgent       | DEBUG    | [MEMORY] stored in 'successes': {'scraper': 'tayara', 'rows': 5517, 'path': 'C:\\tayara-scraper\\data\\tayara_scrape\\processed\\tayara_listings_20260405_170657.csv', 'ts': '2026-04-05T16:06:57.570397Z'}
+17:06:57 | ListingsAgent              | INFO     |   ✅ SUCCESS — 5,517 rows → C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260405_170657.csv
+17:06:57 | ListingsAgent              | INFO     | 
+──────────────────────────────────────────────────
+17:06:57 | ListingsAgent              | INFO     | Processing scraper: TUNISIE_ANNONCE
+17:06:57 | ListingsAgent              | INFO     |   cwd    : C:\Tunisie-Annonces-scrapper
+17:06:57 | ListingsAgent              | INFO     |   script : main.py 
+17:06:57 | ListingsAgent              | DEBUG    | Row count [C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv]: 10,404
+17:06:57 | ListingsAgent              | INFO     |   Existing output: 10,404 rows, age 1039.7h (threshold 6h)
+17:06:57 | ListingsAgent              | INFO     |   ▶  RUNNING — Output stale (1039.7h old ≥ 6h) — re-scraping for fresh data
+17:06:57 | ListingsAgent              | INFO     |   python : C:\Users\mohameddkhalil\AppData\Local\Programs\Python\Python312\python.exe
+17:06:57 | ListingsAgent              | INFO     |   Attempt 1/3
+17:06:57 | ListingsAgent              | INFO     |   $ C:\Users\mohameddkhalil\AppData\Local\Programs\Python\Python312\python.exe main.py
+17:06:57 | ListingsAgent              | INFO     |   cwd: C:\Tunisie-Annonces-scrapper
+17:06:58 | ListingsAgent              | INFO     |   ✅ exit 0
+17:06:58 | ListingsAgent              | DEBUG    |   STDOUT: ==================================
+2026-04-05 17:06:58,102 - TunisieAnnonceScraper - INFO - 
+📁 Output files:
+2026-04-05 17:06:58,102 - TunisieAnnonceScraper - INFO -    - JSON: output\tunisie_annonce_listings.json
+2026-04-05 17:06:58,102 - TunisieAnnonceScraper - INFO -    - CSV: output\tunisie_annonce_listings.csv
+2026-04-05 17:06:58,102 - TunisieAnnonceScraper - INFO -    - Log: output\scraper.log
+2026-04-05 17:06:58,102 - TunisieAnnonceScraper - INFO -    - Checkpoint: output\checkpoint.json
+
+17:06:58 | ListingsAgent              | DEBUG    | Row count [C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv]: 10,404
+17:06:58 | ListingsAgent              | INFO     |   Output found: 10,404 rows at C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv
+17:06:58 | ListingsAgent              | DEBUG    | Row count [C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv]: 10,404
+17:06:58 | Memory.ListingsAgent       | DEBUG    | [MEMORY] stored in 'successes': {'scraper': 'tunisie_annonce', 'rows': 10404, 'path': 'C:\\Tunisie-Annonces-scrapper\\output\\tunisie_annonce_listings.csv', 'ts': '2026-04-05T16:06:58.211972Z'}
+17:06:58 | ListingsAgent              | INFO     |   ✅ SUCCESS — 10,404 rows → C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv
+17:06:58 | ListingsAgent              | DEBUG    | Row count [C:\Mubawab-scrapper\data\mubawab_listings.csv]: 2,502
+17:06:58 | ListingsAgent              | DEBUG    | Row count [C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260405_170657.csv]: 5,517
+17:06:58 | ListingsAgent              | DEBUG    | Row count [C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv]: 10,404
+17:06:58 | ListingsAgent              | DEBUG    | State updated — listings_raw_paths: ['C:\\Mubawab-scrapper\\data\\mubawab_listings.csv', 'C:\\tayara-scraper\\data\\tayara_scrape\\processed\\tayara_listing
+17:06:58 | ListingsAgent              | DEBUG    | State updated — listings_results: {'mubawab': {'status': 'success', 'path': 'C:\\Mubawab-scrapper\\data\\mubawab_listings.csv', 'rows': 2502}, 'tayara': {
+17:06:58 | ListingsAgent              | DEBUG    | State updated — listings_total_rows: 18423
+17:06:58 | ListingsAgent              | INFO     | 
+ListingsAgent done — 3 sources, 18,423 total rows
+17:06:58 | ListingsAgent              | INFO     |   mubawab                → success
+17:06:58 | ListingsAgent              | INFO     |   tayara                 → success
+17:06:58 | ListingsAgent              | INFO     |   tunisie_annonce        → success
+17:06:58 | OrchestratorAgent          | INFO     | 
+Asking LLM for decision after stage: listings_collection
+17:06:58 | OrchestratorAgent          | DEBUG    | Decision context: {
+  "stage": "listings_collection",
+  "listings_total_rows": 18423,
+  "min_target": 500,
+  "standardization": null,
+  "cleaning_status": null,
+  "final_row_count": 0,
+  "suspicious_count": 0,
+  "sources": {
+    "mubawab": "success",
+    "tayara": "success",
+    "tunisie_annonce": "success"
+  }
+}
+17:07:05 | OrchestratorAgent          | DEBUG    | LLM raw response: {"action":"continue","reason":"no further actions required","confidence":1.0}
+17:07:05 | Memory.OrchestratorAgent   | DEBUG    | [MEMORY] stored in 'decisions': {'decision': {'action': 'continue', 'reason': 'no further actions required', 'confidence': 1.0}, 'context': 'after_listings', 'ts': '2026-04-05T16:07:05.814063Z'}
+17:07:05 | OrchestratorAgent          | INFO     | ┌─ DECISION [after_listings]
+17:07:05 | OrchestratorAgent          | INFO     | │  action     : continue
+17:07:05 | OrchestratorAgent          | INFO     | │  reason     : no further actions required
+17:07:05 | OrchestratorAgent          | INFO     | └─ confidence : 1.0
+17:07:05 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+17:07:05 | OrchestratorAgent          | INFO     |   STAGE 3 — Standardization
+17:07:05 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+17:07:05 | StandardizationAgent       | INFO     | ============================================================
+17:07:05 | StandardizationAgent       | INFO     | StandardizationAgent — starting
+17:07:05 | StandardizationAgent       | INFO     | ============================================================
+17:07:05 | StandardizationAgent       | INFO     | Input paths (3):
+17:07:05 | StandardizationAgent       | INFO     |   → C:\Mubawab-scrapper\data\mubawab_listings.csv
+17:07:05 | StandardizationAgent       | INFO     |   → C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260405_170657.csv
+17:07:05 | StandardizationAgent       | INFO     |   → C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv
+17:07:05 | StandardizationAgent       | INFO     | 
+Standardizing: C:\Mubawab-scrapper\data\mubawab_listings.csv
+17:07:06 | StandardizationAgent       | DEBUG    |   Raw shape: (2502, 42) | columns: ['listing_id', 'listing_url', 'source', 'title', 'property_type', 'transaction_type', 'price', 'currency']...
+17:07:06 | StandardizationAgent       | INFO     |   ✅ 2,502 rows | source=mubawab
+17:07:06 | StandardizationAgent       | INFO     | 
+Standardizing: C:\tayara-scraper\data\tayara_scrape\processed\tayara_listings_20260405_170657.csv
+17:07:06 | StandardizationAgent       | DEBUG    |   Raw shape: (492, 33) | columns: ['listing_id', 'title', 'price_numeric', 'currency', 'price_raw', 'category', 'city', 'governorate']...
+17:07:06 | StandardizationAgent       | INFO     |   ✅ 492 rows | source=tayara
+17:07:06 | StandardizationAgent       | INFO     | 
+Standardizing: C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv
+17:07:06 | StandardizationAgent       | DEBUG    |   Raw shape: (10404, 34) | columns: ['id', 'title', 'link', 'source', 'property_type', 'transaction_type', 'price', 'currency']...
+17:07:06 | StandardizationAgent       | INFO     |   ✅ 10,404 rows | source=tunisie_annonce
+17:07:07 | StandardizationAgent       | INFO     | 
+──────────────────────────────────────────────────
+17:07:07 | StandardizationAgent       | INFO     | Merged listings: 13,398 rows, 71 cols → Data/raw_listings/merged_listings.csv
+17:07:07 | StandardizationAgent       | INFO     | Source distribution:
+17:07:07 | StandardizationAgent       | INFO     |   tunisie_annonce            10,404
+17:07:07 | StandardizationAgent       | INFO     |   mubawab                     2,502
+17:07:07 | StandardizationAgent       | INFO     |   tayara                        492
+17:07:07 | StandardizationAgent       | INFO     | ──────────────────────────────────────────────────
+17:07:07 | Memory.StandardizationAgent | DEBUG    | [MEMORY] stored in 'quality': {'rows': 13398, 'cols': 71, 'sources': {'tunisie_annonce': 10404, 'mubawab': 2502, 'tayara': 492}, 'ts': '2026-04-05T16:07:07.310462Z'}
+17:07:07 | StandardizationAgent       | DEBUG    | State updated — merged_listings_path: Data/raw_listings/merged_listings.csv
+17:07:07 | StandardizationAgent       | DEBUG    | State updated — standardization_status: success
+17:07:07 | StandardizationAgent       | DEBUG    | State updated — standardization_report: {'rows': 13398, 'sources': {'tunisie_annonce': 10404, 'mubawab': 2502, 'tayara': 492}}
+17:07:07 | OrchestratorAgent          | INFO     | 
+Asking LLM for decision after stage: standardization
+17:07:07 | OrchestratorAgent          | DEBUG    | Decision context: {
+  "stage": "standardization",
+  "listings_total_rows": 18423,
+  "min_target": 500,
+  "standardization": "success",
+  "cleaning_status": null,
+  "final_row_count": 0,
+  "suspicious_count": 0,
+  "std_report": {
+    "rows": 13398,
+    "sources": {
+      "tunisie_annonce": 10404,
+      "mubawab": 2502,
+      "tayara": 492
+    }
+  }
+}
+17:07:11 | OrchestratorAgent          | DEBUG    | LLM raw response: {"action":"continue","reason":"standardization is successful and no further actions are needed.","confidence":1.0}
+17:07:11 | Memory.OrchestratorAgent   | DEBUG    | [MEMORY] stored in 'decisions': {'decision': {'action': 'continue', 'reason': 'standardization is successful and no further actions are needed.', 'confidence': 1.0}, 'context': 'after_standardization', 'ts': '2026-04-05T16:07:11.795679Z'}
+17:07:11 | OrchestratorAgent          | INFO     | ┌─ DECISION [after_standardization]
+17:07:11 | OrchestratorAgent          | INFO     | │  action     : continue
+17:07:11 | OrchestratorAgent          | INFO     | │  reason     : standardization is successful and no further actions are needed.
+17:07:11 | OrchestratorAgent          | INFO     | └─ confidence : 1.0
+17:07:11 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+17:07:11 | OrchestratorAgent          | INFO     |   STAGE 4 — Cleaning
+17:07:11 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+17:07:11 | CleaningAgent              | INFO     | ============================================================
+17:07:11 | CleaningAgent              | INFO     | CleaningAgent — starting
+17:07:11 | CleaningAgent              | INFO     | ============================================================
+17:07:12 | CleaningAgent              | INFO     | Loaded: 13,398 rows × 71 cols
+17:07:12 | CleaningAgent              | INFO     | 
+Cleaning pipeline:
+17:07:12 | CleaningAgent              | INFO     |   [normalize] 13,398 rows
+17:07:12 | CleaningAgent              | INFO     |   [gov_recovery] 13,398 rows
+17:07:12 | CleaningAgent              | INFO     |   [remove_rent] 12,906 rows
+17:07:12 | CleaningAgent              | INFO     |   [dedup_description] 11,001 rows
+17:07:12 | CleaningAgent              | INFO     |   [drop_null_desc] 11,000 rows
+17:07:12 | CleaningAgent              | INFO     |   [price_imputed] 482 rows
+17:07:13 | CleaningAgent              | INFO     |   [drop_null_gov] 9,872 rows
+17:07:13 | CleaningAgent              | INFO     | 
+Running LLM suspicious listing detection...
+17:08:17 | CleaningAgent              | DEBUG    | LLM raw response: ```json
+{"suspicious_ids": [10328, 1031, 11595, 10037, 1509, 3828, 7041, 7391, 7280, 12165, 12014, 7789, 11327, 12111, 6215, 89, 9619, 10474, 11237, 13311, 11728]}
+```
+17:08:17 | CleaningAgent              | DEBUG    | LLM suspicious IDs: [10328, 1031, 11595, 10037, 1509, 3828, 7041, 7391, 7280, 12165, 12014, 7789, 11327, 12111, 6215, 89, 9619, 10474, 11237, 13311, 11728]
+17:08:17 | CleaningAgent              | INFO     | LLM flagged: 21 suspicious listings (tagged, not dropped)
+17:08:17 | CleaningAgent              | INFO     |   Flagged IDs: [10328, 1031, 11595, 10037, 1509, 3828, 7041, 7391, 7280, 12165]...
+17:08:17 | CleaningAgent              | INFO     | 
+──────────────────────────────────────────────────
+17:08:17 | CleaningAgent              | INFO     | Cleaning summary:
+17:08:17 | CleaningAgent              | INFO     |   Initial rows : 13,398
+17:08:17 | CleaningAgent              | INFO     |   Final rows   : 9,872
+17:08:17 | CleaningAgent              | INFO     |   Removed      : 3,526
+17:08:17 | CleaningAgent              | INFO     |   Suspicious   : 21
+17:08:17 | CleaningAgent              | INFO     |   Columns      : 73
+17:08:17 | CleaningAgent              | INFO     |   Output       : Data/raw_listings/merged_listings_model_ready.csv
+17:08:17 | CleaningAgent              | INFO     | ──────────────────────────────────────────────────
+17:08:17 | Memory.CleaningAgent       | DEBUG    | [MEMORY] stored in 'quality': {'initial': 13398, 'final': 9872, 'removed': 3526, 'suspicious': 21, 'ts': '2026-04-05T16:08:17.747318Z'}
+17:08:17 | CleaningAgent              | DEBUG    | State updated — model_ready_path: Data/raw_listings/merged_listings_model_ready.csv
+17:08:17 | CleaningAgent              | DEBUG    | State updated — cleaning_status: success
+17:08:17 | CleaningAgent              | DEBUG    | State updated — cleaning_report: {'initial': 13398, 'final': 9872, 'removed': 3526, 'suspicious': 21, 'ts': '2026-04-05T16:08:17.747318Z'}
+17:08:17 | CleaningAgent              | DEBUG    | State updated — final_row_count: 9872
+17:08:17 | OrchestratorAgent          | INFO     | 
+Asking LLM for decision after stage: cleaning
+17:08:17 | OrchestratorAgent          | DEBUG    | Decision context: {
+  "stage": "cleaning",
+  "listings_total_rows": 18423,
+  "min_target": 500,
+  "standardization": "success",
+  "cleaning_status": "success",
+  "final_row_count": 9872,
+  "suspicious_count": 21
+}
+17:08:24 | OrchestratorAgent          | DEBUG    | LLM raw response: {"action":"continue","reason":"cleaning_status is success and final_row_count is 9872, which is above the minimum target of 500.","confidence":1.0}
+17:08:24 | Memory.OrchestratorAgent   | DEBUG    | [MEMORY] stored in 'decisions': {'decision': {'action': 'continue', 'reason': 'cleaning_status is success and final_row_count is 9872, which is above the minimum target of 500.', 'confidence': 1.0}, 'context': 'after_cleaning', 'ts': '2026-04-05T16:08:24.026699Z'}
+17:08:24 | OrchestratorAgent          | INFO     | ┌─ DECISION [after_cleaning]
+17:08:24 | OrchestratorAgent          | INFO     | │  action     : continue
+17:08:24 | OrchestratorAgent          | INFO     | │  reason     : cleaning_status is success and final_row_count is 9872, which is above the minimum target of 500.
+17:08:24 | OrchestratorAgent          | INFO     | └─ confidence : 1.0
+17:08:24 | OrchestratorAgent          | INFO     | 
+████████████████████████████████████████████████████████████
+17:08:24 | OrchestratorAgent          | INFO     |   STAGE 5 — Final Validation
+17:08:24 | OrchestratorAgent          | INFO     | ████████████████████████████████████████████████████████████
+17:08:24 | OrchestratorAgent          | INFO     | ✅ PIPELINE SUCCESS — 9,872 model-ready rows
+17:08:24 | OrchestratorAgent          | INFO     | Run report saved → logs/run_20260405_115457.json
+17:08:24 | OrchestratorAgent          | INFO     | 
+============================================================
+17:08:24 | OrchestratorAgent          | INFO     |   PIPELINE COMPLETE — SUCCESS
+17:08:24 | OrchestratorAgent          | INFO     |   Final rows: 9,872
+17:08:24 | OrchestratorAgent          | INFO     |   Output:     Data/raw_listings/merged_listings_model_ready.csv
+17:08:24 | OrchestratorAgent          | INFO     |   Report:     logs/run_20260405_115457.json
+17:08:24 | OrchestratorAgent          | INFO     | ============================================================

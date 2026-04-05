@@ -1,23 +1,58 @@
 {
-  "successes": [],
-  "failures": [],
+  "run_id": "20260405_115457",
+  "started_at": "2026-04-05T11:54:57.532469Z",
+  "completed_at": "2026-04-05T16:08:24.036400Z",
+  "pipeline_status": "success",
+  "final_row_count": 9872,
+  "model_ready": "Data/raw_listings/merged_listings_model_ready.csv",
+  "articles": {
+    "bnb": {
+      "status": "success",
+      "path": "C:\\bnbblog\\bnb_blog_articles.csv",
+      "total": 78,
+      "empty_pct": 0.0,
+      "dupe_pct": 0.0,
+      "short_pct": 0.0
+    },
+    "houni": {
+      "status": "skipped",
+      "reason": "Output fresh (1.0h old, 153 rows) — skipping re-scrape",
+      "path": "C:\\houni.scraper\\houni_blog_articles.csv"
+    }
+  },
+  "listings": {
+    "mubawab": {
+      "status": "success",
+      "path": "C:\\Mubawab-scrapper\\data\\mubawab_listings.csv",
+      "rows": 2502
+    },
+    "tayara": {
+      "status": "success",
+      "path": "C:\\tayara-scraper\\data\\tayara_scrape\\processed\\tayara_listings_20260405_170657.csv",
+      "rows": 5517
+    },
+    "tunisie_annonce": {
+      "status": "success",
+      "path": "C:\\Tunisie-Annonces-scrapper\\output\\tunisie_annonce_listings.csv",
+      "rows": 10404
+    }
+  },
+  "std_report": {
+    "rows": 13398,
+    "sources": {
+      "tunisie_annonce": 10404,
+      "mubawab": 2502,
+      "tayara": 492
+    }
+  },
+  "cleaning_report": {
+    "initial": 13398,
+    "final": 9872,
+    "removed": 3526,
+    "suspicious": 21,
+    "ts": "2026-04-05T16:08:17.747318Z"
+  },
   "decisions": [
-    {
-      "decision": {
-        "action": "continue",
-        "reason": "LLM unavailable — deterministic fallback"
-      },
-      "context": "after_listings",
-      "ts": "2026-03-26T13:14:21.413359Z"
-    },
-    {
-      "decision": {
-        "action": "continue",
-        "reason": "LLM unavailable — deterministic fallback"
-      },
-      "context": "after_standardization",
-      "ts": "2026-03-26T13:14:21.497506Z"
-    },
     {
       "decision": {
         "action": "continue",
@@ -190,6 +225,5 @@
       "context": "after_cleaning",
       "ts": "2026-04-05T16:08:24.026699Z"
     }
-  ],
-  "quality": []
+  ]
 }

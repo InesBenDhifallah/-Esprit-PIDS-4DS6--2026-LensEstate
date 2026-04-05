@@ -12,6 +12,46 @@
         "tayara": 500
       },
       "ts": "2026-03-27T10:02:19.358537Z"
+    },
+    {
+      "rows": 11714,
+      "cols": 64,
+      "sources": {
+        "tunisie_annonce": 10404,
+        "mubawab": 810,
+        "tayara": 500
+      },
+      "ts": "2026-03-30T16:40:55.342958Z"
+    },
+    {
+      "rows": 11714,
+      "cols": 64,
+      "sources": {
+        "tunisie_annonce": 10404,
+        "mubawab": 810,
+        "tayara": 500
+      },
+      "ts": "2026-04-05T10:55:35.500918Z"
+    },
+    {
+      "rows": 11714,
+      "cols": 64,
+      "sources": {
+        "tunisie_annonce": 10404,
+        "mubawab": 810,
+        "tayara": 500
+      },
+      "ts": "2026-04-05T11:12:24.922995Z"
+    },
+    {
+      "rows": 13398,
+      "cols": 71,
+      "sources": {
+        "tunisie_annonce": 10404,
+        "mubawab": 2502,
+        "tayara": 492
+      },
+      "ts": "2026-04-05T16:07:07.310462Z"
     }
   ]
 }

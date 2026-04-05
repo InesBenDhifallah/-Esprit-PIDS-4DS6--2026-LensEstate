@@ -1,47 +1,25 @@
 {
-  "successes": [],
-  "failures": [
+  "successes": [
     {
       "scraper": "mubawab",
-      "reason": "retries_exhausted",
-      "ts": "2026-03-26T13:13:21.184344Z"
+      "rows": 2502,
+      "path": "C:\\Mubawab-scrapper\\data\\mubawab_listings.csv",
+      "ts": "2026-04-05T15:25:24.928288Z"
     },
     {
       "scraper": "tayara",
-      "reason": "retries_exhausted",
-      "ts": "2026-03-26T13:13:51.294688Z"
+      "rows": 5517,
+      "path": "C:\\tayara-scraper\\data\\tayara_scrape\\processed\\tayara_listings_20260405_170657.csv",
+      "ts": "2026-04-05T16:06:57.570397Z"
     },
     {
       "scraper": "tunisie_annonce",
-      "reason": "retries_exhausted",
-      "ts": "2026-03-26T13:14:21.407170Z"
-    },
-    {
-      "scraper": "mubawab",
-      "reason": "retries_exhausted",
-      "ts": "2026-03-26T13:41:48.813651Z"
-    },
-    {
-      "scraper": "tayara",
-      "reason": "retries_exhausted",
-      "ts": "2026-03-26T13:42:18.943217Z"
-    },
-    {
-      "scraper": "tunisie_annonce",
-      "reason": "retries_exhausted",
-      "ts": "2026-03-26T13:42:49.074013Z"
-    },
-    {
-      "scraper": "mubawab",
-      "reason": "retries_exhausted",
-      "ts": "2026-03-26T13:49:40.871560Z"
-    },
-    {
-      "scraper": "tayara",
-      "reason": "retries_exhausted",
-      "ts": "2026-03-26T13:50:10.977936Z"
+      "rows": 10404,
+      "path": "C:\\Tunisie-Annonces-scrapper\\output\\tunisie_annonce_listings.csv",
+      "ts": "2026-04-05T16:06:58.211972Z"
     }
   ],
+  "failures": [],
   "decisions": [],
   "quality": []
 }
