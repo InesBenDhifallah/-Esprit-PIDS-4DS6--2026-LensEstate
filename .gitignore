@@ -1,1 +1,6 @@
 DATA/
+.env/
+.venv/__pycache__/
+*.pyc
+logs/
+memory/
