@@ -1,3 +1,4 @@
 DATA/
 .env
 ma_base_immo/
+chroma_db/
