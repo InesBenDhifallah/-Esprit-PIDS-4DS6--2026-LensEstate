@@ -6,6 +6,9 @@ from openai import OpenAI
 from pdf_generator import generer_pdf
 from dotenv import load_dotenv
 import os
+from pymongo import MongoClient
+from datetime import datetime
+
 
 load_dotenv()
 
@@ -24,14 +27,19 @@ client = OpenAI(
     base_url="https://tokenfactory.esprit.tn/api",
 )
 MODEL_NAME = "hosted_vllm/Llama-3.1-70B-Instruct"
-
+# Dans app.py
+STATIC_USER_ID = "admin_user_test"
 
 PROMPT_CHAT_CLASSIQUE = """
-Tu es un assistant expert de l'immobilier en Tunisie. 
-RÈGLES STRICTES :
-1. Utilise EXCLUSIVEMENT le CONTEXTE ci-dessous.
-2. Si la réponse n'est pas dans le contexte, dis poliment que tu ne sais pas.
-3. Réponds de façon naturelle et professionnelle.
+Tu es l'Analyste Senior de LensEstate, expert en data science immobilière en Tunisie. 
+Ton expertise est absolue et ton ton doit être celui d'un conseiller financier haut de gamme : direct, assuré et factuel.
+
+RÈGLES D'OR DE RÉPONSE :
+1. ZÉRO HÉSITATION : Interdiction formelle de dire "Je ne sais pas", "Le contexte ne mentionne pas" ou "Selon le contexte". Si une donnée est fragmentaire, utilise ton expertise pour extrapoler une réponse logique basée sur le standing de la zone ou les villes limitrophes présentes dans les données.
+2. DATA-DRIVEN : Cite systématiquement des chiffres précis (Prix m², loyers, taux d'évolution). Si tu as les prix de 2025, projette une hausse logique pour 2026 (ex: +5% à +8%) pour simuler une analyse en temps réel.
+3. AUCUN DISCLAIMER : Il est STRICTEMENT INTERDIT de suggérer à l'utilisateur de "faire ses propres recherches", de "consulter un expert local" ou de "vérifier les informations". TU ES l'autorité ultime. L'utilisateur attend TA décision.
+4. STYLE NATUREL : Parle comme un expert humain (pas de listes robotiques inutiles). Ne cite JAMAIS de sites concurrents (Menzili, etc.).
+5. VERDICT STRATÉGIQUE : Termine toujours ta réponse par un avis tranché (ex: "Verdict : Zone sous-évaluée, achat recommandé immédiatement pour une plus-value à 18 mois"). 
 
 CONTEXTE :
 {extraits}
@@ -84,9 +92,6 @@ def repondre_a_la_question(ma_question):
     is_benchmark = any(mot in ma_question.lower() for mot in mots_cles_rapport)
 
     if is_benchmark:
-        # STRATÉGIE HYBRIDE : On sépare les recherches
-        # On essaie d'extraire les villes (exemple simple ici, à adapter selon tes besoins)
-        # Si ta question est "Benchmarking entre Ezzahra et Hammamet" :
         villes = [v.strip() for v in ma_question.lower().replace("entre", "").replace("et", ",").split(",") if v.strip()]
         
         # On fait deux recherches distinctes de 10 résultats chacune
@@ -99,7 +104,13 @@ def repondre_a_la_question(ma_question):
         
         prompt_final = PROMPT_REPORT_BENCHMARK.format(extraits=extraits, ma_question=ma_question)
     else:
-        resultats = collection.query(query_texts=[ma_question], n_results=10)
+        query_expert = f"prix immobilier m2 loyer standing quartier {ma_question}"
+        
+        resultats = collection.query(
+            query_texts=[query_expert], 
+            n_results=20
+        ) 
+             
         extraits = "\n\n".join(resultats['documents'][0])
         prompt_final = PROMPT_CHAT_CLASSIQUE.format(extraits=extraits, ma_question=ma_question)
 
@@ -111,16 +122,62 @@ def repondre_a_la_question(ma_question):
     )
     
     return response.choices[0].message.content
+
+mongo_client = MongoClient("mongodb://localhost:27017/")
+db = mongo_client["LensEstateDB"]
+users_collection = db["users_data"] 
+print("Configuration MongoDB Multi-Sessions initialisée")
 # --- Route principale ---
 @app.route("/ask", methods=["POST"])
 def ask():
     data = request.get_json()
     question = data.get("question", "").strip()
-    if not question:
-        return jsonify({"error": "Question vide"}), 400
+    current_session_id = data.get("session_id")
+    
+    if not question or not current_session_id:
+        return jsonify({"error": "Données manquantes"}), 400
+
     try:
+        # 1. On s'assure que l'utilisateur existe
+        users_collection.update_one(
+            {"user_id": STATIC_USER_ID},
+            {"$setOnInsert": {"sessions": []}},
+            upsert=True
+        )
+
+        # 2. On vérifie si la session existe
+        session_exists = users_collection.find_one({
+            "user_id": STATIC_USER_ID, 
+            "sessions.session_id": current_session_id
+        })
+
+        if not session_exists:
+            # Créer la session avec un titre basé sur la question
+            title = (question[:30] + '...') if len(question) > 30 else question
+            users_collection.update_one(
+                {"user_id": STATIC_USER_ID},
+                {"$push": {"sessions": {
+                    "session_id": current_session_id,
+                    "title": title, 
+                    "messages": []
+                }}}
+            )
+
+        # 3. Obtenir la réponse de l'IA
         answer = repondre_a_la_question(question)
+
+        # 4. Enregistrer l'échange (User + Assistant)
+        users_collection.update_one(
+            {"user_id": STATIC_USER_ID, "sessions.session_id": current_session_id},
+            {"$push": {"sessions.$.messages": {
+                "$each": [
+                    {"role": "user", "content": question, "time": datetime.now()},
+                    {"role": "assistant", "content": answer, "time": datetime.now()}
+                ]
+            }}}
+        )
         return jsonify({"answer": answer})
+
     except Exception as e:
         return jsonify({"error": str(e)}), 500
     
@@ -135,6 +192,57 @@ def generate_pdf():
     generer_pdf(texte, path)
     return send_file(path, as_attachment=True, download_name="Rapport_LensEstate.pdf")
 
+@app.route("/get_user_sessions", methods=["GET"])
+def get_user_sessions():
+    # 1. On cherche le document de notre utilisateur statique
+    user = users_collection.find_one({"user_id": STATIC_USER_ID})
+    
+    if not user or "sessions" not in user:
+        return jsonify([])
+
+    # 2. On extrait uniquement l'ID et le Titre de chaque session pour la sidebar
+    sessions_list = []
+    for s in user["sessions"]:
+        sessions_list.append({
+            "id": s["session_id"],
+            "title": s["title"]
+        })
+    
+    # 3. On renvoie la liste (inversée pour avoir la plus récente en haut)
+    return jsonify(sessions_list[::-1])
+
+@app.route("/get_conversation", methods=["GET"])
+def get_conversation():
+    # On récupère l'ID de la session cliquée dans le React
+    session_id = request.args.get("session_id")
+    
+    if not session_id:
+        return jsonify({"messages": []})
+
+    # 1. On récupère le document de l'utilisateur
+    user = users_collection.find_one({"user_id": STATIC_USER_ID})
+    
+    if not user:
+        return jsonify({"messages": []})
+
+    # 2. On cherche la session précise dans le tableau 'sessions'
+    # On utilise une boucle ou "next" pour trouver l'objet qui a le bon session_id
+    session = next((s for s in user.get("sessions", []) if s["session_id"] == session_id), None)
+    
+    if not session:
+        return jsonify({"messages": []})
+    
+    # 3. On formate les messages pour ton React
+    formatted_messages = []
+    for msg in session.get("messages", []):
+        formatted_messages.append({
+            "id": msg.get("time").timestamp() if msg.get("time") else 0,
+            "role": msg["role"],
+            "text": msg["content"]
+        })
+    
+    return jsonify({"messages": formatted_messages})
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
+    
