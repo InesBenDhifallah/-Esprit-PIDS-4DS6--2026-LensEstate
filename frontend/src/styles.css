@@ -1,0 +1,175 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-text-muted: var(--text-muted);
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.6s ease-out forwards;
+  --animate-shimmer: shimmer 2.5s linear infinite;
+  --animate-gradient: gradient-shift 8s ease infinite;
+}
+
+:root {
+  --radius: 1rem;
+  /* Brand palette mapped to oklch */
+  --background: oklch(0.16 0.02 280);          /* #0F0F14 */
+  --foreground: oklch(0.92 0.01 280);          /* #E5E7EB */
+  --surface: oklch(0.21 0.02 280);             /* #1A1A22 */
+  --surface-elevated: oklch(0.26 0.03 280);
+  --text-muted: oklch(0.71 0.015 280);         /* #A1A1AA */
+
+  --card: oklch(0.21 0.02 280);
+  --card-foreground: oklch(0.92 0.01 280);
+  --popover: oklch(0.21 0.02 280);
+  --popover-foreground: oklch(0.92 0.01 280);
+
+  --primary: oklch(0.32 0.15 285);             /* #2D1E5F deep purple */
+  --primary-foreground: oklch(0.98 0.005 280);
+  --secondary: oklch(0.48 0.22 290);           /* #5A3FC0 vibrant purple */
+  --secondary-foreground: oklch(0.98 0.005 280);
+  --accent: oklch(0.78 0.14 85);               /* #D4AF37 gold */
+  --accent-foreground: oklch(0.18 0.02 280);
+
+  --muted: oklch(0.24 0.02 280);
+  --muted-foreground: oklch(0.71 0.015 280);
+  --destructive: oklch(0.62 0.22 25);
+  --destructive-foreground: oklch(0.98 0.005 280);
+  --border: oklch(0.3 0.03 285 / 50%);
+  --input: oklch(0.3 0.03 285 / 60%);
+  --ring: oklch(0.48 0.22 290);
+
+  /* Gradients & glows */
+  --gradient-primary: linear-gradient(135deg, oklch(0.32 0.15 285), oklch(0.48 0.22 290));
+  --gradient-hero: radial-gradient(ellipse at top, oklch(0.48 0.22 290 / 0.35), transparent 60%),
+                   radial-gradient(ellipse at bottom right, oklch(0.32 0.15 285 / 0.4), transparent 60%);
+  --gradient-gold: linear-gradient(135deg, oklch(0.78 0.14 85), oklch(0.85 0.12 90));
+  --gradient-text: linear-gradient(135deg, oklch(0.92 0.01 280), oklch(0.78 0.14 85));
+  --shadow-glow: 0 0 40px oklch(0.48 0.22 290 / 0.45);
+  --shadow-glow-gold: 0 0 30px oklch(0.78 0.14 85 / 0.4);
+  --shadow-elevated: 0 20px 50px -12px oklch(0 0 0 / 0.6);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px oklch(0.48 0.22 290 / 0.3); }
+  50% { box-shadow: 0 0 40px oklch(0.48 0.22 290 / 0.6); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@utility glass {
+  background: color-mix(in oklab, var(--surface) 60%, transparent);
+  backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in oklab, var(--secondary) 20%, transparent);
+}
+
+@utility text-gradient {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility gold-text {
+  color: oklch(0.82 0.14 85);
+}
+
+@utility glow-purple {
+  box-shadow: var(--shadow-glow);
+}
+@utility glow-gold {
+  box-shadow: var(--shadow-glow-gold);
+}
+
+/* Leaflet custom marker + popup styling */
+.lens-marker { background: transparent !important; border: none !important; }
+.lens-pin {
+  width: 32px; height: 32px; border-radius: 9999px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  background: linear-gradient(135deg, #2D1E5F, #5A3FC0);
+  box-shadow: 0 0 18px rgba(90, 63, 192, 0.55);
+  transition: all 0.25s ease;
+}
+.lens-pin-selected {
+  background: #D4AF37;
+  color: #1A1A22;
+  transform: scale(1.2);
+  box-shadow: 0 0 22px rgba(212, 175, 55, 0.7);
+}
+.leaflet-popup-content-wrapper {
+  background: rgba(26, 26, 34, 0.95) !important;
+  color: #E5E7EB !important;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px !important;
+  backdrop-filter: blur(8px);
+}
+.leaflet-popup-tip { background: rgba(26, 26, 34, 0.95) !important; }
+.leaflet-popup-content { margin: 10px 12px !important; }
+.leaflet-container a.leaflet-popup-close-button { color: #A1A1AA !important; }
+.leaflet-control-attribution {
+  background: rgba(15,15,20,0.7) !important;
+  color: #A1A1AA !important;
+}
+.leaflet-control-attribution a { color: #D4AF37 !important; }
+.leaflet-control-zoom a {
+  background: rgba(26,26,34,0.9) !important;
+  color: #E5E7EB !important;
+  border-color: rgba(255,255,255,0.08) !important;
+}
