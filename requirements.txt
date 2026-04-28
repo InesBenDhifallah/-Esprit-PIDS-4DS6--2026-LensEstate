@@ -1,10 +1,8 @@
 numpy
 pandas
-scipy
 scikit-learn
-xgboost>=2.0.0
-category-encoders
-torch>=2.2.0
+xgboost
+torch
 torchvision
 matplotlib
 seaborn
@@ -16,3 +14,4 @@ joblib
 jupyter
 ipykernel
 notebook
+ipywidgets
