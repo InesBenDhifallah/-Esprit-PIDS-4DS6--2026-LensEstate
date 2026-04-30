@@ -1,0 +1,222 @@
+{
+  "successes": [],
+  "failures": [],
+  "decisions": [
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_listings",
+      "ts": "2026-03-26T13:14:21.413359Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_standardization",
+      "ts": "2026-03-26T13:14:21.497506Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_cleaning",
+      "ts": "2026-03-26T13:14:21.502498Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_listings",
+      "ts": "2026-03-26T13:42:49.078079Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_standardization",
+      "ts": "2026-03-26T13:42:49.222408Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_cleaning",
+      "ts": "2026-03-26T13:42:49.248714Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable"
+      },
+      "context": "after_listings",
+      "ts": "2026-03-26T21:54:51.905542Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable"
+      },
+      "context": "after_listings",
+      "ts": "2026-03-27T10:02:17.451012Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable"
+      },
+      "context": "after_standardization",
+      "ts": "2026-03-27T10:02:19.365447Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable"
+      },
+      "context": "after_cleaning",
+      "ts": "2026-03-27T10:02:21.153195Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "no further actions required",
+        "confidence": 1.0
+      },
+      "context": "after_listings",
+      "ts": "2026-03-30T16:40:54.386912Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "standardization is complete and no further actions are needed.",
+        "confidence": 1.0
+      },
+      "context": "after_standardization",
+      "ts": "2026-03-30T16:41:00.161718Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "cleaning_status is success and final_row_count is 9017",
+        "confidence": 1.0
+      },
+      "context": "after_cleaning",
+      "ts": "2026-03-30T16:42:23.865994Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "no further actions required",
+        "confidence": 1.0
+      },
+      "context": "after_listings",
+      "ts": "2026-04-05T10:55:35.004718Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "standardization is complete and no further actions are needed.",
+        "confidence": 1.0
+      },
+      "context": "after_standardization",
+      "ts": "2026-04-05T10:55:38.081927Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "cleaning_status is success and final_row_count is 9017, which is above the minimum target of 500.",
+        "confidence": 1.0
+      },
+      "context": "after_cleaning",
+      "ts": "2026-04-05T10:56:29.022889Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "no further actions required",
+        "confidence": 1.0
+      },
+      "context": "after_listings",
+      "ts": "2026-04-05T11:12:23.915389Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "standardization is complete and no further actions are needed.",
+        "confidence": 1.0
+      },
+      "context": "after_standardization",
+      "ts": "2026-04-05T11:12:29.245350Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "cleaning_status is success and final_row_count is 9017, which is above the minimum target of 500.",
+        "confidence": 1.0
+      },
+      "context": "after_cleaning",
+      "ts": "2026-04-05T11:13:48.255558Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "no further actions required",
+        "confidence": 1.0
+      },
+      "context": "after_listings",
+      "ts": "2026-04-05T16:07:05.814063Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "standardization is successful and no further actions are needed.",
+        "confidence": 1.0
+      },
+      "context": "after_standardization",
+      "ts": "2026-04-05T16:07:11.795679Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "cleaning_status is success and final_row_count is 9872, which is above the minimum target of 500.",
+        "confidence": 1.0
+      },
+      "context": "after_cleaning",
+      "ts": "2026-04-05T16:08:24.026699Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "no further actions required",
+        "confidence": 1.0
+      },
+      "context": "after_listings",
+      "ts": "2026-04-06T09:00:06.545058Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "standardization is successful and no further actions are needed.",
+        "confidence": 1.0
+      },
+      "context": "after_standardization",
+      "ts": "2026-04-06T09:00:12.031670Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "cleaning_status is success and final_row_count is 9872, which is above the minimum target of 500.",
+        "confidence": 1.0
+      },
+      "context": "after_cleaning",
+      "ts": "2026-04-06T09:01:17.446113Z"
+    }
+  ],
+  "quality": []
+}

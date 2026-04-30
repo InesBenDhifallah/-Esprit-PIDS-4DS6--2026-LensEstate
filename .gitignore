@@ -1,4 +1,10 @@
 DATA/
+.env/
+.venv/__pycache__/
+*.pyc
+logs/
+memory/
+
 .env
 ma_base_immo/
 chroma_db/

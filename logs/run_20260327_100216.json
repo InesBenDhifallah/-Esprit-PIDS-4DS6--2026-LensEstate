@@ -1,0 +1,131 @@
+{
+  "run_id": "20260327_100216",
+  "started_at": "2026-03-27T10:02:16.521792Z",
+  "completed_at": "2026-03-27T10:02:21.161721Z",
+  "pipeline_status": "success",
+  "final_row_count": 9017,
+  "model_ready": "Data/raw_listings/merged_listings_model_ready.csv",
+  "articles": {
+    "bnb": {
+      "status": "skipped",
+      "reason": "Output fresh (0.5d old, 2999 rows ≥ 10)",
+      "path": "C:\\bnbblog\\bnb_blog_articles.csv"
+    },
+    "houni": {
+      "status": "skipped",
+      "reason": "Output fresh (0.5d old, 153 rows ≥ 10)",
+      "path": "C:\\houni.scraper\\houni_blog_articles.csv"
+    }
+  },
+  "listings": {
+    "mubawab": {
+      "status": "skipped",
+      "path": "C:\\Mubawab-scrapper\\data\\mubawab_listings.csv"
+    },
+    "tayara": {
+      "status": "skipped",
+      "path": "C:\\tayara-scraper\\data\\tayara_scrape\\processed\\tayara_listings_20260221_121357.csv"
+    },
+    "tunisie_annonce": {
+      "status": "skipped",
+      "path": "C:\\Tunisie-Annonces-scrapper\\output\\tunisie_annonce_listings.csv"
+    }
+  },
+  "std_report": {
+    "rows": 11714,
+    "sources": {
+      "tunisie_annonce": 10404,
+      "mubawab": 810,
+      "tayara": 500
+    }
+  },
+  "cleaning_report": {
+    "initial": 11714,
+    "final": 9017,
+    "removed": 2697,
+    "suspicious": 0,
+    "ts": "2026-03-27T10:02:21.146785Z"
+  },
+  "decisions": [
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_listings",
+      "ts": "2026-03-26T13:14:21.413359Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_standardization",
+      "ts": "2026-03-26T13:14:21.497506Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_cleaning",
+      "ts": "2026-03-26T13:14:21.502498Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_listings",
+      "ts": "2026-03-26T13:42:49.078079Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_standardization",
+      "ts": "2026-03-26T13:42:49.222408Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable — deterministic fallback"
+      },
+      "context": "after_cleaning",
+      "ts": "2026-03-26T13:42:49.248714Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable"
+      },
+      "context": "after_listings",
+      "ts": "2026-03-26T21:54:51.905542Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable"
+      },
+      "context": "after_listings",
+      "ts": "2026-03-27T10:02:17.451012Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable"
+      },
+      "context": "after_standardization",
+      "ts": "2026-03-27T10:02:19.365447Z"
+    },
+    {
+      "decision": {
+        "action": "continue",
+        "reason": "LLM unavailable"
+      },
+      "context": "after_cleaning",
+      "ts": "2026-03-27T10:02:21.153195Z"
+    }
+  ]
+}
