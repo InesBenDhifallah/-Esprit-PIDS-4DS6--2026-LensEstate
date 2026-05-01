@@ -3,7 +3,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from datetime import timedelta
 
-load_dotenv(override=True)
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -100,12 +100,16 @@ ACCOUNT_SIGNUP_FIELDS = ['email*', 'username*', 'password1*', 'password2*']
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
 ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+ACCOUNT_ADAPTER = 'users.adapter.CustomAccountAdapter'
+
+# ── frontend ──
+FRONTEND_URL = os.getenv('FRONTEND_URL', 'http://localhost:8080')
 
 # ── allauth redirects ──
 LOGIN_URL = '/api/auth/login/'
-LOGIN_REDIRECT_URL = 'http://localhost:8080'
-ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = 'http://localhost:8080/auth/login?verified=true'
-ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = 'http://localhost:8080'
+LOGIN_REDIRECT_URL = FRONTEND_URL
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = f'{FRONTEND_URL}/auth/login?verified=true'
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = FRONTEND_URL
 
 # ── email ──
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -176,6 +180,7 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://localhost:3000",
+    "http://localhost:5173",
 ]
 
 # ── static & media ──

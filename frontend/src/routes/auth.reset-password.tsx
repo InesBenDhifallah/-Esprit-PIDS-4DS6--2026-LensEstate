@@ -7,8 +7,20 @@ import { AuthApiError, confirmPasswordReset } from "@/lib/auth";
 
 export const Route = createFileRoute("/auth/reset-password")({
   validateSearch: (search: Record<string, unknown>) => ({
-    uid: typeof search.uid === "string" ? search.uid : "",
-    token: typeof search.token === "string" ? search.token : "",
+    uid:
+      typeof search.uid === "string"
+        ? search.uid
+        : typeof search.uid === "number"
+          ? String(search.uid)
+          : typeof search.uidb64 === "string"
+            ? search.uidb64
+            : "",
+    token:
+      typeof search.token === "string"
+        ? search.token
+        : typeof search.token === "number"
+          ? String(search.token)
+          : "",
   }),
   head: () => ({
     meta: [{ title: "Set new password — LensEstate" }],

@@ -10,3 +10,7 @@ django-axes
 django-ratelimit
 cryptography
 requests
+chromadb
+openai
+sentence-transformers
+reportlab

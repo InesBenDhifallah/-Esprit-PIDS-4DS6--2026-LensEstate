@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, Sparkles, Brain } from "lucide-react";
-import { useState } from "react";
+import { Send, Sparkles, Brain, Download } from "lucide-react";
+import { useEffect, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 
 export const Route = createFileRoute("/ai-chat")({
@@ -14,7 +14,7 @@ export const Route = createFileRoute("/ai-chat")({
   component: ChatPage,
 });
 
-type Msg = { role: "user" | "ai"; text: string };
+type Msg = { id?: number; role: "user" | "ai"; text: string; showReportDownload?: boolean };
 const suggestions = [
   "What's the average price in Tunis?",
   "Best ROI areas for villas?",
@@ -23,21 +23,100 @@ const suggestions = [
 ];
 
 function ChatPage() {
+  const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
+  const [sessionId] = useState(() => crypto.randomUUID());
   const [msgs, setMsgs] = useState<Msg[]>([
     { role: "ai", text: "Hi! I'm your LensEstate assistant. Ask me anything about properties, prices, or trends." },
   ]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
+  const [lastBenchmarkAnswer, setLastBenchmarkAnswer] = useState<string | null>(null);
 
-  function send(text: string) {
+  useEffect(() => {
+    async function loadConversation() {
+      try {
+        const response = await fetch(`${API_BASE}/api/chat/get_conversation/?session_id=${sessionId}`);
+        if (!response.ok) return;
+        const data = await response.json();
+        if (!Array.isArray(data.messages) || data.messages.length === 0) return;
+        const mapped: Msg[] = data.messages.map((m: { id: number; role: string; text: string }) => ({
+          id: m.id,
+          role: m.role === "assistant" ? "ai" : "user",
+          text: m.text,
+        }));
+        setMsgs(mapped);
+      } catch {
+        // Keep local greeting if backend chat history is unavailable
+      }
+    }
+    void loadConversation();
+  }, [API_BASE, sessionId]);
+
+  async function send(text: string) {
     if (!text.trim()) return;
     setMsgs((m) => [...m, { role: "user", text }]);
     setInput("");
     setTyping(true);
-    setTimeout(() => {
-      setMsgs((m) => [...m, { role: "ai", text: aiReply(text) }]);
+
+    try {
+      const res = await fetch(`${API_BASE}/api/chat/ask/`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          question: text,
+          session_id: sessionId,
+        }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.detail ?? "Chat service error");
+
+      const isBenchmark = /rapport|benchmark|comparer|comparaison|comparison/i.test(text);
+      setMsgs((m) => [
+        ...m,
+        {
+          role: "ai",
+          text: isBenchmark
+            ? "Ce document contient les details de la comparaison entre les 2 regions que vous avez citees."
+            : (data.answer ?? "Aucune reponse recue."),
+          showReportDownload: isBenchmark,
+        },
+      ]);
+
+      if (isBenchmark) {
+        setLastBenchmarkAnswer(data.answer ?? "");
+      }
+    } catch (error) {
+      setMsgs((m) => [
+        ...m,
+        {
+          role: "ai",
+          text: error instanceof Error ? error.message : "Le service chatbot est indisponible.",
+        },
+      ]);
+    } finally {
       setTyping(false);
-    }, 900);
+    }
+  }
+
+  async function downloadBenchmarkReport() {
+    if (!lastBenchmarkAnswer) return;
+    const res = await fetch(`${API_BASE}/api/chat/generate-pdf/`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ texte: lastBenchmarkAnswer }),
+    });
+    if (!res.ok) return;
+
+    const blob = await res.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Rapport_LensEstate.pdf";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    window.URL.revokeObjectURL(url);
   }
 
   return (
@@ -68,7 +147,17 @@ function ChatPage() {
                     ? "bg-[var(--gradient-primary)] text-white"
                     : "glass"
                 }`}>
-                  {m.text}
+                  <p>{m.text}</p>
+                  {m.showReportDownload && (
+                    <button
+                      type="button"
+                      onClick={downloadBenchmarkReport}
+                      className="mt-3 inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-xs hover:border-secondary transition"
+                    >
+                      <Download className="h-3.5 w-3.5" />
+                      Telecharger le rapport
+                    </button>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -113,10 +202,3 @@ function ChatPage() {
   );
 }
 
-function aiReply(q: string) {
-  const lower = q.toLowerCase();
-  if (lower.includes("tunis")) return "The average price in Tunis is currently around €2,400 / m², up 12.4% YoY. Demand is strongest in Lac 2 and Berges du Lac.";
-  if (lower.includes("roi") || lower.includes("invest")) return "Top ROI areas this quarter: Hammamet (+9.1%), Sousse (+7.8%) and select districts of Sfax. Villas with pools outperform apartments.";
-  if (lower.includes("predict") || lower.includes("forecast")) return "My 12-month forecast for Sousse shows a +6.4% appreciation with 88% confidence, driven by tourism recovery and infrastructure investment.";
-  return "Great question! Based on aggregated market data, I'd recommend exploring the map view to compare options. Want me to filter by price or region?";
-}

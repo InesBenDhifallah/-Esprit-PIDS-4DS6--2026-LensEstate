@@ -147,17 +147,24 @@ class PasswordResetConfirmView(APIView):
             return Response({'error': 'uid, token and password are required'}, status=400)
 
         try:
-            from allauth.account.forms import ResetPasswordKeyForm
-            form = ResetPasswordKeyForm(data={
-                'password1': password,
-                'password2': password,
-                'uid': uid,
-                'token': token,
-            })
-            if form.is_valid():
-                form.save()
-                return Response({'message': 'Password reset successful'})
-            return Response({'error': form.errors}, status=400)
+            from allauth.account.forms import UserTokenForm
+            # validate uid + token
+            token_form = UserTokenForm(data={'uidb36': uid, 'key': token})
+            if not token_form.is_valid():
+                return Response({'error': 'Invalid or expired reset link'}, status=400)
+
+            user = token_form.reset_user
+
+            # validate password strength
+            try:
+                validate_password(password, user=user)
+            except ValidationError as e:
+                return Response({'password': list(e.messages)}, status=400)
+
+            # set the new password
+            from allauth.account.internal.flows.password_reset import reset_password
+            reset_password(user, password)
+            return Response({'message': 'Password reset successful'})
         except Exception as e:
             return Response({'error': str(e)}, status=400)
 

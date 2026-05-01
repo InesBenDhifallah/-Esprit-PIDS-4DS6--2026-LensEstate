@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, Outlet, useRouterState } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Sparkles, Mail, Lock, User, ArrowRight } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
@@ -10,6 +10,21 @@ export const Route = createFileRoute("/auth")({
   validateSearch: (search: Record<string, unknown>) => ({
     verified: search.verified === "true",
     message: typeof search.message === "string" ? search.message : "",
+    uid:
+      typeof search.uid === "string"
+        ? search.uid
+        : typeof search.uid === "number"
+          ? String(search.uid)
+          : typeof search.uidb64 === "string"
+            ? search.uidb64
+            : "",
+    token:
+      typeof search.token === "string"
+        ? search.token
+        : typeof search.token === "number"
+          ? String(search.token)
+          : "",
+    uidb64: typeof search.uidb64 === "string" ? search.uidb64 : "",
   }),
   head: () => ({
     meta: [
@@ -23,6 +38,7 @@ export const Route = createFileRoute("/auth")({
 function AuthPage() {
   const navigate = Route.useNavigate();
   const search = Route.useSearch();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   const { login, loginWithGoogle, register, isAuthenticated, isLoading } = useAuth();
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [username, setUsername] = useState("");
@@ -117,6 +133,10 @@ function AuthPage() {
     }
   };
 
+  if (pathname !== "/auth") {
+    return <Outlet />;
+  }
+
   return (
     <div className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden">
       <div className="absolute inset-0 -z-10" style={{ background: "var(--gradient-hero)" }} />
@@ -197,9 +217,13 @@ function AuthPage() {
           />
           {mode === "signin" && (
             <div className="flex justify-end">
-              <Link to="/auth/forgot-password" className="text-xs text-muted-foreground hover:text-foreground">
+              <button
+                type="button"
+                onClick={() => void navigate({ to: "/auth/forgot-password" })}
+                className="text-xs text-muted-foreground hover:text-foreground"
+              >
                 Forgot password?
-              </Link>
+              </button>
             </div>
           )}
           <button
