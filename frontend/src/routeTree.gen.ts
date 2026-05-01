@@ -20,6 +20,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as PropertyIdRouteImport } from './routes/property.$id'
 import { Route as AuthResetPasswordRouteImport } from './routes/auth.reset-password'
 import { Route as AuthForgotPasswordRouteImport } from './routes/auth.forgot-password'
+import { Route as AuthResetPasswordUidTokenRouteImport } from './routes/auth.reset-password.$uid.$token'
 
 const PricePredictionRoute = PricePredictionRouteImport.update({
   id: '/price-prediction',
@@ -76,6 +77,12 @@ const AuthForgotPasswordRoute = AuthForgotPasswordRouteImport.update({
   path: '/forgot-password',
   getParentRoute: () => AuthRoute,
 } as any)
+const AuthResetPasswordUidTokenRoute =
+  AuthResetPasswordUidTokenRouteImport.update({
+    id: '/$uid/$token',
+    path: '/$uid/$token',
+    getParentRoute: () => AuthResetPasswordRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -87,8 +94,9 @@ export interface FileRoutesByFullPath {
   '/plan-generator': typeof PlanGeneratorRoute
   '/price-prediction': typeof PricePredictionRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
-  '/auth/reset-password': typeof AuthResetPasswordRoute
+  '/auth/reset-password': typeof AuthResetPasswordRouteWithChildren
   '/property/$id': typeof PropertyIdRoute
+  '/auth/reset-password/$uid/$token': typeof AuthResetPasswordUidTokenRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -100,8 +108,9 @@ export interface FileRoutesByTo {
   '/plan-generator': typeof PlanGeneratorRoute
   '/price-prediction': typeof PricePredictionRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
-  '/auth/reset-password': typeof AuthResetPasswordRoute
+  '/auth/reset-password': typeof AuthResetPasswordRouteWithChildren
   '/property/$id': typeof PropertyIdRoute
+  '/auth/reset-password/$uid/$token': typeof AuthResetPasswordUidTokenRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -114,8 +123,9 @@ export interface FileRoutesById {
   '/plan-generator': typeof PlanGeneratorRoute
   '/price-prediction': typeof PricePredictionRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
-  '/auth/reset-password': typeof AuthResetPasswordRoute
+  '/auth/reset-password': typeof AuthResetPasswordRouteWithChildren
   '/property/$id': typeof PropertyIdRoute
+  '/auth/reset-password/$uid/$token': typeof AuthResetPasswordUidTokenRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -131,6 +141,7 @@ export interface FileRouteTypes {
     | '/auth/forgot-password'
     | '/auth/reset-password'
     | '/property/$id'
+    | '/auth/reset-password/$uid/$token'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -144,6 +155,7 @@ export interface FileRouteTypes {
     | '/auth/forgot-password'
     | '/auth/reset-password'
     | '/property/$id'
+    | '/auth/reset-password/$uid/$token'
   id:
     | '__root__'
     | '/'
@@ -157,6 +169,7 @@ export interface FileRouteTypes {
     | '/auth/forgot-password'
     | '/auth/reset-password'
     | '/property/$id'
+    | '/auth/reset-password/$uid/$token'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -250,17 +263,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthForgotPasswordRouteImport
       parentRoute: typeof AuthRoute
     }
+    '/auth/reset-password/$uid/$token': {
+      id: '/auth/reset-password/$uid/$token'
+      path: '/$uid/$token'
+      fullPath: '/auth/reset-password/$uid/$token'
+      preLoaderRoute: typeof AuthResetPasswordUidTokenRouteImport
+      parentRoute: typeof AuthResetPasswordRoute
+    }
   }
 }
 
+interface AuthResetPasswordRouteChildren {
+  AuthResetPasswordUidTokenRoute: typeof AuthResetPasswordUidTokenRoute
+}
+
+const AuthResetPasswordRouteChildren: AuthResetPasswordRouteChildren = {
+  AuthResetPasswordUidTokenRoute: AuthResetPasswordUidTokenRoute,
+}
+
+const AuthResetPasswordRouteWithChildren =
+  AuthResetPasswordRoute._addFileChildren(AuthResetPasswordRouteChildren)
+
 interface AuthRouteChildren {
   AuthForgotPasswordRoute: typeof AuthForgotPasswordRoute
-  AuthResetPasswordRoute: typeof AuthResetPasswordRoute
+  AuthResetPasswordRoute: typeof AuthResetPasswordRouteWithChildren
 }
 
 const AuthRouteChildren: AuthRouteChildren = {
   AuthForgotPasswordRoute: AuthForgotPasswordRoute,
-  AuthResetPasswordRoute: AuthResetPasswordRoute,
+  AuthResetPasswordRoute: AuthResetPasswordRouteWithChildren,
 }
 
 const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
