@@ -70,11 +70,16 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+import { VoiceNavigator } from "@/components/VoiceNavigator";
+import { Toaster } from "sonner";
+
 function RootComponent() {
   return (
     <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID ?? ""}>
       <AuthProvider>
         <Outlet />
+        <VoiceNavigator />
+        <Toaster richColors position="top-center" />
       </AuthProvider>
     </GoogleOAuthProvider>
   );
