@@ -1,12 +1,9 @@
 # ══════════════════════════════════════════
 # LENSTATE — ROOT .gitignore
-# ══════════════════════════════════════════
-
+# ═════════════════════════════════════════
 # ── SENSITIVE FILES (never commit these) ──
 .env
 .env.local
-.env.production
-.env.development
 .env*.local
 *.env
 
@@ -17,20 +14,12 @@ __pycache__/
 *.so
 *.egg
 *.egg-info/
-dist/
-build/
 eggs/
 parts/
 var/
 sdist/
 develop-eggs/
 .installed.cfg
-lib/
-lib64/
-venv/
-.venv/
-ENV/
-env/
 .Python
 pip-log.txt
 pip-delete-this-directory.txt
@@ -41,7 +30,6 @@ pip-delete-this-directory.txt
 nosetests.xml
 coverage.xml
 *.cover
-*.log
 .pytest_cache/
 htmlcov/
 .hypothesis/
@@ -54,6 +42,14 @@ staticfiles/
 mediafiles/
 media/
 local_settings.py
+
+# ── VIRTUAL ENVIRONMENTS (redline — never push) ──
+venv/
+.venv/
+ENV/
+env/
+chatbot/venv/
+chatbot/.venv/
 
 # ── ML MODELS (too large for git) ──
 *.pkl
@@ -72,16 +68,15 @@ checkpoints/
 *.ipynb_checkpoints/
 .ipynb_checkpoints/
 
-# ── DATA FILES ──
+# ── DATA FILES (redline — never push DATA/ or raw data) ──
 DATA/
 raw_listings/
 *.csv
-*.json
 output/
 logs/
 memory/
 
-# ── NODE / NEXT.JS ──
+# ── NODE / NEXT.JS (redline — never push node_modules) ──
 node_modules/
 frontend/node_modules/
 .next/
@@ -92,53 +87,17 @@ frontend/.tanstack/
 frontend/.wrangler/
 dist/
 out/
-.cache/
 .turbo/
 *.tsbuildinfo
 next-env.d.ts
 
 # ── FLASK CHATBOT (future) ──
-chatbot/venv/
-chatbot/.venv/
 chatbot/__pycache__/
 chatbot/*.pyc
 
-# ── MONGODB / REDIS (local data) ──
-*.mongo
-dump/
-mongodump/
-
-# ── OS FILES ──
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-desktop.ini
-
-# ── IDE / EDITOR ──
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.project
-.classpath
-.settings/
-*.sublime-project
-*.sublime-workspace
-.cursor/
 
 # ── IMAGES FOLDER (can be large) ──
 images/
 backend/media/
 
-# ── MISC ──
-*.zip
-*.tar.gz
-*.rar
-*.bak
-*.tmp
-*.temp
+
