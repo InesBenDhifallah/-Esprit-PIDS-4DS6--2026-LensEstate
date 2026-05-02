@@ -64,12 +64,27 @@ STRUCTURE DU RAPPORT (Respecte strictement ce format Markdown) :
 | Loyer Mensuel estimé | ... | ... | ... |
 
 ## 2. ANALYSE QUALITATIVE (STANDING & COMMODITÉS)
-- **Ville A** : [Analyse du standing, infrastructures et environnement]
-- **Ville B** : [Analyse du standing, infrastructures et environnement]
+| Critère | Ville A | Ville B |
+| :--- | :--- | :--- |
+| Standing général | ... | ... |
+| Infrastructures | ... | ... |
+| Commodités | ... | ... |
+| Environnement | ... | ... |
+| Sécurité | ... | ... |
+| Transports | ... | ... |
+
+*Légende : - (mauvais) / + (moyen) / ++ (bien) / +++ (très bien)*
 
 ## 3. DYNAMIQUE DU MARCHÉ
-- **Demande** : [Profil des acheteurs : familles, investisseurs, expatriés]
-- **Revente** : [Potentiel de plus-value et liquidité du marché]
+| Indicateur | Ville A | Ville B |
+| :--- | :--- | :--- |
+| Profil acheteurs | ... | ... |
+| Demande | ... | ... |
+| Potentiel plus-value | ... | ... |
+| Liquidité marché | ... | ... |
+| Délai revente | ... | ... |
+
+*Légende : - (mauvais) / + (moyen) / ++ (bien) / +++ (très bien)*
 
 ## 4. SYNTHÈSE STRATÉGIQUE (VERDICT)
 **Conseil d'expert** : [Précise quel secteur privilégier selon le profil d'investissement].
@@ -102,12 +117,27 @@ REPORT STRUCTURE (Strictly follow this Markdown format):
 | Estimated Monthly Rent | ... | ... | ... |
 
 ## 2. QUALITATIVE ANALYSIS (STANDING & AMENITIES)
-- **City A**: [Analysis of standing, infrastructure and environment]
-- **City B**: [Analysis of standing, infrastructure and environment]
+| Criterion | City A | City B |
+| :--- | :--- | :--- |
+| General standing | ... | ... |
+| Infrastructure | ... | ... |
+| Amenities | ... | ... |
+| Environment | ... | ... |
+| Security | ... | ... |
+| Transport | ... | ... |
+
+*Legend: - (poor) / + (average) / ++ (good) / +++ (excellent)*
 
 ## 3. MARKET DYNAMICS
-- **Demand**: [Buyer profile: families, investors, expats]
-- **Resale**: [Capital gain potential and market liquidity]
+| Indicator | City A | City B |
+| :--- | :--- | :--- |
+| Buyer profile | ... | ... |
+| Demand | ... | ... |
+| Capital gain potential | ... | ... |
+| Market liquidity | ... | ... |
+| Resale delay | ... | ... |
+
+*Legend: - (poor) / + (average) / ++ (good) / +++ (excellent)*
 
 ## 4. STRATEGIC SYNTHESIS (VERDICT)
 **Expert advice**: [Specify which sector to prioritize based on investment profile].
@@ -141,12 +171,27 @@ PROMPT_REPORT_BENCHMARK_AR = """
 | الإيجار الشهري المقدر | ... | ... | ... |
 
 ## 2. التحليل النوعي (المستوى والمرافق)
-- **المدينة أ**: [تحليل المستوى والبنية التحتية والبيئة]
-- **المدينة ب**: [تحليل المستوى والبنية التحتية والبيئة]
+| المعيار | المدينة أ | المدينة ب |
+| :--- | :--- | :--- |
+| المستوى العام | ... | ... |
+| البنية التحتية | ... | ... |
+| المرافق | ... | ... |
+| البيئة | ... | ... |
+| الأمن | ... | ... |
+| المواصلات | ... | ... |
+
+*الأسطورة: - (سيء) / + (متوسط) / ++ (جيد) / +++ (ممتاز)*
 
 ## 3. ديناميكيات السوق
-- **الطلب**: [ملف المشترين: عائلات، مستثمرون، مغتربون]
-- **إعادة البيع**: [إمكانية زيادة القيمة وسيولة السوق]
+| المؤشر | المدينة أ | المدينة ب |
+| :--- | :--- | :--- |
+| ملف المشترين | ... | ... |
+| الطلب | ... | ... |
+| إمكانية زيادة القيمة | ... | ... |
+| سيولة السوق | ... | ... |
+| مدة إعادة البيع | ... | ... |
+
+*الأسطورة: - (سيء) / + (متوسط) / ++ (جيد) / +++ (ممتاز)*
 
 ## 4. التوليف الاستراتيجي (الحكم)
 **نصيحة الخبير**: [حدد القطاع المفضل حسب ملف الاستثمار].
