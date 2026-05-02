@@ -229,6 +229,12 @@ function AIFeatures() {
       to: "/plan-generator" as const,
     },
     {
+      icon: Sparkles,
+      title: "3D Visualizer",
+      desc: "Transform 2D floor plans into photorealistic 3D renders.",
+      to: "/visualizer" as const,
+    },
+    {
       icon: Zap,
       title: "Market Forecasting",
       desc: "See where prices are heading by region with predictive models.",

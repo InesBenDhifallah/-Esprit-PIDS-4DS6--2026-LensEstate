@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as VisualizerRouteImport } from './routes/visualizer'
 import { Route as PricePredictionRouteImport } from './routes/price-prediction'
 import { Route as PlanGeneratorRouteImport } from './routes/plan-generator'
 import { Route as MapRouteImport } from './routes/map'
@@ -22,6 +23,11 @@ import { Route as AuthResetPasswordRouteImport } from './routes/auth.reset-passw
 import { Route as AuthForgotPasswordRouteImport } from './routes/auth.forgot-password'
 import { Route as AuthResetPasswordUidTokenRouteImport } from './routes/auth.reset-password.$uid.$token'
 
+const VisualizerRoute = VisualizerRouteImport.update({
+  id: '/visualizer',
+  path: '/visualizer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PricePredictionRoute = PricePredictionRouteImport.update({
   id: '/price-prediction',
   path: '/price-prediction',
@@ -93,6 +99,7 @@ export interface FileRoutesByFullPath {
   '/map': typeof MapRoute
   '/plan-generator': typeof PlanGeneratorRoute
   '/price-prediction': typeof PricePredictionRoute
+  '/visualizer': typeof VisualizerRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/reset-password': typeof AuthResetPasswordRouteWithChildren
   '/property/$id': typeof PropertyIdRoute
@@ -107,6 +114,7 @@ export interface FileRoutesByTo {
   '/map': typeof MapRoute
   '/plan-generator': typeof PlanGeneratorRoute
   '/price-prediction': typeof PricePredictionRoute
+  '/visualizer': typeof VisualizerRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/reset-password': typeof AuthResetPasswordRouteWithChildren
   '/property/$id': typeof PropertyIdRoute
@@ -122,6 +130,7 @@ export interface FileRoutesById {
   '/map': typeof MapRoute
   '/plan-generator': typeof PlanGeneratorRoute
   '/price-prediction': typeof PricePredictionRoute
+  '/visualizer': typeof VisualizerRoute
   '/auth/forgot-password': typeof AuthForgotPasswordRoute
   '/auth/reset-password': typeof AuthResetPasswordRouteWithChildren
   '/property/$id': typeof PropertyIdRoute
@@ -138,6 +147,7 @@ export interface FileRouteTypes {
     | '/map'
     | '/plan-generator'
     | '/price-prediction'
+    | '/visualizer'
     | '/auth/forgot-password'
     | '/auth/reset-password'
     | '/property/$id'
@@ -152,6 +162,7 @@ export interface FileRouteTypes {
     | '/map'
     | '/plan-generator'
     | '/price-prediction'
+    | '/visualizer'
     | '/auth/forgot-password'
     | '/auth/reset-password'
     | '/property/$id'
@@ -166,6 +177,7 @@ export interface FileRouteTypes {
     | '/map'
     | '/plan-generator'
     | '/price-prediction'
+    | '/visualizer'
     | '/auth/forgot-password'
     | '/auth/reset-password'
     | '/property/$id'
@@ -181,11 +193,19 @@ export interface RootRouteChildren {
   MapRoute: typeof MapRoute
   PlanGeneratorRoute: typeof PlanGeneratorRoute
   PricePredictionRoute: typeof PricePredictionRoute
+  VisualizerRoute: typeof VisualizerRoute
   PropertyIdRoute: typeof PropertyIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/visualizer': {
+      id: '/visualizer'
+      path: '/visualizer'
+      fullPath: '/visualizer'
+      preLoaderRoute: typeof VisualizerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/price-prediction': {
       id: '/price-prediction'
       path: '/price-prediction'
@@ -305,6 +325,7 @@ const rootRouteChildren: RootRouteChildren = {
   MapRoute: MapRoute,
   PlanGeneratorRoute: PlanGeneratorRoute,
   PricePredictionRoute: PricePredictionRoute,
+  VisualizerRoute: VisualizerRoute,
   PropertyIdRoute: PropertyIdRoute,
 }
 export const routeTree = rootRouteImport

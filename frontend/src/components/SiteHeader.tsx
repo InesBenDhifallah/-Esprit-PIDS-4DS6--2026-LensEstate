@@ -10,6 +10,7 @@ const links = [
   { to: "/price-prediction", label: "Predict" },
   { to: "/forecasting", label: "Forecast" },
   { to: "/plan-generator", label: "2D Plans" },
+  { to: "/visualizer", label: "3D Visualizer" },
 ] as const;
 
 export function SiteHeader() {
