@@ -23,10 +23,10 @@ const COMMANDS: Record<string, string> = {
 
 export function VoiceNavigator() {
   const [isListening, setIsListening] = useState(false);
+  const [lastTranscript, setLastTranscript] = useState("");
   const router = useRouter();
 
   useEffect(() => {
-    // Vérifier si le navigateur supporte la reconnaissance vocale
     const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
@@ -36,32 +36,39 @@ export function VoiceNavigator() {
 
     const recognition = new SpeechRecognition();
     recognition.continuous = true;
-    recognition.interimResults = false;
-    recognition.lang = 'en-US'; // Vous pouvez mettre 'fr-FR' si vous préférez
+    recognition.interimResults = true; // Pour voir le texte en temps réel
+    recognition.lang = 'fr-FR'; // On met en français par défaut ou auto
 
     recognition.onresult = (event: any) => {
       const transcript = event.results[event.results.length - 1][0].transcript.toLowerCase().trim();
-      console.log("Commande vocale entendue :", transcript);
+      setLastTranscript(transcript);
+      console.log("Entendu :", transcript);
 
-      // Chercher si le transcript contient un de nos mots-clés
-      for (const [command, path] of Object.entries(COMMANDS)) {
-        if (transcript.includes(command)) {
-          toast.success(`Navigation vers : ${command}`, {
-            description: "Commande vocale reconnue",
-          });
-          router.navigate({ to: path as any });
-          break;
+      if (event.results[event.results.length - 1].isFinal) {
+        for (const [command, path] of Object.entries(COMMANDS)) {
+          if (transcript.includes(command)) {
+            toast.success(`Navigation : ${command}`, {
+                icon: "🚀",
+            });
+            router.navigate({ to: path as any });
+            setLastTranscript("");
+            break;
+          }
         }
       }
     };
 
     recognition.onerror = (event: any) => {
-      console.error("Erreur reconnaissance vocale :", event.error);
+      console.error("Erreur Speech:", event.error);
       setIsListening(false);
     };
 
     if (isListening) {
-      recognition.start();
+      try {
+        recognition.start();
+      } catch (e) {
+        console.error("Start error:", e);
+      }
     }
 
     return () => {
@@ -70,23 +77,24 @@ export function VoiceNavigator() {
   }, [isListening, router]);
 
   return (
-    <div className="fixed bottom-6 right-6 z-[100]">
-      <button
-        onClick={() => setIsListening(!isListening)}
-        className={`flex h-12 w-12 items-center justify-center rounded-full shadow-2xl transition-all hover:scale-110 active:scale-95 ${
-          isListening 
-            ? "bg-red-500 text-white animate-pulse" 
-            : "bg-[var(--gradient-primary)] text-white glow-purple"
-        }`}
-        title={isListening ? "Stop Voice Commands" : "Start Voice Commands"}
-      >
-        {isListening ? <Mic className="h-5 w-5" /> : <MicOff className="h-5 w-5 opacity-80" />}
-      </button>
-      {isListening && (
-        <div className="absolute bottom-full mb-3 right-0 glass px-3 py-1.5 rounded-lg text-[10px] whitespace-nowrap gold-text font-medium border border-secondary/30 animate-in fade-in slide-in-from-bottom-2">
-          Listening for commands (e.g., "Forecast")...
+    <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-3">
+      {lastTranscript && isListening && (
+        <div className="glass px-4 py-2 rounded-2xl text-xs gold-text border border-secondary/30 animate-pulse max-w-[200px] text-center shadow-2xl">
+           " {lastTranscript} "
         </div>
       )}
+      <div className="relative">
+        <button
+          onClick={() => setIsListening(!isListening)}
+          className={`flex h-14 w-14 items-center justify-center rounded-full shadow-2xl transition-all hover:scale-110 active:scale-95 ${
+            isListening 
+              ? "bg-red-500 text-white animate-pulse" 
+              : "bg-[var(--gradient-primary)] text-white glow-purple"
+          }`}
+        >
+          {isListening ? <Mic className="h-6 w-6" /> : <MicOff className="h-6 w-6 opacity-80" />}
+        </button>
+      </div>
     </div>
   );
 }
