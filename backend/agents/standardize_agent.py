@@ -1,8 +1,14 @@
-# ─────────────────────────────────────────────────────────────────────────────
-# CELL 116 — Schema constants + StandardizationAgent  (full replacement)
-# ─────────────────────────────────────────────────────────────────────────────
+import json
+from pathlib import Path
+from typing import Any, Dict, Optional
 
-# ── Shared schema (unchanged) ─────────────────────────────────────────────────
+import numpy as np
+import pandas as pd
+
+from base import BaseAgent
+
+# ── Schema constants ──────────────────────────────────────────────────────────
+
 LISTINGS_SCHEMA = {
     "listing_id":(object,None),"listing_url":(object,None),"source":(object,None),
     "title":(object,None),"property_type":(object,None),"transaction_type":(object,None),
@@ -19,8 +25,12 @@ LISTINGS_SCHEMA = {
     "has_security":(object,None),"has_standing":(bool,False),
     "has_terrace":(bool,False),"has_sea_view":(bool,False),
 }
-TX_MAP = {"Sale":"Sale","sale":"Sale","À Vendre":"Sale","Vente":"Sale",
-          "rent":"Rent","Rent":"Rent","À Louer":"Rent","Location":"Rent"}
+
+TX_MAP = {
+    "Sale":"Sale","sale":"Sale","À Vendre":"Sale","Vente":"Sale",
+    "rent":"Rent","Rent":"Rent","À Louer":"Rent","Location":"Rent",
+}
+
 MUBAWAB_RENAME = {
     "has_ascenseur":"has_elevator","has_cave":"has_basement",
     "has_chauffage":"has_heating","has_climatisation":"has_air_conditioning",
@@ -28,11 +38,13 @@ MUBAWAB_RENAME = {
     "has_piscine":"has_pool","has_gardiennage":"has_security",
     "has_terrasse":"has_terrace","has_vue_mer":"has_sea_view",
 }
+
 TAYARA_RENAME = {
     "surface":"surface_m2","criteria_ascenseur":"has_elevator",
     "criteria_climatisation":"has_air_conditioning","criteria_chauffage":"has_heating",
     "criteria_parking":"has_parking","criteria_gardiennage":"has_security",
 }
+
 
 def _align(df: pd.DataFrame) -> pd.DataFrame:
     for col, (dtype, default) in LISTINGS_SCHEMA.items():
@@ -47,20 +59,17 @@ def _align(df: pd.DataFrame) -> pd.DataFrame:
     ]
 
 
+# ── StandardizationAgent ──────────────────────────────────────────────────────
+
 class StandardizationAgent(BaseAgent):
     """
     Aligns raw CSVs from each scraper to the shared LISTINGS_SCHEMA.
-
-    New in Phase 2: LLM schema repair.
-    When a file's columns don't match known patterns, the LLM inspects
-    a sample and proposes the correct rename mapping — so the pipeline
-    adapts to minor scraper schema drift without manual code changes.
+    Uses LLM schema repair for unknown sources.
     """
 
     def __init__(self):
         super().__init__("StandardizationAgent")
 
-    # ── Public entry point ────────────────────────────────────────────────────
     def run(self, state: Dict[str, Any]) -> Dict[str, Any]:
         self.log.info("=" * 60)
         self.log.info("StandardizationAgent — starting")
@@ -109,7 +118,6 @@ class StandardizationAgent(BaseAgent):
         state = self.update_state(state, "standardization_report", {"rows": len(merged), "sources": src_dist})
         return state
 
-    # ── Per-file standardization ───────────────────────────────────────────────
     def _standardize(self, path: str) -> Optional[pd.DataFrame]:
         try:
             df = pd.read_csv(path, low_memory=False)
@@ -146,7 +154,6 @@ class StandardizationAgent(BaseAgent):
                     df = df.drop(columns=["region"])
 
             else:
-                # ── Unknown source: ask LLM to propose column mapping ─────
                 self.log.info("  Unknown source pattern — invoking LLM schema repair")
                 df = self._llm_schema_repair(path, df)
 
@@ -156,18 +163,7 @@ class StandardizationAgent(BaseAgent):
             self.log.error(f"Standardization error [{path}]: {e}")
             return None
 
-    # ── LLM schema repair (new) ───────────────────────────────────────────────
     def _llm_schema_repair(self, path: str, df: pd.DataFrame) -> pd.DataFrame:
-        """
-        Called when a CSV doesn't match any known scraper pattern.
-        The LLM sees the column names + 3 sample rows and proposes:
-          1. A rename mapping  (raw_col → schema_col)
-          2. A source label
-          3. Any columns to drop
-
-        This lets the pipeline adapt to new scrapers or renamed columns
-        without requiring a code change.
-        """
         sample_rows = df.head(3).to_dict(orient="records")
         known_cols  = list(LISTINGS_SCHEMA.keys())
 
@@ -181,25 +177,23 @@ class StandardizationAgent(BaseAgent):
             "Return ONLY this JSON:\n"
             "{\n"
             '  "thought": "explain your mapping reasoning",\n'
-            '  "source_label": "name for this scraper (e.g. new_source)",\n'
+            '  "source_label": "name for this scraper",\n'
             '  "rename": {"raw_col": "schema_col", ...},\n'
             '  "drop": ["col_to_drop", ...]\n'
             "}"
         )
 
-        result = self.decide(prompt)
-
-        thought      = result.get("thought", "")
+        result       = self.decide(prompt)
         source_label = result.get("source_label", "unknown_source")
         rename_map   = result.get("rename", {})
         drop_cols    = result.get("drop", [])
+        thought      = result.get("thought", "")
 
         self.log.info(f"  LLM schema repair thought: {thought[:200]}")
         self.log.info(f"  source_label : {source_label}")
         self.log.info(f"  rename map   : {rename_map}")
         self.log.info(f"  drop cols    : {drop_cols}")
 
-        # Persist the inferred mapping for human review
         self.memory.remember("schema_repairs", {
             "path":         path,
             "source_label": source_label,
@@ -212,5 +206,3 @@ class StandardizationAgent(BaseAgent):
         df = df.rename(columns={k: v for k, v in rename_map.items() if k in df.columns})
         df["source"] = source_label
         return df
-
-print("✅ StandardizationAgent defined (LLM schema repair)")

@@ -1,26 +1,15 @@
-# ─────────────────────────────────────────────────────────────────────────────
-# CELL 114b — Phase 3: ScraperHealthAgent + FallbackMixin
-# INSERT this cell between Cell 114 (ArticlesAgent) and Cell 115 (ListingsAgent)
-# ─────────────────────────────────────────────────────────────────────────────
+import json
+from typing import Any, Dict, Tuple
 
-import glob as _glob
-import shutil
 import requests as _requests
 
-# ── Scraper health check ──────────────────────────────────────────────────────
+from base import BaseAgent
+
 
 class ScraperHealthAgent(BaseAgent):
     """
     Pre-flight agent — runs before ListingsAgent.
-    Sends a lightweight HEAD request to each target website and classifies
-    the failure mode so ListingsAgent can reason about it:
-
-      healthy      — site responds 200/30x
-      blocked      — 403/429 (IP block / rate limit — wait or rotate)
-      down         — 5xx or connection error (site issue — retry later)
-      unknown      — any other status
-
-    Result stored in state["scraper_health"] for the LLM to read.
+    Sends a lightweight HEAD request to each target website.
     """
 
     TARGETS = {
@@ -28,7 +17,7 @@ class ScraperHealthAgent(BaseAgent):
         "tayara"         : "https://www.tayara.tn",
         "tunisie_annonce": "https://www.tunisie-annonce.com",
     }
-    TIMEOUT = 8   # seconds per request
+    TIMEOUT = 8
 
     def __init__(self):
         super().__init__("ScraperHealthAgent")
@@ -48,7 +37,6 @@ class ScraperHealthAgent(BaseAgent):
             icon = {"healthy": "✅", "blocked": "🚫", "down": "❌", "unknown": "⚠️"}.get(status, "?")
             self.log.info(f"  {icon}  {name:<20} → {status}  ({detail})")
 
-        # LLM summary — one sentence of context for downstream agents
         summary_prompt = (
             f"Scraper pre-flight results: {json.dumps(health)}.\n"
             f"Summarize in one sentence what this means for running the scrapers.\n"
@@ -80,7 +68,3 @@ class ScraperHealthAgent(BaseAgent):
             return "down", f"timeout after {self.TIMEOUT}s"
         except Exception as e:
             return "unknown", str(e)[:80]
-
-
-print("✅ ScraperHealthAgent defined")
-

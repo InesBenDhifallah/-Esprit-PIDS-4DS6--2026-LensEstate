@@ -1,34 +1,38 @@
 import os
 from dotenv import load_dotenv
-from pathlib import Path
 
-load_dotenv()
+load_dotenv(override=True)
 
-# ── LLM ──
-OPENROUTER_API_KEY  = os.getenv('OPENROUTER_API_KEY')
-TOKEN_FACTORY_URL   = os.getenv('TOKEN_FACTORY_URL')
-LLM_PRIMARY         = "google/gemma-4-31b-it:free"
-LLM_FALLBACK        = "hosted_vllm/Llama-3.1-70B-Instruct"
+# ── LLM ───────────────────────────────────────────────────────────────────────
+OPENROUTER_API_KEY  = os.getenv("OPENROUTER_API_KEY",  "YOUR_OPENROUTER_KEY_HERE")
+TOKEN_FACTORY_API_KEY = os.getenv("TOKEN_FACTORY_API_KEY", "sk-503ff4f7dc35457ebe8597d40c2111c5")
 
-# ── Database ──
-DB_CONFIG = {
-    'dbname':   os.getenv('DB_NAME'),
-    'user':     os.getenv('DB_USER'),
-    'password': os.getenv('DB_PASSWORD'),
-    'host':     os.getenv('DB_HOST', 'localhost'),
-    'port':     os.getenv('DB_PORT', '5432'),
-}
+LLM_PRIMARY        = "google/gemma-4-31b-it:free"
+LLM_FALLBACK       = "hosted_vllm/Llama-3.1-70B-Instruct"
+LLM_FALLBACK_SMALL = "hosted_vllm/llava-1.5-7b-hf"
 
-# ── Paths ──
-MUBAWAB_DIR  = Path(os.getenv('MUBAWAB_DIR'))
-TAYARA_DIR   = Path(os.getenv('TAYARA_DIR'))
-TUNISIE_DIR  = Path(os.getenv('TUNISIE_DIR'))
-BNB_DIR      = Path(os.getenv('BNB_DIR'))
-HOUNI_DIR    = Path(os.getenv('HOUNI_DIR'))
-DATA_DIR     = Path(os.getenv('DATA_DIR'))
-MEMORY_DIR   = Path(os.getenv('MEMORY_DIR'))
-LOGS_DIR     = Path(os.getenv('LOGS_DIR'))
+OPENROUTER_URL     = "https://openrouter.ai/api/v1/chat/completions"
+TOKEN_FACTORY_URL  = "https://tokenfactory.esprit.tn/api/chat/completions"
 
-# create dirs if they don't exist
-for d in [MEMORY_DIR, LOGS_DIR, MEMORY_DIR / 'state']:
-    d.mkdir(parents=True, exist_ok=True)
+# ── Scraper paths (hardcoded — edit these to match your machine) ──────────────
+MUBAWAB_CWD        = r"C:\Mubawab-scrapper"
+MUBAWAB_SCRIPT     = "mubawab_scraper.py"
+MUBAWAB_OUTPUT_CSV = r"C:\Mubawab-scrapper\data\mubawab_listings.csv"
+
+TAYARA_CWD         = r"C:\tayara-scraper"
+TAYARA_SCRIPT      = "main.py"
+TAYARA_OUTPUT_DIR  = r"C:\tayara-scraper\data\tayara_scrape\processed"
+TAYARA_OUTPUT_GLOB = "tayara_listings_*.csv"
+
+TUNISIE_CWD        = r"C:\Tunisie-Annonces-scrapper"
+TUNISIE_SCRIPT     = "main.py"
+TUNISIE_OUTPUT_CSV = r"C:\Tunisie-Annonces-scrapper\output\tunisie_annonce_listings.csv"
+
+BNB_CWD            = r"C:\bnbblog"
+BNB_SCRIPT         = "bnb_tunisie_scraper.py"
+BNB_OUTPUT_CSV     = r"C:\bnbblog\bnb_blog_articles.csv"
+BNB_OUTPUT_JSON    = r"C:\bnbblog\bnb_blog_articles.json"
+
+HOUNI_CWD          = r"C:\houni.scraper"
+HOUNI_SCRIPT       = "houni_scraper.py"
+HOUNI_OUTPUT_CSV   = r"C:\houni.scraper\houni_blog_articles.csv"

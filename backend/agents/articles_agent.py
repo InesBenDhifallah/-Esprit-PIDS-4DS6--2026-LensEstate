@@ -1,28 +1,39 @@
+import json
+import time
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
+
+import pandas as pd
+
+from base import BaseAgent, FallbackMixin
+from llm import call_llm, parse_llm_json
+from config import (
+    BNB_CWD, BNB_SCRIPT, BNB_OUTPUT_CSV, BNB_OUTPUT_JSON,
+    HOUNI_CWD, HOUNI_SCRIPT, HOUNI_OUTPUT_CSV,
+)
+
+
 class ArticlesAgent(BaseAgent, FallbackMixin):
     """
     Runs BnB and Houni blog scrapers.
-    Runs FIRST in the pipeline — fast (~5-10 min total), non-blocking.
-
-    Phase 2: ReAct loop — LLM decides run/skip per scraper with reasoning.
-    Phase 3: FallbackMixin — degradation ladder when a scraper fails.
-             Semantic memory — reads/writes known article counts per source.
+    Runs FIRST in the pipeline — fast, non-blocking.
     """
 
     SCRAPERS = {
         "bnb": {
-            "cwd"          : r"C:\bnbblog",
-            "script"       : "bnb_tunisie_scraper.py",
-            "output_csv"   : r"C:\bnbblog\bnb_blog_articles.csv",
-            "output_json"  : r"C:\bnbblog\bnb_blog_articles.json",
+            "cwd"          : BNB_CWD,
+            "script"       : BNB_SCRIPT,
+            "output_csv"   : BNB_OUTPUT_CSV,
+            "output_json"  : BNB_OUTPUT_JSON,
             "min_rows"     : 10,
             "max_age_hours": 6,
             "timeout"      : 600,
         },
         "houni": {
-            "cwd"          : r"C:\houni.scraper",
-            "script"       : "houni_scraper.py",
+            "cwd"          : HOUNI_CWD,
+            "script"       : HOUNI_SCRIPT,
             "args"         : [],
-            "output_csv"   : r"C:\houni.scraper\houni_blog_articles.csv",
+            "output_csv"   : HOUNI_OUTPUT_CSV,
             "min_rows"     : 10,
             "max_age_hours": 6,
             "timeout"      : 600,
@@ -36,7 +47,6 @@ class ArticlesAgent(BaseAgent, FallbackMixin):
     def __init__(self):
         super().__init__("ArticlesAgent")
 
-    # ── Public entry point ────────────────────────────────────────────────────
     def run(self, state: Dict[str, Any]) -> Dict[str, Any]:
         self.log.info("=" * 60)
         self.log.info("ArticlesAgent — starting (ReAct + Fallback)")
@@ -44,7 +54,6 @@ class ArticlesAgent(BaseAgent, FallbackMixin):
         self.memory.clear()
         self.memory.set("action", "collect_articles")
 
-        # Log semantic knowledge about these scrapers if we have any
         knowledge = self.memory.recall_knowledge()
         if knowledge:
             self.log.info(f"  Semantic knowledge: {list(knowledge.keys())}")
@@ -61,16 +70,7 @@ class ArticlesAgent(BaseAgent, FallbackMixin):
             self.log.info(f"  merged → {merged_path}")
         return state
 
-    # ── ReAct loop ────────────────────────────────────────────────────────────
     def _react_loop(self) -> Tuple[List[str], Dict]:
-        """
-        Tools:
-          inspect_scraper(name)        — state snapshot
-          run_scraper(name)            — execute subprocess
-          skip_scraper(name, reason)   — skip, use cache if available
-          activate_fallback(name)      — trigger degradation ladder explicitly
-          finish()                     — exit loop
-        """
         collected: List[str] = []
         results:   Dict      = {}
         handled:   set       = set()
@@ -79,8 +79,6 @@ class ArticlesAgent(BaseAgent, FallbackMixin):
             name: self._inspect_scraper(name, cfg)
             for name, cfg in self.SCRAPERS.items()
         }
-
-        # Include semantic knowledge in context
         knowledge = self.memory.recall_knowledge()
 
         system_context = (
@@ -120,7 +118,6 @@ class ArticlesAgent(BaseAgent, FallbackMixin):
             self.log.info(f"  thought : {thought[:200]}")
             self.log.info(f"  tool    : {tool}  args={args}")
 
-            # ── Tool dispatch ─────────────────────────────────────────────
             if tool == "inspect_scraper":
                 name        = args.get("name", "")
                 result_data = self._inspect_scraper(name, self.SCRAPERS.get(name, {}))
@@ -139,38 +136,25 @@ class ArticlesAgent(BaseAgent, FallbackMixin):
                         collected.append(path)
                         results[name] = {"status": "success", "path": path, **quality}
                         self.memory.remember("successes", {"scraper": name, **quality})
-                        # Update semantic knowledge with typical article count
                         self.memory.know(f"{name}.typical_rows", quality["total"])
-                        tool_result = (
-                            f"Success — {quality['total']} articles, "
-                            f"empty={quality['empty_pct']*100:.1f}%, "
-                            f"dupes={quality['dupe_pct']*100:.1f}%"
-                        )
+                        tool_result = f"Success — {quality['total']} articles"
                         self.log.info(f"  ✅ {name} → {tool_result}")
                     else:
-                        # Scraper failed — try fallback ladder automatically
                         self.log.warning(f"  {name} failed — activating fallback")
                         rung, fpath, explanation = self.resolve_fallback(
                             name, cfg,
                             health_status="unknown",
-                            find_output_fn=lambda c: c.get("output_csv") if Path(c.get("output_csv","")).exists() else None,
+                            find_output_fn=lambda c: c.get("output_csv") if Path(c.get("output_csv", "")).exists() else None,
                             count_rows_fn=self._count_rows,
                         )
                         if fpath:
                             collected.append(fpath)
-                            results[name] = {
-                                "status": "fallback", "fallback_rung": rung,
-                                "path": fpath, "explanation": explanation,
-                            }
+                            results[name] = {"status": "fallback", "fallback_rung": rung, "path": fpath, "explanation": explanation}
                             tool_result = f"Failed → fallback {rung}: {explanation}"
-                            self.log.warning(f"  ⚠️  {name} → {tool_result}")
                         else:
                             results[name] = {"status": "failed"}
-                            self.memory.remember("failures", {
-                                "scraper": name, "reason": "retries_exhausted_no_fallback"
-                            })
-                            tool_result = "Failed — no fallback available (non-blocking)"
-                            self.log.warning(f"  ⚠️  {name} → {tool_result}")
+                            self.memory.remember("failures", {"scraper": name, "reason": "retries_exhausted_no_fallback"})
+                            tool_result = "Failed — no fallback available"
                     handled.add(name)
 
             elif tool == "activate_fallback":
@@ -179,15 +163,12 @@ class ArticlesAgent(BaseAgent, FallbackMixin):
                 rung, fpath, explanation = self.resolve_fallback(
                     name, cfg,
                     health_status="unknown",
-                    find_output_fn=lambda c: c.get("output_csv") if Path(c.get("output_csv","")).exists() else None,
+                    find_output_fn=lambda c: c.get("output_csv") if Path(c.get("output_csv", "")).exists() else None,
                     count_rows_fn=self._count_rows,
                 )
                 if fpath:
                     collected.append(fpath)
-                    results[name] = {
-                        "status": "fallback", "fallback_rung": rung,
-                        "path": fpath, "explanation": explanation,
-                    }
+                    results[name] = {"status": "fallback", "fallback_rung": rung, "path": fpath, "explanation": explanation}
                     tool_result = f"Fallback {rung}: {explanation}"
                 else:
                     results[name] = {"status": "skipped", "reason": "no_fallback"}
@@ -206,7 +187,7 @@ class ArticlesAgent(BaseAgent, FallbackMixin):
                     tool_result = f"Skipped — using cache: {self._count_rows(existing)} rows"
                 else:
                     results[name] = {"status": "skipped", "reason": reason}
-                    tool_result = f"Skipped — no cache"
+                    tool_result = "Skipped — no cache"
                 handled.add(name)
                 self.log.info(f"  ⏭  {name}: {tool_result}")
 
@@ -225,7 +206,6 @@ class ArticlesAgent(BaseAgent, FallbackMixin):
                 self.log.info("  All scrapers handled — exiting loop")
                 break
 
-        # Safety net for any scraper the LLM missed
         for name, cfg in self.SCRAPERS.items():
             if name not in handled and name not in results:
                 self.log.warning(f"  Safety net: {name}")
@@ -248,7 +228,6 @@ class ArticlesAgent(BaseAgent, FallbackMixin):
 
         return collected, results
 
-    # ── Tool implementations ───────────────────────────────────────────────────
     def _inspect_scraper(self, name: str, cfg: Dict) -> Dict:
         csv_path      = cfg.get("output_csv", "")
         max_age_hours = cfg.get("max_age_hours", 6)
@@ -256,6 +235,7 @@ class ArticlesAgent(BaseAgent, FallbackMixin):
 
         output_info = {"exists": False, "rows": 0, "age_hours": None, "fresh": False}
         if csv_path and Path(csv_path).exists():
+            import os
             age_h = (time.time() - os.path.getmtime(csv_path)) / 3600
             rows  = self._count_rows(csv_path)
             output_info = {
@@ -283,6 +263,7 @@ class ArticlesAgent(BaseAgent, FallbackMixin):
         }
 
     def _should_skip_fallback(self, name: str, cfg: Dict) -> Tuple[bool, str]:
+        import os
         csv_path      = cfg.get("output_csv", "")
         max_age_hours = cfg.get("max_age_hours", 6)
         if Path(csv_path).exists():
@@ -364,5 +345,3 @@ class ArticlesAgent(BaseAgent, FallbackMixin):
         merged.to_csv(out, index=False)
         self.log.info(f"  Articles merged: {len(merged)} total → {out}")
         return out
-
-print("✅ ArticlesAgent defined (Phase 2 ReAct + Phase 3 Fallback + Semantic Memory)")

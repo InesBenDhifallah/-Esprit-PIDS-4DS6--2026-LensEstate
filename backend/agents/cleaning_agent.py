@@ -1,6 +1,14 @@
-# ─────────────────────────────────────────────────────────────────────────────
-# CELL 117 — Geography constants + CleaningAgent  (full replacement)
-# ─────────────────────────────────────────────────────────────────────────────
+import re
+from pathlib import Path
+from typing import Any, Dict, List
+
+import numpy as np
+import pandas as pd
+
+from base import BaseAgent
+from standardize_agent import TX_MAP
+
+# ── Geography constants ───────────────────────────────────────────────────────
 
 CITY_TO_GOV = {
     "Tunis":"Tunis","La Marsa":"Tunis","Gammarth":"Tunis","Ain Zaghouan":"Tunis",
@@ -16,6 +24,7 @@ CITY_TO_GOV = {
     "Djerba":"Médenine","Zarzis":"Médenine","Midoun":"Médenine",
     "Gabès":"Gabès","Gafsa":"Gafsa","Tozeur":"Tozeur","Tataouine":"Tataouine",
 }
+
 PT_MAP = {
     "Appartement":"Apartment","appartement":"Apartment",
     "Maison":"House","maison":"House",
@@ -27,30 +36,30 @@ PT_MAP = {
     "Immeuble":"Building","Ferme":"Farm",
     "Duplex":"Duplex","Studio":"Studio",
 }
+
 SORTED_CITIES = sorted(CITY_TO_GOV.keys(), key=len, reverse=True)
 
+
+# ── CleaningAgent ─────────────────────────────────────────────────────────────
 
 class CleaningAgent(BaseAgent):
     """
     Cleans and prepares the merged listings for modelling.
-
-    Phase 2 upgrade: the LLM anomaly detection is now more robust —
-    it runs in batches, produces structured flags with reasons per listing,
-    and persists its findings to memory for audit.
+    LLM anomaly detection runs in batches, flags suspicious listings.
     """
 
     DROP_COLS = ["total_floors", "last_updated", "floor",
                  "scrape_timestamp", "date_posted", "agency_name"]
 
-    SAMPLE_SIZE       = 40   # rows sent to LLM per batch
-    MAX_BATCHES       = 3    # cap total LLM calls for anomaly detection
+    SAMPLE_SIZE   = 40
+    MAX_BATCHES   = 3
     SUSPICIOUS_PROMPT = (
         "You are a data quality agent reviewing real estate listings from Tunisia.\n"
         "Identify listings that are SUSPICIOUS — meaning any of:\n"
         "  - Placeholder or test data (description says 'test', 'lorem ipsum', etc.)\n"
         "  - Price is clearly wrong: < 5,000 TND for any property, or > 50,000,000 TND\n"
         "  - Surface is impossible: < 10 m² or > 50,000 m²\n"
-        "  - Description is in a language unrelated to Tunisian real estate (e.g. pure English ad copy)\n"
+        "  - Description is in a language unrelated to Tunisian real estate\n"
         "  - Description is copy-pasted noise or irrelevant content\n\n"
         "For each suspicious listing give a brief reason.\n\n"
         "Return ONLY this JSON:\n"
@@ -68,7 +77,6 @@ class CleaningAgent(BaseAgent):
     def __init__(self):
         super().__init__("CleaningAgent")
 
-    # ── Public entry point ────────────────────────────────────────────────────
     def run(self, state: Dict[str, Any]) -> Dict[str, Any]:
         self.log.info("=" * 60)
         self.log.info("CleaningAgent — starting")
@@ -86,10 +94,8 @@ class CleaningAgent(BaseAgent):
 
         df = self._pipeline(df)
 
-        # ── LLM anomaly detection (upgraded) ─────────────────────────────
         self.log.info("\nRunning LLM anomaly detection...")
-        flagged = self._flag_suspicious(df)
-        # Build lookup: id → reason
+        flagged     = self._flag_suspicious(df)
         flagged_map = {item["id"]: item["reason"] for item in flagged}
 
         df["llm_suspicious"]        = df["id"].isin(flagged_map.keys()) if "id" in df.columns else False
@@ -101,32 +107,30 @@ class CleaningAgent(BaseAgent):
             for item in flagged[:5]:
                 self.log.info(f"  ID {item['id']}: {item['reason']}")
             if len(flagged) > 5:
-                self.log.info(f"  ... and {len(flagged)-5} more (see logs/pipeline.log)")
+                self.log.info(f"  ... and {len(flagged)-5} more")
 
-        # Persist flagged list for audit
         self.memory.remember("suspicious_flags", {
-            "total_flagged": n_flagged,
-            "flagged_ids":   [f["id"] for f in flagged],
+            "total_flagged": int(n_flagged),
+            "flagged_ids":   [int(f["id"]) for f in flagged],
             "details":       flagged,
         })
 
-        # ── Save ──────────────────────────────────────────────────────────
         out = "Data/raw_listings/merged_listings_model_ready.csv"
         Path(out).parent.mkdir(parents=True, exist_ok=True)
         df.to_csv(out, index=False)
 
         null_rates = {
-            col: round(df[col].isna().mean(), 3)
+            col: float(round(df[col].isna().mean(), 3))
             for col in ["price", "surface_m2", "governorate", "property_type"]
             if col in df.columns
         }
         report = {
-            "initial":          initial,
-            "final":            len(df),
-            "removed":          initial - len(df),
-            "suspicious":       int(n_flagged),
-            "null_rate":        null_rates,
-            "duplicates_removed": initial - len(df),   # proxy
+            "initial":            initial,
+            "final":              len(df),
+            "removed":            initial - len(df),
+            "suspicious":         int(n_flagged),
+            "null_rate":          null_rates,
+            "duplicates_removed": initial - len(df),
         }
 
         self.log.info(f"\n{'─'*50}")
@@ -146,7 +150,6 @@ class CleaningAgent(BaseAgent):
         state = self.update_state(state, "final_row_count",  len(df))
         return state
 
-    # ── Cleaning pipeline (unchanged logic, same steps) ───────────────────────
     def _pipeline(self, df: pd.DataFrame) -> pd.DataFrame:
         steps = []
         def _step(name, n):
@@ -237,14 +240,7 @@ class CleaningAgent(BaseAgent):
 
         return df
 
-    # ── LLM anomaly detection (upgraded) ─────────────────────────────────────
     def _flag_suspicious(self, df: pd.DataFrame) -> List[Dict]:
-        """
-        Sample the cleaned dataset in batches and ask the LLM to flag
-        suspicious listings with per-row reasons.
-
-        Returns a list of {"id": int, "reason": str} dicts.
-        """
         if "id" not in df.columns or len(df) == 0:
             return []
 
@@ -260,8 +256,7 @@ class CleaningAgent(BaseAgent):
         ]
 
         for batch_num, batch in enumerate(batches[:self.MAX_BATCHES], 1):
-            self.log.info(f"  Anomaly detection batch {batch_num}/{min(len(batches), self.MAX_BATCHES)} "
-                          f"({len(batch)} rows)")
+            self.log.info(f"  Anomaly detection batch {batch_num}/{min(len(batches), self.MAX_BATCHES)} ({len(batch)} rows)")
 
             lines = [
                 f"ID={r['id']} | {r.get('property_type','?')} | {r.get('governorate','?')} | "
@@ -294,7 +289,6 @@ class CleaningAgent(BaseAgent):
                 self.log.warning(f"  LLM anomaly detection batch {batch_num} failed: {e}")
                 continue
 
-        # Deduplicate by id (same row might appear across batches in edge cases)
         seen = set()
         deduped = []
         for item in all_flagged:
@@ -304,5 +298,3 @@ class CleaningAgent(BaseAgent):
 
         self.log.debug(f"Total suspicious flags: {len(deduped)}")
         return deduped
-
-print("✅ CleaningAgent defined (upgraded LLM anomaly detection)")
