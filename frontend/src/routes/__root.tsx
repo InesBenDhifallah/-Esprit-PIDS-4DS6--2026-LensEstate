@@ -71,11 +71,14 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  return (
-    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID ?? ""}>
-      <AuthProvider>
-        <Outlet />
-      </AuthProvider>
-    </GoogleOAuthProvider>
+  const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+  const inner = (
+    <AuthProvider>
+      <Outlet />
+    </AuthProvider>
   );
+  if (googleClientId) {
+    return <GoogleOAuthProvider clientId={googleClientId}>{inner}</GoogleOAuthProvider>;
+  }
+  return inner;
 }

@@ -14,7 +14,133 @@ export const Route = createFileRoute("/ai-chat")({
   component: ChatPage,
 });
 
-type Msg = { id?: number; role: "user" | "ai"; text: string; showReportDownload?: boolean };
+type Msg = {
+  id?: number;
+  role: "user" | "ai";
+  text: string;
+  showReportDownload?: boolean;
+  downloadLabel?: string;
+};
+
+const BENCHMARK_PREFIX_STOP = new Set([
+  "benchmarking",
+  "benchmark",
+  "comparison",
+  "comparaison",
+  "comparer",
+  "compare",
+  "rapport",
+  "report",
+  "the",
+  "la",
+  "le",
+  "les",
+  "un",
+  "une",
+  "des",
+  "de",
+  "du",
+  "entre",
+  "between",
+  "and",
+  "et",
+  "of",
+  "pour",
+  "with",
+]);
+
+function stripDiacritics(s: string): string {
+  return s.normalize("NFD").replace(/\p{M}/gu, "");
+}
+
+function normalizeToken(w: string): string {
+  return stripDiacritics(w).toLowerCase().replace(/[^a-z0-9-]/g, "");
+}
+
+function stripFillerWords(chunk: string): string {
+  const words = chunk.trim().split(/\s+/).filter(Boolean);
+  while (words.length && BENCHMARK_PREFIX_STOP.has(normalizeToken(words[0]))) words.shift();
+  while (words.length && BENCHMARK_PREFIX_STOP.has(normalizeToken(words[words.length - 1]))) words.pop();
+  return words.join(" ").trim();
+}
+
+function titleCaseRegion(s: string): string {
+  if (!s) return s;
+  return s
+    .split(/\s+/)
+    .map((w) => (w.length <= 2 ? w.toUpperCase() : w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()))
+    .join(" ");
+}
+
+/** Détecte fr / en à partir de la question (mots-clés + accents). */
+function detectQuestionLang(question: string): "fr" | "en" | "ar" {
+  if (/[\u0600-\u06FF]/.test(question)) return "ar";
+  if (/[àâäéèêëïîôùûüç]/i.test(question)) return "fr";
+  const lower = question.toLowerCase();
+  const frScore = /\b(entre|et|comparaison|comparer|régions?|villes?|télécharger|telecharger|details|détails)\b/i.test(lower) ? 2 : 0;
+  const enScore = /\b(between|and|comparison|compare|regions?|cities?|download|details)\b/i.test(lower) ? 2 : 0;
+  if (frScore > enScore) return "fr";
+  if (enScore > frScore) return "en";
+  if (/\b(je|vous|pour|avec|sont|est|une|des|les)\b/i.test(lower)) return "fr";
+  return "en";
+}
+
+/**
+ * Extrait jusqu'à deux noms de lieux (ex. "benchmarking rades and marsa", "entre La Marsa et Radès").
+ */
+function extractTwoRegions(question: string): [string, string] | null {
+  let q = question.trim();
+  // Arabe : بين X و Y
+  q = q.replace(/بين\s+(.+?)\s+و\s+(.+)/i, "$1, $2");
+  q = q.replace(/\bentre\s+(.+?)\s+et\s+(.+)/i, "$1, $2");
+  q = q.replace(/\bbetween\s+(.+?)\s+and\s+(.+)/i, "$1, $2");
+  // ... reste du code identique
+
+  const commaParts = q
+    .split(",")
+    .map((p) => stripFillerWords(p))
+    .filter(Boolean);
+  if (commaParts.length >= 2) {
+    const a = commaParts[commaParts.length - 2];
+    const b = commaParts[commaParts.length - 1];
+    if (a && b) return [titleCaseRegion(a), titleCaseRegion(b)];
+  }
+
+  const normalized = q
+    .replace(/\bbetween\b/gi, " and ")
+    .replace(/\bet\b/gi, " and ")
+    .replace(/\band\b/gi, " and ");
+  const andParts = normalized
+    .split(/\s+and\s+/i)
+    .map((p) => stripFillerWords(p))
+    .filter(Boolean);
+  if (andParts.length >= 2) {
+    const a = andParts[andParts.length - 2];
+    const b = andParts[andParts.length - 1];
+    if (a && b) return [titleCaseRegion(a), titleCaseRegion(b)];
+  }
+
+  return null;
+}
+
+function benchmarkIntro(lang: "fr" | "en" | "ar", regions: [string, string] | null): string {
+  const [r1, r2] = regions ?? [];
+  if (r1 && r2) {
+    if (lang === "ar") return `هذا التقرير يلخص المقارنة بين ${r1} و ${r2}.`;
+    if (lang === "fr") return `Ce document résume la comparaison entre ${r1} et ${r2}.`;
+    return `This document summarizes the comparison between ${r1} and ${r2}.`;
+  }
+  if (lang === "ar") return "يحتوي هذا المستند على تفاصيل المقارنة بين المنطقتين.";
+  if (lang === "fr") return "Ce document résume la comparaison entre les deux régions indiquées.";
+  return "This document contains the comparison details for the two regions you mentioned.";
+}
+
+function benchmarkDownloadLabel(lang: "fr" | "en" | "ar"): string {
+  if (lang === "ar") return "تحميل التقرير";
+  if (lang === "fr") return "Télécharger le rapport";
+  return "Download report";
+}
+
 const suggestions = [
   "What's the average price in Tunis?",
   "Best ROI areas for villas?",
@@ -71,15 +197,20 @@ function ChatPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.detail ?? "Chat service error");
 
-      const isBenchmark = /rapport|benchmark|comparer|comparaison|comparison/i.test(text);
+      const isBenchmark = /rapport|benchmark|comparer|comparaison|comparison|مقارنة|تقرير|قارن|بنشمارك/i.test(text);
+      const lang = detectQuestionLang(text);
+      const regions = isBenchmark ? extractTwoRegions(text) : null;
+      const intro = isBenchmark ? benchmarkIntro(lang, regions) : "";
+      const downloadLabel = isBenchmark ? benchmarkDownloadLabel(lang) : undefined;
+      const answerBody = data.answer ?? (lang === "fr" ? "Aucune réponse reçue." : "No response received.");
+
       setMsgs((m) => [
         ...m,
         {
           role: "ai",
-          text: isBenchmark
-            ? "Ce document contient les details de la comparaison entre les 2 regions que vous avez citees."
-            : (data.answer ?? "Aucune reponse recue."),
+          text: isBenchmark ? intro : answerBody,
           showReportDownload: isBenchmark,
+          downloadLabel,
         },
       ]);
 
@@ -91,7 +222,12 @@ function ChatPage() {
         ...m,
         {
           role: "ai",
-          text: error instanceof Error ? error.message : "Le service chatbot est indisponible.",
+          text:
+            error instanceof Error
+              ? error.message
+              : detectQuestionLang(text) === "fr"
+                ? "Le service chatbot est indisponible."
+                : "The chatbot service is unavailable.",
         },
       ]);
     } finally {
@@ -155,7 +291,7 @@ function ChatPage() {
                       className="mt-3 inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-xs hover:border-secondary transition"
                     >
                       <Download className="h-3.5 w-3.5" />
-                      Telecharger le rapport
+                      {m.downloadLabel ?? "Download report"}
                     </button>
                   )}
                 </div>

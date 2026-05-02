@@ -42,8 +42,10 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
+// initial: false avoids SSR + first paint with opacity:0 (looks like a blank page if
+// hydration is delayed or whileInView has not run yet).
 const fadeUp = {
-  initial: { opacity: 0, y: 24 },
+  initial: false,
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
   transition: { duration: 0.6, ease: [0.21, 1.02, 0.73, 0.99] as const },
