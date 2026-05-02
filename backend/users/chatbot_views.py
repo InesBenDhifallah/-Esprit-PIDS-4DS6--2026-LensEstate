@@ -11,7 +11,7 @@ from users.models import ChatMessage, ChatSession
 
 
 # ------------------ INIT ------------------
-load_dotenv()
+
 
 
 MODEL_NAME = "hosted_vllm/Llama-3.1-70B-Instruct"
@@ -27,7 +27,10 @@ def get_ai_clients():
     from chromadb.utils import embedding_functions
     from openai import OpenAI
 
-    chroma_client = chromadb.PersistentClient(path="./ma_base_immo")
+    import os
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    chroma_client = chromadb.PersistentClient(path=os.path.join(BASE_DIR, "ma_base_immo"))
+    load_dotenv(os.path.join(BASE_DIR, ".env.local"))
     local_ef = embedding_functions.SentenceTransformerEmbeddingFunction(
         model_name="paraphrase-multilingual-mpnet-base-v2"
     )
@@ -105,6 +108,10 @@ def ask(request):
 
         return Response({"answer": answer})
     except Exception as exc:
+        import traceback
+        print("\n--- ERREUR CHATBOT ---\n")
+        traceback.print_exc()
+        print("\n--- FIN ERREUR ---\n")
         return Response({"detail": str(exc)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
