@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { Sparkles, Menu, X } from "lucide-react";
+import { Sparkles, Menu, X, Mic, MicOff, Volume2 } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
+import { useAccessibility } from "@/context/AccessibilityContext";
 
 const links = [
   { to: "/", label: "Home" },
@@ -16,6 +17,8 @@ const links = [
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const { isAuthenticated, logout } = useAuth();
+  const { isHoverSpeechEnabled, toggleHoverSpeech, isVoiceNavEnabled, toggleVoiceNav } = useAccessibility();
+
   return (
     <header className="sticky top-0 z-50 glass">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
@@ -41,6 +44,28 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="hidden md:flex items-center gap-3">
+          {/* Accessibility Toggles */}
+          <button
+            onClick={toggleHoverSpeech}
+            className={`flex h-9 w-9 items-center justify-center rounded-xl transition-all ${
+              isHoverSpeechEnabled ? "bg-accent text-accent-foreground glow-gold" : "hover:bg-surface/50 text-muted-foreground"
+            }`}
+            title="Toggle Hover-to-Speech"
+          >
+            {isHoverSpeechEnabled ? <Volume2 className="h-4.5 w-4.5" /> : <span className="text-lg">🔊</span>}
+          </button>
+          <button
+            onClick={toggleVoiceNav}
+            className={`flex h-9 w-9 items-center justify-center rounded-xl transition-all ${
+              isVoiceNavEnabled ? "bg-secondary text-white glow-purple" : "hover:bg-surface/50 text-muted-foreground"
+            }`}
+            title="Toggle Voice Navigation"
+          >
+            {isVoiceNavEnabled ? <Mic className="h-4.5 w-4.5" /> : <MicOff className="h-4.5 w-4.5" />}
+          </button>
+
+          <div className="h-4 w-[1px] bg-border mx-1" />
+
           {isAuthenticated ? (
             <button
               type="button"

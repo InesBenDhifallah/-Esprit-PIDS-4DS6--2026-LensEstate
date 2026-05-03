@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "@tanstack/react-router";
-import { Mic, MicOff } from "lucide-react";
 import { toast } from "sonner";
+import { useAccessibility } from "@/context/AccessibilityContext";
 
 const COMMANDS: Record<string, string> = {
   "home": "/",
@@ -24,7 +24,7 @@ const COMMANDS: Record<string, string> = {
 };
 
 export function VoiceNavigator() {
-  const [isListening, setIsListening] = useState(false);
+  const { isVoiceNavEnabled: isListening } = useAccessibility();
   const [lastTranscript, setLastTranscript] = useState("");
   const router = useRouter();
 
@@ -39,7 +39,7 @@ export function VoiceNavigator() {
     const recognition = new SpeechRecognition();
     recognition.continuous = true;
     recognition.interimResults = true;
-    recognition.lang = 'en-US'; // On repasse en EN pour "Forecast"
+    recognition.lang = 'en-US'; 
 
     recognition.onstart = () => {
       console.log("VOICE: Recognition started");
@@ -53,7 +53,6 @@ export function VoiceNavigator() {
           console.log("VOICE FINAL:", transcript);
           setLastTranscript(transcript);
 
-          // Vérification des commandes
           for (const [command, path] of Object.entries(COMMANDS)) {
             if (transcript.includes(command.toLowerCase())) {
               toast.success(`Navigating to ${command}...`);
@@ -74,15 +73,17 @@ export function VoiceNavigator() {
       console.error("VOICE ERROR:", event.error);
       if (event.error === 'not-allowed') {
         alert("Microphone access denied. Please enable it in browser settings.");
-        setIsListening(false);
       }
     };
 
     recognition.onend = () => {
       console.log("VOICE: Recognition ended");
-      // Relancer si on est toujours en mode "isListening"
       if (isListening) {
-        recognition.start();
+        try {
+          recognition.start();
+        } catch (e) {
+          console.error("Restart Error:", e);
+        }
       }
     };
 
@@ -101,23 +102,5 @@ export function VoiceNavigator() {
     };
   }, [isListening, router]);
 
-  return (
-    <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-3">
-      {isListening && (
-        <div className="glass px-4 py-3 rounded-2xl text-xs gold-text border border-secondary/30 shadow-2xl animate-pulse min-w-[150px] text-center">
-          {lastTranscript ? `"${lastTranscript}"` : "Listening..."}
-        </div>
-      )}
-      <button
-        onClick={() => setIsListening(!isListening)}
-        className={`flex h-14 w-14 items-center justify-center rounded-full shadow-2xl transition-all ${
-          isListening 
-            ? "bg-red-500 text-white scale-110 shadow-red-500/50" 
-            : "bg-[var(--gradient-primary)] text-white glow-purple"
-        }`}
-      >
-        {isListening ? <Mic className="h-6 w-6" /> : <MicOff className="h-6 w-6 opacity-80" />}
-      </button>
-    </div>
-  );
+  return null;
 }

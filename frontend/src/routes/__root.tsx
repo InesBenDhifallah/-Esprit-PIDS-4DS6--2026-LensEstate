@@ -70,6 +70,8 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
+import { AccessibilityProvider } from "@/context/AccessibilityContext";
+import { HoverSpeech } from "@/components/HoverSpeech";
 import { VoiceNavigator } from "@/components/VoiceNavigator";
 import { Toaster } from "sonner";
 
@@ -77,9 +79,12 @@ function RootComponent() {
   const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
   const inner = (
     <AuthProvider>
-      <Outlet />
-      <VoiceNavigator />
-      <Toaster richColors position="top-center" />
+      <AccessibilityProvider>
+        <Outlet />
+        <HoverSpeech />
+        <VoiceNavigator />
+        <Toaster richColors position="top-center" />
+      </AccessibilityProvider>
     </AuthProvider>
   );
   if (googleClientId) {

@@ -6,7 +6,7 @@ from django.http import FileResponse
 from dotenv import load_dotenv
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import AllowAny,IsAuthenticated
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
 from users.models import ChatMessage, ChatSession
@@ -314,8 +314,7 @@ def ask(request):
         session, created = ChatSession.objects.get_or_create(
             session_id=session_id,
             defaults={
-                "title": (question[:30] + "...") if len(question) > 30 else question,
-                "user": request.user if request.user.is_authenticated else None,
+                "title": (question[:30] + "...") if len(question) > 30 else question
             },
         )
         if created and not session.title:
@@ -362,25 +361,22 @@ def generate_pdf(request):
 
 
 @api_view(["GET"])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def get_user_sessions(request):
-    sessions = ChatSession.objects.filter(user=request.user).order_by("-created_at")
+    sessions = ChatSession.objects.all().order_by("-created_at")
     sessions_list = [{"id": s.session_id, "title": s.title} for s in sessions]
     return Response(sessions_list)
 
 
 @api_view(["GET"])
-@permission_classes([IsAuthenticated])
+@permission_classes([AllowAny])
 def get_conversation(request):
     session_id = request.query_params.get("session_id")
     if not session_id:
         return Response({"messages": []})
 
     try:
-        session = ChatSession.objects.get(
-            session_id=session_id,
-            user=request.user
-        )
+        session = ChatSession.objects.get(session_id=session_id)
     except ChatSession.DoesNotExist:
         return Response({"messages": []})
 

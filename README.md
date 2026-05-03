@@ -16,55 +16,38 @@ TuniEstate is an AI-powered platform designed to address the lack of transparenc
 ---
 
 ## Tech Stack
+
 ### Frontend
+
 | Technology | Purpose |
 |---|---|
-| `React + TypeScript` | UI Framework |
-| `Vite` | Build Tool |
-| `TanStack Router` | Routing |
-| `Tailwind CSS` | Styling |
-| `Framer Motion` | Animations |
-| `Bun` | Package Manager |
+| ` React / Next.js ` | UI Framework |
+
 
 ### Backend
+
 | Technology | Purpose |
 |---|---|
-| `Django + DRF` | REST API Framework |
-| `PostgreSQL` | Database |
-| `ChromaDB` | Vector Database (RAG) |
-| `Sentence Transformers` | Embeddings |
-| `LLaMA 3.1 70B` | AI Language Model |
-| `OpenAI SDK` | LLM API Client |
-| `JWT` | Authentication |
-| `ReportLab` | PDF Generation |
+| `Python ` | AI/ML Processing |
+
+
 ---
 
 ## Architecture
 
-## Architecture
 ```
-LensEstate/
+tuniEstate/
 ├── frontend/                  # Client-side application
-│   ├── src/
-│   │   ├── components/        # Reusable UI components
-│   │   ├── routes/            # TanStack Router pages
-│   │   ├── hooks/             # Custom React hooks
-│   │   ├── context/           # Auth context
-│   │   ├── lib/               # API client & utilities
-│   │   └── types/             # TypeScript types
-│   ├── vite.config.ts
-│   └── package.json
+│   ├── components/
+│   ├── pages/
+│   └── ...
 ├── backend/                   # Server-side application
-│   ├── users/                 # Auth & AI chatbot
-│   ├── listings/              # Real estate listings API
-│   ├── predictions/           # ML price prediction
-│   ├── forecasting/           # Market forecasting
-│   ├── agents/                # Autonomous data agents
-│   ├── plans/                 # Investment plans
-│   └── lenstate/              # Django settings & URLs
-├── ma_base_immo/              # ChromaDB vector database
-├── pdf_generator.py           # PDF report generation
-├── .env.local                 # Frontend environment variables
+│   ├── agents/                # Autonomous data ingestion agents
+│   ├── models/                # ML price estimation & forecasting
+│   ├── genai/                 # Conversational AI assistant
+│   ├── api/                   # REST API routes & controllers
+│   └── ...
+├── data/                      # Raw & processed datasets
 └── README.md
 ```
 
@@ -102,59 +85,45 @@ This project aligns with the following **UN Sustainable Development Goals**:
 ## Getting Started
 
 ### Prerequisites
-- `Python >= 3.11`
-- `Node.js >= 18`
-- `Bun >= 1.3`
-- `PostgreSQL >= 18`
+
+- `Python >= 3.10 `
 
 ### Installation
+
 ```bash
 # Clone the repository
-git clone https://github.com/InesBenDhifallah/-Esprit-PIDS-4DS6--2026-LensEstate.git
+git clone https://github.com/InesBenDhifallah/-Esprit-PIDS-4DS6--2026-LensEstate
+.git
 cd -Esprit-PIDS-4DS6--2026-LensEstate
-
-# Create and activate virtual environment
-python -m venv venv
-venv\Scripts\Activate.ps1  # Windows
 
 # Install backend dependencies
 cd backend && pip install -r requirements.txt
 
 # Install frontend dependencies
-cd ../frontend && bun install
+cd ../frontend && npm install
 ```
 
 ### Running the App
+
 ```bash
 # Start the backend
-cd backend && python manage.py runserver
+cd backend && python app.py
 
-# Start the frontend (in a separate terminal)
-cd frontend && bun run dev
+# Start the frontend
+cd frontend && npm start
 ```
 
 ### Environment Variables
+
 Create a `.env` file in the `backend/` directory:
+
 ```env
-SECRET_KEY=your_secret_key
-DEBUG=True
-DB_NAME=LensEstate
-DB_USER=your_db_user
-DB_PASSWORD=your_db_password
-DB_HOST=localhost
-DB_PORT=5432
-EMAIL_HOST_USER=your_email
-EMAIL_HOST_PASSWORD=your_email_password
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
+DATABASE_URL=your_database_url
+API_KEY=your_api_key
+GENAI_API_KEY=your_genai_key
 ```
 
-Create a `.env.local` file in the root directory:
-```env
-API_KEY=your_api_key
-VITE_API_URL=http://localhost:8000
-VITE_GOOGLE_CLIENT_ID=your_google_client_id
-```
+---
 
 ## Acknowledgments
 
