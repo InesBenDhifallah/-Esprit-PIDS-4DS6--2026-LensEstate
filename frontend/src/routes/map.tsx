@@ -42,6 +42,7 @@ function MapPage() {
   const [propertyType, setPropertyType] = useState("");
   const [rooms, setRooms] = useState("");
   const [transactionType, setTransactionType] = useState("");
+  const [maxPrice, setMaxPrice] = useState("2000000");
 
   useEffect(() => setMounted(true), []);
 
@@ -54,6 +55,7 @@ function MapPage() {
         property_type: propertyType,
         rooms,
         transaction_type: transactionType,
+        max_price: maxPrice,
       };
 
       // Important: avoid fetching every paginated page (can trigger 429 throttling).
@@ -110,7 +112,7 @@ function MapPage() {
     return () => {
       isCancelled = true;
     };
-  }, [city, propertyType, rooms, transactionType]);
+  }, [city, propertyType, rooms, transactionType, maxPrice]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -122,17 +124,19 @@ function MapPage() {
             <SlidersHorizontal className="h-4 w-4 gold-text" />
             <h2 className="font-semibold">Filters</h2>
           </div>
-          <FilterGroup title="Price range">
+          <FilterGroup title={`Max Price: ${(Number(maxPrice) / 1000).toFixed(0)}k TND`}>
             <input
               type="range"
               min="50000"
-              max="1000000"
-              defaultValue="500000"
+              max="2000000"
+              step="50000"
+              value={maxPrice}
+              onChange={(e) => setMaxPrice(e.target.value)}
               className="w-full accent-[var(--secondary)]"
             />
             <div className="flex justify-between text-xs text-muted-foreground mt-1">
               <span>50k TND</span>
-              <span>1M TND</span>
+              <span>2M TND</span>
             </div>
           </FilterGroup>
           <FilterGroup title="Region">

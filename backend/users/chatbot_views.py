@@ -62,6 +62,7 @@ STRUCTURE DU RAPPORT (Respecte strictement ce format Markdown) :
 | Prix Moyen S+1 | ... | ... | ... |
 | Prix Moyen S+2 | ... | ... | ... |
 | Loyer Mensuel estimé | ... | ... | ... |
+IMPORTANT: Chaque cellule doit contenir UNE valeur ou UNE fourchette courte (ex: "1200 - 1800 DT/m²" ou "800 DT/mois"). Pas de valeurs multiples séparées par des virgules.
 
 ## 2. ANALYSE QUALITATIVE (STANDING & COMMODITÉS)
 | Critère | Ville A | Ville B |
@@ -115,7 +116,8 @@ REPORT STRUCTURE (Strictly follow this Markdown format):
 | Average Price S+1 | ... | ... | ... |
 | Average Price S+2 | ... | ... | ... |
 | Estimated Monthly Rent | ... | ... | ... |
-
+IMPORTANT: Each cell must contain ONE value or ONE range only (e.g: "1200 - 1800 DT/m²" or "800 DT/month"). Keep it short and concise. No multiple values separated by commas.
+IMPORTANT: Base your prices strictly on the provided context. If data is insufficient for a zone, indicate "Données insuffisantes" instead of inventing values.
 ## 2. QUALITATIVE ANALYSIS (STANDING & AMENITIES)
 | Criterion | City A | City B |
 | :--- | :--- | :--- |
@@ -169,6 +171,7 @@ PROMPT_REPORT_BENCHMARK_AR = """
 | متوسط السعر S+1 | ... | ... | ... |
 | متوسط السعر S+2 | ... | ... | ... |
 | الإيجار الشهري المقدر | ... | ... | ... |
+مهم: يجب أن تحتوي كل خلية على قيمة واحدة أو نطاق واحد فقط (مثال: "1200 - 1800 دينار/م²"). لا قيم متعددة مفصولة بفواصل.
 
 ## 2. التحليل النوعي (المستوى والمرافق)
 | المعيار | المدينة أ | المدينة ب |

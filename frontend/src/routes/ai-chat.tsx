@@ -147,6 +147,31 @@ const suggestions = [
   "Predict next 12 months for Sousse",
   "Show me properties under €300k",
 ];
+const GOVERNORATS_TN = new Set([
+  "tunis", "ariana", "ben arous", "manouba", "nabeul", "zaghouan",
+  "bizerte", "beja", "jendouba", "kef", "siliana", "sousse",
+  "monastir", "mahdia", "sfax", "kairouan", "kasserine", "sidi bouzid",
+  "gabes", "mednine", "tataouine", "gafsa", "tozeur", "kebili",
+  // Arabe
+  "تونس", "أريانة", "بن عروس", "منوبة", "نابل", "زغوان",
+  "بنزرت", "باجة", "جندوبة", "الكاف", "سليانة", "سوسة",
+  "المنستير", "المهدية", "صفاقس", "القيروان", "القصرين", "سيدي بوزيد",
+  "قابس", "مدنين", "تطاوين", "قفصة", "توزر", "قبلي"
+]);
+
+function isGovernorat(name: string): boolean {
+  return GOVERNORATS_TN.has(name.toLowerCase().trim());
+}
+function clarificationMessage(lang: "fr" | "en" | "ar", regions: [string, string]): string {
+  const [r1, r2] = regions;
+  if (lang === "ar") {
+    return `للمقارنة الدقيقة، يرجى تحديد منطقة من كل ولاية:\n- منطقة من ${r1} (مثال: وسط المدينة، الضاحية...)\n- منطقة من ${r2} (مثال: وسط المدينة، الضاحية...)`;
+  }
+  if (lang === "fr") {
+    return `Pour une comparaison précise, veuillez préciser une région de chaque gouvernorat :\n- Une région de ${r1} (ex: Centre-ville, Banlieue...)\n- Une région de ${r2} (ex: Centre-ville, Banlieue...)`;
+  }
+  return `For a precise comparison, please specify a region from each governorate:\n- A region from ${r1} (e.g: Downtown, Suburb...)\n- A region from ${r2} (e.g: Downtown, Suburb...)`;
+}
 
 function ChatPage() {
   const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
@@ -184,22 +209,33 @@ function ChatPage() {
     setInput("");
     setTyping(true);
 
+    const isBenchmark = /rapport|benchmark|comparer|comparaison|comparison|compare|report|مقارنة|تقرير|قارن|بنشمارك/i.test(text);
+    const lang = detectQuestionLang(text);
+    const regions = isBenchmark ? extractTwoRegions(text) : null;
+
+    // Vérifie gouvernorats
+    if (isBenchmark && regions) {
+      const [r1, r2] = regions;
+      const r1IsGov = isGovernorat(r1);
+      const r2IsGov = isGovernorat(r2);
+      if (r1IsGov || r2IsGov) {
+        setTyping(false);
+        setMsgs((m) => [...m, { role: "ai", text: clarificationMessage(lang, regions) }]);
+        return;
+      }
+    }
+
     try {
       const res = await fetch(`${API_BASE}/api/chat/ask/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          question: text,
-          session_id: sessionId,
-        }),
+        body: JSON.stringify({ question: text, session_id: sessionId }),
       });
 
       const data = await res.json();
       if (!res.ok) throw new Error(data.detail ?? "Chat service error");
 
-      const isBenchmark = /rapport|benchmark|comparer|comparaison|comparison|مقارنة|تقرير|قارن|بنشمارك/i.test(text);
-      const lang = detectQuestionLang(text);
-      const regions = isBenchmark ? extractTwoRegions(text) : null;
+      // ← PAS de redéclaration ici, on utilise isBenchmark, lang, regions du dessus
       const intro = isBenchmark ? benchmarkIntro(lang, regions) : "";
       const downloadLabel = isBenchmark ? benchmarkDownloadLabel(lang) : undefined;
       const answerBody = data.answer ?? (lang === "fr" ? "Aucune réponse reçue." : "No response received.");
@@ -222,19 +258,17 @@ function ChatPage() {
         ...m,
         {
           role: "ai",
-          text:
-            error instanceof Error
-              ? error.message
-              : detectQuestionLang(text) === "fr"
-                ? "Le service chatbot est indisponible."
-                : "The chatbot service is unavailable.",
+          text: error instanceof Error
+            ? error.message
+            : lang === "fr"
+              ? "Le service chatbot est indisponible."
+              : "The chatbot service is unavailable.",
         },
       ]);
     } finally {
       setTyping(false);
     }
   }
-
   async function downloadBenchmarkReport() {
     if (!lastBenchmarkAnswer) return;
     const res = await fetch(`${API_BASE}/api/chat/generate-pdf/`, {
@@ -278,11 +312,10 @@ function ChatPage() {
                 animate={{ opacity: 1, y: 0 }}
                 className={`flex ${m.role === "user" ? "justify-end" : "justify-start"}`}
               >
-                <div className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm ${
-                  m.role === "user"
-                    ? "bg-[var(--gradient-primary)] text-white"
-                    : "glass"
-                }`}>
+                <div className={`max-w-[80%] rounded-2xl px-4 py-3 text-sm ${m.role === "user"
+                  ? "bg-[var(--gradient-primary)] text-white"
+                  : "glass"
+                  }`}>
                   <p>{m.text}</p>
                   {m.showReportDownload && (
                     <button
@@ -300,7 +333,7 @@ function ChatPage() {
             {typing && (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex">
                 <div className="glass rounded-2xl px-4 py-3 flex gap-1">
-                  {[0,1,2].map(i => (
+                  {[0, 1, 2].map(i => (
                     <span key={i} className="h-2 w-2 rounded-full bg-secondary animate-bounce" style={{ animationDelay: `${i * 0.15}s` }} />
                   ))}
                 </div>
