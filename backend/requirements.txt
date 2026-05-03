@@ -1,0 +1,12 @@
+Django
+djangorestframework 
+django-cors-headers 
+python-dotenv 
+psycopg2-binary
+django-extensions
+django-allauth 
+djangorestframework-simplejwt 
+django-axes 
+django-ratelimit
+cryptography
+requests
