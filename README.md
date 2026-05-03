@@ -43,20 +43,29 @@ TuniEstate is an AI-powered platform designed to address the lack of transparenc
 ---
 
 ## Architecture
-
 ```
-tuniEstate/
+LensEstate/
 ├── frontend/                  # Client-side application
-│   ├── components/
-│   ├── pages/
-│   └── ...
+│   ├── src/
+│   │   ├── components/        # Reusable UI components
+│   │   ├── routes/            # TanStack Router pages
+│   │   ├── hooks/             # Custom React hooks
+│   │   ├── context/           # Auth context
+│   │   ├── lib/               # API client & utilities
+│   │   └── types/             # TypeScript types
+│   ├── vite.config.ts
+│   └── package.json
 ├── backend/                   # Server-side application
-│   ├── agents/                # Autonomous data ingestion agents
-│   ├── models/                # ML price estimation & forecasting
-│   ├── genai/                 # Conversational AI assistant
-│   ├── api/                   # REST API routes & controllers
-│   └── ...
-├── data/                      # Raw & processed datasets
+│   ├── users/                 # Auth & AI chatbot
+│   ├── listings/              # Real estate listings API
+│   ├── predictions/           # ML price prediction
+│   ├── forecasting/           # Market forecasting
+│   ├── agents/                # Autonomous data agents
+│   ├── plans/                 # Investment plans
+│   └── lenstate/              # Django settings & URLs
+├── ma_base_immo/              # ChromaDB vector database
+├── pdf_generator.py           # PDF report generation
+├── .env.local                 # Frontend environment variables
 └── README.md
 ```
 
