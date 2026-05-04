@@ -19,7 +19,7 @@ const ROOM_TYPES = [
 ];
 
 function PlanPage() {
-  const API_BASE = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8000";
+  const API_BASE = import.meta.env.VITE_API_URL ?? "http://127.0.0.1:8005";
   const [rooms, setRooms] = useState<string[]>(["living_room", "kitchen", "bedroom"]);
   const [edges, setEdges] = useState<number[][]>([[0, 1], [0, 2]]);
   const [loading, setLoading] = useState(false);

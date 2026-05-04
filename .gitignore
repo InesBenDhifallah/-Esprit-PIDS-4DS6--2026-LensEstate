@@ -64,7 +64,10 @@ chatbot/.venv/
 backend/predictions/ml_models/
 backend/forecasting/ml_models/
 backend/plans/ml_models/
+# Keep checkpoints ignored by default EXCEPT for housegan
 checkpoints/
+!housegan/checkpoints/
+!housegan/checkpoints/*.pth
 *.ipynb_checkpoints/
 .ipynb_checkpoints/
 

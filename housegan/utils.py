@@ -438,6 +438,11 @@ def open_png(im_path, im_size=512):
 	return im_arr
 
 def draw_graph(nds, eds, shift, im_size=128):
+    try:
+        from pygraphviz import AGraph
+    except ImportError:
+        print("Warning: pygraphviz not installed. Skipping graph drawing.")
+        return torch.zeros((3, im_size, im_size))
 
     # Create graph
     graph = AGraph(strict=False, directed=False)

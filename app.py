@@ -19,11 +19,8 @@ current_dir = os.path.dirname(__file__)
 sys.path.append(current_dir)
 sys.path.append(os.path.join(current_dir, "housegan"))
 
-try:
-    from housegan.inference_helper import generate_plan_from_graph
-except ImportError as e:
-    print(f"HouseGAN import error: {e}")
-    pass
+from housegan.inference_helper import generate_plan_from_graph
+
 
 # ------------------ INIT ------------------
 load_dotenv()

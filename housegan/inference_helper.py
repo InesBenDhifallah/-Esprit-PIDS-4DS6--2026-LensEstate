@@ -1,39 +1,71 @@
 import torch
 import numpy as np
+import os
+import sys
+from PIL import Image
+from torch.autograd import Variable
+
+# Add current directory to path to ensure relative imports work
+sys.path.append(os.path.dirname(__file__))
+
 from models import Generator
 from utils import ROOM_CLASS, mask_to_bb, bb_to_im_fid, align_bb
-from torch.autograd import Variable
-import torch.nn as nn
-from PIL import Image
-import os
+
+_generator_instance = None
+_current_device = None
+
+def load_model(checkpoint_path, device=None):
+    global _generator_instance, _current_device
+    if device is None:
+        device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    
+    if _generator_instance is None or _current_device != device:
+        print(f"Loading HouseGAN model from {checkpoint_path} on {device}...")
+        generator = Generator()
+        # Use absolute path if relative
+        if not os.path.isabs(checkpoint_path):
+            checkpoint_path = os.path.join(os.path.dirname(__file__), checkpoint_path)
+        
+        generator.load_state_dict(torch.load(checkpoint_path, map_location=device))
+        generator.to(device)
+        generator.eval()
+        _generator_instance = generator
+        _current_device = device
+    return _generator_instance
 
 def one_hot_embedding(labels, num_classes=11):
     y = torch.eye(num_classes) 
     return y[labels]
 
-def generate_plan_from_graph(room_names, edges_list, checkpoint_path='./checkpoints/exp_demo_D_500000.pth', num_variations=3):
+def generate_plan_from_graph(room_names, edges_list, checkpoint_path=None, num_variations=3):
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
-    # Initialize generator
-    generator = Generator()
-    generator.load_state_dict(torch.load(checkpoint_path, map_location=device))
-    generator.to(device)
-    generator.eval()
+    if checkpoint_path is None:
+        checkpoint_path = os.path.join(os.path.dirname(__file__), 'checkpoints', 'exp_demo_D_500000.pth')
+    
+    # Load or get cached generator
+    generator = load_model(checkpoint_path, device)
     
     # Prepare nodes
     nodes_indices = []
     for name in room_names:
-        idx = ROOM_CLASS.get(name.lower().replace(" ", "_"), 5)
+        # Normalize name and find index
+        clean_name = name.lower().strip().replace(" ", "_")
+        idx = ROOM_CLASS.get(clean_name, 5) # Default to 5 (missing/red)
         nodes_indices.append(idx)
     
+    if not nodes_indices:
+        return Image.new('RGB', (512, 512), 'white')
+
     nodes_tensor = one_hot_embedding(torch.LongTensor(nodes_indices))[:, 1:]
     num_nodes = len(room_names)
     triples = []
     
     pos_edges = set()
     for e in edges_list:
-        u, v = sorted(e)
-        pos_edges.add((u, v))
+        if len(e) >= 2:
+            u, v = sorted([e[0], e[1]])
+            pos_edges.add((u, v))
         
     for i in range(num_nodes):
         for j in range(i + 1, num_nodes):
@@ -42,6 +74,10 @@ def generate_plan_from_graph(room_names, edges_list, checkpoint_path='./checkpoi
             else:
                 triples.append([i, -1, j])
                 
+    if not triples:
+        # Single room case
+        pass
+
     edges_tensor = torch.LongTensor(triples)
     nodes_batch = nodes_tensor.to(device)
     edges_batch = edges_tensor.to(device)
