@@ -1,0 +1,17 @@
+numpy
+pandas
+scikit-learn
+xgboost
+torch
+torchvision
+matplotlib
+seaborn
+nltk
+shap
+Pillow
+tqdm
+joblib
+jupyter
+ipykernel
+notebook
+ipywidgets
