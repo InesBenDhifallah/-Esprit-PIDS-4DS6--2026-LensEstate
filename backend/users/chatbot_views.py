@@ -57,11 +57,11 @@ STRUCTURE DU RAPPORT (Respecte strictement ce format Markdown) :
 - **Période** : 2025 - 2026.
 
 ## 1. ANALYSE QUANTITATIVE (PRIX & LOYERS)
-| Indicateur (Moyennes) | Ville A | Ville B | Écart (%) |
+| Indicateur (Mediane) | Ville A | Ville B | Écart (%) |
 | :--- | :--- | :--- | :--- |
-| Prix Moyen S+1 | ... | ... | ... |
-| Prix Moyen S+2 | ... | ... | ... |
-| Loyer Mensuel estimé | ... | ... | ... |
+| Prix Médian S+1 | ... | ... | ... |
+| Prix Médian S+2 | ... | ... | ... |
+| Loyer Médian estimé | ... | ... | ... |
 IMPORTANT: Chaque cellule doit contenir UNE valeur ou UNE fourchette courte (ex: "1200 - 1800 DT/m²" ou "800 DT/mois"). Pas de valeurs multiples séparées par des virgules.
 
 ## 2. ANALYSE QUALITATIVE (STANDING & COMMODITÉS)
@@ -111,10 +111,10 @@ REPORT STRUCTURE (Strictly follow this Markdown format):
 - **Period**: 2025 - 2026.
 
 ## 1. QUANTITATIVE ANALYSIS (PRICES & RENTS)
-| Indicator (Averages) | City A | City B | Gap (%) |
+| Indicator (Median) | City A | City B | Gap (%) |
 | :--- | :--- | :--- | :--- |
-| Average Price S+1 | ... | ... | ... |
-| Average Price S+2 | ... | ... | ... |
+| Median Price S+1 | ... | ... | ... |
+| Median Price S+2 | ... | ... | ... |
 | Estimated Monthly Rent | ... | ... | ... |
 IMPORTANT: Each cell must contain ONE value or ONE range only (e.g: "1200 - 1800 DT/m²" or "800 DT/month"). Keep it short and concise. No multiple values separated by commas.
 IMPORTANT: Base your prices strictly on the provided context. If data is insufficient for a zone, indicate "Données insuffisantes" instead of inventing values.
@@ -168,8 +168,8 @@ PROMPT_REPORT_BENCHMARK_AR = """
 ## 1. التحليل الكمي (الأسعار والإيجارات)
 | المؤشر (المتوسطات) | المدينة أ | المدينة ب | الفرق (%) |
 | :--- | :--- | :--- | :--- |
-| متوسط السعر S+1 | ... | ... | ... |
-| متوسط السعر S+2 | ... | ... | ... |
+| السعر الوسيط S+1 | ... | ... | ... |
+| السعر الوسيط S+2 | ... | ... | ... |
 | الإيجار الشهري المقدر | ... | ... | ... |
 مهم: يجب أن تحتوي كل خلية على قيمة واحدة أو نطاق واحد فقط (مثال: "1200 - 1800 دينار/م²"). لا قيم متعددة مفصولة بفواصل.
 
