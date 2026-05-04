@@ -1,8 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { TrendingUp, MapPin } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
+import { get } from "@/lib/api";
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   BarChart, Bar,
@@ -38,8 +39,71 @@ const regions = [
   { name: "Djerba", growth: 6.2 },
 ];
 
+type ForecastPoint = {
+  m: string;
+  price: number | null;
+  forecast: number;
+};
+
+type ForecastRegionGrowth = {
+  name: string;
+  growth: number;
+};
+
+type ForecastResponse = {
+  region: string;
+  current_avg: number;
+  forecast_12m: number;
+  confidence: number;
+  projected_growth_pct: number;
+  series: ForecastPoint[];
+  regions: ForecastRegionGrowth[];
+};
+
 function ForecastPage() {
   const [region, setRegion] = useState("Tunis");
+  const [seriesData, setSeriesData] = useState(series);
+  const [regionsData, setRegionsData] = useState(regions);
+  const [kpis, setKpis] = useState({
+    currentAvg: 2300,
+    forecast12m: 2600,
+    confidence: 91,
+    growth: 13,
+  });
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function loadForecast() {
+      try {
+        const data = await get<ForecastResponse>(
+          `/api/forecasting/?region=${encodeURIComponent(region)}`,
+          { skipAuth: true },
+        );
+        if (cancelled) return;
+        setSeriesData(data.series);
+        setRegionsData(data.regions);
+        setKpis({
+          currentAvg: data.current_avg,
+          forecast12m: data.forecast_12m,
+          confidence: data.confidence,
+          growth: data.projected_growth_pct,
+        });
+      } catch {
+        // Keep static fallback if API is unavailable.
+      }
+    }
+
+    void loadForecast();
+    return () => {
+      cancelled = true;
+    };
+  }, [region]);
+
+  const growthText = useMemo(() => {
+    const sign = kpis.growth >= 0 ? "+" : "";
+    return `${sign}${kpis.growth}% projected`;
+  }, [kpis.growth]);
 
   return (
     <div className="min-h-screen">
@@ -52,7 +116,7 @@ function ForecastPage() {
             <p className="mt-2 text-muted-foreground">Where prices are heading, region by region.</p>
           </div>
           <div className="flex gap-2">
-            {regions.map((r) => (
+            {regionsData.map((r) => (
               <button key={r.name} onClick={() => setRegion(r.name)} className={`rounded-xl border px-4 py-2 text-sm transition ${region === r.name ? "border-secondary bg-secondary/10 text-foreground" : "border-border text-muted-foreground hover:text-foreground"}`}>
                 {r.name}
               </button>
@@ -61,9 +125,9 @@ function ForecastPage() {
         </div>
 
         <div className="mt-10 grid lg:grid-cols-3 gap-6">
-          <KPI label="Current avg" value="€2,300/m²" sub="Updated daily" />
-          <KPI label="12-mo forecast" value="€2,600/m²" sub="+13% projected" highlight />
-          <KPI label="Confidence" value="91%" sub="High signal" />
+          <KPI label="Current avg" value={`€${kpis.currentAvg.toLocaleString()}/m²`} sub="Updated daily" />
+          <KPI label="12-mo forecast" value={`€${kpis.forecast12m.toLocaleString()}/m²`} sub={growthText} highlight />
+          <KPI label="Confidence" value={`${kpis.confidence}%`} sub="High signal" />
         </div>
 
         <motion.div
@@ -76,7 +140,7 @@ function ForecastPage() {
           </div>
           <div className="h-72">
             <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={series}>
+              <AreaChart data={seriesData}>
                 <defs>
                   <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="oklch(0.48 0.22 290)" stopOpacity={0.7}/>
@@ -105,7 +169,7 @@ function ForecastPage() {
           <h2 className="font-semibold mb-4">Region growth — next 12 months</h2>
           <div className="h-64">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={regions}>
+              <BarChart data={regionsData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="oklch(0.3 0.03 285 / 0.3)" />
                 <XAxis dataKey="name" stroke="oklch(0.71 0.015 280)" fontSize={12} />
                 <YAxis stroke="oklch(0.71 0.015 280)" fontSize={12} unit="%" />

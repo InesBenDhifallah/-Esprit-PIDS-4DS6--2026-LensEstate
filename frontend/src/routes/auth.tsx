@@ -49,6 +49,7 @@ function AuthPage() {
   const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const hasGoogleClientId = Boolean(import.meta.env.VITE_GOOGLE_CLIENT_ID);
 
   useEffect(() => {
     if (!isLoading && isAuthenticated) {
@@ -238,21 +239,25 @@ function AuthPage() {
           {error && <p className="text-xs text-red-400">{error}</p>}
         </div>
 
-        <div className="my-6 flex items-center gap-3 text-xs text-muted-foreground">
-          <div className="h-px flex-1 bg-border" /> or continue with{" "}
-          <div className="h-px flex-1 bg-border" />
-        </div>
+        {hasGoogleClientId && (
+          <>
+            <div className="my-6 flex items-center gap-3 text-xs text-muted-foreground">
+              <div className="h-px flex-1 bg-border" /> or continue with{" "}
+              <div className="h-px flex-1 bg-border" />
+            </div>
 
-        <div className="grid grid-cols-1 gap-3">
-          <button
-            type="button"
-            onClick={() => googleSignIn()}
-            disabled={loading}
-            className="rounded-xl border border-border bg-surface/50 py-2.5 text-sm hover:border-secondary transition disabled:opacity-60"
-          >
-            Continue with Google
-          </button>
-        </div>
+            <div className="grid grid-cols-1 gap-3">
+              <button
+                type="button"
+                onClick={() => googleSignIn()}
+                disabled={loading}
+                className="rounded-xl border border-border bg-surface/50 py-2.5 text-sm hover:border-secondary transition disabled:opacity-60"
+              >
+                Continue with Google
+              </button>
+            </div>
+          </>
+        )}
 
         <p className="mt-6 text-center text-sm text-muted-foreground">
           {mode === "signin" ? "New here?" : "Already have an account?"}{" "}

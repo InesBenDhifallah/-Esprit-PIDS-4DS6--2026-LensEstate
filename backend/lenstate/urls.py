@@ -22,4 +22,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('api/', include('listings.urls')),
     path('api/', include('users.urls')),
+    path('api/', include('forcasting.urls')),
 ]

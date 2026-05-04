@@ -87,8 +87,6 @@ function RootComponent() {
       </AccessibilityProvider>
     </AuthProvider>
   );
-  if (googleClientId) {
-    return <GoogleOAuthProvider clientId={googleClientId}>{inner}</GoogleOAuthProvider>;
-  }
-  return inner;
+  // Keep provider mounted to avoid runtime hook errors.
+  return <GoogleOAuthProvider clientId={googleClientId ?? "disabled"}>{inner}</GoogleOAuthProvider>;
 }
