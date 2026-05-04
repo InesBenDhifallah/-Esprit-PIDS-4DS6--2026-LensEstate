@@ -1,0 +1,1039 @@
+{
+  "meta": {
+    "version": "v6-cache-1",
+    "ins_mtime": 1777892802.462732,
+    "listings_mtime": 1777892802.4590917
+  },
+  "payloads": {
+    "ariana": {
+      "region": "Ariana",
+      "current_avg": 390000,
+      "forecast_12m": 417065,
+      "confidence": 95,
+      "projected_growth_pct": 6.9,
+      "series": [
+        {
+          "m": "Jan",
+          "price": 379033,
+          "forecast": 379033
+        },
+        {
+          "m": "Feb",
+          "price": 381223,
+          "forecast": 381223
+        },
+        {
+          "m": "Mar",
+          "price": 383412,
+          "forecast": 383412
+        },
+        {
+          "m": "Apr",
+          "price": 385602,
+          "forecast": 385602
+        },
+        {
+          "m": "May",
+          "price": 387810,
+          "forecast": 387810
+        },
+        {
+          "m": "Jun",
+          "price": 390000,
+          "forecast": 390000
+        },
+        {
+          "m": "Jul",
+          "price": null,
+          "forecast": 326833
+        },
+        {
+          "m": "Aug",
+          "price": null,
+          "forecast": 334650
+        },
+        {
+          "m": "Sep",
+          "price": null,
+          "forecast": 342543
+        }
+      ],
+      "regions": [
+        {
+          "name": "Ariana",
+          "growth": 6.9
+        },
+        {
+          "name": "Ben Arous",
+          "growth": 7.2
+        },
+        {
+          "name": "Bizerte",
+          "growth": 7.1
+        },
+        {
+          "name": "Manouba",
+          "growth": 7.0
+        },
+        {
+          "name": "Medenine",
+          "growth": 7.2
+        },
+        {
+          "name": "Monastir",
+          "growth": 7.2
+        },
+        {
+          "name": "Nabeul",
+          "growth": 7.2
+        },
+        {
+          "name": "Sfax",
+          "growth": -18.7
+        },
+        {
+          "name": "Sousse",
+          "growth": 7.0
+        },
+        {
+          "name": "Tunis",
+          "growth": 6.8
+        }
+      ],
+      "model": {
+        "name": "ARIMA(1,1,1)",
+        "aic": -1196.3,
+        "mae": 897.53,
+        "rmse": 1180.78,
+        "mape": 0.24
+      }
+    },
+    "ben arous": {
+      "region": "Ben Arous",
+      "current_avg": 242500,
+      "forecast_12m": 259849,
+      "confidence": 95,
+      "projected_growth_pct": 7.2,
+      "series": [
+        {
+          "m": "Jan",
+          "price": 235494,
+          "forecast": 235494
+        },
+        {
+          "m": "Feb",
+          "price": 236891,
+          "forecast": 236891
+        },
+        {
+          "m": "Mar",
+          "price": 238299,
+          "forecast": 238299
+        },
+        {
+          "m": "Apr",
+          "price": 239695,
+          "forecast": 239695
+        },
+        {
+          "m": "May",
+          "price": 241091,
+          "forecast": 241091
+        },
+        {
+          "m": "Jun",
+          "price": 242500,
+          "forecast": 242500
+        },
+        {
+          "m": "Jul",
+          "price": null,
+          "forecast": 248440
+        },
+        {
+          "m": "Aug",
+          "price": null,
+          "forecast": 249473
+        },
+        {
+          "m": "Sep",
+          "price": null,
+          "forecast": 250506
+        }
+      ],
+      "regions": [
+        {
+          "name": "Ariana",
+          "growth": 6.9
+        },
+        {
+          "name": "Ben Arous",
+          "growth": 7.2
+        },
+        {
+          "name": "Bizerte",
+          "growth": 7.1
+        },
+        {
+          "name": "Manouba",
+          "growth": 7.0
+        },
+        {
+          "name": "Medenine",
+          "growth": 7.2
+        },
+        {
+          "name": "Monastir",
+          "growth": 7.2
+        },
+        {
+          "name": "Nabeul",
+          "growth": 7.2
+        },
+        {
+          "name": "Sfax",
+          "growth": -18.7
+        },
+        {
+          "name": "Sousse",
+          "growth": 7.0
+        },
+        {
+          "name": "Tunis",
+          "growth": 6.8
+        }
+      ],
+      "model": {
+        "name": "ARIMA(1,1,1)",
+        "aic": -1174.23,
+        "mae": 620.17,
+        "rmse": 794.53,
+        "mape": 0.26
+      }
+    },
+    "bizerte": {
+      "region": "Bizerte",
+      "current_avg": 365000,
+      "forecast_12m": 390804,
+      "confidence": 95,
+      "projected_growth_pct": 7.1,
+      "series": [
+        {
+          "m": "Jan",
+          "price": 354602,
+          "forecast": 354602
+        },
+        {
+          "m": "Feb",
+          "price": 356690,
+          "forecast": 356690
+        },
+        {
+          "m": "Mar",
+          "price": 358757,
+          "forecast": 358757
+        },
+        {
+          "m": "Apr",
+          "price": 360845,
+          "forecast": 360845
+        },
+        {
+          "m": "May",
+          "price": 362912,
+          "forecast": 362912
+        },
+        {
+          "m": "Jun",
+          "price": 365000,
+          "forecast": 365000
+        },
+        {
+          "m": "Jul",
+          "price": null,
+          "forecast": 321839
+        },
+        {
+          "m": "Aug",
+          "price": null,
+          "forecast": 327824
+        },
+        {
+          "m": "Sep",
+          "price": null,
+          "forecast": 333865
+        }
+      ],
+      "regions": [
+        {
+          "name": "Ariana",
+          "growth": 6.9
+        },
+        {
+          "name": "Ben Arous",
+          "growth": 7.2
+        },
+        {
+          "name": "Bizerte",
+          "growth": 7.1
+        },
+        {
+          "name": "Manouba",
+          "growth": 7.0
+        },
+        {
+          "name": "Medenine",
+          "growth": 7.2
+        },
+        {
+          "name": "Monastir",
+          "growth": 7.2
+        },
+        {
+          "name": "Nabeul",
+          "growth": 7.2
+        },
+        {
+          "name": "Sfax",
+          "growth": -18.7
+        },
+        {
+          "name": "Sousse",
+          "growth": 7.0
+        },
+        {
+          "name": "Tunis",
+          "growth": 6.8
+        }
+      ],
+      "model": {
+        "name": "ARIMA(1,1,1)",
+        "aic": -1187.07,
+        "mae": 734.34,
+        "rmse": 989.93,
+        "mape": 0.21
+      }
+    },
+    "manouba": {
+      "region": "Manouba",
+      "current_avg": 319000,
+      "forecast_12m": 341439,
+      "confidence": 95,
+      "projected_growth_pct": 7.0,
+      "series": [
+        {
+          "m": "Jan",
+          "price": 309854,
+          "forecast": 309854
+        },
+        {
+          "m": "Feb",
+          "price": 311690,
+          "forecast": 311690
+        },
+        {
+          "m": "Mar",
+          "price": 313509,
+          "forecast": 313509
+        },
+        {
+          "m": "Apr",
+          "price": 315345,
+          "forecast": 315345
+        },
+        {
+          "m": "May",
+          "price": 317182,
+          "forecast": 317182
+        },
+        {
+          "m": "Jun",
+          "price": 319000,
+          "forecast": 319000
+        },
+        {
+          "m": "Jul",
+          "price": null,
+          "forecast": 320826
+        },
+        {
+          "m": "Aug",
+          "price": null,
+          "forecast": 322660
+        },
+        {
+          "m": "Sep",
+          "price": null,
+          "forecast": 324502
+        }
+      ],
+      "regions": [
+        {
+          "name": "Ariana",
+          "growth": 6.9
+        },
+        {
+          "name": "Ben Arous",
+          "growth": 7.2
+        },
+        {
+          "name": "Bizerte",
+          "growth": 7.1
+        },
+        {
+          "name": "Manouba",
+          "growth": 7.0
+        },
+        {
+          "name": "Medenine",
+          "growth": 7.2
+        },
+        {
+          "name": "Monastir",
+          "growth": 7.2
+        },
+        {
+          "name": "Nabeul",
+          "growth": 7.2
+        },
+        {
+          "name": "Sfax",
+          "growth": -18.7
+        },
+        {
+          "name": "Sousse",
+          "growth": 7.0
+        },
+        {
+          "name": "Tunis",
+          "growth": 6.8
+        }
+      ],
+      "model": {
+        "name": "ARIMA(1,1,1)",
+        "aic": -1183.31,
+        "mae": 613.11,
+        "rmse": 829.9,
+        "mape": 0.2
+      }
+    },
+    "medenine": {
+      "region": "Medenine",
+      "current_avg": 480000,
+      "forecast_12m": 514404,
+      "confidence": 95,
+      "projected_growth_pct": 7.2,
+      "series": [
+        {
+          "m": "Jan",
+          "price": 466087,
+          "forecast": 466087
+        },
+        {
+          "m": "Feb",
+          "price": 468870,
+          "forecast": 468870
+        },
+        {
+          "m": "Mar",
+          "price": 471652,
+          "forecast": 471652
+        },
+        {
+          "m": "Apr",
+          "price": 474435,
+          "forecast": 474435
+        },
+        {
+          "m": "May",
+          "price": 477217,
+          "forecast": 477217
+        },
+        {
+          "m": "Jun",
+          "price": 480000,
+          "forecast": 480000
+        },
+        {
+          "m": "Jul",
+          "price": null,
+          "forecast": 467708
+        },
+        {
+          "m": "Aug",
+          "price": null,
+          "forecast": 471808
+        },
+        {
+          "m": "Sep",
+          "price": null,
+          "forecast": 475937
+        }
+      ],
+      "regions": [
+        {
+          "name": "Ariana",
+          "growth": 6.9
+        },
+        {
+          "name": "Ben Arous",
+          "growth": 7.2
+        },
+        {
+          "name": "Bizerte",
+          "growth": 7.1
+        },
+        {
+          "name": "Manouba",
+          "growth": 7.0
+        },
+        {
+          "name": "Medenine",
+          "growth": 7.2
+        },
+        {
+          "name": "Monastir",
+          "growth": 7.2
+        },
+        {
+          "name": "Nabeul",
+          "growth": 7.2
+        },
+        {
+          "name": "Sfax",
+          "growth": -18.7
+        },
+        {
+          "name": "Sousse",
+          "growth": 7.0
+        },
+        {
+          "name": "Tunis",
+          "growth": 6.8
+        }
+      ],
+      "model": {
+        "name": "ARIMA(1,1,1)",
+        "aic": -1179.43,
+        "mae": 1208.6,
+        "rmse": 1584.31,
+        "mape": 0.26
+      }
+    },
+    "monastir": {
+      "region": "Monastir",
+      "current_avg": 230000,
+      "forecast_12m": 246586,
+      "confidence": 95,
+      "projected_growth_pct": 7.2,
+      "series": [
+        {
+          "m": "Jan",
+          "price": 223331,
+          "forecast": 223331
+        },
+        {
+          "m": "Feb",
+          "price": 224660,
+          "forecast": 224660
+        },
+        {
+          "m": "Mar",
+          "price": 226001,
+          "forecast": 226001
+        },
+        {
+          "m": "Apr",
+          "price": 227330,
+          "forecast": 227330
+        },
+        {
+          "m": "May",
+          "price": 228659,
+          "forecast": 228659
+        },
+        {
+          "m": "Jun",
+          "price": 230000,
+          "forecast": 230000
+        },
+        {
+          "m": "Jul",
+          "price": null,
+          "forecast": 238891
+        },
+        {
+          "m": "Aug",
+          "price": null,
+          "forecast": 239599
+        },
+        {
+          "m": "Sep",
+          "price": null,
+          "forecast": 240306
+        }
+      ],
+      "regions": [
+        {
+          "name": "Ariana",
+          "growth": 6.9
+        },
+        {
+          "name": "Ben Arous",
+          "growth": 7.2
+        },
+        {
+          "name": "Bizerte",
+          "growth": 7.1
+        },
+        {
+          "name": "Manouba",
+          "growth": 7.0
+        },
+        {
+          "name": "Medenine",
+          "growth": 7.2
+        },
+        {
+          "name": "Monastir",
+          "growth": 7.2
+        },
+        {
+          "name": "Nabeul",
+          "growth": 7.2
+        },
+        {
+          "name": "Sfax",
+          "growth": -18.7
+        },
+        {
+          "name": "Sousse",
+          "growth": 7.0
+        },
+        {
+          "name": "Tunis",
+          "growth": 6.8
+        }
+      ],
+      "model": {
+        "name": "ARIMA(1,1,1)",
+        "aic": -1178.13,
+        "mae": 669.43,
+        "rmse": 859.8,
+        "mape": 0.3
+      }
+    },
+    "nabeul": {
+      "region": "Nabeul",
+      "current_avg": 342500,
+      "forecast_12m": 367081,
+      "confidence": 95,
+      "projected_growth_pct": 7.2,
+      "series": [
+        {
+          "m": "Jan",
+          "price": 332565,
+          "forecast": 332565
+        },
+        {
+          "m": "Feb",
+          "price": 334556,
+          "forecast": 334556
+        },
+        {
+          "m": "Mar",
+          "price": 336546,
+          "forecast": 336546
+        },
+        {
+          "m": "Apr",
+          "price": 338537,
+          "forecast": 338537
+        },
+        {
+          "m": "May",
+          "price": 340509,
+          "forecast": 340509
+        },
+        {
+          "m": "Jun",
+          "price": 342500,
+          "forecast": 342500
+        },
+        {
+          "m": "Jul",
+          "price": null,
+          "forecast": 321868
+        },
+        {
+          "m": "Aug",
+          "price": null,
+          "forecast": 325814
+        },
+        {
+          "m": "Sep",
+          "price": null,
+          "forecast": 329792
+        }
+      ],
+      "regions": [
+        {
+          "name": "Ariana",
+          "growth": 6.9
+        },
+        {
+          "name": "Ben Arous",
+          "growth": 7.2
+        },
+        {
+          "name": "Bizerte",
+          "growth": 7.1
+        },
+        {
+          "name": "Manouba",
+          "growth": 7.0
+        },
+        {
+          "name": "Medenine",
+          "growth": 7.2
+        },
+        {
+          "name": "Monastir",
+          "growth": 7.2
+        },
+        {
+          "name": "Nabeul",
+          "growth": 7.2
+        },
+        {
+          "name": "Sfax",
+          "growth": -18.7
+        },
+        {
+          "name": "Sousse",
+          "growth": 7.0
+        },
+        {
+          "name": "Tunis",
+          "growth": 6.8
+        }
+      ],
+      "model": {
+        "name": "ARIMA(1,1,1)",
+        "aic": -1178.97,
+        "mae": 856.23,
+        "rmse": 1118.62,
+        "mape": 0.26
+      }
+    },
+    "sfax": {
+      "region": "Sfax",
+      "current_avg": 267500,
+      "forecast_12m": 217500,
+      "confidence": 95,
+      "projected_growth_pct": -18.7,
+      "series": [
+        {
+          "m": "Jan",
+          "price": 259773,
+          "forecast": 259773
+        },
+        {
+          "m": "Feb",
+          "price": 261322,
+          "forecast": 261322
+        },
+        {
+          "m": "Mar",
+          "price": 262870,
+          "forecast": 262870
+        },
+        {
+          "m": "Apr",
+          "price": 264403,
+          "forecast": 264403
+        },
+        {
+          "m": "May",
+          "price": 265952,
+          "forecast": 265952
+        },
+        {
+          "m": "Jun",
+          "price": 267500,
+          "forecast": 267500
+        },
+        {
+          "m": "Jul",
+          "price": null,
+          "forecast": 145843
+        },
+        {
+          "m": "Aug",
+          "price": null,
+          "forecast": 157957
+        },
+        {
+          "m": "Sep",
+          "price": null,
+          "forecast": 170205
+        }
+      ],
+      "regions": [
+        {
+          "name": "Ariana",
+          "growth": 6.9
+        },
+        {
+          "name": "Ben Arous",
+          "growth": 7.2
+        },
+        {
+          "name": "Bizerte",
+          "growth": 7.1
+        },
+        {
+          "name": "Manouba",
+          "growth": 7.0
+        },
+        {
+          "name": "Medenine",
+          "growth": 7.2
+        },
+        {
+          "name": "Monastir",
+          "growth": 7.2
+        },
+        {
+          "name": "Nabeul",
+          "growth": 7.2
+        },
+        {
+          "name": "Sfax",
+          "growth": -18.7
+        },
+        {
+          "name": "Sousse",
+          "growth": 7.0
+        },
+        {
+          "name": "Tunis",
+          "growth": 6.8
+        }
+      ],
+      "model": {
+        "name": "ARIMA(1,1,1)",
+        "aic": -1185.26,
+        "mae": 708.02,
+        "rmse": 925.41,
+        "mape": 0.27
+      }
+    },
+    "sousse": {
+      "region": "Sousse",
+      "current_avg": 321829,
+      "forecast_12m": 344295,
+      "confidence": 95,
+      "projected_growth_pct": 7.0,
+      "series": [
+        {
+          "m": "Jan",
+          "price": 312718,
+          "forecast": 312718
+        },
+        {
+          "m": "Feb",
+          "price": 314547,
+          "forecast": 314547
+        },
+        {
+          "m": "Mar",
+          "price": 316359,
+          "forecast": 316359
+        },
+        {
+          "m": "Apr",
+          "price": 318171,
+          "forecast": 318171
+        },
+        {
+          "m": "May",
+          "price": 320000,
+          "forecast": 320000
+        },
+        {
+          "m": "Jun",
+          "price": 321829,
+          "forecast": 321829
+        },
+        {
+          "m": "Jul",
+          "price": null,
+          "forecast": 321825
+        },
+        {
+          "m": "Aug",
+          "price": null,
+          "forecast": 323825
+        },
+        {
+          "m": "Sep",
+          "price": null,
+          "forecast": 325833
+        }
+      ],
+      "regions": [
+        {
+          "name": "Ariana",
+          "growth": 6.9
+        },
+        {
+          "name": "Ben Arous",
+          "growth": 7.2
+        },
+        {
+          "name": "Bizerte",
+          "growth": 7.1
+        },
+        {
+          "name": "Manouba",
+          "growth": 7.0
+        },
+        {
+          "name": "Medenine",
+          "growth": 7.2
+        },
+        {
+          "name": "Monastir",
+          "growth": 7.2
+        },
+        {
+          "name": "Nabeul",
+          "growth": 7.2
+        },
+        {
+          "name": "Sfax",
+          "growth": -18.7
+        },
+        {
+          "name": "Sousse",
+          "growth": 7.0
+        },
+        {
+          "name": "Tunis",
+          "growth": 6.8
+        }
+      ],
+      "model": {
+        "name": "ARIMA(1,1,1)",
+        "aic": -1173.54,
+        "mae": 514.95,
+        "rmse": 692.82,
+        "mape": 0.16
+      }
+    },
+    "tunis": {
+      "region": "Tunis",
+      "current_avg": 347500,
+      "forecast_12m": 370999,
+      "confidence": 95,
+      "projected_growth_pct": 6.8,
+      "series": [
+        {
+          "m": "Jan",
+          "price": 337903,
+          "forecast": 337903
+        },
+        {
+          "m": "Feb",
+          "price": 339819,
+          "forecast": 339819
+        },
+        {
+          "m": "Mar",
+          "price": 341735,
+          "forecast": 341735
+        },
+        {
+          "m": "Apr",
+          "price": 343651,
+          "forecast": 343651
+        },
+        {
+          "m": "May",
+          "price": 345584,
+          "forecast": 345584
+        },
+        {
+          "m": "Jun",
+          "price": 347500,
+          "forecast": 347500
+        },
+        {
+          "m": "Jul",
+          "price": null,
+          "forecast": 301660
+        },
+        {
+          "m": "Aug",
+          "price": null,
+          "forecast": 307691
+        },
+        {
+          "m": "Sep",
+          "price": null,
+          "forecast": 313776
+        }
+      ],
+      "regions": [
+        {
+          "name": "Ariana",
+          "growth": 6.9
+        },
+        {
+          "name": "Ben Arous",
+          "growth": 7.2
+        },
+        {
+          "name": "Bizerte",
+          "growth": 7.1
+        },
+        {
+          "name": "Manouba",
+          "growth": 7.0
+        },
+        {
+          "name": "Medenine",
+          "growth": 7.2
+        },
+        {
+          "name": "Monastir",
+          "growth": 7.2
+        },
+        {
+          "name": "Nabeul",
+          "growth": 7.2
+        },
+        {
+          "name": "Sfax",
+          "growth": -18.7
+        },
+        {
+          "name": "Sousse",
+          "growth": 7.0
+        },
+        {
+          "name": "Tunis",
+          "growth": 6.8
+        }
+      ],
+      "model": {
+        "name": "ARIMA(1,1,1)",
+        "aic": -1177.5,
+        "mae": 582.75,
+        "rmse": 765.39,
+        "mape": 0.17
+      }
+    }
+  }
+}

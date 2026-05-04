@@ -1,10 +1,10 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from datetime import datetime
-from functools import lru_cache
 from pathlib import Path
 from typing import Any
+import json
 import re
 import unicodedata
 import warnings
@@ -21,6 +21,9 @@ from statsmodels.tsa.statespace.sarimax import SARIMAX
 BASE_DIR = Path(__file__).resolve().parents[2]
 INS_CSV = BASE_DIR / "ins_ipim_by_governorate.csv"
 LISTINGS_CSV = BASE_DIR / "final_dataset_with_dates.csv"
+CACHE_DIR = BASE_DIR / "forcasting" / "cache"
+CACHE_FILE = CACHE_DIR / "dso3_v6_forecast_frontend.json"
+CACHE_VERSION = "v6-cache-1"
 
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
 warnings.filterwarnings("ignore", category=ConvergenceWarning)
@@ -73,13 +76,12 @@ def _objectid_to_date(oid: Any) -> datetime | None:
         return None
 
 
-def _remove_outliers(group: pd.DataFrame) -> pd.DataFrame:
-    q5 = group["price"].quantile(0.05)
-    q95 = group["price"].quantile(0.95)
-    return group[(group["price"] >= q5) & (group["price"] <= q95)]
+def _remove_outliers_by_gov(df: pd.DataFrame) -> pd.DataFrame:
+    q5 = df.groupby("gov_norm")["price"].transform(lambda s: s.quantile(0.05))
+    q95 = df.groupby("gov_norm")["price"].transform(lambda s: s.quantile(0.95))
+    return df[(df["price"] >= q5) & (df["price"] <= q95)]
 
 
-@lru_cache(maxsize=1)
 def _load_prepared_data() -> tuple[dict[str, pd.DataFrame], dict[str, float | None]]:
     ins = pd.read_csv(INS_CSV, parse_dates=["date"])
     listings = pd.read_csv(
@@ -100,7 +102,7 @@ def _load_prepared_data() -> tuple[dict[str, pd.DataFrame], dict[str, float | No
     null_dates = tayara["date_posted"].isna()
     tayara.loc[null_dates, "date_posted"] = tayara.loc[null_dates, "listing_id"].map(_objectid_to_date)
     tayara = tayara.dropna(subset=["date_posted", "gov_norm"])
-    tayara = tayara.groupby("gov_norm", group_keys=False).apply(_remove_outliers)
+    tayara = _remove_outliers_by_gov(tayara)
     tayara["month_dt"] = tayara["date_posted"].dt.to_period("M").dt.to_timestamp()
 
     monthly_tayara = (
@@ -150,7 +152,7 @@ def _load_prepared_data() -> tuple[dict[str, pd.DataFrame], dict[str, float | No
     return all_series, last_tayara
 
 
-def _fit_sarimax_v6(gov_norm: str, series: pd.DataFrame, last_tayara_price: float | None, forecast_months: int = 12) -> FitResult:
+def _fit_sarimax_v6(series: pd.DataFrame, last_tayara_price: float | None, forecast_months: int = 12) -> FitResult:
     ts_raw = series["price_median"].dropna().copy()
     ts_log = np.log(ts_raw.clip(lower=1))
     n = len(ts_raw)
@@ -202,6 +204,7 @@ def _fit_sarimax_v6(gov_norm: str, series: pd.DataFrame, last_tayara_price: floa
         )
         best_fit = fallback.fit(disp=False, maxiter=200)
         best_name = "ARIMA(1,1,0)"
+        best_aic = float(best_fit.aic)
 
     try:
         fc_test = best_fit.get_forecast(steps=len(test_log))
@@ -268,47 +271,85 @@ def _fit_sarimax_v6(gov_norm: str, series: pd.DataFrame, last_tayara_price: floa
     )
 
 
-@lru_cache(maxsize=16)
-def _build_payload(region: str) -> dict[str, Any]:
+def _compute_payloads() -> dict[str, dict[str, Any]]:
     all_series, last_tayara = _load_prepared_data()
-    requested_norm = _norm_gov(region)
-    if requested_norm not in all_series:
-        requested_norm = next(iter(all_series.keys()))
+    payloads: dict[str, dict[str, Any]] = {}
+    growth_rows: list[dict[str, Any]] = []
+    fits_by_gov: dict[str, FitResult] = {}
 
-    fit = _fit_sarimax_v6(requested_norm, all_series[requested_norm], last_tayara.get(requested_norm), forecast_months=12)
-    observed = all_series[requested_norm]["price_median"].tail(6).round().astype(int).to_list()
-    forecast_head = fit.future_mean.head(3).round().astype(int).to_list()
-
-    series: list[dict[str, Any]] = []
-    for i, month in enumerate(MONTHS):
-        if i < 6:
-            series.append({"m": month, "price": observed[i], "forecast": observed[i]})
-        else:
-            series.append({"m": month, "price": None, "forecast": int(forecast_head[i - 6])})
-
-    region_growth: list[dict[str, Any]] = []
     for gov_norm, gov_series in all_series.items():
-        gov_fit = _fit_sarimax_v6(gov_norm, gov_series, last_tayara.get(gov_norm), forecast_months=12)
-        current = float(gov_fit.last_ins)
-        future = float(gov_fit.future_mean.iloc[-1])
-        growth = round(((future - current) / current) * 100, 1)
-        region_growth.append({"name": _label_from_norm(gov_norm), "growth": growth})
-    region_growth.sort(key=lambda x: x["name"])
+        fit = _fit_sarimax_v6(gov_series, last_tayara.get(gov_norm), forecast_months=12)
+        fits_by_gov[gov_norm] = fit
+        current = float(fit.last_ins)
+        future = float(fit.future_mean.iloc[-1])
+        growth_rows.append({"name": _label_from_norm(gov_norm), "growth": round(((future - current) / current) * 100, 1)})
+    growth_rows.sort(key=lambda x: x["name"])
 
-    current_avg = int(observed[-1])
-    forecast_12m = int(round(float(fit.future_mean.iloc[-1])))
-    growth_pct = round(((forecast_12m - current_avg) / current_avg) * 100, 1)
-    confidence = max(60, min(95, int(round(100 - min(40.0, fit.mape)))))
+    for gov_norm, gov_series in all_series.items():
+        fit = fits_by_gov[gov_norm]
+        observed = gov_series["price_median"].tail(6).round().astype(int).to_list()
+        forecast_head = fit.future_mean.head(3).round().astype(int).to_list()
+        series = []
+        for i, month in enumerate(MONTHS):
+            if i < 6:
+                series.append({"m": month, "price": observed[i], "forecast": observed[i]})
+            else:
+                series.append({"m": month, "price": None, "forecast": int(forecast_head[i - 6])})
 
+        current_avg = int(observed[-1])
+        forecast_12m = int(round(float(fit.future_mean.iloc[-1])))
+        growth_pct = round(((forecast_12m - current_avg) / current_avg) * 100, 1)
+        confidence = max(60, min(95, int(round(100 - min(40.0, fit.mape)))))
+
+        payloads[gov_norm] = {
+            "region": _label_from_norm(gov_norm),
+            "current_avg": current_avg,
+            "forecast_12m": forecast_12m,
+            "confidence": confidence,
+            "projected_growth_pct": growth_pct,
+            "series": series,
+            "regions": growth_rows,
+            "model": {
+                "name": fit.model_name,
+                "aic": round(fit.aic, 2),
+                "mae": round(fit.mae, 2),
+                "rmse": round(fit.rmse, 2),
+                "mape": round(fit.mape, 2),
+            },
+        }
+
+    return payloads
+
+
+def _source_meta() -> dict[str, Any]:
     return {
-        "region": _label_from_norm(requested_norm),
-        "current_avg": current_avg,
-        "forecast_12m": forecast_12m,
-        "confidence": confidence,
-        "projected_growth_pct": growth_pct,
-        "series": series,
-        "regions": region_growth,
+        "version": CACHE_VERSION,
+        "ins_mtime": INS_CSV.stat().st_mtime if INS_CSV.exists() else 0.0,
+        "listings_mtime": LISTINGS_CSV.stat().st_mtime if LISTINGS_CSV.exists() else 0.0,
     }
+
+
+def generate_cache(force: bool = False) -> dict[str, dict[str, Any]]:
+    if CACHE_FILE.exists() and not force:
+        with CACHE_FILE.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+        if data.get("meta") == _source_meta() and isinstance(data.get("payloads"), dict):
+            return data["payloads"]
+
+    payloads = _compute_payloads()
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    with CACHE_FILE.open("w", encoding="utf-8") as f:
+        json.dump({"meta": _source_meta(), "payloads": payloads}, f, ensure_ascii=False, indent=2)
+    return payloads
+
+
+def get_region_payload(region: str, force_refresh: bool = False) -> dict[str, Any]:
+    payloads = generate_cache(force=force_refresh)
+    requested_norm = _norm_gov(region)
+    if requested_norm in payloads:
+        return payloads[requested_norm]
+    first_key = next(iter(payloads.keys()))
+    return payloads[first_key]
 
 
 class ForecastingView(APIView):
@@ -317,4 +358,5 @@ class ForecastingView(APIView):
 
     def get(self, request: HttpRequest) -> Response:
         requested_region = request.query_params.get("region", "Tunis")
-        return Response(_build_payload(requested_region))
+        refresh = request.query_params.get("refresh") == "1"
+        return Response(get_region_payload(requested_region, force_refresh=refresh))
