@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
-import { Sparkles, Menu, X, Mic, MicOff, Volume2 } from "lucide-react";
+import { Menu, X, Mic, MicOff, Volume2 } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { useAccessibility } from "@/context/AccessibilityContext";
+import logo from "../assets/logo.png";
 
 const links = [
   { to: "/", label: "Home" },
@@ -21,14 +22,21 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 glass">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="flex items-center gap-2 group">
-          <span className="relative flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--gradient-primary)] glow-purple">
-            <Sparkles className="h-5 w-5 text-white" />
-          </span>
-          <span className="text-lg font-semibold tracking-tight">
-            Lens<span className="gold-text">Estate</span>
-          </span>
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+        <Link to="/" className="flex items-center gap-3 group transition-transform hover:scale-105">
+          <img 
+            src={logo} 
+            alt="LensEstate Logo" 
+            className="h-14 w-auto object-contain drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]" 
+          />
+          <div className="flex flex-col hidden sm:flex">
+            <span className="text-2xl font-extrabold tracking-tight text-white leading-none">
+              Lens<span className="gold-text">Estate</span>
+            </span>
+            <span className="text-[0.6rem] uppercase tracking-[0.2em] text-[oklch(0.7_0.15_220)] font-bold mt-1 glow-cyan-text">
+              Smart Investment Solutions
+            </span>
+          </div>
         </Link>
         <nav className="hidden md:flex items-center gap-7">
           {links.map((l) => (
@@ -44,7 +52,6 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="hidden md:flex items-center gap-3">
-          {/* Accessibility Toggles */}
           <button
             onClick={toggleHoverSpeech}
             className={`flex h-9 w-9 items-center justify-center rounded-xl transition-all ${
@@ -76,7 +83,7 @@ export function SiteHeader() {
             </button>
           ) : (
             <>
-              <Link to="/auth" className="text-sm text-muted-foreground hover:text-foreground">
+              <Link to="/auth" className="text-sm text-muted-foreground hover:text-foreground px-2">
                 Sign in
               </Link>
               <Link
@@ -92,31 +99,6 @@ export function SiteHeader() {
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
-      {open && (
-        <div className="md:hidden border-t border-border px-6 py-4 space-y-3 glass">
-          {links.map((l) => (
-            <Link key={l.to} to={l.to} className="block text-sm" onClick={() => setOpen(false)}>
-              {l.label}
-            </Link>
-          ))}
-          {isAuthenticated ? (
-            <button
-              type="button"
-              onClick={() => {
-                setOpen(false);
-                logout();
-              }}
-              className="block text-sm gold-text"
-            >
-              Sign out
-            </button>
-          ) : (
-            <Link to="/auth" className="block text-sm gold-text" onClick={() => setOpen(false)}>
-              Sign in / Get started
-            </Link>
-          )}
-        </div>
-      )}
     </header>
   );
 }
