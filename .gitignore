@@ -1,0 +1,111 @@
+# ══════════════════════════════════════════
+# LENSTATE — ROOT .gitignore
+# ═════════════════════════════════════════
+# ── SENSITIVE FILES (never commit these) ──
+.env
+.env.local
+.env*.local
+*.env
+
+# ── PYTHON / DJANGO ──
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.pytest_cache/
+htmlcov/
+.hypothesis/
+
+# Django specific
+*.sqlite3
+db.sqlite3
+*.pyc
+staticfiles/
+mediafiles/
+media/
+local_settings.py
+
+# ── VIRTUAL ENVIRONMENTS (redline — never push) ──
+venv/
+.venv/
+ENV/
+env/
+chatbot/venv/
+chatbot/.venv/
+
+# ── ML MODELS (too large for git) ──
+*.pkl
+*.joblib
+*.pt
+*.pth
+*.h5
+*.hdf5
+*.onnx
+*.bin
+*.model
+backend/predictions/ml_models/
+backend/forecasting/ml_models/
+backend/plans/ml_models/
+# Keep checkpoints ignored by default EXCEPT for housegan
+checkpoints/
+!housegan/checkpoints/
+!housegan/checkpoints/*.pth
+*.ipynb_checkpoints/
+.ipynb_checkpoints/
+
+# ── DATA FILES (redline — never push DATA/ or raw data) ──
+DATA/
+raw_listings/
+*.csv
+*.npy
+output/
+logs/
+memory/
+
+.env
+ma_base_immo/
+chroma_db/
+
+# ── NODE / NEXT.JS (redline — never push node_modules) ──
+node_modules/
+frontend/node_modules/
+.next/
+frontend/.next/
+frontend/dist/
+frontend/out/
+frontend/.tanstack/
+frontend/.wrangler/
+dist/
+out/
+.turbo/
+*.tsbuildinfo
+next-env.d.ts
+
+# ── FLASK CHATBOT (future) ──
+chatbot/__pycache__/
+chatbot/*.pyc
+
+
+# ── IMAGES FOLDER (can be large) ──
+images/
+backend/media/
+
+

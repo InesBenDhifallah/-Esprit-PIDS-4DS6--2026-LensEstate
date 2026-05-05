@@ -1,0 +1,33 @@
+<h1 style='color:#426d84; font-size:30px; font-weight:bold;'>📈 DSO3 — Regional Real Estate Price Trend & Forecasting</h1>
+
+## 📦 1 — Imports & Configuration
+import pandas as pd
+
+## 📂 2 — Chargement des 3 sources de données
+# ── Source 1 : BCT — Index national IPIM (2015–2024) ──────────────────────
+
+## 🔵 3 — Extraction des dates Tayara (MongoDB ObjectID)
+
+def objectid_to_date(oid):
+
+## 🔵 4 — Prix mensuels médians Tayara + Lissage
+
+# Nettoyage outliers (percentile 5–95 par gouvernorat)
+
+## 🟡 5 — Construction de la série complète (INS + Tayara)
+def build_complete_series(gov):
+
+# ── Construction de all_series pour tous les gouvernorats ─────────────────
+
+## 📊 6 — Visualisation des séries complètes
+fig, axes = plt.subplots(len(all_series), 1, figsize=(14, 4*len(all_series)))
+
+## 🔬 7 — Test de Stationnarité (ADF)
+def adf_test(series, label):
+
+## 📊 8 — ACF / PACF — Choix des ordres SARIMAX
+gov_plot = 'Tunis'
+
+## 🤖 9 — Sélection Adaptative du Modèle
+
+def select_model_config(gov, n_tayara_points):
