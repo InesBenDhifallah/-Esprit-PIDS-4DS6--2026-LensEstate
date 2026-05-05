@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { TrendingUp, MapPin, Activity } from "lucide-react";
+
 import { useEffect, useMemo, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
 import { get } from "@/lib/api";
@@ -14,6 +15,7 @@ export const Route = createFileRoute("/forecasting")({
     meta: [
       { title: "Market Forecasting — LensEstate" },
       { name: "description", content: "Predictive market trends by region across Tunisia." },
+
     ],
   }),
   component: ForecastPage,
@@ -60,6 +62,7 @@ const availableRegions = [
 
 function formatTND(value: number): string {
   return new Intl.NumberFormat('fr-FR').format(value).replace(/\s/g, ' ') + ' DT';
+
 }
 
 function ForecastPage() {
@@ -304,6 +307,7 @@ function ForecastPage() {
             <div className="mt-4 p-4 rounded-xl bg-white/5 border border-white/5 text-sm text-zinc-400 leading-relaxed">
               <TrendingUp className="h-4 w-4 mb-2 gold-text" />
               This outlook compares the expected appreciation rates across major Tunisian governorates based on AI modeling.
+
             </div>
           </motion.div>
         </div>
@@ -357,7 +361,9 @@ function KPI({ label, value, sub, highlight, delay = 0 }: { label: string; value
       <div className="mt-3 text-3xl font-bold tracking-tight text-white/95 relative z-10">{value}</div>
       <div className={`mt-2 text-xs flex items-center gap-1.5 font-medium relative z-10 ${highlight ? "text-yellow-500/80" : "text-zinc-500"}`}>
         {sub}
+
       </div>
     </motion.div>
   );
 }
+

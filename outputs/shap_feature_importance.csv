@@ -1,0 +1,516 @@
+feature,mean_abs_shap
+surface_m2,93478.85
+property_type_villa,66512.82
+governorate_tunis,52824.01
+bedrooms,22502.744
+nlp_lsa_6,19151.842
+vision_pca_0,17280.31
+vision_pca_8,16261.68
+city_kelibia,15872.887
+property_type_land,15824.649
+is_price_imputed,15397.743
+nlp_lsa_15,14224.065
+nlp_lsa_10,12635.17
+vision_pca_9,11400.325
+city_hammam sousse,10282.345
+nlp_lsa_13,9824.948
+image_count,9328.815
+vision_pca_5,9325.147
+nlp_lsa_2,8974.963
+has_garden,8529.038
+rooms,8325.814
+city_la marsa,8284.7705
+property_type_building,7384.3276
+governorate_sousse,7159.785
+property_type_other,6717.171
+has_pool,6358.605
+nlp_lsa_7,6294.5693
+vision_pca_3,6272.4883
+vision_pca_14,6231.7534
+vision_pca_2,6172.1187
+vision_pca_46,5341.4893
+vision_pca_4,5335.3774
+vision_pca_7,5273.8076
+nlp_lsa_9,4913.635
+nlp_lsa_1,4791.6626
+nlp_lsa_0,4657.3096
+description_word_count,4633.784
+vision_pca_24,4471.7617
+vision_pca_12,4054.4607
+nlp_lsa_4,3988.9695
+has_bedrooms_info,3941.5212
+seller_type_individual,3921.8926
+vision_pca_1,3840.2324
+txt_len,3768.2654
+city_raoued,3459.524
+nlp_lsa_11,3418.944
+vision_pca_28,3412.9104
+is_agency,3348.966
+has_parking,3325.4053
+nlp_lsa_12,3248.5095
+vision_pca_50,3174.4497
+vision_pca_41,3095.4607
+vision_pca_23,3079.458
+vision_pca_33,2995.228
+vision_pca_31,2901.278
+vision_pca_22,2872.7717
+governorate_médenine,2857.6887
+bathrooms,2825.59
+seller_type_agency,2811.995
+vision_pca_63,2737.7017
+nlp_lsa_14,2734.1138
+vision_pca_17,2697.6936
+vision_pca_58,2695.5964
+nlp_lsa_5,2661.9414
+vision_pca_16,2610.178
+nlp_lsa_3,2568.8936
+vision_pca_54,2546.739
+has_rooms_info,2533.5024
+vision_pca_13,2530.725
+vision_pca_40,2500.3586
+nlp_lsa_17,2413.1758
+vision_pca_43,2397.6943
+vision_pca_39,2380.2698
+vision_pca_49,2360.5771
+governorate_nabeul,2346.72
+city_el mourouj,2326.2024
+vision_pca_19,2312.0176
+vision_pca_30,2301.2974
+vision_pca_37,2282.6484
+vision_pca_62,2280.462
+city_le kram,2265.7058
+vision_pca_18,2249.4292
+vision_pca_21,2231.665
+vision_pca_55,2192.653
+city_hammam el ghezaz,2189.6807
+nlp_lsa_8,2185.9053
+vision_pca_26,2155.1768
+nlp_lsa_18,2145.2014
+word_count,2128.2537
+vision_pca_48,2114.5835
+vision_pca_32,2088.8254
+vision_pca_61,2043.2164
+city_hammamet,2039.363
+governorate_sfax,2025.3938
+has_basement,1993.3977
+vision_pca_29,1971.2689
+vision_pca_20,1965.345
+vision_pca_35,1940.409
+vision_pca_57,1933.306
+city_carthage,1921.5168
+city_fouchana,1916.7225
+nlp_lsa_19,1908.3722
+vision_pca_15,1892.0989
+city_ariana,1828.9166
+vision_pca_51,1795.0459
+governorate_zaghouan,1784.1595
+nlp_lsa_16,1747.1285
+vision_pca_38,1746.525
+city_bab bhar,1735.5015
+governorate_bizerte,1724.3518
+vision_pca_6,1699.4095
+vision_pca_44,1682.2542
+vision_pca_34,1655.5731
+city_la soukra,1625.0852
+vision_pca_10,1608.032
+vision_pca_52,1589.1857
+has_surface,1574.8317
+vision_pca_45,1572.2201
+vision_pca_25,1562.2927
+vision_pca_11,1558.4459
+governorate_manouba,1558.3931
+city_ariana ville,1519.0372
+vision_pca_60,1494.6185
+city_kélibia,1480.1881
+vision_pca_56,1477.6654
+city_mnihla,1467.8682
+city_megrine,1460.6414
+city_ben arous,1455.7183
+vision_pca_27,1453.6002
+city_sousse jaouhara,1452.9983
+vision_pca_36,1447.5988
+city_mannouba,1440.1611
+city_rades,1334.9409
+vision_pca_59,1232.3497
+city_bou mhel el bassatine,1225.8263
+city_gammarth,1213.226
+property_type_farm,1206.3915
+vision_pca_42,1197.809
+city_nouvelle medina,1196.888
+property_type_house,1183.6572
+property_type_commercial,1140.048
+has_air_conditioning,1116.3423
+vision_pca_47,1101.0487
+city_hammam chatt,1076.3414
+city_berges du lac,1074.9666
+vision_pca_53,1053.5919
+city_akouda,938.9827
+city_sidi thabet,936.62695
+city_mornaguia,911.29407
+city_soliman,884.8187
+city_tunis,854.0516
+city_grombalia,807.7355
+city_nabeul,800.968
+city_el haouaria,775.4039
+governorate_gabès,770.2286
+city_tebourba,767.96234
+city_kalaa essghira,733.6086
+city_beni khalled,731.5567
+city_mohamadia,726.39874
+city_sakiet ezzit,720.7154
+city_el menzah,709.08545
+city_le bardo,696.4778
+has_sea_view,661.0232
+city_sousse ville,638.6738
+city_bou ficha,636.1553
+city_ghar el melh,609.0152
+city_sahloul,495.4408
+city_ras jebel,488.23523
+city_sousse,476.69357
+city_sidi hassine,470.92868
+city_hergla,470.2671
+city_sousse riadh,466.26016
+city_gabes sud,440.4201
+city_oued ellil,420.1498
+city_el omrane superieur,403.18347
+city_el omrane,402.88434
+city_zaghouan,385.37177
+city_jedaida,377.64468
+city_menzel temime,366.91666
+city_borj el amri,353.3676
+governorate_jendouba,348.89236
+city_khezama ouest,341.04385
+city_djerba   houmet essouk,332.4953
+city_monastir,331.49695
+property_type_office,326.3981
+governorate_ben arous,325.89682
+property_type_duplex,316.85263
+city_el kantaoui,311.50024
+city_boumhel bassatine,309.86615
+city_el hrairia,307.21
+city_bizerte nord,292.23987
+has_furniture,288.521
+city_ain zaghouan,281.70358
+city_khezama est,270.33435
+city_djerba,257.9074
+city_la medina,257.34827
+city_beni khiar,243.19131
+has_terrace,242.2351
+city_monastir ville,235.03491
+city_kalaa el kebira,225.24214
+city_mornag,222.2637
+city_utique,213.23813
+has_heating,210.26395
+city_lac 2,185.17204
+city_sidi el bechir,184.20355
+city_mégrine,183.37538
+city_sahline,177.9797
+has_standing,168.02097
+city_la goulette,163.39148
+city_dar chaabane elfehri,161.35068
+governorate_kairouan,160.65038
+city_sidi bou ali sousse,158.96838
+city_djerba   midoun,158.38791
+city_ennasr,152.9395
+city_menzel bouzelfa,150.38506
+has_security,145.88837
+city_mrezga,137.71852
+city_el maamoura,131.30092
+city_bouficha,130.18637
+governorate_monastir,125.688324
+city_ezzahra,123.79282
+city_bou argoub,119.171936
+governorate_siliana,117.76286
+city_metline,115.86718
+city_kalâa sghira,114.31562
+has_elevator,111.62314
+city_takelsa,109.94491
+has_bathrooms_info,106.852585
+city_cite el khadra,104.814705
+city_cité el khadra,98.56887
+city_kalâa kebira,97.772644
+governorate_mahdia,88.76706
+city_bab souika,87.6572
+city_lac 1,87.57424
+city_menzel jemil,83.902756
+city_jardins de carthage,83.416
+city_korba,82.527374
+city_el kram,78.52723
+city_tazarka,76.61828
+city_kalaa kebira,76.20255
+city_tantana,74.03042
+city_mateur,73.62965
+seller_type_Particulier,71.5142
+city_borj louzir,69.49267
+city_el ouardia,65.201256
+city_kalaat landlous,64.397255
+city_cité ennasr 2,62.20446
+city_douar hicher,59.210785
+city_autres villes,58.297913
+city_msaken,58.07913
+property_type_unknown,55.959488
+governorate_gafsa,54.518127
+city_sfax ville,50.96194
+governorate_kasserine,50.96134
+city_maamoura,49.488575
+city_el kabbaria,47.5719
+city_dar châabane,47.566536
+city_bizerte,47.427124
+city_enfidha,47.422554
+city_sfax sud,42.809586
+city_kalaâ kebira,42.76955
+city_houmt souk,41.275383
+city_ettahrir,37.686
+city_bizerte sud,36.987396
+city_centre urbain nord,35.222305
+governorate_tozeur,34.971226
+has_images,32.02928
+city_mahdia,30.887197
+city_el jem,28.420568
+city_ettadhamen,28.02983
+city_menzel chaker,26.85508
+city_ksour essef,26.029064
+city_chotrana,24.702972
+city_kantaoui,24.501802
+city_gafsa,24.38918
+city_tezdaine,23.311111
+city_chotrana 1,23.152985
+city_cité jaouhara,20.39223
+city_ksour essaf,19.30112
+city_khzema,18.830505
+city_riadh andalous,18.416063
+city_hammam lif,17.826042
+city_zarzis,16.6324
+city_bekalta,16.346565
+city_salakta,15.777293
+city_manouba,15.464963
+city_kairouan ville,14.953737
+city_kondar,14.883748
+city_tozeur,14.854837
+city_testour,14.423795
+governorate_béja,12.602834
+city_beja nord,12.587164
+city_chebba,11.710911
+city_sousse jawhara,11.093412
+city_midoun,10.881794
+city_ksar hellal,10.78013
+city_raf raf,10.300427
+city_hammam ghezèze,10.156815
+city_tabarka,9.990601
+city_sfax,9.561578
+city_mohamedia,9.013728
+city_rejiche,8.555433
+city_m'saken,8.235599
+city_gabès,7.1480103
+governorate_sidi bouzid,6.8663664
+city_ain zaghouan nord,6.5999985
+city_thyna,5.5901103
+city_sidi bou said,5.0506477
+city_sidi abdelhamid,4.5346417
+city_monfleury,4.3562617
+city_borj cedria,3.997622
+city_moknine,3.7024875
+city_la manouba,3.4335952
+city_jebeniana,3.2551036
+governorate_le kef,2.2903125
+city_boumhel,1.1503556
+city_el mourouj 3,0.964608
+city_jebel jelloud,0.9189221
+city_kalaâ sghira,0.74094206
+city_ain draham,0.5243211
+city_tinja,0.0
+city_teboursouk,0.0
+city_tataouine,0.0
+city_teboulba,0.0
+city_hammam chott,0.0
+city_hajeb el ayoun,0.0
+city_gremda,0.0
+city_ghezala,0.0
+city_ghazela,0.0
+city_ghardimaou,0.0
+city_béni khiar,0.0
+city_béja,0.0
+city_bou salem,0.0
+city_bou arada,0.0
+city_gafsa sud,0.0
+city_ghannouche,0.0
+city_jardins el menzah,0.0
+city_hraïria,0.0
+city_hammamet centre,0.0
+city_hammamet nord,0.0
+city_kairouan nord,0.0
+city_kairouan,0.0
+city_kalaat landalous,0.0
+city_kairouan sud,0.0
+city_el manar 2,0.0
+city_el menzah 1,0.0
+city_el menzah 4,0.0
+city_el manar 1,0.0
+city_el menzah 5,0.0
+city_el menzah 6,0.0
+city_jarzouna,0.0
+city_jemmal,0.0
+city_jendouba,0.0
+city_jendouba nord,0.0
+city_hammam sousse ghrabi,0.0
+city_hammam zriba,0.0
+city_el mourouj 1,0.0
+city_el mida,0.0
+city_el metouia,0.0
+city_el menzah 9,0.0
+city_el menzah 7,0.0
+city_el menzah 8,0.0
+city_kasserine,0.0
+city_el mourouj 4,0.0
+city_kebili sud,0.0
+city_kasserine sud,0.0
+city_kef est,0.0
+city_kerkenah,0.0
+city_khaznadar,0.0
+city_kasserine nord,0.0
+city_el mourouj 5,0.0
+city_kalâat andalous,0.0
+city_séjoumi,0.0
+city_sousse sidi abdelhamid,0.0
+city_sousse médina,0.0
+city_gafsa nord,0.0
+city_centre ville lafayette,0.0
+seller_type_Inconnu,0.0
+city_zarzouna,0.0
+city_cité hedi nouira,0.0
+city_cité jardin,0.0
+governorate_tataouine,0.0
+city_skanes,0.0
+city_siliana sud,0.0
+city_sousse corniche,0.0
+city_cite ennkhilet,0.0
+city_cité olympique,0.0
+city_tunis belvedere,0.0
+city_la chebba,0.0
+city_l'aouina,0.0
+city_l aouina,0.0
+city_kébili,0.0
+city_beni hassen,0.0
+city_bir mcherga,0.0
+city_bembla,0.0
+city_bellevue,0.0
+city_ksibet el médiouni,0.0
+city_beja sud,0.0
+city_aïn draham,0.0
+city_barraket essahel,0.0
+city_ksibet el mediouni,0.0
+city_kerkennah,0.0
+city_ksar helal,0.0
+city_ksar said,0.0
+city_el aouina,0.0
+city_el battan,0.0
+city_el fahs,0.0
+city_el ghazela,0.0
+city_el guettar,0.0
+city_el hamma,0.0
+city_el kabaria,0.0
+city_el kharrouba,0.0
+city_m saken,0.0
+city_mahdia ville,0.0
+city_le kef ouest,0.0
+city_le kef,0.0
+city_le lac,0.0
+city_les jardins el menzah 1,0.0
+city_les jardins el menzah 2,0.0
+city_le kef est,0.0
+city_mejez el bab,0.0
+city_medjez el bab,0.0
+city_medina jedida,0.0
+city_medenine sud,0.0
+city_medenine,0.0
+city_mareth,0.0
+city_mezzouna,0.0
+city_menzel bourguiba,0.0
+city_midoun zone touristique,0.0
+city_menzah,0.0
+city_aghir,0.0
+city_montplaisir,0.0
+city_ain zaghouan sud,0.0
+city_dahmani,0.0
+city_dar chaabane,0.0
+city_dar châabane el fehri,0.0
+city_dar fadhal,0.0
+city_denden,0.0
+city_djebel jelloud,0.0
+city_djedeida,0.0
+city_djerba houmt souk,0.0
+city_djerba midoun,0.0
+city_douz,0.0
+city_ain zaghouen,0.0
+city_el ksour,0.0
+city_manouba ville,0.0
+city_mahrès,0.0
+city_mahras,0.0
+city_makthar,0.0
+city_manar,0.0
+city_el ain,0.0
+city_el alia,0.0
+city_nebeur,0.0
+city_médina,0.0
+city_médenine sud,0.0
+city_mutuelleville,0.0
+city_arkou,0.0
+city_ariana essoughra,0.0
+city_alain savary,0.0
+city_ajim,0.0
+city_route el ain,0.0
+city_route gremda,0.0
+city_route manzel chaker,0.0
+city_route mehdia,0.0
+city_radès,0.0
+city_oueslatia,0.0
+city_nouvelle ariana,0.0
+city_ouerdanine,0.0
+city_route sokra,0.0
+city_route saltania,0.0
+city_route tunis,0.0
+city_route soukra,0.0
+city_sakiet eddaier,0.0
+city_sakiet eddaïer,0.0
+city_sakiet sidi youssef,0.0
+city_route taniour,0.0
+city_sayada lamta bou hajar,0.0
+city_sbeitla,0.0
+city_sbikha,0.0
+city_sbiba,0.0
+city_route menzel chaker,0.0
+city_route mharza,0.0
+city_rohia,0.0
+city_route de l'aéroport,0.0
+city_sfax ouest,0.0
+city_sfax est,0.0
+city_sers,0.0
+city_sejnane,0.0
+city_téboulba,0.0
+city_yasmine hammamet,0.0
+city_el mourouj 6,0.0
+city_sidi bou ali,0.0
+city_el omrane supérieur,0.0
+city_el ouerdia,0.0
+city_esskhira,0.0
+city_essijoumi,0.0
+city_ezzouhour,0.0
+city_ezzouhour (tunis),0.0
+city_gabes,0.0
+city_sidi bouzid,0.0
+city_gabes ouest,0.0
+city_gabès médina,0.0
+city_sidi bouzid ouest,0.0
+city_sidi bouzid est,0.0
+city_sidi el béchir,0.0
+city_sidi rezig,0.0
+city_siliana,0.0
+city_sidi daoud,0.0
+city_siliana nord,0.0
+governorate_kébili,0.0
+city_charguia 2,0.0
+city_chatt mariem,0.0
+city_chorbane,0.0
+city_chotrana 2,0.0
+city_chotrana 3,0.0
+city_zaghouen,0.0

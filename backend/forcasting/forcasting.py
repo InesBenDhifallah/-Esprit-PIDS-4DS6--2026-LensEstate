@@ -418,3 +418,19 @@ class ForecastingView(APIView):
         requested_region = request.query_params.get("region", "Tunis")
         refresh = request.query_params.get("refresh") == "1"
         return Response(get_region_payload(requested_region, force_refresh=refresh))
+
+class AgentReportView(APIView):
+    authentication_classes: list[Any] = []
+    permission_classes: list[Any] = []
+
+    def get(self, request: HttpRequest) -> Response:
+        report_path = BASE_DIR / "backend" / "outputs" / "regional_trend_report.json"
+        if report_path.exists():
+            try:
+                with open(report_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                return Response(data)
+            except Exception as e:
+                return Response({"error": f"Failed to parse report: {str(e)}"}, status=500)
+        else:
+            return Response({"error": "Report not found."}, status=404)

@@ -5,6 +5,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useAccessibility } from "@/context/AccessibilityContext";
 import Logo from "@/assets/Logo.png";
 
+
 const links = [
   { to: "/", label: "Home" },
   { to: "/map", label: "Explore" },
@@ -30,6 +31,7 @@ export function SiteHeader() {
               Lens<span className="gold-text">Estate</span>
             </span>
             <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold leading-none">
+
               Smart Investment Solutions
             </span>
           </div>
@@ -53,6 +55,7 @@ export function SiteHeader() {
             onClick={toggleHoverSpeech}
             className={`flex h-9 w-9 items-center justify-center rounded-xl transition-all ${isHoverSpeechEnabled ? "bg-accent text-accent-foreground glow-gold" : "hover:bg-surface/50 text-muted-foreground"
               }`}
+
             title="Toggle Hover-to-Speech"
           >
             {isHoverSpeechEnabled ? <Volume2 className="h-4.5 w-4.5" /> : <span className="text-lg">🔊</span>}
@@ -61,6 +64,7 @@ export function SiteHeader() {
             onClick={toggleVoiceNav}
             className={`flex h-9 w-9 items-center justify-center rounded-xl transition-all ${isVoiceNavEnabled ? "bg-secondary text-white glow-purple" : "hover:bg-surface/50 text-muted-foreground"
               }`}
+
             title="Toggle Voice Navigation"
           >
             {isVoiceNavEnabled ? <Mic className="h-4.5 w-4.5" /> : <MicOff className="h-4.5 w-4.5" />}
@@ -79,6 +83,7 @@ export function SiteHeader() {
           ) : (
             <>
               <Link to="/auth" className="text-sm text-muted-foreground hover:text-foreground">
+
                 Sign in
               </Link>
               <Link
@@ -119,6 +124,8 @@ export function SiteHeader() {
           )}
         </div>
       )}
+
     </header>
   );
 }
+

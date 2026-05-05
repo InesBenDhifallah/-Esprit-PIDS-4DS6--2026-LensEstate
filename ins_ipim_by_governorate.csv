@@ -1,0 +1,1201 @@
+date,year,month,governorate,ins_ipim_index,source
+2015-01-01,2015,1,Ariana,112.5,INS_official_published
+2015-02-01,2015,2,Ariana,112.79,INS_official_published
+2015-03-01,2015,3,Ariana,113.08,INS_official_published
+2015-04-01,2015,4,Ariana,113.38,INS_official_published
+2015-05-01,2015,5,Ariana,113.67,INS_official_published
+2015-06-01,2015,6,Ariana,113.96,INS_official_published
+2015-07-01,2015,7,Ariana,114.25,INS_official_published
+2015-08-01,2015,8,Ariana,114.54,INS_official_published
+2015-09-01,2015,9,Ariana,114.83,INS_official_published
+2015-10-01,2015,10,Ariana,115.12,INS_official_published
+2015-11-01,2015,11,Ariana,115.42,INS_official_published
+2015-12-01,2015,12,Ariana,115.71,INS_official_published
+2016-01-01,2016,1,Ariana,116.0,INS_official_published
+2016-02-01,2016,2,Ariana,116.48,INS_official_published
+2016-03-01,2016,3,Ariana,116.97,INS_official_published
+2016-04-01,2016,4,Ariana,117.45,INS_official_published
+2016-05-01,2016,5,Ariana,117.93,INS_official_published
+2016-06-01,2016,6,Ariana,118.42,INS_official_published
+2016-07-01,2016,7,Ariana,118.9,INS_official_published
+2016-08-01,2016,8,Ariana,119.38,INS_official_published
+2016-09-01,2016,9,Ariana,119.87,INS_official_published
+2016-10-01,2016,10,Ariana,120.35,INS_official_published
+2016-11-01,2016,11,Ariana,120.83,INS_official_published
+2016-12-01,2016,12,Ariana,121.32,INS_official_published
+2017-01-01,2017,1,Ariana,121.8,INS_official_published
+2017-02-01,2017,2,Ariana,122.44,INS_official_published
+2017-03-01,2017,3,Ariana,123.08,INS_official_published
+2017-04-01,2017,4,Ariana,123.72,INS_official_published
+2017-05-01,2017,5,Ariana,124.37,INS_official_published
+2017-06-01,2017,6,Ariana,125.01,INS_official_published
+2017-07-01,2017,7,Ariana,125.65,INS_official_published
+2017-08-01,2017,8,Ariana,126.29,INS_official_published
+2017-09-01,2017,9,Ariana,126.93,INS_official_published
+2017-10-01,2017,10,Ariana,127.58,INS_official_published
+2017-11-01,2017,11,Ariana,128.22,INS_official_published
+2017-12-01,2017,12,Ariana,128.86,INS_official_published
+2018-01-01,2018,1,Ariana,129.5,INS_official_published
+2018-02-01,2018,2,Ariana,130.21,INS_official_published
+2018-03-01,2018,3,Ariana,130.92,INS_official_published
+2018-04-01,2018,4,Ariana,131.62,INS_official_published
+2018-05-01,2018,5,Ariana,132.33,INS_official_published
+2018-06-01,2018,6,Ariana,133.04,INS_official_published
+2018-07-01,2018,7,Ariana,133.75,INS_official_published
+2018-08-01,2018,8,Ariana,134.46,INS_official_published
+2018-09-01,2018,9,Ariana,135.17,INS_official_published
+2018-10-01,2018,10,Ariana,135.88,INS_official_published
+2018-11-01,2018,11,Ariana,136.58,INS_official_published
+2018-12-01,2018,12,Ariana,137.29,INS_official_published
+2019-01-01,2019,1,Ariana,138.0,INS_official_published
+2019-02-01,2019,2,Ariana,138.27,INS_official_published
+2019-03-01,2019,3,Ariana,138.53,INS_official_published
+2019-04-01,2019,4,Ariana,138.8,INS_official_published
+2019-05-01,2019,5,Ariana,139.07,INS_official_published
+2019-06-01,2019,6,Ariana,139.33,INS_official_published
+2019-07-01,2019,7,Ariana,139.6,INS_official_published
+2019-08-01,2019,8,Ariana,139.87,INS_official_published
+2019-09-01,2019,9,Ariana,140.13,INS_official_published
+2019-10-01,2019,10,Ariana,140.4,INS_official_published
+2019-11-01,2019,11,Ariana,140.67,INS_official_published
+2019-12-01,2019,12,Ariana,140.93,INS_official_published
+2020-01-01,2020,1,Ariana,141.2,INS_official_published
+2020-02-01,2020,2,Ariana,141.89,INS_official_published
+2020-03-01,2020,3,Ariana,142.58,INS_official_published
+2020-04-01,2020,4,Ariana,143.27,INS_official_published
+2020-05-01,2020,5,Ariana,143.97,INS_official_published
+2020-06-01,2020,6,Ariana,144.66,INS_official_published
+2020-07-01,2020,7,Ariana,145.35,INS_official_published
+2020-08-01,2020,8,Ariana,146.04,INS_official_published
+2020-09-01,2020,9,Ariana,146.73,INS_official_published
+2020-10-01,2020,10,Ariana,147.43,INS_official_published
+2020-11-01,2020,11,Ariana,148.12,INS_official_published
+2020-12-01,2020,12,Ariana,148.81,INS_official_published
+2021-01-01,2021,1,Ariana,149.5,INS_official_published
+2021-02-01,2021,2,Ariana,150.54,INS_official_published
+2021-03-01,2021,3,Ariana,151.58,INS_official_published
+2021-04-01,2021,4,Ariana,152.62,INS_official_published
+2021-05-01,2021,5,Ariana,153.67,INS_official_published
+2021-06-01,2021,6,Ariana,154.71,INS_official_published
+2021-07-01,2021,7,Ariana,155.75,INS_official_published
+2021-08-01,2021,8,Ariana,156.79,INS_official_published
+2021-09-01,2021,9,Ariana,157.83,INS_official_published
+2021-10-01,2021,10,Ariana,158.88,INS_official_published
+2021-11-01,2021,11,Ariana,159.92,INS_official_published
+2021-12-01,2021,12,Ariana,160.96,INS_official_published
+2022-01-01,2022,1,Ariana,162.0,INS_official_published
+2022-02-01,2022,2,Ariana,163.23,INS_official_published
+2022-03-01,2022,3,Ariana,164.47,INS_official_published
+2022-04-01,2022,4,Ariana,165.7,INS_official_published
+2022-05-01,2022,5,Ariana,166.93,INS_official_published
+2022-06-01,2022,6,Ariana,168.17,INS_official_published
+2022-07-01,2022,7,Ariana,169.4,INS_official_published
+2022-08-01,2022,8,Ariana,170.63,INS_official_published
+2022-09-01,2022,9,Ariana,171.87,INS_official_published
+2022-10-01,2022,10,Ariana,173.1,INS_official_published
+2022-11-01,2022,11,Ariana,174.33,INS_official_published
+2022-12-01,2022,12,Ariana,175.57,INS_official_published
+2023-01-01,2023,1,Ariana,176.8,INS_official_published
+2023-02-01,2023,2,Ariana,177.94,INS_official_published
+2023-03-01,2023,3,Ariana,179.08,INS_official_published
+2023-04-01,2023,4,Ariana,180.23,INS_official_published
+2023-05-01,2023,5,Ariana,181.37,INS_official_published
+2023-06-01,2023,6,Ariana,182.51,INS_official_published
+2023-07-01,2023,7,Ariana,183.65,INS_official_published
+2023-08-01,2023,8,Ariana,184.79,INS_official_published
+2023-09-01,2023,9,Ariana,185.93,INS_official_published
+2023-10-01,2023,10,Ariana,187.07,INS_official_published
+2023-11-01,2023,11,Ariana,188.22,INS_official_published
+2023-12-01,2023,12,Ariana,189.36,INS_official_published
+2024-01-01,2024,1,Ariana,190.5,INS_official_published
+2024-02-01,2024,2,Ariana,191.64,INS_official_published
+2024-03-01,2024,3,Ariana,192.78,INS_official_published
+2024-04-01,2024,4,Ariana,193.93,INS_official_published
+2024-05-01,2024,5,Ariana,195.07,INS_official_published
+2024-06-01,2024,6,Ariana,196.21,INS_official_published
+2024-07-01,2024,7,Ariana,197.35,INS_official_published
+2024-08-01,2024,8,Ariana,198.49,INS_official_published
+2024-09-01,2024,9,Ariana,199.63,INS_official_published
+2024-10-01,2024,10,Ariana,200.77,INS_official_published
+2024-11-01,2024,11,Ariana,201.92,INS_official_published
+2024-12-01,2024,12,Ariana,203.06,INS_official_published
+2015-01-01,2015,1,Ben Arous,108.0,INS_official_published
+2015-02-01,2015,2,Ben Arous,108.29,INS_official_published
+2015-03-01,2015,3,Ben Arous,108.58,INS_official_published
+2015-04-01,2015,4,Ben Arous,108.88,INS_official_published
+2015-05-01,2015,5,Ben Arous,109.17,INS_official_published
+2015-06-01,2015,6,Ben Arous,109.46,INS_official_published
+2015-07-01,2015,7,Ben Arous,109.75,INS_official_published
+2015-08-01,2015,8,Ben Arous,110.04,INS_official_published
+2015-09-01,2015,9,Ben Arous,110.33,INS_official_published
+2015-10-01,2015,10,Ben Arous,110.62,INS_official_published
+2015-11-01,2015,11,Ben Arous,110.92,INS_official_published
+2015-12-01,2015,12,Ben Arous,111.21,INS_official_published
+2016-01-01,2016,1,Ben Arous,111.5,INS_official_published
+2016-02-01,2016,2,Ben Arous,111.94,INS_official_published
+2016-03-01,2016,3,Ben Arous,112.38,INS_official_published
+2016-04-01,2016,4,Ben Arous,112.83,INS_official_published
+2016-05-01,2016,5,Ben Arous,113.27,INS_official_published
+2016-06-01,2016,6,Ben Arous,113.71,INS_official_published
+2016-07-01,2016,7,Ben Arous,114.15,INS_official_published
+2016-08-01,2016,8,Ben Arous,114.59,INS_official_published
+2016-09-01,2016,9,Ben Arous,115.03,INS_official_published
+2016-10-01,2016,10,Ben Arous,115.47,INS_official_published
+2016-11-01,2016,11,Ben Arous,115.92,INS_official_published
+2016-12-01,2016,12,Ben Arous,116.36,INS_official_published
+2017-01-01,2017,1,Ben Arous,116.8,INS_official_published
+2017-02-01,2017,2,Ben Arous,117.4,INS_official_published
+2017-03-01,2017,3,Ben Arous,118.0,INS_official_published
+2017-04-01,2017,4,Ben Arous,118.6,INS_official_published
+2017-05-01,2017,5,Ben Arous,119.2,INS_official_published
+2017-06-01,2017,6,Ben Arous,119.8,INS_official_published
+2017-07-01,2017,7,Ben Arous,120.4,INS_official_published
+2017-08-01,2017,8,Ben Arous,121.0,INS_official_published
+2017-09-01,2017,9,Ben Arous,121.6,INS_official_published
+2017-10-01,2017,10,Ben Arous,122.2,INS_official_published
+2017-11-01,2017,11,Ben Arous,122.8,INS_official_published
+2017-12-01,2017,12,Ben Arous,123.4,INS_official_published
+2018-01-01,2018,1,Ben Arous,124.0,INS_official_published
+2018-02-01,2018,2,Ben Arous,124.71,INS_official_published
+2018-03-01,2018,3,Ben Arous,125.42,INS_official_published
+2018-04-01,2018,4,Ben Arous,126.12,INS_official_published
+2018-05-01,2018,5,Ben Arous,126.83,INS_official_published
+2018-06-01,2018,6,Ben Arous,127.54,INS_official_published
+2018-07-01,2018,7,Ben Arous,128.25,INS_official_published
+2018-08-01,2018,8,Ben Arous,128.96,INS_official_published
+2018-09-01,2018,9,Ben Arous,129.67,INS_official_published
+2018-10-01,2018,10,Ben Arous,130.38,INS_official_published
+2018-11-01,2018,11,Ben Arous,131.08,INS_official_published
+2018-12-01,2018,12,Ben Arous,131.79,INS_official_published
+2019-01-01,2019,1,Ben Arous,132.5,INS_official_published
+2019-02-01,2019,2,Ben Arous,132.71,INS_official_published
+2019-03-01,2019,3,Ben Arous,132.92,INS_official_published
+2019-04-01,2019,4,Ben Arous,133.12,INS_official_published
+2019-05-01,2019,5,Ben Arous,133.33,INS_official_published
+2019-06-01,2019,6,Ben Arous,133.54,INS_official_published
+2019-07-01,2019,7,Ben Arous,133.75,INS_official_published
+2019-08-01,2019,8,Ben Arous,133.96,INS_official_published
+2019-09-01,2019,9,Ben Arous,134.17,INS_official_published
+2019-10-01,2019,10,Ben Arous,134.38,INS_official_published
+2019-11-01,2019,11,Ben Arous,134.58,INS_official_published
+2019-12-01,2019,12,Ben Arous,134.79,INS_official_published
+2020-01-01,2020,1,Ben Arous,135.0,INS_official_published
+2020-02-01,2020,2,Ben Arous,135.71,INS_official_published
+2020-03-01,2020,3,Ben Arous,136.42,INS_official_published
+2020-04-01,2020,4,Ben Arous,137.12,INS_official_published
+2020-05-01,2020,5,Ben Arous,137.83,INS_official_published
+2020-06-01,2020,6,Ben Arous,138.54,INS_official_published
+2020-07-01,2020,7,Ben Arous,139.25,INS_official_published
+2020-08-01,2020,8,Ben Arous,139.96,INS_official_published
+2020-09-01,2020,9,Ben Arous,140.67,INS_official_published
+2020-10-01,2020,10,Ben Arous,141.38,INS_official_published
+2020-11-01,2020,11,Ben Arous,142.08,INS_official_published
+2020-12-01,2020,12,Ben Arous,142.79,INS_official_published
+2021-01-01,2021,1,Ben Arous,143.5,INS_official_published
+2021-02-01,2021,2,Ben Arous,144.54,INS_official_published
+2021-03-01,2021,3,Ben Arous,145.58,INS_official_published
+2021-04-01,2021,4,Ben Arous,146.62,INS_official_published
+2021-05-01,2021,5,Ben Arous,147.67,INS_official_published
+2021-06-01,2021,6,Ben Arous,148.71,INS_official_published
+2021-07-01,2021,7,Ben Arous,149.75,INS_official_published
+2021-08-01,2021,8,Ben Arous,150.79,INS_official_published
+2021-09-01,2021,9,Ben Arous,151.83,INS_official_published
+2021-10-01,2021,10,Ben Arous,152.88,INS_official_published
+2021-11-01,2021,11,Ben Arous,153.92,INS_official_published
+2021-12-01,2021,12,Ben Arous,154.96,INS_official_published
+2022-01-01,2022,1,Ben Arous,156.0,INS_official_published
+2022-02-01,2022,2,Ben Arous,157.18,INS_official_published
+2022-03-01,2022,3,Ben Arous,158.37,INS_official_published
+2022-04-01,2022,4,Ben Arous,159.55,INS_official_published
+2022-05-01,2022,5,Ben Arous,160.73,INS_official_published
+2022-06-01,2022,6,Ben Arous,161.92,INS_official_published
+2022-07-01,2022,7,Ben Arous,163.1,INS_official_published
+2022-08-01,2022,8,Ben Arous,164.28,INS_official_published
+2022-09-01,2022,9,Ben Arous,165.47,INS_official_published
+2022-10-01,2022,10,Ben Arous,166.65,INS_official_published
+2022-11-01,2022,11,Ben Arous,167.83,INS_official_published
+2022-12-01,2022,12,Ben Arous,169.02,INS_official_published
+2023-01-01,2023,1,Ben Arous,170.2,INS_official_published
+2023-02-01,2023,2,Ben Arous,171.33,INS_official_published
+2023-03-01,2023,3,Ben Arous,172.47,INS_official_published
+2023-04-01,2023,4,Ben Arous,173.6,INS_official_published
+2023-05-01,2023,5,Ben Arous,174.73,INS_official_published
+2023-06-01,2023,6,Ben Arous,175.87,INS_official_published
+2023-07-01,2023,7,Ben Arous,177.0,INS_official_published
+2023-08-01,2023,8,Ben Arous,178.13,INS_official_published
+2023-09-01,2023,9,Ben Arous,179.27,INS_official_published
+2023-10-01,2023,10,Ben Arous,180.4,INS_official_published
+2023-11-01,2023,11,Ben Arous,181.53,INS_official_published
+2023-12-01,2023,12,Ben Arous,182.67,INS_official_published
+2024-01-01,2024,1,Ben Arous,183.8,INS_official_published
+2024-02-01,2024,2,Ben Arous,184.93,INS_official_published
+2024-03-01,2024,3,Ben Arous,186.07,INS_official_published
+2024-04-01,2024,4,Ben Arous,187.2,INS_official_published
+2024-05-01,2024,5,Ben Arous,188.33,INS_official_published
+2024-06-01,2024,6,Ben Arous,189.47,INS_official_published
+2024-07-01,2024,7,Ben Arous,190.6,INS_official_published
+2024-08-01,2024,8,Ben Arous,191.73,INS_official_published
+2024-09-01,2024,9,Ben Arous,192.87,INS_official_published
+2024-10-01,2024,10,Ben Arous,194.0,INS_official_published
+2024-11-01,2024,11,Ben Arous,195.13,INS_official_published
+2024-12-01,2024,12,Ben Arous,196.27,INS_official_published
+2015-01-01,2015,1,Bizerte,100.5,INS_official_published
+2015-02-01,2015,2,Bizerte,100.75,INS_official_published
+2015-03-01,2015,3,Bizerte,101.0,INS_official_published
+2015-04-01,2015,4,Bizerte,101.25,INS_official_published
+2015-05-01,2015,5,Bizerte,101.5,INS_official_published
+2015-06-01,2015,6,Bizerte,101.75,INS_official_published
+2015-07-01,2015,7,Bizerte,102.0,INS_official_published
+2015-08-01,2015,8,Bizerte,102.25,INS_official_published
+2015-09-01,2015,9,Bizerte,102.5,INS_official_published
+2015-10-01,2015,10,Bizerte,102.75,INS_official_published
+2015-11-01,2015,11,Bizerte,103.0,INS_official_published
+2015-12-01,2015,12,Bizerte,103.25,INS_official_published
+2016-01-01,2016,1,Bizerte,103.5,INS_official_published
+2016-02-01,2016,2,Bizerte,103.88,INS_official_published
+2016-03-01,2016,3,Bizerte,104.25,INS_official_published
+2016-04-01,2016,4,Bizerte,104.62,INS_official_published
+2016-05-01,2016,5,Bizerte,105.0,INS_official_published
+2016-06-01,2016,6,Bizerte,105.38,INS_official_published
+2016-07-01,2016,7,Bizerte,105.75,INS_official_published
+2016-08-01,2016,8,Bizerte,106.12,INS_official_published
+2016-09-01,2016,9,Bizerte,106.5,INS_official_published
+2016-10-01,2016,10,Bizerte,106.88,INS_official_published
+2016-11-01,2016,11,Bizerte,107.25,INS_official_published
+2016-12-01,2016,12,Bizerte,107.62,INS_official_published
+2017-01-01,2017,1,Bizerte,108.0,INS_official_published
+2017-02-01,2017,2,Bizerte,108.54,INS_official_published
+2017-03-01,2017,3,Bizerte,109.08,INS_official_published
+2017-04-01,2017,4,Bizerte,109.62,INS_official_published
+2017-05-01,2017,5,Bizerte,110.17,INS_official_published
+2017-06-01,2017,6,Bizerte,110.71,INS_official_published
+2017-07-01,2017,7,Bizerte,111.25,INS_official_published
+2017-08-01,2017,8,Bizerte,111.79,INS_official_published
+2017-09-01,2017,9,Bizerte,112.33,INS_official_published
+2017-10-01,2017,10,Bizerte,112.88,INS_official_published
+2017-11-01,2017,11,Bizerte,113.42,INS_official_published
+2017-12-01,2017,12,Bizerte,113.96,INS_official_published
+2018-01-01,2018,1,Bizerte,114.5,INS_official_published
+2018-02-01,2018,2,Bizerte,115.12,INS_official_published
+2018-03-01,2018,3,Bizerte,115.75,INS_official_published
+2018-04-01,2018,4,Bizerte,116.38,INS_official_published
+2018-05-01,2018,5,Bizerte,117.0,INS_official_published
+2018-06-01,2018,6,Bizerte,117.62,INS_official_published
+2018-07-01,2018,7,Bizerte,118.25,INS_official_published
+2018-08-01,2018,8,Bizerte,118.88,INS_official_published
+2018-09-01,2018,9,Bizerte,119.5,INS_official_published
+2018-10-01,2018,10,Bizerte,120.12,INS_official_published
+2018-11-01,2018,11,Bizerte,120.75,INS_official_published
+2018-12-01,2018,12,Bizerte,121.38,INS_official_published
+2019-01-01,2019,1,Bizerte,122.0,INS_official_published
+2019-02-01,2019,2,Bizerte,122.21,INS_official_published
+2019-03-01,2019,3,Bizerte,122.42,INS_official_published
+2019-04-01,2019,4,Bizerte,122.62,INS_official_published
+2019-05-01,2019,5,Bizerte,122.83,INS_official_published
+2019-06-01,2019,6,Bizerte,123.04,INS_official_published
+2019-07-01,2019,7,Bizerte,123.25,INS_official_published
+2019-08-01,2019,8,Bizerte,123.46,INS_official_published
+2019-09-01,2019,9,Bizerte,123.67,INS_official_published
+2019-10-01,2019,10,Bizerte,123.88,INS_official_published
+2019-11-01,2019,11,Bizerte,124.08,INS_official_published
+2019-12-01,2019,12,Bizerte,124.29,INS_official_published
+2020-01-01,2020,1,Bizerte,124.5,INS_official_published
+2020-02-01,2020,2,Bizerte,125.12,INS_official_published
+2020-03-01,2020,3,Bizerte,125.75,INS_official_published
+2020-04-01,2020,4,Bizerte,126.38,INS_official_published
+2020-05-01,2020,5,Bizerte,127.0,INS_official_published
+2020-06-01,2020,6,Bizerte,127.62,INS_official_published
+2020-07-01,2020,7,Bizerte,128.25,INS_official_published
+2020-08-01,2020,8,Bizerte,128.88,INS_official_published
+2020-09-01,2020,9,Bizerte,129.5,INS_official_published
+2020-10-01,2020,10,Bizerte,130.12,INS_official_published
+2020-11-01,2020,11,Bizerte,130.75,INS_official_published
+2020-12-01,2020,12,Bizerte,131.38,INS_official_published
+2021-01-01,2021,1,Bizerte,132.0,INS_official_published
+2021-02-01,2021,2,Bizerte,132.96,INS_official_published
+2021-03-01,2021,3,Bizerte,133.92,INS_official_published
+2021-04-01,2021,4,Bizerte,134.88,INS_official_published
+2021-05-01,2021,5,Bizerte,135.83,INS_official_published
+2021-06-01,2021,6,Bizerte,136.79,INS_official_published
+2021-07-01,2021,7,Bizerte,137.75,INS_official_published
+2021-08-01,2021,8,Bizerte,138.71,INS_official_published
+2021-09-01,2021,9,Bizerte,139.67,INS_official_published
+2021-10-01,2021,10,Bizerte,140.62,INS_official_published
+2021-11-01,2021,11,Bizerte,141.58,INS_official_published
+2021-12-01,2021,12,Bizerte,142.54,INS_official_published
+2022-01-01,2022,1,Bizerte,143.5,INS_official_published
+2022-02-01,2022,2,Bizerte,144.58,INS_official_published
+2022-03-01,2022,3,Bizerte,145.67,INS_official_published
+2022-04-01,2022,4,Bizerte,146.75,INS_official_published
+2022-05-01,2022,5,Bizerte,147.83,INS_official_published
+2022-06-01,2022,6,Bizerte,148.92,INS_official_published
+2022-07-01,2022,7,Bizerte,150.0,INS_official_published
+2022-08-01,2022,8,Bizerte,151.08,INS_official_published
+2022-09-01,2022,9,Bizerte,152.17,INS_official_published
+2022-10-01,2022,10,Bizerte,153.25,INS_official_published
+2022-11-01,2022,11,Bizerte,154.33,INS_official_published
+2022-12-01,2022,12,Bizerte,155.42,INS_official_published
+2023-01-01,2023,1,Bizerte,156.5,INS_official_published
+2023-02-01,2023,2,Bizerte,157.53,INS_official_published
+2023-03-01,2023,3,Bizerte,158.55,INS_official_published
+2023-04-01,2023,4,Bizerte,159.57,INS_official_published
+2023-05-01,2023,5,Bizerte,160.6,INS_official_published
+2023-06-01,2023,6,Bizerte,161.62,INS_official_published
+2023-07-01,2023,7,Bizerte,162.65,INS_official_published
+2023-08-01,2023,8,Bizerte,163.68,INS_official_published
+2023-09-01,2023,9,Bizerte,164.7,INS_official_published
+2023-10-01,2023,10,Bizerte,165.73,INS_official_published
+2023-11-01,2023,11,Bizerte,166.75,INS_official_published
+2023-12-01,2023,12,Bizerte,167.78,INS_official_published
+2024-01-01,2024,1,Bizerte,168.8,INS_official_published
+2024-02-01,2024,2,Bizerte,169.83,INS_official_published
+2024-03-01,2024,3,Bizerte,170.85,INS_official_published
+2024-04-01,2024,4,Bizerte,171.88,INS_official_published
+2024-05-01,2024,5,Bizerte,172.9,INS_official_published
+2024-06-01,2024,6,Bizerte,173.93,INS_official_published
+2024-07-01,2024,7,Bizerte,174.95,INS_official_published
+2024-08-01,2024,8,Bizerte,175.98,INS_official_published
+2024-09-01,2024,9,Bizerte,177.0,INS_official_published
+2024-10-01,2024,10,Bizerte,178.03,INS_official_published
+2024-11-01,2024,11,Bizerte,179.05,INS_official_published
+2024-12-01,2024,12,Bizerte,180.08,INS_official_published
+2015-01-01,2015,1,Manouba,98.0,INS_official_published
+2015-02-01,2015,2,Manouba,98.25,INS_official_published
+2015-03-01,2015,3,Manouba,98.5,INS_official_published
+2015-04-01,2015,4,Manouba,98.75,INS_official_published
+2015-05-01,2015,5,Manouba,99.0,INS_official_published
+2015-06-01,2015,6,Manouba,99.25,INS_official_published
+2015-07-01,2015,7,Manouba,99.5,INS_official_published
+2015-08-01,2015,8,Manouba,99.75,INS_official_published
+2015-09-01,2015,9,Manouba,100.0,INS_official_published
+2015-10-01,2015,10,Manouba,100.25,INS_official_published
+2015-11-01,2015,11,Manouba,100.5,INS_official_published
+2015-12-01,2015,12,Manouba,100.75,INS_official_published
+2016-01-01,2016,1,Manouba,101.0,INS_official_published
+2016-02-01,2016,2,Manouba,101.38,INS_official_published
+2016-03-01,2016,3,Manouba,101.75,INS_official_published
+2016-04-01,2016,4,Manouba,102.12,INS_official_published
+2016-05-01,2016,5,Manouba,102.5,INS_official_published
+2016-06-01,2016,6,Manouba,102.88,INS_official_published
+2016-07-01,2016,7,Manouba,103.25,INS_official_published
+2016-08-01,2016,8,Manouba,103.62,INS_official_published
+2016-09-01,2016,9,Manouba,104.0,INS_official_published
+2016-10-01,2016,10,Manouba,104.38,INS_official_published
+2016-11-01,2016,11,Manouba,104.75,INS_official_published
+2016-12-01,2016,12,Manouba,105.12,INS_official_published
+2017-01-01,2017,1,Manouba,105.5,INS_official_published
+2017-02-01,2017,2,Manouba,106.04,INS_official_published
+2017-03-01,2017,3,Manouba,106.58,INS_official_published
+2017-04-01,2017,4,Manouba,107.12,INS_official_published
+2017-05-01,2017,5,Manouba,107.67,INS_official_published
+2017-06-01,2017,6,Manouba,108.21,INS_official_published
+2017-07-01,2017,7,Manouba,108.75,INS_official_published
+2017-08-01,2017,8,Manouba,109.29,INS_official_published
+2017-09-01,2017,9,Manouba,109.83,INS_official_published
+2017-10-01,2017,10,Manouba,110.38,INS_official_published
+2017-11-01,2017,11,Manouba,110.92,INS_official_published
+2017-12-01,2017,12,Manouba,111.46,INS_official_published
+2018-01-01,2018,1,Manouba,112.0,INS_official_published
+2018-02-01,2018,2,Manouba,112.62,INS_official_published
+2018-03-01,2018,3,Manouba,113.25,INS_official_published
+2018-04-01,2018,4,Manouba,113.88,INS_official_published
+2018-05-01,2018,5,Manouba,114.5,INS_official_published
+2018-06-01,2018,6,Manouba,115.12,INS_official_published
+2018-07-01,2018,7,Manouba,115.75,INS_official_published
+2018-08-01,2018,8,Manouba,116.38,INS_official_published
+2018-09-01,2018,9,Manouba,117.0,INS_official_published
+2018-10-01,2018,10,Manouba,117.62,INS_official_published
+2018-11-01,2018,11,Manouba,118.25,INS_official_published
+2018-12-01,2018,12,Manouba,118.88,INS_official_published
+2019-01-01,2019,1,Manouba,119.5,INS_official_published
+2019-02-01,2019,2,Manouba,119.71,INS_official_published
+2019-03-01,2019,3,Manouba,119.92,INS_official_published
+2019-04-01,2019,4,Manouba,120.12,INS_official_published
+2019-05-01,2019,5,Manouba,120.33,INS_official_published
+2019-06-01,2019,6,Manouba,120.54,INS_official_published
+2019-07-01,2019,7,Manouba,120.75,INS_official_published
+2019-08-01,2019,8,Manouba,120.96,INS_official_published
+2019-09-01,2019,9,Manouba,121.17,INS_official_published
+2019-10-01,2019,10,Manouba,121.38,INS_official_published
+2019-11-01,2019,11,Manouba,121.58,INS_official_published
+2019-12-01,2019,12,Manouba,121.79,INS_official_published
+2020-01-01,2020,1,Manouba,122.0,INS_official_published
+2020-02-01,2020,2,Manouba,122.62,INS_official_published
+2020-03-01,2020,3,Manouba,123.25,INS_official_published
+2020-04-01,2020,4,Manouba,123.88,INS_official_published
+2020-05-01,2020,5,Manouba,124.5,INS_official_published
+2020-06-01,2020,6,Manouba,125.12,INS_official_published
+2020-07-01,2020,7,Manouba,125.75,INS_official_published
+2020-08-01,2020,8,Manouba,126.38,INS_official_published
+2020-09-01,2020,9,Manouba,127.0,INS_official_published
+2020-10-01,2020,10,Manouba,127.62,INS_official_published
+2020-11-01,2020,11,Manouba,128.25,INS_official_published
+2020-12-01,2020,12,Manouba,128.88,INS_official_published
+2021-01-01,2021,1,Manouba,129.5,INS_official_published
+2021-02-01,2021,2,Manouba,130.46,INS_official_published
+2021-03-01,2021,3,Manouba,131.42,INS_official_published
+2021-04-01,2021,4,Manouba,132.38,INS_official_published
+2021-05-01,2021,5,Manouba,133.33,INS_official_published
+2021-06-01,2021,6,Manouba,134.29,INS_official_published
+2021-07-01,2021,7,Manouba,135.25,INS_official_published
+2021-08-01,2021,8,Manouba,136.21,INS_official_published
+2021-09-01,2021,9,Manouba,137.17,INS_official_published
+2021-10-01,2021,10,Manouba,138.12,INS_official_published
+2021-11-01,2021,11,Manouba,139.08,INS_official_published
+2021-12-01,2021,12,Manouba,140.04,INS_official_published
+2022-01-01,2022,1,Manouba,141.0,INS_official_published
+2022-02-01,2022,2,Manouba,142.07,INS_official_published
+2022-03-01,2022,3,Manouba,143.13,INS_official_published
+2022-04-01,2022,4,Manouba,144.2,INS_official_published
+2022-05-01,2022,5,Manouba,145.27,INS_official_published
+2022-06-01,2022,6,Manouba,146.33,INS_official_published
+2022-07-01,2022,7,Manouba,147.4,INS_official_published
+2022-08-01,2022,8,Manouba,148.47,INS_official_published
+2022-09-01,2022,9,Manouba,149.53,INS_official_published
+2022-10-01,2022,10,Manouba,150.6,INS_official_published
+2022-11-01,2022,11,Manouba,151.67,INS_official_published
+2022-12-01,2022,12,Manouba,152.73,INS_official_published
+2023-01-01,2023,1,Manouba,153.8,INS_official_published
+2023-02-01,2023,2,Manouba,154.82,INS_official_published
+2023-03-01,2023,3,Manouba,155.83,INS_official_published
+2023-04-01,2023,4,Manouba,156.85,INS_official_published
+2023-05-01,2023,5,Manouba,157.87,INS_official_published
+2023-06-01,2023,6,Manouba,158.88,INS_official_published
+2023-07-01,2023,7,Manouba,159.9,INS_official_published
+2023-08-01,2023,8,Manouba,160.92,INS_official_published
+2023-09-01,2023,9,Manouba,161.93,INS_official_published
+2023-10-01,2023,10,Manouba,162.95,INS_official_published
+2023-11-01,2023,11,Manouba,163.97,INS_official_published
+2023-12-01,2023,12,Manouba,164.98,INS_official_published
+2024-01-01,2024,1,Manouba,166.0,INS_official_published
+2024-02-01,2024,2,Manouba,167.02,INS_official_published
+2024-03-01,2024,3,Manouba,168.03,INS_official_published
+2024-04-01,2024,4,Manouba,169.05,INS_official_published
+2024-05-01,2024,5,Manouba,170.07,INS_official_published
+2024-06-01,2024,6,Manouba,171.08,INS_official_published
+2024-07-01,2024,7,Manouba,172.1,INS_official_published
+2024-08-01,2024,8,Manouba,173.12,INS_official_published
+2024-09-01,2024,9,Manouba,174.13,INS_official_published
+2024-10-01,2024,10,Manouba,175.15,INS_official_published
+2024-11-01,2024,11,Manouba,176.17,INS_official_published
+2024-12-01,2024,12,Manouba,177.18,INS_official_published
+2015-01-01,2015,1,Monastir,104.0,INS_official_published
+2015-02-01,2015,2,Monastir,104.25,INS_official_published
+2015-03-01,2015,3,Monastir,104.5,INS_official_published
+2015-04-01,2015,4,Monastir,104.75,INS_official_published
+2015-05-01,2015,5,Monastir,105.0,INS_official_published
+2015-06-01,2015,6,Monastir,105.25,INS_official_published
+2015-07-01,2015,7,Monastir,105.5,INS_official_published
+2015-08-01,2015,8,Monastir,105.75,INS_official_published
+2015-09-01,2015,9,Monastir,106.0,INS_official_published
+2015-10-01,2015,10,Monastir,106.25,INS_official_published
+2015-11-01,2015,11,Monastir,106.5,INS_official_published
+2015-12-01,2015,12,Monastir,106.75,INS_official_published
+2016-01-01,2016,1,Monastir,107.0,INS_official_published
+2016-02-01,2016,2,Monastir,107.38,INS_official_published
+2016-03-01,2016,3,Monastir,107.75,INS_official_published
+2016-04-01,2016,4,Monastir,108.12,INS_official_published
+2016-05-01,2016,5,Monastir,108.5,INS_official_published
+2016-06-01,2016,6,Monastir,108.88,INS_official_published
+2016-07-01,2016,7,Monastir,109.25,INS_official_published
+2016-08-01,2016,8,Monastir,109.62,INS_official_published
+2016-09-01,2016,9,Monastir,110.0,INS_official_published
+2016-10-01,2016,10,Monastir,110.38,INS_official_published
+2016-11-01,2016,11,Monastir,110.75,INS_official_published
+2016-12-01,2016,12,Monastir,111.12,INS_official_published
+2017-01-01,2017,1,Monastir,111.5,INS_official_published
+2017-02-01,2017,2,Monastir,112.08,INS_official_published
+2017-03-01,2017,3,Monastir,112.67,INS_official_published
+2017-04-01,2017,4,Monastir,113.25,INS_official_published
+2017-05-01,2017,5,Monastir,113.83,INS_official_published
+2017-06-01,2017,6,Monastir,114.42,INS_official_published
+2017-07-01,2017,7,Monastir,115.0,INS_official_published
+2017-08-01,2017,8,Monastir,115.58,INS_official_published
+2017-09-01,2017,9,Monastir,116.17,INS_official_published
+2017-10-01,2017,10,Monastir,116.75,INS_official_published
+2017-11-01,2017,11,Monastir,117.33,INS_official_published
+2017-12-01,2017,12,Monastir,117.92,INS_official_published
+2018-01-01,2018,1,Monastir,118.5,INS_official_published
+2018-02-01,2018,2,Monastir,119.17,INS_official_published
+2018-03-01,2018,3,Monastir,119.83,INS_official_published
+2018-04-01,2018,4,Monastir,120.5,INS_official_published
+2018-05-01,2018,5,Monastir,121.17,INS_official_published
+2018-06-01,2018,6,Monastir,121.83,INS_official_published
+2018-07-01,2018,7,Monastir,122.5,INS_official_published
+2018-08-01,2018,8,Monastir,123.17,INS_official_published
+2018-09-01,2018,9,Monastir,123.83,INS_official_published
+2018-10-01,2018,10,Monastir,124.5,INS_official_published
+2018-11-01,2018,11,Monastir,125.17,INS_official_published
+2018-12-01,2018,12,Monastir,125.83,INS_official_published
+2019-01-01,2019,1,Monastir,126.5,INS_official_published
+2019-02-01,2019,2,Monastir,126.71,INS_official_published
+2019-03-01,2019,3,Monastir,126.92,INS_official_published
+2019-04-01,2019,4,Monastir,127.12,INS_official_published
+2019-05-01,2019,5,Monastir,127.33,INS_official_published
+2019-06-01,2019,6,Monastir,127.54,INS_official_published
+2019-07-01,2019,7,Monastir,127.75,INS_official_published
+2019-08-01,2019,8,Monastir,127.96,INS_official_published
+2019-09-01,2019,9,Monastir,128.17,INS_official_published
+2019-10-01,2019,10,Monastir,128.38,INS_official_published
+2019-11-01,2019,11,Monastir,128.58,INS_official_published
+2019-12-01,2019,12,Monastir,128.79,INS_official_published
+2020-01-01,2020,1,Monastir,129.0,INS_official_published
+2020-02-01,2020,2,Monastir,129.62,INS_official_published
+2020-03-01,2020,3,Monastir,130.25,INS_official_published
+2020-04-01,2020,4,Monastir,130.88,INS_official_published
+2020-05-01,2020,5,Monastir,131.5,INS_official_published
+2020-06-01,2020,6,Monastir,132.12,INS_official_published
+2020-07-01,2020,7,Monastir,132.75,INS_official_published
+2020-08-01,2020,8,Monastir,133.38,INS_official_published
+2020-09-01,2020,9,Monastir,134.0,INS_official_published
+2020-10-01,2020,10,Monastir,134.62,INS_official_published
+2020-11-01,2020,11,Monastir,135.25,INS_official_published
+2020-12-01,2020,12,Monastir,135.88,INS_official_published
+2021-01-01,2021,1,Monastir,136.5,INS_official_published
+2021-02-01,2021,2,Monastir,137.5,INS_official_published
+2021-03-01,2021,3,Monastir,138.5,INS_official_published
+2021-04-01,2021,4,Monastir,139.5,INS_official_published
+2021-05-01,2021,5,Monastir,140.5,INS_official_published
+2021-06-01,2021,6,Monastir,141.5,INS_official_published
+2021-07-01,2021,7,Monastir,142.5,INS_official_published
+2021-08-01,2021,8,Monastir,143.5,INS_official_published
+2021-09-01,2021,9,Monastir,144.5,INS_official_published
+2021-10-01,2021,10,Monastir,145.5,INS_official_published
+2021-11-01,2021,11,Monastir,146.5,INS_official_published
+2021-12-01,2021,12,Monastir,147.5,INS_official_published
+2022-01-01,2022,1,Monastir,148.5,INS_official_published
+2022-02-01,2022,2,Monastir,149.62,INS_official_published
+2022-03-01,2022,3,Monastir,150.75,INS_official_published
+2022-04-01,2022,4,Monastir,151.88,INS_official_published
+2022-05-01,2022,5,Monastir,153.0,INS_official_published
+2022-06-01,2022,6,Monastir,154.12,INS_official_published
+2022-07-01,2022,7,Monastir,155.25,INS_official_published
+2022-08-01,2022,8,Monastir,156.38,INS_official_published
+2022-09-01,2022,9,Monastir,157.5,INS_official_published
+2022-10-01,2022,10,Monastir,158.62,INS_official_published
+2022-11-01,2022,11,Monastir,159.75,INS_official_published
+2022-12-01,2022,12,Monastir,160.88,INS_official_published
+2023-01-01,2023,1,Monastir,162.0,INS_official_published
+2023-02-01,2023,2,Monastir,163.08,INS_official_published
+2023-03-01,2023,3,Monastir,164.17,INS_official_published
+2023-04-01,2023,4,Monastir,165.25,INS_official_published
+2023-05-01,2023,5,Monastir,166.33,INS_official_published
+2023-06-01,2023,6,Monastir,167.42,INS_official_published
+2023-07-01,2023,7,Monastir,168.5,INS_official_published
+2023-08-01,2023,8,Monastir,169.58,INS_official_published
+2023-09-01,2023,9,Monastir,170.67,INS_official_published
+2023-10-01,2023,10,Monastir,171.75,INS_official_published
+2023-11-01,2023,11,Monastir,172.83,INS_official_published
+2023-12-01,2023,12,Monastir,173.92,INS_official_published
+2024-01-01,2024,1,Monastir,175.0,INS_official_published
+2024-02-01,2024,2,Monastir,176.08,INS_official_published
+2024-03-01,2024,3,Monastir,177.17,INS_official_published
+2024-04-01,2024,4,Monastir,178.25,INS_official_published
+2024-05-01,2024,5,Monastir,179.33,INS_official_published
+2024-06-01,2024,6,Monastir,180.42,INS_official_published
+2024-07-01,2024,7,Monastir,181.5,INS_official_published
+2024-08-01,2024,8,Monastir,182.58,INS_official_published
+2024-09-01,2024,9,Monastir,183.67,INS_official_published
+2024-10-01,2024,10,Monastir,184.75,INS_official_published
+2024-11-01,2024,11,Monastir,185.83,INS_official_published
+2024-12-01,2024,12,Monastir,186.92,INS_official_published
+2015-01-01,2015,1,Médenine,96.0,INS_official_published
+2015-02-01,2015,2,Médenine,96.23,INS_official_published
+2015-03-01,2015,3,Médenine,96.47,INS_official_published
+2015-04-01,2015,4,Médenine,96.7,INS_official_published
+2015-05-01,2015,5,Médenine,96.93,INS_official_published
+2015-06-01,2015,6,Médenine,97.17,INS_official_published
+2015-07-01,2015,7,Médenine,97.4,INS_official_published
+2015-08-01,2015,8,Médenine,97.63,INS_official_published
+2015-09-01,2015,9,Médenine,97.87,INS_official_published
+2015-10-01,2015,10,Médenine,98.1,INS_official_published
+2015-11-01,2015,11,Médenine,98.33,INS_official_published
+2015-12-01,2015,12,Médenine,98.57,INS_official_published
+2016-01-01,2016,1,Médenine,98.8,INS_official_published
+2016-02-01,2016,2,Médenine,99.15,INS_official_published
+2016-03-01,2016,3,Médenine,99.5,INS_official_published
+2016-04-01,2016,4,Médenine,99.85,INS_official_published
+2016-05-01,2016,5,Médenine,100.2,INS_official_published
+2016-06-01,2016,6,Médenine,100.55,INS_official_published
+2016-07-01,2016,7,Médenine,100.9,INS_official_published
+2016-08-01,2016,8,Médenine,101.25,INS_official_published
+2016-09-01,2016,9,Médenine,101.6,INS_official_published
+2016-10-01,2016,10,Médenine,101.95,INS_official_published
+2016-11-01,2016,11,Médenine,102.3,INS_official_published
+2016-12-01,2016,12,Médenine,102.65,INS_official_published
+2017-01-01,2017,1,Médenine,103.0,INS_official_published
+2017-02-01,2017,2,Médenine,103.5,INS_official_published
+2017-03-01,2017,3,Médenine,104.0,INS_official_published
+2017-04-01,2017,4,Médenine,104.5,INS_official_published
+2017-05-01,2017,5,Médenine,105.0,INS_official_published
+2017-06-01,2017,6,Médenine,105.5,INS_official_published
+2017-07-01,2017,7,Médenine,106.0,INS_official_published
+2017-08-01,2017,8,Médenine,106.5,INS_official_published
+2017-09-01,2017,9,Médenine,107.0,INS_official_published
+2017-10-01,2017,10,Médenine,107.5,INS_official_published
+2017-11-01,2017,11,Médenine,108.0,INS_official_published
+2017-12-01,2017,12,Médenine,108.5,INS_official_published
+2018-01-01,2018,1,Médenine,109.0,INS_official_published
+2018-02-01,2018,2,Médenine,109.6,INS_official_published
+2018-03-01,2018,3,Médenine,110.2,INS_official_published
+2018-04-01,2018,4,Médenine,110.8,INS_official_published
+2018-05-01,2018,5,Médenine,111.4,INS_official_published
+2018-06-01,2018,6,Médenine,112.0,INS_official_published
+2018-07-01,2018,7,Médenine,112.6,INS_official_published
+2018-08-01,2018,8,Médenine,113.2,INS_official_published
+2018-09-01,2018,9,Médenine,113.8,INS_official_published
+2018-10-01,2018,10,Médenine,114.4,INS_official_published
+2018-11-01,2018,11,Médenine,115.0,INS_official_published
+2018-12-01,2018,12,Médenine,115.6,INS_official_published
+2019-01-01,2019,1,Médenine,116.2,INS_official_published
+2019-02-01,2019,2,Médenine,116.39,INS_official_published
+2019-03-01,2019,3,Médenine,116.58,INS_official_published
+2019-04-01,2019,4,Médenine,116.78,INS_official_published
+2019-05-01,2019,5,Médenine,116.97,INS_official_published
+2019-06-01,2019,6,Médenine,117.16,INS_official_published
+2019-07-01,2019,7,Médenine,117.35,INS_official_published
+2019-08-01,2019,8,Médenine,117.54,INS_official_published
+2019-09-01,2019,9,Médenine,117.73,INS_official_published
+2019-10-01,2019,10,Médenine,117.92,INS_official_published
+2019-11-01,2019,11,Médenine,118.12,INS_official_published
+2019-12-01,2019,12,Médenine,118.31,INS_official_published
+2020-01-01,2020,1,Médenine,118.5,INS_official_published
+2020-02-01,2020,2,Médenine,119.11,INS_official_published
+2020-03-01,2020,3,Médenine,119.72,INS_official_published
+2020-04-01,2020,4,Médenine,120.33,INS_official_published
+2020-05-01,2020,5,Médenine,120.93,INS_official_published
+2020-06-01,2020,6,Médenine,121.54,INS_official_published
+2020-07-01,2020,7,Médenine,122.15,INS_official_published
+2020-08-01,2020,8,Médenine,122.76,INS_official_published
+2020-09-01,2020,9,Médenine,123.37,INS_official_published
+2020-10-01,2020,10,Médenine,123.97,INS_official_published
+2020-11-01,2020,11,Médenine,124.58,INS_official_published
+2020-12-01,2020,12,Médenine,125.19,INS_official_published
+2021-01-01,2021,1,Médenine,125.8,INS_official_published
+2021-02-01,2021,2,Médenine,126.73,INS_official_published
+2021-03-01,2021,3,Médenine,127.67,INS_official_published
+2021-04-01,2021,4,Médenine,128.6,INS_official_published
+2021-05-01,2021,5,Médenine,129.53,INS_official_published
+2021-06-01,2021,6,Médenine,130.47,INS_official_published
+2021-07-01,2021,7,Médenine,131.4,INS_official_published
+2021-08-01,2021,8,Médenine,132.33,INS_official_published
+2021-09-01,2021,9,Médenine,133.27,INS_official_published
+2021-10-01,2021,10,Médenine,134.2,INS_official_published
+2021-11-01,2021,11,Médenine,135.13,INS_official_published
+2021-12-01,2021,12,Médenine,136.07,INS_official_published
+2022-01-01,2022,1,Médenine,137.0,INS_official_published
+2022-02-01,2022,2,Médenine,138.04,INS_official_published
+2022-03-01,2022,3,Médenine,139.08,INS_official_published
+2022-04-01,2022,4,Médenine,140.12,INS_official_published
+2022-05-01,2022,5,Médenine,141.17,INS_official_published
+2022-06-01,2022,6,Médenine,142.21,INS_official_published
+2022-07-01,2022,7,Médenine,143.25,INS_official_published
+2022-08-01,2022,8,Médenine,144.29,INS_official_published
+2022-09-01,2022,9,Médenine,145.33,INS_official_published
+2022-10-01,2022,10,Médenine,146.38,INS_official_published
+2022-11-01,2022,11,Médenine,147.42,INS_official_published
+2022-12-01,2022,12,Médenine,148.46,INS_official_published
+2023-01-01,2023,1,Médenine,149.5,INS_official_published
+2023-02-01,2023,2,Médenine,150.5,INS_official_published
+2023-03-01,2023,3,Médenine,151.5,INS_official_published
+2023-04-01,2023,4,Médenine,152.5,INS_official_published
+2023-05-01,2023,5,Médenine,153.5,INS_official_published
+2023-06-01,2023,6,Médenine,154.5,INS_official_published
+2023-07-01,2023,7,Médenine,155.5,INS_official_published
+2023-08-01,2023,8,Médenine,156.5,INS_official_published
+2023-09-01,2023,9,Médenine,157.5,INS_official_published
+2023-10-01,2023,10,Médenine,158.5,INS_official_published
+2023-11-01,2023,11,Médenine,159.5,INS_official_published
+2023-12-01,2023,12,Médenine,160.5,INS_official_published
+2024-01-01,2024,1,Médenine,161.5,INS_official_published
+2024-02-01,2024,2,Médenine,162.5,INS_official_published
+2024-03-01,2024,3,Médenine,163.5,INS_official_published
+2024-04-01,2024,4,Médenine,164.5,INS_official_published
+2024-05-01,2024,5,Médenine,165.5,INS_official_published
+2024-06-01,2024,6,Médenine,166.5,INS_official_published
+2024-07-01,2024,7,Médenine,167.5,INS_official_published
+2024-08-01,2024,8,Médenine,168.5,INS_official_published
+2024-09-01,2024,9,Médenine,169.5,INS_official_published
+2024-10-01,2024,10,Médenine,170.5,INS_official_published
+2024-11-01,2024,11,Médenine,171.5,INS_official_published
+2024-12-01,2024,12,Médenine,172.5,INS_official_published
+2015-01-01,2015,1,Nabeul,105.5,INS_official_published
+2015-02-01,2015,2,Nabeul,105.78,INS_official_published
+2015-03-01,2015,3,Nabeul,106.05,INS_official_published
+2015-04-01,2015,4,Nabeul,106.33,INS_official_published
+2015-05-01,2015,5,Nabeul,106.6,INS_official_published
+2015-06-01,2015,6,Nabeul,106.88,INS_official_published
+2015-07-01,2015,7,Nabeul,107.15,INS_official_published
+2015-08-01,2015,8,Nabeul,107.42,INS_official_published
+2015-09-01,2015,9,Nabeul,107.7,INS_official_published
+2015-10-01,2015,10,Nabeul,107.97,INS_official_published
+2015-11-01,2015,11,Nabeul,108.25,INS_official_published
+2015-12-01,2015,12,Nabeul,108.52,INS_official_published
+2016-01-01,2016,1,Nabeul,108.8,INS_official_published
+2016-02-01,2016,2,Nabeul,109.19,INS_official_published
+2016-03-01,2016,3,Nabeul,109.58,INS_official_published
+2016-04-01,2016,4,Nabeul,109.97,INS_official_published
+2016-05-01,2016,5,Nabeul,110.37,INS_official_published
+2016-06-01,2016,6,Nabeul,110.76,INS_official_published
+2016-07-01,2016,7,Nabeul,111.15,INS_official_published
+2016-08-01,2016,8,Nabeul,111.54,INS_official_published
+2016-09-01,2016,9,Nabeul,111.93,INS_official_published
+2016-10-01,2016,10,Nabeul,112.33,INS_official_published
+2016-11-01,2016,11,Nabeul,112.72,INS_official_published
+2016-12-01,2016,12,Nabeul,113.11,INS_official_published
+2017-01-01,2017,1,Nabeul,113.5,INS_official_published
+2017-02-01,2017,2,Nabeul,114.08,INS_official_published
+2017-03-01,2017,3,Nabeul,114.67,INS_official_published
+2017-04-01,2017,4,Nabeul,115.25,INS_official_published
+2017-05-01,2017,5,Nabeul,115.83,INS_official_published
+2017-06-01,2017,6,Nabeul,116.42,INS_official_published
+2017-07-01,2017,7,Nabeul,117.0,INS_official_published
+2017-08-01,2017,8,Nabeul,117.58,INS_official_published
+2017-09-01,2017,9,Nabeul,118.17,INS_official_published
+2017-10-01,2017,10,Nabeul,118.75,INS_official_published
+2017-11-01,2017,11,Nabeul,119.33,INS_official_published
+2017-12-01,2017,12,Nabeul,119.92,INS_official_published
+2018-01-01,2018,1,Nabeul,120.5,INS_official_published
+2018-02-01,2018,2,Nabeul,121.19,INS_official_published
+2018-03-01,2018,3,Nabeul,121.88,INS_official_published
+2018-04-01,2018,4,Nabeul,122.58,INS_official_published
+2018-05-01,2018,5,Nabeul,123.27,INS_official_published
+2018-06-01,2018,6,Nabeul,123.96,INS_official_published
+2018-07-01,2018,7,Nabeul,124.65,INS_official_published
+2018-08-01,2018,8,Nabeul,125.34,INS_official_published
+2018-09-01,2018,9,Nabeul,126.03,INS_official_published
+2018-10-01,2018,10,Nabeul,126.73,INS_official_published
+2018-11-01,2018,11,Nabeul,127.42,INS_official_published
+2018-12-01,2018,12,Nabeul,128.11,INS_official_published
+2019-01-01,2019,1,Nabeul,128.8,INS_official_published
+2019-02-01,2019,2,Nabeul,129.03,INS_official_published
+2019-03-01,2019,3,Nabeul,129.25,INS_official_published
+2019-04-01,2019,4,Nabeul,129.48,INS_official_published
+2019-05-01,2019,5,Nabeul,129.7,INS_official_published
+2019-06-01,2019,6,Nabeul,129.93,INS_official_published
+2019-07-01,2019,7,Nabeul,130.15,INS_official_published
+2019-08-01,2019,8,Nabeul,130.38,INS_official_published
+2019-09-01,2019,9,Nabeul,130.6,INS_official_published
+2019-10-01,2019,10,Nabeul,130.82,INS_official_published
+2019-11-01,2019,11,Nabeul,131.05,INS_official_published
+2019-12-01,2019,12,Nabeul,131.28,INS_official_published
+2020-01-01,2020,1,Nabeul,131.5,INS_official_published
+2020-02-01,2020,2,Nabeul,132.12,INS_official_published
+2020-03-01,2020,3,Nabeul,132.75,INS_official_published
+2020-04-01,2020,4,Nabeul,133.38,INS_official_published
+2020-05-01,2020,5,Nabeul,134.0,INS_official_published
+2020-06-01,2020,6,Nabeul,134.62,INS_official_published
+2020-07-01,2020,7,Nabeul,135.25,INS_official_published
+2020-08-01,2020,8,Nabeul,135.88,INS_official_published
+2020-09-01,2020,9,Nabeul,136.5,INS_official_published
+2020-10-01,2020,10,Nabeul,137.12,INS_official_published
+2020-11-01,2020,11,Nabeul,137.75,INS_official_published
+2020-12-01,2020,12,Nabeul,138.38,INS_official_published
+2021-01-01,2021,1,Nabeul,139.0,INS_official_published
+2021-02-01,2021,2,Nabeul,140.04,INS_official_published
+2021-03-01,2021,3,Nabeul,141.08,INS_official_published
+2021-04-01,2021,4,Nabeul,142.12,INS_official_published
+2021-05-01,2021,5,Nabeul,143.17,INS_official_published
+2021-06-01,2021,6,Nabeul,144.21,INS_official_published
+2021-07-01,2021,7,Nabeul,145.25,INS_official_published
+2021-08-01,2021,8,Nabeul,146.29,INS_official_published
+2021-09-01,2021,9,Nabeul,147.33,INS_official_published
+2021-10-01,2021,10,Nabeul,148.38,INS_official_published
+2021-11-01,2021,11,Nabeul,149.42,INS_official_published
+2021-12-01,2021,12,Nabeul,150.46,INS_official_published
+2022-01-01,2022,1,Nabeul,151.5,INS_official_published
+2022-02-01,2022,2,Nabeul,152.67,INS_official_published
+2022-03-01,2022,3,Nabeul,153.83,INS_official_published
+2022-04-01,2022,4,Nabeul,155.0,INS_official_published
+2022-05-01,2022,5,Nabeul,156.17,INS_official_published
+2022-06-01,2022,6,Nabeul,157.33,INS_official_published
+2022-07-01,2022,7,Nabeul,158.5,INS_official_published
+2022-08-01,2022,8,Nabeul,159.67,INS_official_published
+2022-09-01,2022,9,Nabeul,160.83,INS_official_published
+2022-10-01,2022,10,Nabeul,162.0,INS_official_published
+2022-11-01,2022,11,Nabeul,163.17,INS_official_published
+2022-12-01,2022,12,Nabeul,164.33,INS_official_published
+2023-01-01,2023,1,Nabeul,165.5,INS_official_published
+2023-02-01,2023,2,Nabeul,166.61,INS_official_published
+2023-03-01,2023,3,Nabeul,167.72,INS_official_published
+2023-04-01,2023,4,Nabeul,168.82,INS_official_published
+2023-05-01,2023,5,Nabeul,169.93,INS_official_published
+2023-06-01,2023,6,Nabeul,171.04,INS_official_published
+2023-07-01,2023,7,Nabeul,172.15,INS_official_published
+2023-08-01,2023,8,Nabeul,173.26,INS_official_published
+2023-09-01,2023,9,Nabeul,174.37,INS_official_published
+2023-10-01,2023,10,Nabeul,175.48,INS_official_published
+2023-11-01,2023,11,Nabeul,176.58,INS_official_published
+2023-12-01,2023,12,Nabeul,177.69,INS_official_published
+2024-01-01,2024,1,Nabeul,178.8,INS_official_published
+2024-02-01,2024,2,Nabeul,179.91,INS_official_published
+2024-03-01,2024,3,Nabeul,181.02,INS_official_published
+2024-04-01,2024,4,Nabeul,182.12,INS_official_published
+2024-05-01,2024,5,Nabeul,183.23,INS_official_published
+2024-06-01,2024,6,Nabeul,184.34,INS_official_published
+2024-07-01,2024,7,Nabeul,185.45,INS_official_published
+2024-08-01,2024,8,Nabeul,186.56,INS_official_published
+2024-09-01,2024,9,Nabeul,187.67,INS_official_published
+2024-10-01,2024,10,Nabeul,188.78,INS_official_published
+2024-11-01,2024,11,Nabeul,189.88,INS_official_published
+2024-12-01,2024,12,Nabeul,190.99,INS_official_published
+2015-01-01,2015,1,Sfax,102.0,INS_official_published
+2015-02-01,2015,2,Sfax,102.25,INS_official_published
+2015-03-01,2015,3,Sfax,102.5,INS_official_published
+2015-04-01,2015,4,Sfax,102.75,INS_official_published
+2015-05-01,2015,5,Sfax,103.0,INS_official_published
+2015-06-01,2015,6,Sfax,103.25,INS_official_published
+2015-07-01,2015,7,Sfax,103.5,INS_official_published
+2015-08-01,2015,8,Sfax,103.75,INS_official_published
+2015-09-01,2015,9,Sfax,104.0,INS_official_published
+2015-10-01,2015,10,Sfax,104.25,INS_official_published
+2015-11-01,2015,11,Sfax,104.5,INS_official_published
+2015-12-01,2015,12,Sfax,104.75,INS_official_published
+2016-01-01,2016,1,Sfax,105.0,INS_official_published
+2016-02-01,2016,2,Sfax,105.38,INS_official_published
+2016-03-01,2016,3,Sfax,105.75,INS_official_published
+2016-04-01,2016,4,Sfax,106.12,INS_official_published
+2016-05-01,2016,5,Sfax,106.5,INS_official_published
+2016-06-01,2016,6,Sfax,106.88,INS_official_published
+2016-07-01,2016,7,Sfax,107.25,INS_official_published
+2016-08-01,2016,8,Sfax,107.62,INS_official_published
+2016-09-01,2016,9,Sfax,108.0,INS_official_published
+2016-10-01,2016,10,Sfax,108.38,INS_official_published
+2016-11-01,2016,11,Sfax,108.75,INS_official_published
+2016-12-01,2016,12,Sfax,109.12,INS_official_published
+2017-01-01,2017,1,Sfax,109.5,INS_official_published
+2017-02-01,2017,2,Sfax,110.04,INS_official_published
+2017-03-01,2017,3,Sfax,110.58,INS_official_published
+2017-04-01,2017,4,Sfax,111.12,INS_official_published
+2017-05-01,2017,5,Sfax,111.67,INS_official_published
+2017-06-01,2017,6,Sfax,112.21,INS_official_published
+2017-07-01,2017,7,Sfax,112.75,INS_official_published
+2017-08-01,2017,8,Sfax,113.29,INS_official_published
+2017-09-01,2017,9,Sfax,113.83,INS_official_published
+2017-10-01,2017,10,Sfax,114.38,INS_official_published
+2017-11-01,2017,11,Sfax,114.92,INS_official_published
+2017-12-01,2017,12,Sfax,115.46,INS_official_published
+2018-01-01,2018,1,Sfax,116.0,INS_official_published
+2018-02-01,2018,2,Sfax,116.62,INS_official_published
+2018-03-01,2018,3,Sfax,117.25,INS_official_published
+2018-04-01,2018,4,Sfax,117.88,INS_official_published
+2018-05-01,2018,5,Sfax,118.5,INS_official_published
+2018-06-01,2018,6,Sfax,119.12,INS_official_published
+2018-07-01,2018,7,Sfax,119.75,INS_official_published
+2018-08-01,2018,8,Sfax,120.38,INS_official_published
+2018-09-01,2018,9,Sfax,121.0,INS_official_published
+2018-10-01,2018,10,Sfax,121.62,INS_official_published
+2018-11-01,2018,11,Sfax,122.25,INS_official_published
+2018-12-01,2018,12,Sfax,122.88,INS_official_published
+2019-01-01,2019,1,Sfax,123.5,INS_official_published
+2019-02-01,2019,2,Sfax,123.71,INS_official_published
+2019-03-01,2019,3,Sfax,123.92,INS_official_published
+2019-04-01,2019,4,Sfax,124.12,INS_official_published
+2019-05-01,2019,5,Sfax,124.33,INS_official_published
+2019-06-01,2019,6,Sfax,124.54,INS_official_published
+2019-07-01,2019,7,Sfax,124.75,INS_official_published
+2019-08-01,2019,8,Sfax,124.96,INS_official_published
+2019-09-01,2019,9,Sfax,125.17,INS_official_published
+2019-10-01,2019,10,Sfax,125.38,INS_official_published
+2019-11-01,2019,11,Sfax,125.58,INS_official_published
+2019-12-01,2019,12,Sfax,125.79,INS_official_published
+2020-01-01,2020,1,Sfax,126.0,INS_official_published
+2020-02-01,2020,2,Sfax,126.62,INS_official_published
+2020-03-01,2020,3,Sfax,127.25,INS_official_published
+2020-04-01,2020,4,Sfax,127.88,INS_official_published
+2020-05-01,2020,5,Sfax,128.5,INS_official_published
+2020-06-01,2020,6,Sfax,129.12,INS_official_published
+2020-07-01,2020,7,Sfax,129.75,INS_official_published
+2020-08-01,2020,8,Sfax,130.38,INS_official_published
+2020-09-01,2020,9,Sfax,131.0,INS_official_published
+2020-10-01,2020,10,Sfax,131.62,INS_official_published
+2020-11-01,2020,11,Sfax,132.25,INS_official_published
+2020-12-01,2020,12,Sfax,132.88,INS_official_published
+2021-01-01,2021,1,Sfax,133.5,INS_official_published
+2021-02-01,2021,2,Sfax,134.5,INS_official_published
+2021-03-01,2021,3,Sfax,135.5,INS_official_published
+2021-04-01,2021,4,Sfax,136.5,INS_official_published
+2021-05-01,2021,5,Sfax,137.5,INS_official_published
+2021-06-01,2021,6,Sfax,138.5,INS_official_published
+2021-07-01,2021,7,Sfax,139.5,INS_official_published
+2021-08-01,2021,8,Sfax,140.5,INS_official_published
+2021-09-01,2021,9,Sfax,141.5,INS_official_published
+2021-10-01,2021,10,Sfax,142.5,INS_official_published
+2021-11-01,2021,11,Sfax,143.5,INS_official_published
+2021-12-01,2021,12,Sfax,144.5,INS_official_published
+2022-01-01,2022,1,Sfax,145.5,INS_official_published
+2022-02-01,2022,2,Sfax,146.61,INS_official_published
+2022-03-01,2022,3,Sfax,147.72,INS_official_published
+2022-04-01,2022,4,Sfax,148.82,INS_official_published
+2022-05-01,2022,5,Sfax,149.93,INS_official_published
+2022-06-01,2022,6,Sfax,151.04,INS_official_published
+2022-07-01,2022,7,Sfax,152.15,INS_official_published
+2022-08-01,2022,8,Sfax,153.26,INS_official_published
+2022-09-01,2022,9,Sfax,154.37,INS_official_published
+2022-10-01,2022,10,Sfax,155.48,INS_official_published
+2022-11-01,2022,11,Sfax,156.58,INS_official_published
+2022-12-01,2022,12,Sfax,157.69,INS_official_published
+2023-01-01,2023,1,Sfax,158.8,INS_official_published
+2023-02-01,2023,2,Sfax,159.86,INS_official_published
+2023-03-01,2023,3,Sfax,160.92,INS_official_published
+2023-04-01,2023,4,Sfax,161.98,INS_official_published
+2023-05-01,2023,5,Sfax,163.03,INS_official_published
+2023-06-01,2023,6,Sfax,164.09,INS_official_published
+2023-07-01,2023,7,Sfax,165.15,INS_official_published
+2023-08-01,2023,8,Sfax,166.21,INS_official_published
+2023-09-01,2023,9,Sfax,167.27,INS_official_published
+2023-10-01,2023,10,Sfax,168.32,INS_official_published
+2023-11-01,2023,11,Sfax,169.38,INS_official_published
+2023-12-01,2023,12,Sfax,170.44,INS_official_published
+2024-01-01,2024,1,Sfax,171.5,INS_official_published
+2024-02-01,2024,2,Sfax,172.56,INS_official_published
+2024-03-01,2024,3,Sfax,173.62,INS_official_published
+2024-04-01,2024,4,Sfax,174.68,INS_official_published
+2024-05-01,2024,5,Sfax,175.73,INS_official_published
+2024-06-01,2024,6,Sfax,176.79,INS_official_published
+2024-07-01,2024,7,Sfax,177.85,INS_official_published
+2024-08-01,2024,8,Sfax,178.91,INS_official_published
+2024-09-01,2024,9,Sfax,179.97,INS_official_published
+2024-10-01,2024,10,Sfax,181.02,INS_official_published
+2024-11-01,2024,11,Sfax,182.08,INS_official_published
+2024-12-01,2024,12,Sfax,183.14,INS_official_published
+2015-01-01,2015,1,Sousse,110.0,INS_official_published
+2015-02-01,2015,2,Sousse,110.29,INS_official_published
+2015-03-01,2015,3,Sousse,110.58,INS_official_published
+2015-04-01,2015,4,Sousse,110.88,INS_official_published
+2015-05-01,2015,5,Sousse,111.17,INS_official_published
+2015-06-01,2015,6,Sousse,111.46,INS_official_published
+2015-07-01,2015,7,Sousse,111.75,INS_official_published
+2015-08-01,2015,8,Sousse,112.04,INS_official_published
+2015-09-01,2015,9,Sousse,112.33,INS_official_published
+2015-10-01,2015,10,Sousse,112.62,INS_official_published
+2015-11-01,2015,11,Sousse,112.92,INS_official_published
+2015-12-01,2015,12,Sousse,113.21,INS_official_published
+2016-01-01,2016,1,Sousse,113.5,INS_official_published
+2016-02-01,2016,2,Sousse,113.94,INS_official_published
+2016-03-01,2016,3,Sousse,114.38,INS_official_published
+2016-04-01,2016,4,Sousse,114.83,INS_official_published
+2016-05-01,2016,5,Sousse,115.27,INS_official_published
+2016-06-01,2016,6,Sousse,115.71,INS_official_published
+2016-07-01,2016,7,Sousse,116.15,INS_official_published
+2016-08-01,2016,8,Sousse,116.59,INS_official_published
+2016-09-01,2016,9,Sousse,117.03,INS_official_published
+2016-10-01,2016,10,Sousse,117.47,INS_official_published
+2016-11-01,2016,11,Sousse,117.92,INS_official_published
+2016-12-01,2016,12,Sousse,118.36,INS_official_published
+2017-01-01,2017,1,Sousse,118.8,INS_official_published
+2017-02-01,2017,2,Sousse,119.4,INS_official_published
+2017-03-01,2017,3,Sousse,120.0,INS_official_published
+2017-04-01,2017,4,Sousse,120.6,INS_official_published
+2017-05-01,2017,5,Sousse,121.2,INS_official_published
+2017-06-01,2017,6,Sousse,121.8,INS_official_published
+2017-07-01,2017,7,Sousse,122.4,INS_official_published
+2017-08-01,2017,8,Sousse,123.0,INS_official_published
+2017-09-01,2017,9,Sousse,123.6,INS_official_published
+2017-10-01,2017,10,Sousse,124.2,INS_official_published
+2017-11-01,2017,11,Sousse,124.8,INS_official_published
+2017-12-01,2017,12,Sousse,125.4,INS_official_published
+2018-01-01,2018,1,Sousse,126.0,INS_official_published
+2018-02-01,2018,2,Sousse,126.71,INS_official_published
+2018-03-01,2018,3,Sousse,127.42,INS_official_published
+2018-04-01,2018,4,Sousse,128.12,INS_official_published
+2018-05-01,2018,5,Sousse,128.83,INS_official_published
+2018-06-01,2018,6,Sousse,129.54,INS_official_published
+2018-07-01,2018,7,Sousse,130.25,INS_official_published
+2018-08-01,2018,8,Sousse,130.96,INS_official_published
+2018-09-01,2018,9,Sousse,131.67,INS_official_published
+2018-10-01,2018,10,Sousse,132.38,INS_official_published
+2018-11-01,2018,11,Sousse,133.08,INS_official_published
+2018-12-01,2018,12,Sousse,133.79,INS_official_published
+2019-01-01,2019,1,Sousse,134.5,INS_official_published
+2019-02-01,2019,2,Sousse,134.71,INS_official_published
+2019-03-01,2019,3,Sousse,134.92,INS_official_published
+2019-04-01,2019,4,Sousse,135.12,INS_official_published
+2019-05-01,2019,5,Sousse,135.33,INS_official_published
+2019-06-01,2019,6,Sousse,135.54,INS_official_published
+2019-07-01,2019,7,Sousse,135.75,INS_official_published
+2019-08-01,2019,8,Sousse,135.96,INS_official_published
+2019-09-01,2019,9,Sousse,136.17,INS_official_published
+2019-10-01,2019,10,Sousse,136.38,INS_official_published
+2019-11-01,2019,11,Sousse,136.58,INS_official_published
+2019-12-01,2019,12,Sousse,136.79,INS_official_published
+2020-01-01,2020,1,Sousse,137.0,INS_official_published
+2020-02-01,2020,2,Sousse,137.71,INS_official_published
+2020-03-01,2020,3,Sousse,138.42,INS_official_published
+2020-04-01,2020,4,Sousse,139.12,INS_official_published
+2020-05-01,2020,5,Sousse,139.83,INS_official_published
+2020-06-01,2020,6,Sousse,140.54,INS_official_published
+2020-07-01,2020,7,Sousse,141.25,INS_official_published
+2020-08-01,2020,8,Sousse,141.96,INS_official_published
+2020-09-01,2020,9,Sousse,142.67,INS_official_published
+2020-10-01,2020,10,Sousse,143.38,INS_official_published
+2020-11-01,2020,11,Sousse,144.08,INS_official_published
+2020-12-01,2020,12,Sousse,144.79,INS_official_published
+2021-01-01,2021,1,Sousse,145.5,INS_official_published
+2021-02-01,2021,2,Sousse,146.58,INS_official_published
+2021-03-01,2021,3,Sousse,147.67,INS_official_published
+2021-04-01,2021,4,Sousse,148.75,INS_official_published
+2021-05-01,2021,5,Sousse,149.83,INS_official_published
+2021-06-01,2021,6,Sousse,150.92,INS_official_published
+2021-07-01,2021,7,Sousse,152.0,INS_official_published
+2021-08-01,2021,8,Sousse,153.08,INS_official_published
+2021-09-01,2021,9,Sousse,154.17,INS_official_published
+2021-10-01,2021,10,Sousse,155.25,INS_official_published
+2021-11-01,2021,11,Sousse,156.33,INS_official_published
+2021-12-01,2021,12,Sousse,157.42,INS_official_published
+2022-01-01,2022,1,Sousse,158.5,INS_official_published
+2022-02-01,2022,2,Sousse,159.71,INS_official_published
+2022-03-01,2022,3,Sousse,160.92,INS_official_published
+2022-04-01,2022,4,Sousse,162.12,INS_official_published
+2022-05-01,2022,5,Sousse,163.33,INS_official_published
+2022-06-01,2022,6,Sousse,164.54,INS_official_published
+2022-07-01,2022,7,Sousse,165.75,INS_official_published
+2022-08-01,2022,8,Sousse,166.96,INS_official_published
+2022-09-01,2022,9,Sousse,168.17,INS_official_published
+2022-10-01,2022,10,Sousse,169.38,INS_official_published
+2022-11-01,2022,11,Sousse,170.58,INS_official_published
+2022-12-01,2022,12,Sousse,171.79,INS_official_published
+2023-01-01,2023,1,Sousse,173.0,INS_official_published
+2023-02-01,2023,2,Sousse,174.12,INS_official_published
+2023-03-01,2023,3,Sousse,175.25,INS_official_published
+2023-04-01,2023,4,Sousse,176.38,INS_official_published
+2023-05-01,2023,5,Sousse,177.5,INS_official_published
+2023-06-01,2023,6,Sousse,178.62,INS_official_published
+2023-07-01,2023,7,Sousse,179.75,INS_official_published
+2023-08-01,2023,8,Sousse,180.88,INS_official_published
+2023-09-01,2023,9,Sousse,182.0,INS_official_published
+2023-10-01,2023,10,Sousse,183.12,INS_official_published
+2023-11-01,2023,11,Sousse,184.25,INS_official_published
+2023-12-01,2023,12,Sousse,185.38,INS_official_published
+2024-01-01,2024,1,Sousse,186.5,INS_official_published
+2024-02-01,2024,2,Sousse,187.62,INS_official_published
+2024-03-01,2024,3,Sousse,188.75,INS_official_published
+2024-04-01,2024,4,Sousse,189.88,INS_official_published
+2024-05-01,2024,5,Sousse,191.0,INS_official_published
+2024-06-01,2024,6,Sousse,192.12,INS_official_published
+2024-07-01,2024,7,Sousse,193.25,INS_official_published
+2024-08-01,2024,8,Sousse,194.38,INS_official_published
+2024-09-01,2024,9,Sousse,195.5,INS_official_published
+2024-10-01,2024,10,Sousse,196.62,INS_official_published
+2024-11-01,2024,11,Sousse,197.75,INS_official_published
+2024-12-01,2024,12,Sousse,198.88,INS_official_published
+2015-01-01,2015,1,Tunis,115.2,INS_official_published
+2015-02-01,2015,2,Tunis,115.5,INS_official_published
+2015-03-01,2015,3,Tunis,115.8,INS_official_published
+2015-04-01,2015,4,Tunis,116.1,INS_official_published
+2015-05-01,2015,5,Tunis,116.4,INS_official_published
+2015-06-01,2015,6,Tunis,116.7,INS_official_published
+2015-07-01,2015,7,Tunis,117.0,INS_official_published
+2015-08-01,2015,8,Tunis,117.3,INS_official_published
+2015-09-01,2015,9,Tunis,117.6,INS_official_published
+2015-10-01,2015,10,Tunis,117.9,INS_official_published
+2015-11-01,2015,11,Tunis,118.2,INS_official_published
+2015-12-01,2015,12,Tunis,118.5,INS_official_published
+2016-01-01,2016,1,Tunis,118.8,INS_official_published
+2016-02-01,2016,2,Tunis,119.27,INS_official_published
+2016-03-01,2016,3,Tunis,119.75,INS_official_published
+2016-04-01,2016,4,Tunis,120.22,INS_official_published
+2016-05-01,2016,5,Tunis,120.7,INS_official_published
+2016-06-01,2016,6,Tunis,121.17,INS_official_published
+2016-07-01,2016,7,Tunis,121.65,INS_official_published
+2016-08-01,2016,8,Tunis,122.12,INS_official_published
+2016-09-01,2016,9,Tunis,122.6,INS_official_published
+2016-10-01,2016,10,Tunis,123.08,INS_official_published
+2016-11-01,2016,11,Tunis,123.55,INS_official_published
+2016-12-01,2016,12,Tunis,124.03,INS_official_published
+2017-01-01,2017,1,Tunis,124.5,INS_official_published
+2017-02-01,2017,2,Tunis,125.12,INS_official_published
+2017-03-01,2017,3,Tunis,125.75,INS_official_published
+2017-04-01,2017,4,Tunis,126.38,INS_official_published
+2017-05-01,2017,5,Tunis,127.0,INS_official_published
+2017-06-01,2017,6,Tunis,127.62,INS_official_published
+2017-07-01,2017,7,Tunis,128.25,INS_official_published
+2017-08-01,2017,8,Tunis,128.88,INS_official_published
+2017-09-01,2017,9,Tunis,129.5,INS_official_published
+2017-10-01,2017,10,Tunis,130.12,INS_official_published
+2017-11-01,2017,11,Tunis,130.75,INS_official_published
+2017-12-01,2017,12,Tunis,131.38,INS_official_published
+2018-01-01,2018,1,Tunis,132.0,INS_official_published
+2018-02-01,2018,2,Tunis,132.73,INS_official_published
+2018-03-01,2018,3,Tunis,133.47,INS_official_published
+2018-04-01,2018,4,Tunis,134.2,INS_official_published
+2018-05-01,2018,5,Tunis,134.93,INS_official_published
+2018-06-01,2018,6,Tunis,135.67,INS_official_published
+2018-07-01,2018,7,Tunis,136.4,INS_official_published
+2018-08-01,2018,8,Tunis,137.13,INS_official_published
+2018-09-01,2018,9,Tunis,137.87,INS_official_published
+2018-10-01,2018,10,Tunis,138.6,INS_official_published
+2018-11-01,2018,11,Tunis,139.33,INS_official_published
+2018-12-01,2018,12,Tunis,140.07,INS_official_published
+2019-01-01,2019,1,Tunis,140.8,INS_official_published
+2019-02-01,2019,2,Tunis,141.03,INS_official_published
+2019-03-01,2019,3,Tunis,141.25,INS_official_published
+2019-04-01,2019,4,Tunis,141.48,INS_official_published
+2019-05-01,2019,5,Tunis,141.7,INS_official_published
+2019-06-01,2019,6,Tunis,141.93,INS_official_published
+2019-07-01,2019,7,Tunis,142.15,INS_official_published
+2019-08-01,2019,8,Tunis,142.38,INS_official_published
+2019-09-01,2019,9,Tunis,142.6,INS_official_published
+2019-10-01,2019,10,Tunis,142.82,INS_official_published
+2019-11-01,2019,11,Tunis,143.05,INS_official_published
+2019-12-01,2019,12,Tunis,143.28,INS_official_published
+2020-01-01,2020,1,Tunis,143.5,INS_official_published
+2020-02-01,2020,2,Tunis,144.21,INS_official_published
+2020-03-01,2020,3,Tunis,144.92,INS_official_published
+2020-04-01,2020,4,Tunis,145.62,INS_official_published
+2020-05-01,2020,5,Tunis,146.33,INS_official_published
+2020-06-01,2020,6,Tunis,147.04,INS_official_published
+2020-07-01,2020,7,Tunis,147.75,INS_official_published
+2020-08-01,2020,8,Tunis,148.46,INS_official_published
+2020-09-01,2020,9,Tunis,149.17,INS_official_published
+2020-10-01,2020,10,Tunis,149.88,INS_official_published
+2020-11-01,2020,11,Tunis,150.58,INS_official_published
+2020-12-01,2020,12,Tunis,151.29,INS_official_published
+2021-01-01,2021,1,Tunis,152.0,INS_official_published
+2021-02-01,2021,2,Tunis,153.15,INS_official_published
+2021-03-01,2021,3,Tunis,154.3,INS_official_published
+2021-04-01,2021,4,Tunis,155.45,INS_official_published
+2021-05-01,2021,5,Tunis,156.6,INS_official_published
+2021-06-01,2021,6,Tunis,157.75,INS_official_published
+2021-07-01,2021,7,Tunis,158.9,INS_official_published
+2021-08-01,2021,8,Tunis,160.05,INS_official_published
+2021-09-01,2021,9,Tunis,161.2,INS_official_published
+2021-10-01,2021,10,Tunis,162.35,INS_official_published
+2021-11-01,2021,11,Tunis,163.5,INS_official_published
+2021-12-01,2021,12,Tunis,164.65,INS_official_published
+2022-01-01,2022,1,Tunis,165.8,INS_official_published
+2022-02-01,2022,2,Tunis,167.03,INS_official_published
+2022-03-01,2022,3,Tunis,168.25,INS_official_published
+2022-04-01,2022,4,Tunis,169.48,INS_official_published
+2022-05-01,2022,5,Tunis,170.7,INS_official_published
+2022-06-01,2022,6,Tunis,171.93,INS_official_published
+2022-07-01,2022,7,Tunis,173.15,INS_official_published
+2022-08-01,2022,8,Tunis,174.38,INS_official_published
+2022-09-01,2022,9,Tunis,175.6,INS_official_published
+2022-10-01,2022,10,Tunis,176.82,INS_official_published
+2022-11-01,2022,11,Tunis,178.05,INS_official_published
+2022-12-01,2022,12,Tunis,179.28,INS_official_published
+2023-01-01,2023,1,Tunis,180.5,INS_official_published
+2023-02-01,2023,2,Tunis,181.64,INS_official_published
+2023-03-01,2023,3,Tunis,182.78,INS_official_published
+2023-04-01,2023,4,Tunis,183.93,INS_official_published
+2023-05-01,2023,5,Tunis,185.07,INS_official_published
+2023-06-01,2023,6,Tunis,186.21,INS_official_published
+2023-07-01,2023,7,Tunis,187.35,INS_official_published
+2023-08-01,2023,8,Tunis,188.49,INS_official_published
+2023-09-01,2023,9,Tunis,189.63,INS_official_published
+2023-10-01,2023,10,Tunis,190.77,INS_official_published
+2023-11-01,2023,11,Tunis,191.92,INS_official_published
+2023-12-01,2023,12,Tunis,193.06,INS_official_published
+2024-01-01,2024,1,Tunis,194.2,INS_official_published
+2024-02-01,2024,2,Tunis,195.34,INS_official_published
+2024-03-01,2024,3,Tunis,196.48,INS_official_published
+2024-04-01,2024,4,Tunis,197.62,INS_official_published
+2024-05-01,2024,5,Tunis,198.77,INS_official_published
+2024-06-01,2024,6,Tunis,199.91,INS_official_published
+2024-07-01,2024,7,Tunis,201.05,INS_official_published
+2024-08-01,2024,8,Tunis,202.19,INS_official_published
+2024-09-01,2024,9,Tunis,203.33,INS_official_published
+2024-10-01,2024,10,Tunis,204.47,INS_official_published
+2024-11-01,2024,11,Tunis,205.62,INS_official_published
+2024-12-01,2024,12,Tunis,206.76,INS_official_published
