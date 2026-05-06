@@ -1,0 +1,26 @@
+{
+  "timestamp": "20260503_142509",
+  "model_type": "CatBoost",
+  "nlp_model": "paraphrase-multilingual-MiniLM-L12-v2",
+  "n_features": 130,
+  "n_train": 21162,
+  "n_test": 5291,
+  "best_iteration": 1999,
+  "hyperparameters": {
+    "iterations": 2000,
+    "learning_rate": 0.04,
+    "depth": 7,
+    "l2_leaf_reg": 3.0
+  },
+  "metrics": {
+    "train": {
+      "R2": 0.8939508116984995
+    },
+    "test": {
+      "RMSE": 178928.4824261632,
+      "MAE": 117366.80564029205,
+      "R2": 0.6957894974086978,
+      "MAPE": 52.98596113729972
+    }
+  }
+}

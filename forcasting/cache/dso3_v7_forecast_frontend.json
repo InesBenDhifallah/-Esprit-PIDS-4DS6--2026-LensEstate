@@ -1,8 +1,8 @@
 {
   "meta": {
     "version": "v7-cache-1",
-    "ins_mtime": 1777892802.462732,
-    "listings_mtime": 1777892802.4590917
+    "ins_mtime": 1777930465.8619542,
+    "listings_mtime": 1777930465.5964117
   },
   "payloads": {
     "ariana": {
@@ -15,47 +15,65 @@
         {
           "m": "Jan",
           "price": 495000,
-          "forecast": 495000
+          "forecast": 495000,
+          "lower": 495000,
+          "upper": 495000
         },
         {
           "m": "Feb",
           "price": 505500,
-          "forecast": 505500
+          "forecast": 505500,
+          "lower": 505500,
+          "upper": 505500
         },
         {
           "m": "Mar",
           "price": 437500,
-          "forecast": 437500
+          "forecast": 437500,
+          "lower": 437500,
+          "upper": 437500
         },
         {
           "m": "Apr",
           "price": 376000,
-          "forecast": 376000
+          "forecast": 376000,
+          "lower": 376000,
+          "upper": 376000
         },
         {
           "m": "May",
           "price": 375000,
-          "forecast": 375000
+          "forecast": 375000,
+          "lower": 375000,
+          "upper": 375000
         },
         {
           "m": "Jun",
           "price": 325000,
-          "forecast": 325000
+          "forecast": 325000,
+          "lower": 325000,
+          "upper": 325000
         },
         {
           "m": "Jul",
           "price": null,
-          "forecast": 332351
+          "forecast": 332351,
+          "lower": 303245,
+          "upper": 361457
         },
         {
           "m": "Aug",
           "price": null,
-          "forecast": 324662
+          "forecast": 324662,
+          "lower": 287759,
+          "upper": 361566
         },
         {
           "m": "Sep",
           "price": null,
-          "forecast": 318450
+          "forecast": 318450,
+          "lower": 275036,
+          "upper": 361864
         }
       ],
       "regions": [
@@ -119,47 +137,65 @@
         {
           "m": "Jan",
           "price": 245000,
-          "forecast": 245000
+          "forecast": 245000,
+          "lower": 245000,
+          "upper": 245000
         },
         {
           "m": "Feb",
           "price": 220000,
-          "forecast": 220000
+          "forecast": 220000,
+          "lower": 220000,
+          "upper": 220000
         },
         {
           "m": "Mar",
           "price": 299000,
-          "forecast": 299000
+          "forecast": 299000,
+          "lower": 299000,
+          "upper": 299000
         },
         {
           "m": "Apr",
           "price": 231500,
-          "forecast": 231500
+          "forecast": 231500,
+          "lower": 231500,
+          "upper": 231500
         },
         {
           "m": "May",
           "price": 240000,
-          "forecast": 240000
+          "forecast": 240000,
+          "lower": 240000,
+          "upper": 240000
         },
         {
           "m": "Jun",
           "price": 247000,
-          "forecast": 247000
+          "forecast": 247000,
+          "lower": 247000,
+          "upper": 247000
         },
         {
           "m": "Jul",
           "price": null,
-          "forecast": 237663
+          "forecast": 237663,
+          "lower": 193544,
+          "upper": 281782
         },
         {
           "m": "Aug",
           "price": null,
-          "forecast": 237255
+          "forecast": 237255,
+          "lower": 184800,
+          "upper": 289711
         },
         {
           "m": "Sep",
           "price": null,
-          "forecast": 234660
+          "forecast": 234660,
+          "lower": 172626,
+          "upper": 296693
         }
       ],
       "regions": [
@@ -223,47 +259,65 @@
         {
           "m": "Jan",
           "price": 750000,
-          "forecast": 750000
+          "forecast": 750000,
+          "lower": 750000,
+          "upper": 750000
         },
         {
           "m": "Feb",
           "price": 540000,
-          "forecast": 540000
+          "forecast": 540000,
+          "lower": 540000,
+          "upper": 540000
         },
         {
           "m": "Mar",
           "price": 490000,
-          "forecast": 490000
+          "forecast": 490000,
+          "lower": 490000,
+          "upper": 490000
         },
         {
           "m": "Apr",
           "price": 325000,
-          "forecast": 325000
+          "forecast": 325000,
+          "lower": 325000,
+          "upper": 325000
         },
         {
           "m": "May",
           "price": 365000,
-          "forecast": 365000
+          "forecast": 365000,
+          "lower": 365000,
+          "upper": 365000
         },
         {
           "m": "Jun",
           "price": 320000,
-          "forecast": 320000
+          "forecast": 320000,
+          "lower": 320000,
+          "upper": 320000
         },
         {
           "m": "Jul",
           "price": null,
-          "forecast": 279815
+          "forecast": 279815,
+          "lower": 240772,
+          "upper": 318858
         },
         {
           "m": "Aug",
           "price": null,
-          "forecast": 234108
+          "forecast": 234108,
+          "lower": 184454,
+          "upper": 283761
         },
         {
           "m": "Sep",
           "price": null,
-          "forecast": 260890
+          "forecast": 260890,
+          "lower": 190989,
+          "upper": 330791
         }
       ],
       "regions": [
@@ -327,47 +381,65 @@
         {
           "m": "Jan",
           "price": 1996667,
-          "forecast": 1996667
+          "forecast": 1996667,
+          "lower": 1996667,
+          "upper": 1996667
         },
         {
           "m": "Feb",
           "price": 1893333,
-          "forecast": 1893333
+          "forecast": 1893333,
+          "lower": 1893333,
+          "upper": 1893333
         },
         {
           "m": "Mar",
           "price": 1756667,
-          "forecast": 1756667
+          "forecast": 1756667,
+          "lower": 1756667,
+          "upper": 1756667
         },
         {
           "m": "Apr",
           "price": 240000,
-          "forecast": 240000
+          "forecast": 240000,
+          "lower": 240000,
+          "upper": 240000
         },
         {
           "m": "May",
           "price": 350000,
-          "forecast": 350000
+          "forecast": 350000,
+          "lower": 350000,
+          "upper": 350000
         },
         {
           "m": "Jun",
           "price": 319000,
-          "forecast": 319000
+          "forecast": 319000,
+          "lower": 319000,
+          "upper": 319000
         },
         {
           "m": "Jul",
           "price": null,
-          "forecast": 549663
+          "forecast": 549663,
+          "lower": 399112,
+          "upper": 700214
         },
         {
           "m": "Aug",
           "price": null,
-          "forecast": 349204
+          "forecast": 349204,
+          "lower": 222710,
+          "upper": 475698
         },
         {
           "m": "Sep",
           "price": null,
-          "forecast": 638000
+          "forecast": 638000,
+          "lower": 335747,
+          "upper": 940253
         }
       ],
       "regions": [
@@ -431,47 +503,65 @@
         {
           "m": "Jan",
           "price": 329250,
-          "forecast": 329250
+          "forecast": 329250,
+          "lower": 329250,
+          "upper": 329250
         },
         {
           "m": "Feb",
           "price": 312500,
-          "forecast": 312500
+          "forecast": 312500,
+          "lower": 312500,
+          "upper": 312500
         },
         {
           "m": "Mar",
           "price": 403333,
-          "forecast": 403333
+          "forecast": 403333,
+          "lower": 403333,
+          "upper": 403333
         },
         {
           "m": "Apr",
           "price": 585000,
-          "forecast": 585000
+          "forecast": 585000,
+          "lower": 585000,
+          "upper": 585000
         },
         {
           "m": "May",
           "price": 480000,
-          "forecast": 480000
+          "forecast": 480000,
+          "lower": 480000,
+          "upper": 480000
         },
         {
           "m": "Jun",
           "price": 465000,
-          "forecast": 465000
+          "forecast": 465000,
+          "lower": 465000,
+          "upper": 465000
         },
         {
           "m": "Jul",
           "price": null,
-          "forecast": 451644
+          "forecast": 451644,
+          "lower": 425779,
+          "upper": 477510
         },
         {
           "m": "Aug",
           "price": null,
-          "forecast": 434139
+          "forecast": 434139,
+          "lower": 395189,
+          "upper": 473089
         },
         {
           "m": "Sep",
           "price": null,
-          "forecast": 416534
+          "forecast": 416534,
+          "lower": 369272,
+          "upper": 463796
         }
       ],
       "regions": [
@@ -535,47 +625,65 @@
         {
           "m": "Jan",
           "price": 284000,
-          "forecast": 284000
+          "forecast": 284000,
+          "lower": 284000,
+          "upper": 284000
         },
         {
           "m": "Feb",
           "price": 140000,
-          "forecast": 140000
+          "forecast": 140000,
+          "lower": 140000,
+          "upper": 140000
         },
         {
           "m": "Mar",
           "price": 350000,
-          "forecast": 350000
+          "forecast": 350000,
+          "lower": 350000,
+          "upper": 350000
         },
         {
           "m": "Apr",
           "price": 204000,
-          "forecast": 204000
+          "forecast": 204000,
+          "lower": 204000,
+          "upper": 204000
         },
         {
           "m": "May",
           "price": 230000,
-          "forecast": 230000
+          "forecast": 230000,
+          "lower": 230000,
+          "upper": 230000
         },
         {
           "m": "Jun",
           "price": 237500,
-          "forecast": 237500
+          "forecast": 237500,
+          "lower": 237500,
+          "upper": 237500
         },
         {
           "m": "Jul",
           "price": null,
-          "forecast": 284877
+          "forecast": 284877,
+          "lower": 243663,
+          "upper": 326091
         },
         {
           "m": "Aug",
           "price": null,
-          "forecast": 340365
+          "forecast": 340365,
+          "lower": 285615,
+          "upper": 395115
         },
         {
           "m": "Sep",
           "price": null,
-          "forecast": 389202
+          "forecast": 389202,
+          "lower": 313510,
+          "upper": 464894
         }
       ],
       "regions": [
@@ -639,47 +747,65 @@
         {
           "m": "Jan",
           "price": 410000,
-          "forecast": 410000
+          "forecast": 410000,
+          "lower": 410000,
+          "upper": 410000
         },
         {
           "m": "Feb",
           "price": 402500,
-          "forecast": 402500
+          "forecast": 402500,
+          "lower": 402500,
+          "upper": 402500
         },
         {
           "m": "Mar",
           "price": 420000,
-          "forecast": 420000
+          "forecast": 420000,
+          "lower": 420000,
+          "upper": 420000
         },
         {
           "m": "Apr",
           "price": 290000,
-          "forecast": 290000
+          "forecast": 290000,
+          "lower": 290000,
+          "upper": 290000
         },
         {
           "m": "May",
           "price": 350000,
-          "forecast": 350000
+          "forecast": 350000,
+          "lower": 350000,
+          "upper": 350000
         },
         {
           "m": "Jun",
           "price": 320000,
-          "forecast": 320000
+          "forecast": 320000,
+          "lower": 320000,
+          "upper": 320000
         },
         {
           "m": "Jul",
           "price": null,
-          "forecast": 358051
+          "forecast": 358051,
+          "lower": 330070,
+          "upper": 386033
         },
         {
           "m": "Aug",
           "price": null,
-          "forecast": 303291
+          "forecast": 303291,
+          "lower": 278863,
+          "upper": 327720
         },
         {
           "m": "Sep",
           "price": null,
-          "forecast": 332131
+          "forecast": 332131,
+          "lower": 303946,
+          "upper": 360317
         }
       ],
       "regions": [
@@ -743,47 +869,65 @@
         {
           "m": "Jan",
           "price": 540000,
-          "forecast": 540000
+          "forecast": 540000,
+          "lower": 540000,
+          "upper": 540000
         },
         {
           "m": "Feb",
           "price": 260000,
-          "forecast": 260000
+          "forecast": 260000,
+          "lower": 260000,
+          "upper": 260000
         },
         {
           "m": "Mar",
           "price": 275000,
-          "forecast": 275000
+          "forecast": 275000,
+          "lower": 275000,
+          "upper": 275000
         },
         {
           "m": "Apr",
           "price": 235000,
-          "forecast": 235000
+          "forecast": 235000,
+          "lower": 235000,
+          "upper": 235000
         },
         {
           "m": "May",
           "price": 360000,
-          "forecast": 360000
+          "forecast": 360000,
+          "lower": 360000,
+          "upper": 360000
         },
         {
           "m": "Jun",
           "price": 145000,
-          "forecast": 145000
+          "forecast": 145000,
+          "lower": 145000,
+          "upper": 145000
         },
         {
           "m": "Jul",
           "price": null,
-          "forecast": 142998
+          "forecast": 142998,
+          "lower": 116691,
+          "upper": 169305
         },
         {
           "m": "Aug",
           "price": null,
-          "forecast": 143035
+          "forecast": 143035,
+          "lower": 105343,
+          "upper": 180727
         },
         {
           "m": "Sep",
           "price": null,
-          "forecast": 143088
+          "forecast": 143088,
+          "lower": 96532,
+          "upper": 189644
         }
       ],
       "regions": [
@@ -847,47 +991,65 @@
         {
           "m": "Jan",
           "price": 323500,
-          "forecast": 323500
+          "forecast": 323500,
+          "lower": 323500,
+          "upper": 323500
         },
         {
           "m": "Feb",
           "price": 310000,
-          "forecast": 310000
+          "forecast": 310000,
+          "lower": 310000,
+          "upper": 310000
         },
         {
           "m": "Mar",
           "price": 344500,
-          "forecast": 344500
+          "forecast": 344500,
+          "lower": 344500,
+          "upper": 344500
         },
         {
           "m": "Apr",
           "price": 300000,
-          "forecast": 300000
+          "forecast": 300000,
+          "lower": 300000,
+          "upper": 300000
         },
         {
           "m": "May",
           "price": 311500,
-          "forecast": 311500
+          "forecast": 311500,
+          "lower": 311500,
+          "upper": 311500
         },
         {
           "m": "Jun",
           "price": 320000,
-          "forecast": 320000
+          "forecast": 320000,
+          "lower": 320000,
+          "upper": 320000
         },
         {
           "m": "Jul",
           "price": null,
-          "forecast": 367427
+          "forecast": 367427,
+          "lower": 295427,
+          "upper": 439428
         },
         {
           "m": "Aug",
           "price": null,
-          "forecast": 369679
+          "forecast": 369679,
+          "lower": 297017,
+          "upper": 442342
         },
         {
           "m": "Sep",
           "price": null,
-          "forecast": 361002
+          "forecast": 361002,
+          "lower": 289894,
+          "upper": 432109
         }
       ],
       "regions": [
@@ -951,47 +1113,65 @@
         {
           "m": "Jan",
           "price": 344000,
-          "forecast": 344000
+          "forecast": 344000,
+          "lower": 344000,
+          "upper": 344000
         },
         {
           "m": "Feb",
           "price": 330000,
-          "forecast": 330000
+          "forecast": 330000,
+          "lower": 330000,
+          "upper": 330000
         },
         {
           "m": "Mar",
           "price": 362500,
-          "forecast": 362500
+          "forecast": 362500,
+          "lower": 362500,
+          "upper": 362500
         },
         {
           "m": "Apr",
           "price": 350000,
-          "forecast": 350000
+          "forecast": 350000,
+          "lower": 350000,
+          "upper": 350000
         },
         {
           "m": "May",
           "price": 280000,
-          "forecast": 280000
+          "forecast": 280000,
+          "lower": 280000,
+          "upper": 280000
         },
         {
           "m": "Jun",
           "price": 300000,
-          "forecast": 300000
+          "forecast": 300000,
+          "lower": 300000,
+          "upper": 300000
         },
         {
           "m": "Jul",
           "price": null,
-          "forecast": 600000
+          "forecast": 600000,
+          "lower": 510000,
+          "upper": 690000
         },
         {
           "m": "Aug",
           "price": null,
-          "forecast": 600000
+          "forecast": 600000,
+          "lower": 510000,
+          "upper": 690000
         },
         {
           "m": "Sep",
           "price": null,
-          "forecast": 600000
+          "forecast": 600000,
+          "lower": 510000,
+          "upper": 690000
         }
       ],
       "regions": [

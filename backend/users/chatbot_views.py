@@ -6,7 +6,7 @@ from django.http import FileResponse
 from dotenv import load_dotenv
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 
 from users.models import ChatMessage, ChatSession
@@ -214,7 +214,7 @@ def get_ai_clients():
     import os
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     chroma_client = chromadb.PersistentClient(path=os.path.join(BASE_DIR, "ma_base_immo"))
-    load_dotenv(os.path.join(BASE_DIR, ".env.local"))
+    load_dotenv(os.path.join(BASE_DIR, ".env.local"), override=True)
     local_ef = embedding_functions.SentenceTransformerEmbeddingFunction(
         model_name="paraphrase-multilingual-mpnet-base-v2"
     )
@@ -302,7 +302,7 @@ def repondre_a_la_question(ma_question):
 
 # ------------------ ROUTES ------------------
 @api_view(["POST"])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def ask(request):
     question = (request.data.get("question") or "").strip()
     session_id = (request.data.get("session_id") or "").strip()
@@ -314,6 +314,7 @@ def ask(request):
         session, created = ChatSession.objects.get_or_create(
             session_id=session_id,
             defaults={
+                "user": request.user,
                 "title": (question[:30] + "...") if len(question) > 30 else question
             },
         )
@@ -361,22 +362,22 @@ def generate_pdf(request):
 
 
 @api_view(["GET"])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def get_user_sessions(request):
-    sessions = ChatSession.objects.all().order_by("-created_at")
+    sessions = ChatSession.objects.filter(user=request.user).order_by("-created_at")
     sessions_list = [{"id": s.session_id, "title": s.title} for s in sessions]
     return Response(sessions_list)
 
 
 @api_view(["GET"])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def get_conversation(request):
     session_id = request.query_params.get("session_id")
     if not session_id:
         return Response({"messages": []})
 
     try:
-        session = ChatSession.objects.get(session_id=session_id)
+        session = ChatSession.objects.get(session_id=session_id, user=request.user)
     except ChatSession.DoesNotExist:
         return Response({"messages": []})
 

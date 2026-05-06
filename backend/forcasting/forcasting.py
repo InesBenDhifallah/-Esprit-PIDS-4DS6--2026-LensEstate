@@ -116,7 +116,10 @@ def _load_prepared_data() -> tuple[dict[str, pd.DataFrame], dict[str, float | No
         .sort_values(["gov_norm", "month_dt"])
     )
     
-    monthly_tayara = monthly_tayara.groupby("gov_norm", group_keys=False).apply(_smooth_prices)
+    monthly_tayara["price_smooth"] = (
+        monthly_tayara.groupby("gov_norm")["price_median"]
+        .transform(lambda x: x.rolling(window=3, center=True, min_periods=1).mean())
+    )
     monthly_tayara["price_final"] = np.where(
         monthly_tayara["n_listings"] >= 3,
         monthly_tayara["price_median"],

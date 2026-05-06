@@ -13,22 +13,14 @@ from PIL import Image
 # Configuration des chemins
 MODELS_DIR = Path(settings.BASE_DIR).parent / 'models_final'
 
-# --- Chargement des modèles (Singleton Pattern) ---
-# On utilise des variables globales pour ne charger les modèles qu'une seule fois au démarrage
-_model = CatBoostRegressor()
-_model.load_model(str(MODELS_DIR / 'catboost_final_latest.cbm'))
-_feature_names = joblib.load(str(MODELS_DIR / 'feature_names_final.pkl'))
-_cat_features = joblib.load(str(MODELS_DIR / 'cat_features_final.pkl'))
-
-# NLP
-_nlp_model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
-_nlp_pca = joblib.load(str(MODELS_DIR / 'nlp_pca.joblib'))
-
-# Vision (ResNet50)
-_vision_model = models.resnet50(weights=models.ResNet50_Weights.DEFAULT)
-_vision_model = nn.Sequential(*list(_vision_model.children())[:-1])
-_vision_model.eval()
-_vision_pca = joblib.load(str(MODELS_DIR / 'vision_pca.joblib'))
+# --- Chargement des modèles (Lazy Loading Singleton) ---
+_model = None
+_feature_names = None
+_cat_features = None
+_nlp_model = None
+_nlp_pca = None
+_vision_model = None
+_vision_pca = None
 
 _preprocess = transforms.Compose([
     transforms.Resize(256),
@@ -37,7 +29,43 @@ _preprocess = transforms.Compose([
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
 
+def load_all_models():
+    global _model, _feature_names, _cat_features, _nlp_model, _nlp_pca, _vision_model, _vision_pca
+    
+    # Check if everything is already loaded
+    if all(v is not None for v in [_model, _nlp_model, _vision_model]):
+        return
+
+    print("--- Loading ML Models (this may take a while on first run) ---")
+    
+    try:
+        # CatBoost
+        if _model is None:
+            _model = CatBoostRegressor()
+            _model.load_model(str(MODELS_DIR / 'catboost_final_latest.cbm'))
+            _feature_names = joblib.load(str(MODELS_DIR / 'feature_names_final.pkl'))
+            _cat_features = joblib.load(str(MODELS_DIR / 'cat_features_final.pkl'))
+
+        # NLP
+        if _nlp_model is None:
+            _nlp_model = SentenceTransformer('paraphrase-multilingual-MiniLM-L12-v2')
+            _nlp_pca = joblib.load(str(MODELS_DIR / 'nlp_pca.joblib'))
+
+        # Vision (ResNet50)
+        if _vision_model is None:
+            _vision_model = models.resnet50(weights=models.ResNet50_Weights.DEFAULT)
+            _vision_model = nn.Sequential(*list(_vision_model.children())[:-1])
+            _vision_model.eval()
+            _vision_pca = joblib.load(str(MODELS_DIR / 'vision_pca.joblib'))
+            
+        print("--- Models Loaded Successfully ---")
+    except Exception as e:
+        print(f"--- Error loading models: {str(e)} ---")
+        raise e
+
 def predict_price(data: dict, image_file=None) -> dict:
+    load_all_models()
+    
     # 1. Initialisation
     row = {f: 0.0 for f in _feature_names}
     for cat in _cat_features:

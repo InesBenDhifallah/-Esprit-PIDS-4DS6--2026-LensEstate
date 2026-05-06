@@ -17,10 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from users.plan_views import GeneratePlanView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('api/', include('listings.urls')),
     path('api/', include('users.urls')),
     path('api/', include('forcasting.urls')),
+    path('api/', include('predictions.urls')),
+    path('generate-plan', GeneratePlanView.as_view(), name='generate-plan'),
 ]

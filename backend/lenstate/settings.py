@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'listings',
     'users',
     'forcasting',
+    'predictions.apps.PredictionsConfig',
 ]
 
 MIDDLEWARE = [

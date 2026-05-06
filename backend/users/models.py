@@ -47,6 +47,7 @@ class SavedSearch(models.Model):
 
 
 class ChatSession(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='chat_sessions', null=True, blank=True)
     session_id = models.CharField(max_length=255, unique=True)
     title = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
