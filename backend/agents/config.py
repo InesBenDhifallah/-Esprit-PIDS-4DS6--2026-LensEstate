@@ -5,7 +5,7 @@ load_dotenv(override=True)
 
 # ── LLM ───────────────────────────────────────────────────────────────────────
 OPENROUTER_API_KEY  = os.getenv("OPENROUTER_API_KEY",  "YOUR_OPENROUTER_KEY_HERE")
-TOKEN_FACTORY_API_KEY = os.getenv("TOKEN_FACTORY_API_KEY", "sk-99455963426740f2b689e2e2dde4385a")
+TOKEN_FACTORY_API_KEY = os.getenv("TOKEN_FACTORY_API_KEY", "sk-817d72ea73a0473fb67e16864e390125")
 
 LLM_PRIMARY        = "google/gemma-4-31b-it:free"
 LLM_FALLBACK       = "hosted_vllm/Llama-3.1-70B-Instruct"

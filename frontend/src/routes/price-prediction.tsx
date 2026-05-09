@@ -13,12 +13,55 @@ import { post } from "@/lib/api";
 
 // ─── i18n ────────────────────────────────────────────────────────────────────
 const T = {
+  en: {
+    dir: "ltr",
+    badge: "AI Real Estate Estimation",
+    h1: "Estimate your property",
+    sub: "Get a precise estimation in seconds.",
+    lang: "FR",
+    unlockTitle: "Login to unlock",
+    unlockSub: "Sign up to use the AI estimation and get precise results.",
+    signIn: "Sign In",
+    signUp: "Create account",
+    sections: {
+      location: "Location",
+      property: "Characteristics",
+      amenities: "Amenities",
+      description: "Description (optional)",
+    },
+    labels: {
+      governorate: "Governorate",
+      city: "City or district",
+      cityPh: "Search a city...",
+      type: "Property type",
+      seller: "Seller",
+      surface: "Surface (sqm)",
+      rooms: "Rooms",
+      beds: "Bedrooms",
+      baths: "Bathrooms",
+      descPh: "Describe the property (view, state, standing...)",
+    },
+    types: ["Apartment", "Villa", "Studio", "Penthouse", "House", "Land"],
+    sellers: ["Individual", "Agency", "Developer"],
+    amenities: ["Pool", "Parking", "Garden", "Elevator", "Air conditioning", "Heating", "Security", "Furnished", "Terrace", "Sea view", "Basement", "High standing"],
+    cta: "Estimate price",
+    loading: "AI is analyzing your property...",
+    resultTitle: "Property estimation",
+    confidence: "Confidence index",
+    trend: "Market trend",
+    perM2: "/sqm",
+    reset: "New estimation",
+    emptyTitle: "Your estimation will appear here",
+    emptySub: "Fill the form to start",
+    photo: "Add a photo",
+    photoSub: "Improves accuracy",
+  },
   fr: {
     dir: "ltr",
     badge: "Estimation Immobilière IA",
     h1: "Estimez votre bien",
     sub: "Obtenez une estimation précise en quelques secondes.",
-    lang: "AR",
+    lang: "EN",
     unlockTitle: "Connectez-vous pour déverrouiller",
     unlockSub: "Inscrivez-vous pour utiliser l'estimation IA et obtenir des résultats précis.",
     signIn: "Se connecter",
@@ -61,7 +104,7 @@ const T = {
     badge: "تقدير العقارات بالذكاء الاصطناعي",
     h1: "قيّم عقارك",
     sub: "احصل على تقدير دقيق في ثوانٍ.",
-    lang: "FR",
+    lang: "EN",
     unlockTitle: "سجل الدخول لفتح الميزة",
     unlockSub: "سجل الآن لاستخدام تقدير الذكاء الاصطناعي والحصول على نتائج دقيقة.",
     signIn: "تسجيل الدخول",
@@ -101,7 +144,7 @@ const T = {
   },
 } as const;
 
-type Lang = "fr" | "ar";
+type Lang = "en" | "fr" | "ar";
 type PredictionResult = {
   price: number;
   conf: number;
@@ -150,7 +193,7 @@ export const Route = createFileRoute("/price-prediction")({
 
 function PredictPage() {
   const { isAuthenticated } = useAuth();
-  const [lang, setLang] = useState<Lang>("fr");
+  const [lang, setLang] = useState<Lang>("en");
   const t = T[lang];
 
   const [form, setForm] = useState({
@@ -217,7 +260,11 @@ function PredictPage() {
       {/* Lang toggle */}
       <div className={`fixed top-20 z-50 ${lang === "ar" ? "left-4" : "right-4"}`}>
         <button
-          onClick={() => setLang(l => l === "fr" ? "ar" : "fr")}
+          onClick={() => {
+            if (lang === "en") setLang("fr");
+            else if (lang === "fr") setLang("ar");
+            else setLang("en");
+          }}
           className="flex items-center gap-1.5 rounded-full border border-border bg-surface/80 px-3 py-1.5 text-xs font-semibold backdrop-blur shadow-sm hover:border-primary/50 transition-colors"
         >
           <Globe2 className="h-3.5 w-3.5" />{t.lang}

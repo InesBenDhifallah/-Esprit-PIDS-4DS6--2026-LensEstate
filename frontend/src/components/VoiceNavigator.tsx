@@ -39,7 +39,7 @@ export function VoiceNavigator() {
     const recognition = new SpeechRecognition();
     recognition.continuous = true;
     recognition.interimResults = true;
-    recognition.lang = 'en-US'; 
+    recognition.lang = 'en-US';
 
     recognition.onstart = () => {
       console.log("VOICE: Recognition started");

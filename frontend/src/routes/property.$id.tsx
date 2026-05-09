@@ -20,7 +20,7 @@ export const Route = createFileRoute("/property/$id")({
 
 function PropertyPage() {
   const { id } = Route.useParams();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, isLoading: isAuthLoading } = useAuth();
   const [listing, setListing] = useState<ListingDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [active, setActive] = useState(0);
@@ -51,19 +51,20 @@ function PropertyPage() {
 
   useEffect(() => {
     const loadFavoriteStatus = async () => {
-      if (!isAuthenticated || !listing) return;
+      if (isAuthLoading || !isAuthenticated || !listing) return;
       try {
         const favorites = await apiRequest<Favorite[]>("/api/users/favorites/");
         const existing = favorites.find((item) => item.listing_id === listing.id);
         setFav(Boolean(existing));
         setFavoriteId(existing?.id ?? null);
-      } catch {
+      } catch (err) {
+        console.error("Failed to load favorites", err);
         setFav(false);
         setFavoriteId(null);
       }
     };
     loadFavoriteStatus();
-  }, [isAuthenticated, listing]);
+  }, [isAuthenticated, isAuthLoading, listing]);
 
   const toggleFavorite = async () => {
     if (!isAuthenticated || !listing) return;
@@ -84,6 +85,8 @@ function PropertyPage() {
     setFav(Boolean(existing));
     setFavoriteId(existing?.id ?? null);
   };
+
+  const insights = listing?.ai_insights;
 
   return (
     <div className="min-h-screen">
@@ -107,7 +110,7 @@ function PropertyPage() {
               animate={{ opacity: 1 }}
               src={images[active]}
               alt={listing?.title || "Property"}
-              className="w-full h-[440px] object-cover rounded-2xl"
+              className="w-full h-[440px] object-cover rounded-2xl shadow-2xl"
             />
             <div className="mt-3 grid grid-cols-3 gap-3">
               {images.map((img, i) => (
@@ -185,21 +188,34 @@ function PropertyPage() {
                 <div className="mt-3">
                   <div className="text-xs text-white/70">Estimated fair price</div>
                   <div className="text-3xl font-bold text-white">
-                    {listing?.predicted_price
-                      ? `${listing.predicted_price.toLocaleString()} TND`
+                    {insights?.predicted_price
+                      ? `${insights.predicted_price.toLocaleString()} TND`
                       : "N/A"}
                   </div>
                 </div>
                 <div className="mt-4 grid grid-cols-2 gap-3 text-white">
                   <div>
                     <div className="text-xs text-white/70">Confidence</div>
-                    <div className="text-lg font-semibold gold-text">-</div>
+                    <div className="text-lg font-semibold gold-text">
+                      {insights?.confidence ? `${insights.confidence}%` : "-"}
+                    </div>
                   </div>
                   <div>
                     <div className="text-xs text-white/70">Trend</div>
                     <div className="text-lg font-semibold flex items-center gap-1">
-                      <TrendingUp className="h-4 w-4" />
-                      N/A
+                      {insights?.trend && insights.trend > 0 ? (
+                        <>
+                          <TrendingUp className="h-4 w-4" />
+                          {`+${insights.trend}%`}
+                        </>
+                      ) : insights?.trend && insights.trend < 0 ? (
+                        <>
+                          <TrendingUp className="h-4 w-4 rotate-180" />
+                          {`${insights.trend}%`}
+                        </>
+                      ) : (
+                        "N/A"
+                      )}
                     </div>
                   </div>
                 </div>

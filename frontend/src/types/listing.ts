@@ -37,6 +37,11 @@ export interface ListingDetail extends ListingCard {
   listing_url: string;
   source: string;
   predicted_price: number | null;
+  ai_insights?: {
+    predicted_price: number | null;
+    confidence: number;
+    trend: number;
+  };
   created_at: string;
 }
 

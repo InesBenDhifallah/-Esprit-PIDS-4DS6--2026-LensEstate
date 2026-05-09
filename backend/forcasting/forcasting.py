@@ -343,19 +343,24 @@ def _compute_payloads() -> dict[str, dict[str, Any]]:
         series = []
         for i, month in enumerate(MONTHS):
             if i < 6:
-                if i < len(observed):
-                    series.append({"m": month, "price": observed[i], "forecast": observed[i], "lower": observed[i], "upper": observed[i]})
-                else:
-                    series.append({"m": month, "price": None, "forecast": None})
+                val = observed[i] if i < len(observed) else None
+                # Pour le passé : on met price. 
+                # Pour le forecast : on ne met la valeur que sur le DERNIER point historique (i=5) pour connecter les lignes.
+                series.append({
+                    "m": month, 
+                    "price": val, 
+                    "forecast": val if i == 5 else None, 
+                    "range": [val, val] if i == 5 else None
+                })
             else:
                 fc_index = i - 6
                 if fc_index < len(forecast_head):
+                    l, u = int(lower_head[fc_index]), int(upper_head[fc_index])
                     series.append({
                         "m": month, 
                         "price": None, 
                         "forecast": int(forecast_head[fc_index]),
-                        "lower": int(lower_head[fc_index]),
-                        "upper": int(upper_head[fc_index]),
+                        "range": [l, u]
                     })
                 else:
                     series.append({"m": month, "price": None, "forecast": None})

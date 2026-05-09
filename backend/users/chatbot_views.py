@@ -222,8 +222,9 @@ def get_ai_clients():
         name="immo_knowledge",
         embedding_function=local_ef,
     )
+    
     client = OpenAI(
-        api_key=os.getenv("API_KEY"),
+        api_key="sk-817d72ea73a0473fb67e16864e390125",
         base_url="https://tokenfactory.esprit.tn/api",
     )
     return collection, client

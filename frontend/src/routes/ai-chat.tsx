@@ -1,8 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  Send, Sparkles, Brain, Download, 
-  MessageSquare, Plus, History, 
+import {
+  Send, Sparkles, Brain, Download,
+  MessageSquare, Plus, History,
   ChevronLeft, Menu, Lock
 } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
@@ -104,11 +104,40 @@ const SUGGESTIONS = [
   "Predict next 12 months for Sousse",
   "Show me properties under €300k",
 ];
+const GOVERNORATS_TN = new Set([
+  "tunis", "ariana", "ben arous", "manouba", "nabeul", "zaghouan",
+  "bizerte", "beja", "jendouba", "kef", "siliana", "sousse",
+  "monastir", "mahdia", "sfax", "kairouan", "kasserine", "sidi bouzid",
+  "gabes", "mednine", "tataouine", "gafsa", "tozeur", "kebili",
+  // Arabe
+  "تونس", "أريانة", "بن عروس", "منوبة", "نابل", "زغوان",
+  "بنزرت", "باجة", "جندوبة", "الكاف", "سليانة", "سوسة",
+  "المنستير", "المهدية", "صفاقس", "القيروان", "القصرين", "سيدي بوزيد",
+  "قابس", "مدنين", "تطاوين", "قفصة", "توزر", "قبلي"
+]);
+
+function isGovernorat(name: string): boolean {
+  return GOVERNORATS_TN.has(name.toLowerCase().trim());
+}
+function clarificationMessage(lang: "fr" | "en" | "ar", regions: [string, string]): string {
+  const [r1, r2] = regions;
+  if (lang === "ar") {
+    return `للمقارنة الدقيقة، يرجى تحديد منطقة من كل ولاية:\n- منطقة من ${r1} (مثال: وسط المدينة، الضاحية...)\n- منطقة من ${r2} (مثال: وسط المدينة، الضاحية...)`;
+  }
+  if (lang === "fr") {
+    return `Pour une comparaison précise, veuillez préciser une région de chaque gouvernorat :\n- Une région de ${r1} (ex: Centre-ville, Banlieue...)\n- Une région de ${r2} (ex: Centre-ville, Banlieue...)`;
+  }
+  return `For a precise comparison, please specify a region from each governorate:\n- A region from ${r1} (e.g: Downtown, Suburb...)\n- A region from ${r2} (e.g: Downtown, Suburb...)`;
+}
 
 function ChatPage() {
+  const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
   const { isAuthenticated, isLoading: authLoading } = useAuth();
   const [sessions, setSessions] = useState<Session[]>([]);
-  const [currentSessionId, setCurrentSessionId] = useState<string | null>(() => localStorage.getItem("last_chat_session_id"));
+  const [currentSessionId, setCurrentSessionId] = useState<string | null>(() => {
+    if (typeof window === "undefined") return null;
+    return localStorage.getItem("last_chat_session_id");
+  });
   const [msgs, setMsgs] = useState<Msg[]>([{ role: "ai", text: "Hi! I'm your LensEstate assistant. Ask me anything about properties, prices, or trends." }]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
@@ -143,10 +172,7 @@ function ChatPage() {
   }
 
   async function send(text: string) {
-    if (!text.trim() || !isAuthenticated) return;
-    let sid = currentSessionId || crypto.randomUUID();
-    if (!currentSessionId) setCurrentSessionId(sid);
-
+    if (!text.trim()) return;
     setMsgs((m) => [...m, { role: "user", text }]);
     setInput("");
     setTyping(true);
@@ -155,38 +181,66 @@ function ChatPage() {
     const lang = detectQuestionLang(text);
     const regions = isBenchmark ? extractTwoRegions(text) : null;
 
+    // Vérifie gouvernorats
+    if (isBenchmark && regions) {
+      const [r1, r2] = regions;
+      const r1IsGov = isGovernorat(r1);
+      const r2IsGov = isGovernorat(r2);
+      if (r1IsGov || r2IsGov) {
+        setTyping(false);
+        setMsgs((m) => [...m, { role: "ai", text: clarificationMessage(lang, regions) }]);
+        return;
+      }
+    }
+
     try {
-      const data = await post<{ answer: string }>("/api/chat/ask/", { question: text, session_id: sid });
-      
+      const data = await post<{ answer: string }>("/api/chat/ask/", {
+        question: text,
+        session_id: currentSessionId,
+      });
+
       const intro = isBenchmark ? benchmarkIntro(lang, regions) : "";
       const downloadLabel = isBenchmark ? benchmarkDownloadLabel(lang) : undefined;
-      const answerBody = data.answer || (lang === "fr" ? "Aucune réponse." : "No response.");
+      const answerBody = data.answer ?? (lang === "fr" ? "Aucune réponse reçue." : "No response received.");
 
-      setMsgs((m) => [...m, { 
-        role: "ai", 
-        text: isBenchmark ? intro : answerBody,
-        showReportDownload: isBenchmark,
-        downloadLabel
-      }]);
-      
-      if (isBenchmark) setLastBenchmarkAnswer(data.answer);
-      if (!sessions.find(s => s.id === sid)) void fetchSessions();
-    } catch (error: any) {
-      setMsgs((m) => [...m, { role: "ai", text: `Error: ${error.message}` }]);
+      setMsgs((m) => [
+        ...m,
+        {
+          role: "ai",
+          text: isBenchmark ? intro : answerBody,
+          showReportDownload: isBenchmark,
+          downloadLabel,
+        },
+      ]);
+
+      if (isBenchmark) {
+        setLastBenchmarkAnswer(data.answer ?? "");
+      }
+    } catch (error) {
+      setMsgs((m) => [
+        ...m,
+        {
+          role: "ai",
+          text: error instanceof Error
+            ? error.message
+            : lang === "fr"
+              ? "Le service chatbot est indisponible."
+              : "The chatbot service is unavailable.",
+        },
+      ]);
     } finally {
       setTyping(false);
     }
   }
-
   async function downloadBenchmarkReport() {
     if (!lastBenchmarkAnswer) return;
     try {
       const token = getAccessToken();
       const res = await fetch(`${import.meta.env.VITE_API_URL ?? "http://localhost:8000"}/api/chat/generate-pdf/`, {
         method: "POST",
-        headers: { 
-          "Content-Type": "application/json", 
-          "Authorization": token ? `Bearer ${token}` : "" 
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": token ? `Bearer ${token}` : ""
         },
         body: JSON.stringify({ texte: lastBenchmarkAnswer }),
       });
@@ -216,7 +270,9 @@ function ChatPage() {
               <h2 className="text-2xl font-bold">Connectez-vous pour discuter</h2>
               <p className="text-muted-foreground">Votre historique de discussions sera sauvegardé sur votre compte.</p>
             </div>
-            <Link to="/auth" className="block w-full py-4 rounded-2xl bg-[var(--gradient-primary)] text-white font-bold hover:opacity-90 transition">Se connecter / Créer un compte</Link>
+            <a href="/auth" className="block w-full py-4 rounded-2xl bg-[var(--gradient-primary)] text-white font-bold hover:opacity-90 transition">
+              Se connecter / Créer un compte
+            </a>
           </motion.div>
         </div>
       </div>

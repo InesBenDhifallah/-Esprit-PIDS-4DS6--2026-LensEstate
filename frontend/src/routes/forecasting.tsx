@@ -25,8 +25,7 @@ type ForecastPoint = {
   m: string;
   price: number | null;
   forecast: number | null;
-  lower?: number | null;
-  upper?: number | null;
+  range?: [number, number] | null;
 };
 
 type ForecastRegionGrowth = {
@@ -61,8 +60,7 @@ const availableRegions = [
 ];
 
 function formatTND(value: number): string {
-  return new Intl.NumberFormat('fr-FR').format(value).replace(/\s/g, ' ') + ' DT';
-
+  return new Intl.NumberFormat('en-US').format(value).replace(/,/g, ' ') + ' TND';
 }
 
 function ForecastPage() {
@@ -96,7 +94,7 @@ function ForecastPage() {
   }, [region]);
 
   const growthText = useMemo(() => {
-    if (!data) return "Calcul en cours...";
+    if (!data) return "Calculating...";
     const sign = data.projected_growth_pct >= 0 ? "+" : "";
     return `${sign}${data.projected_growth_pct}% projected`;
   }, [data]);
@@ -180,7 +178,7 @@ function ForecastPage() {
               <div>
                 <h2 className="text-xl font-semibold flex items-center gap-2">
                   <MapPin className="h-5 w-5 gold-text" />
-                  {region} Trajectory
+                  {region} Evolution
                 </h2>
                 <p className="text-sm text-muted-foreground mt-1">Historical data and AI projections</p>
               </div>
@@ -229,9 +227,10 @@ function ForecastPage() {
                       tickFormatter={(val) => `${(val / 1000).toFixed(0)}k`}
                     />
                     <Tooltip content={<CustomTooltip />} cursor={{ stroke: 'rgba(255,255,255,0.1)', strokeWidth: 1, strokeDasharray: '4 4' }} />
+
                     <Area
                       type="monotone"
-                      dataKey={["lower", "upper"]}
+                      dataKey="range"
                       stroke="none"
                       fill="#f59e0b"
                       fillOpacity={0.15}
@@ -292,10 +291,10 @@ function ForecastPage() {
                     <Tooltip
                       cursor={{ fill: 'rgba(255,255,255,0.05)' }}
                       contentStyle={{ background: "rgba(10,10,10,0.8)", backdropFilter: "blur(10px)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: "12px" }}
-                      formatter={(value: number) => [`${value}%`, "Growth"]}
+                      formatter={(value: any) => [`${value}%`, "Growth"]}
                     />
                     <Bar dataKey="growth" radius={[0, 6, 6, 0]} barSize={24}>
-                      {data?.regions.map((entry, index) => (
+                      {data?.regions?.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={entry.name === region ? "#f59e0b" : "rgba(255,255,255,0.15)"} />
                       ))}
                     </Bar>
