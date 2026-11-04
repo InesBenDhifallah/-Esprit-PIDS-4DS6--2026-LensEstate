@@ -1,4 +1,4 @@
-# 🏠 LensEstate — AI Solution for Tunisian Real Estate Market Analysis
+# LensEstate — AI Solution for Tunisian Real Estate Market Analysis
 
 ## Overview
 
@@ -85,11 +85,11 @@ LensEstate/
 
 ## Academic Context
 
-> 🎓 This project was developed as part of a Data Science academic program at **Esprit School of Engineering**, during the academic year ` 2025–2026`.
+> This project was developed as part of a Data Science academic program at **Esprit School of Engineering**, during the academic year ` 2025–2026`.
 
 **Supervisor:** `Mme Wiem Trabelsi & Mr Bilel Farah`
 
-This project aligns with the following **UN Sustainable Development Goals**:
+This project aligns with the following UN Sustainable Development Goals:
 
 | SDG | Relevance |
 |---|---|
